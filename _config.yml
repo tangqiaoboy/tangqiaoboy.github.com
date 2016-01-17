@@ -1,20 +1,23 @@
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
+##
+## language code is from
+## https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 
 # Site
-title: Hexo
-subtitle:
-description:
-author: John Doe
-language:
-timezone:
+title: 唐巧的技术博客
+subtitle: 记录下自己学习的点滴
+description: 希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。
+author: 唐巧
+language: zh
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
-root: /
-permalink: :year/:month/:day/:title/
+url: http://blog.devtang.com
+root: /blog
+permalink: :year/:month/:day/
 permalink_defaults:
 
 # Directory
@@ -28,7 +31,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
@@ -63,7 +66,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: maupassant
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
