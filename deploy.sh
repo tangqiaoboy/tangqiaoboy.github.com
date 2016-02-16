@@ -1,8 +1,10 @@
 #! /bin/zsh
-hexo clean
+
+# hexo clean
+
 hexo generate
 cd public
-git init
+# git init
 git add .
 git commit -m "update at `date` "
 
