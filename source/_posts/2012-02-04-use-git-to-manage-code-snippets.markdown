@@ -4,6 +4,7 @@ title: "使用 Git 来管理 Xcode 中的代码片段"
 date: 2012-02-04 14:32
 comments: true
 categories: iOS
+tags: Git
 ---
 
 ###代码片段介绍

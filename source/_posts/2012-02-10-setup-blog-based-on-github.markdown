@@ -4,6 +4,7 @@ title: "象写程序一样写博客：搭建基于github的博客"
 date: 2012-02-10 19:55
 comments: true
 categories: shell
+tags: [Git, blog]
 ---
 
 ## 2016.02.16 更新说明

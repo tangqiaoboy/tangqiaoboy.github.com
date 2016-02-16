@@ -2,9 +2,6 @@
 layout: post
 title: "用javascript协助导入图片"
 date: 2012-01-23 23:10
-comments: true
-published: true
-categories: javascript
 ---
 
 ## 需求

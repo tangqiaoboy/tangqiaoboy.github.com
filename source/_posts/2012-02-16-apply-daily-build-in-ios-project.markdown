@@ -4,7 +4,6 @@ title: "给iOS工程增加Daily Build"
 date: 2012-02-16 19:27
 comments: true
 categories: iOS
-published: true
 ---
 
 ## 前言

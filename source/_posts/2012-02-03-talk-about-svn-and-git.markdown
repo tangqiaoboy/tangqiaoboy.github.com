@@ -4,6 +4,7 @@ title: "Git 的使用感受"
 date: 2012-02-03 21:08
 comments: true
 categories: shell
+tags: Git
 ---
 
 从开始工作到现在，在公司里面一直用 svn 来做版本管理。大约半年前听说了 Git，因为 Git 的光辉相当耀眼，作者是 Linus Torvalds，被大量的开源软件采用，如 jQuery, Perl, Qt, ROR, YUI, GNOME 等，所以决定学一学。
