@@ -77,4 +77,6 @@ stylus:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:tangqiaoboy/tangqiaoboy.github.com.git
+  branch: master
