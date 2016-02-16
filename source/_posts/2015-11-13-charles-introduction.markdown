@@ -6,12 +6,6 @@ comments: true
 categories: iOS
 ---
 
-<!--
-## Charles 中国特惠
-
-Charles 正版[五折优惠活动](http://item.taobao.com/item.htm?&id=524230901640)（限时：2015 年 11 月 14 日 - 30 日），仅限中国区购买，[点击购买](http://item.taobao.com/item.htm?&id=524230901640)。在活动期结束后，价格将从 169 元上涨到 199 元。
--->
-
 ## 目录
 
 本文的内容主要包括：
@@ -28,6 +22,13 @@ Charles 正版[五折优惠活动](http://item.taobao.com/item.htm?&id=524230901
  * 给服务器做压力测试
  * 修改服务器返回内容
  * 总结
+
+
+<!--
+## Charles 中国特惠
+
+Charles 正版[五折优惠活动](http://item.taobao.com/item.htm?&id=524230901640)（限时：2015 年 11 月 14 日 - 30 日），仅限中国区购买，[点击购买](http://item.taobao.com/item.htm?&id=524230901640)。在活动期结束后，价格将从 169 元上涨到 199 元。
+-->
 
 ## 简介
 

@@ -123,8 +123,7 @@ iOS 技术图书也看了不少，要说推荐，还是王巍的 [《Swifter》]
  * [UPYUN](https://www.upyun.com/zh/index.html)：UPYUN 是国内领先的云服务提供商，专注于为开发者提供静态文件的云存储、云处理和 CDN 加速服务。
  * [100Offer](http://100offer.com/)：用「拍卖」的方式来提供高端互联网人才招聘的网站。
  * [拉勾网](http://www.lagou.com/)：最专业的互联网招聘平台，我自己就从上面招到了不少同事。
- * [InfoQ](http://www.infoq.com/cn)：InfoQ 了提供中国最高质量的技术会议和技术文章，我自己也是 InfoQ 的社区编辑。现在 InfoQ 创始人 Kevin 把业务做得更广，成立了 [极客邦科技](http://www.geekbang.org/)，在极客邦科技之下，除了 InfoQ 之外，另外组建了高端技术人员社交网络 EGO、IT 职业学习平台 StuQ 和 企业
-培训服务 GIT。
+ * [InfoQ](http://www.infoq.com/cn)：InfoQ 了提供中国最高质量的技术会议和技术文章，我自己也是 InfoQ 的社区编辑。现在 InfoQ 创始人 Kevin 把业务做得更广，成立了 [极客邦科技](http://www.geekbang.org/)，在极客邦科技之下，除了 InfoQ 之外，另外组建了高端技术人员社交网络 EGO、IT 职业学习平台 StuQ 和 企业培训服务 GIT。
 
 再次感谢你们，是你们让我这个自媒体有肉吃。
 
