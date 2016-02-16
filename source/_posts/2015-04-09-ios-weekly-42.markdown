@@ -6,23 +6,23 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2015/04/facebook-react-native)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 【摘要】：本期 iOS 移动开发周报带来如下内容：Facebook 正式开源 React Native、React 入门实例教程、React Native 通信机制详解等。
 
-##新闻
+## 新闻
 
  1. [用 JavaScript 开发移动原生应用，Facebook 正式开源 React Native](http://www.csdn.net/article/2015-03-27/2824323-facebook-open-sources-react-native)：Facebook 正式开源了 [React Native](https://github.com/facebook/react-native)，不过目前，只有 iOS 版，Android 版还需再等一段时间，这是最新的用 JavaScript 语言开发原生 App 的尝试。Facebook 同时还为 React Native 开发了一款基于 Atom 的 IDE：Nuclide，也已开源。
 
  1. [谷歌发现用于中间人攻击的证书](http://weibo.com/p/1001603823955516487761)：根据谷歌官方安全博客报道，谷歌发现 CNNIC 颁发了多个针对谷歌域名的用于中间人攻击的证书。该证书冒充成受信任的谷歌的域名，被用于部署到网络防火墙中，用于劫持所有处于该防火墙后的 HTTPS 网络通信，而绕过浏览器警告。
 
-##教程
+## 教程
 
  1. [《轻松学习 Objective-C 消息转发》](http://www.jianshu.com/p/1bde36ad9938)：作者在文章中通过一个小例子来讲解什么是消息转发，以及如何消息转发，希望看完这篇文章时大家会彻底的明白 OC 的消息转发机制。
 
@@ -40,7 +40,7 @@ categories: iOS weekly
 
  1. [《Don't React》](http://staltz.com/dont-react/#/)：本文作者从多方面分享了他对于 React 框架的负面看法。通过此文，大家可以更加客观地了解 React 这个框架。
 
-##开源项目
+## 开源项目
 
  1. [Lister](https://developer.apple.com/library/ios/samplecode/Lister/Introduction/Intro.html)：Lister 是苹果提供的官方 Demo。包含了 iOS、Mac 和 Apple Watch 版本，并且为这个 demo 分别用 Objective-C 和 Swift 实现了一遍，最后还包括了 30 页的文档。
 

@@ -3,8 +3,15 @@ layout: post
 title: "象写程序一样写博客：搭建基于github的博客"
 date: 2012-02-10 19:55
 comments: true
-categories: summary
+categories: shell
 ---
+
+## 2016.02.16 更新说明
+
+本博客已经由 octopress 迁移到了 hexo，本文章的内容稍显陈旧。
+
+## 前言
+
 
 github 真是无所不能。其 [Pages 功能](http://pages.github.com/) 支持上传 html，并且在页面中显示。于是有好事者做了一个基于 github 的博客管理工具：[octopress](http://octopress.org/)，基本原理是用 git 来管理你的文章，然后最终发布到 github 上成为一个独立博客站点。由于 github 支持 CNAME 域名指向，所以如果有独立域名的话，可以基于这些做出一个专业的博客站点出来。
 
@@ -12,10 +19,10 @@ github 真是无所不能。其 [Pages 功能](http://pages.github.com/) 支持�
 
 <!--more-->
 
-##安装
+## 安装
 首先说说怎么安装相应的工具。其实这些内容在 <http://octopress.org/docs/setup/> 上都有，我只是把它大概翻译了一下。
 
-###安装 rbenv
+### 安装 rbenv
 
 ```
 brew update
@@ -37,7 +44,8 @@ brew install apple-gcc42
 ```
 
 
-###安装 Octopress
+### 安装 Octopress
+
 首先从 github 上将源码 clone 下来：
 ```
 git clone git://github.com/imathis/octopress.git octopress
@@ -65,7 +73,8 @@ bundle install
 rake install
 ```
 
-###配置
+### 配置
+
 安装好之后可以简单配置一下：
 
 * 主要是修改文件：_config.yml ，这个配置文件都有相应的注释。主要就是改一些博客头，作者名之类的东西。
@@ -73,10 +82,12 @@ rake install
 * 修改定制文件 /source/_includes/custom/head.html 把 google 的自定义字体去掉，原因同上。
 
 
-##设置 github 账号
+## 设置 github 账号
+
 基于 github 的博客当然需要先注册 github 账号，Github 的账号注册地址是：<https://github.com/signup/free> 。申请好 github 账号后，建一个名为 username.github.io 的代码仓库。这里注意 username 必须是和你的账号名一致。
 
-##写博客方法
+## 写博客方法
+
 然后就可以写博客啦～ 写博客主要是用以下几个命令，[这里](http://octopress.org/docs/blogging/) 有详细介绍：
 
  * rake new_post['article name'] 生成博文框架，然后修改生成的文件即可
@@ -88,7 +99,8 @@ rake install
 博文是采用 markdown 语法，另外增加了一些扩充的插件，markdown 的介绍文章网上可以搜到很多，比如 [这个](http://daringfireball.net/projects/markdown/)。
 
 
-##高级配置
+## 高级配置
+
 我主要介绍一下如何配置评论和分享到微博功能。步骤如下：
 
  * 在 _config.yml 中增加一项： weibo_share: true
@@ -110,16 +122,16 @@ rake install
 
 对于国内的用户来说，Github 因为服务器在国外，访问速度上不可避免有些慢。我在 2014 年 5 月尝试将博客同时放到 Github 和 GitCafe 上（GitCafe 提供博客服务，而 Github 作为备份服务器），使得国内访问速度非常理想，感兴趣的朋友可以参考这篇文章：[《将博客从 GitHub 迁移到 GitCafe》](http://blog.devtang.com/blog/2014/06/02/use-gitcafe-to-host-blog/)
 
-##Tips
+## Tips
 
 ####从 wordpress 迁移到 github
 这儿有一篇文章介绍了如何做迁移：
 <http://blog.xupeng.me/2011/12/14/migrate-to-octopress/>
 
-####图片
+#### 图片
 如果要在文章中上传图片，直接 copy 到 /source/images 目录下即可。在文章中可以直接引用。也可以选一些大的图床站点，例如 flickr 之类的放在那边。
 
-####域名
+#### 域名
 如果你象我一样有自己的域名，可以将域名指向这个博客，具体步骤是：
 
 * 在域名管理中，建立一个 CNAME 指向，将你的域名指向 yourname.github.io
@@ -130,7 +142,7 @@ rake install
  * Octopress 其实为你建立了 2 个分支，一个是 master 分支，用于存放生成的最终网页。另一个是 source 分支，用于存放最初的原始 markdown 文件。
  * 平时写作和提交都在 source 分支下，当需要发布时，rake deploy 命令会将内容生成到 public 这个目录，然后将这个目录的内容当作 master 分支的内容同步到 github 上面。
 
-####参考
+#### 参考
 
 这儿还有一些参考的文章：
 

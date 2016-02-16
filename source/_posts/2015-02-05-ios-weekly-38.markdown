@@ -6,23 +6,23 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，文章地址是[这里](http://www.infoq.com/cn/news/2015/02/facebook-react-native)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 【摘要】：本期 iOS 移动开发周报带来如下内容：Facebook 推出 React Native、Swift 小技巧、RunLoop 主题的分享、使用蒲公英来做 iOS 测试应用的分发等。
 
-##新闻
+## 新闻
 
  1. [《分析师称 14 年四季度 iPhone 销量达 7300 万台》](http://tech.sina.com.cn/mobile/n/apple/2015-01-25/10049980631.shtml)：1 月 25 日上午消息，凯基证券分析师郭明池称，2014 年四季度 iPhone 销量达 7300 万台，iPad 销量达 2140 万台；并预计 2015 年一季度 iPhone 销量为 6160 万台，iPad 销量为 1010 万台。
 
  1. [《2014 年 iOS 应用开发者收入超好莱坞美国票房》](http://tech.sina.com.cn/i/2015-01-23/doc-iavxeafs0339155.shtml)：市场研究公司 Asymco 分析师霍拉斯·德迪乌 (Horace Dediu) 本周发布研究报告称，iOS 应用经济的规模已经超过了好莱坞电影在美国的票房。2014 年全年，开发者通过苹果获得的收入为 100 亿美元。
 
-##教程
+## 教程
 
  1. [《objc 中国 Issue 20：访谈》](http://objccn.io/issue-20/)：
 objc 中国 Issue 20 完成了三位传奇开发者的访谈，很有意思。从天才少年 Andy Matuschak ，到两次创业的 Loren Brichter，以及俄国妹子 Natasha Murashev，篇篇精彩。希望通过了解他们的经历，你会有所收获。
@@ -47,12 +47,12 @@ objc 中国 Issue 20 完成了三位传奇开发者的访谈，很有意思。�
  
  1. [《React.js Conf 2015 Keynote - Introducing React Native》](https://www.youtube.com/watch?v=KVZ-P-ZI6W4&app=desktop)：这是 Facebook 出品的 react.js 的视频介绍。Facebook 打算用它来统一移动端的编程语言，react.js 把界面全部用 native 控件实现，js 只作为后端逻辑层。Facebook 也打算开源该框架，如果这个框架成功，将改变整个业界的移动开发效率，因为 iOS 和 android 代码可以大部分复用。注：视频来自 youtube。
 
-##工具
+## 工具
 
  1. [《使用蒲公英来做 iOS 测试应用的分发》](http://blog.devtang.com/blog/2015/01/22/pgy-usage-guide/)： “蒲公英” 是一个应用的免费分发服务，它帮助开发者能够方便地做 iOS 应用的测试分发工作。本文介绍了蒲公英的基本使用方法。
 
 
-##开源项目
+## 开源项目
 
  1. [Developing iOS 8 Apps with Swift](https://github.com/x140yu/Developing_iOS_8_Apps_With_Swift)：《Developing iOS 8 Apps with Swift》是 Stanford 公开课，本项目是其中文字幕翻译。
 

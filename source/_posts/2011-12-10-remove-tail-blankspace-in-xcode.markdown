@@ -3,7 +3,7 @@ layout: post
 title: "去掉Xcode源码末尾的空格"
 date: 2011-12-10 17:08
 comments: true
-categories: iOS xcode shell
+categories: iOS
 ---
 
 在用 Xcode 开发的时候，很容易就在行末增加一些空格了。这些空格在上传到 review board 上后 , 就会被特别的颜色显示出来。因为一种好的编程风格是说 , 不应该在行末增加不必要的空格。如果是用 eclipse 写 java, 那么这种时候选中写好的代码，按 `ctrl+shift+F` 即可调整源码的风格 , 将尾部的空格去掉。可惜在 Xcode 中并没有提供相应的功能。

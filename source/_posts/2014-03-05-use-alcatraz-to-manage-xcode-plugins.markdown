@@ -8,11 +8,11 @@ categories: iOS
 
 {% img /images/Alcatraz-logo.jpg %}
 
-##简介
+## 简介
 
 Alcatraz 是一个帮你管理 Xcode 插件、模版以及颜色配置的工具。它可以直接集成到 Xcode 的图形界面中，让你感觉就像在使用 Xcode 自带的功能一样。
 
-##安装和删除
+## 安装和删除
 
 使用如下的命令行来安装 Alcatraz：
 
@@ -31,7 +31,7 @@ rm -rf ~/Library/Application\ Support/Alcatraz
 
 <!-- more -->
 
-##使用
+## 使用
 
 安装成功后重启 Xcode，就可以在 Xcode 的顶部菜单中找到 Alcatraz，如下所示：
 
@@ -49,19 +49,19 @@ rm -rf ~/Library/Application\ Support/Alcatraz
 
 安装完成后，再次点击插件左边的图标，可以将该插件删除。
 
-##插件路径
+## 插件路径
 
 Xcode 所有的插件都安装在目录`~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/`下，你也可以手工切换到这个目录来删除插件。
 
 
-##关于 Xcode 的插件机制
+## 关于 Xcode 的插件机制
 
 Alcatraz 当前只支持 OSX 10.9 and Xcode 5。不要抱怨了，这其实主要是因为苹果并没有开放插件机制，每次升级 Alcatraz 都都要重新适配。如果你看 Alcatraz 的 Commit Log，你就会发现，Alcatraz 花了几个月时间，才适配到 Xcode 5，这对于插件开发者来说，是比较难受的。
 
 所以作为一款开源并且免费的插件，只支持最新版的 Xcode 可以让开源作者节省大量精力。我也希望苹果能早日开放 Xcode 的插件机制标准，方便广大的插件开发者构建强大的第三方增强工具。
 
 
-##推荐的插件
+## 推荐的插件
 
 我个人比较喜欢 XCode 的 vim 插件 XVim，微博里大家推荐过的还有 KImageNamed 插件，Alcatraz 里面应该好用的插件很多，我还没有时间试用。
 

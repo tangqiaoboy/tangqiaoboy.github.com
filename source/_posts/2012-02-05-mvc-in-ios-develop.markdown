@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "斯坦福大学iOS开发公开课总结"
+title: "斯坦福大学 iOS 开发公开课总结"
 date: 2012-02-05 12:58
 comments: true
 categories: iOS
 ---
 
-###前言
-iphone 开发相关的教程中最有名的，当数斯坦福大学发布的 "iphone 开发公开课 " 了。此公开课在以前叫做《iphone 开发教程》，今年由于平板电脑的流行，所以也加入了 ipad 开发相关的课程。在 [网易公开课](http://v.163.com/special/opencourse/iphonekaifa.html) 上，有 [该教程](http://v.163.com/special/opencourse/iphonekaifa.html) 的 2010 年录象，并且前面 15 集带中文字幕文件，非常适合初学者学习。
+### 前言
+
+iPhone 开发相关的教程中最有名的，当数斯坦福大学发布的 "iPhone 开发公开课 " 了。此公开课在以前叫做《iPhone 开发教程》，今年由于平板电脑的流行，所以也加入了 ipad 开发相关的课程。在 [网易公开课](http://v.163.com/special/opencourse/iPhonekaifa.html) 上，有 [该教程](http://v.163.com/special/opencourse/iPhonekaifa.html) 的 2010 年录象，并且前面 15 集带中文字幕文件，非常适合初学者学习。
 
 <!--more-->
 
@@ -17,9 +18,9 @@ iphone 开发相关的教程中最有名的，当数斯坦福大学发布的 "ip
 
 值得高兴的是，斯坦福大学最近更新了该公开课的 2011 年秋季录象，免费下载地址是：<http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=480479762>，不过现在该公开课还没有翻译，只能看英文原版了。新的课程相比以前要短了许多，一共只有 9 课。我大概快速看了一遍，总结一些心得给大家。
 
-###iOS 的 MVC 模式
+### iOS 的 MVC 模式
 
-MVC 模式算是客户端类程序使用的设计模式的标配了。iOS 对于 Model, View 和 Controller 之间的相互调用有它自己的规范和约定，在公开课的 [第一课](http://itunes.apple.com/itunes-u/ipad-iphone-application-development/id480479762#) 中，就介绍了应该如何将 MVC 模式应用在 iOS 开发中。主要的内容就体现在如下这张图中 (图片来自该公开课第一课的 [配套 pdf](http://itunes.apple.com/itunes-u/ipad-iphone-application-development/id480479762#) 的第 37 页)：
+MVC 模式算是客户端类程序使用的设计模式的标配了。iOS 对于 Model, View 和 Controller 之间的相互调用有它自己的规范和约定，在公开课的 [第一课](http://itunes.apple.com/itunes-u/ipad-iPhone-application-development/id480479762#) 中，就介绍了应该如何将 MVC 模式应用在 iOS 开发中。主要的内容就体现在如下这张图中 (图片来自该公开课第一课的 [配套 pdf](http://itunes.apple.com/itunes-u/ipad-iPhone-application-development/id480479762#) 的第 37 页)：
 
 {% img /images/ios_mvc.jpg %}
 
@@ -45,26 +46,28 @@ NSDictionary * userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWit
 [[NSNotificationCenter defaultCenter] postNotificationName:<#notification_name#> object:self userInfo:userInfo];
 ```
 
-所以，对于初学者，要正确地使用 MVC 模式还是挺难的，回想我们以前做公司某产品 iphone 版的时候，就有一些 Model 层直接依赖了 Controller 层，比如 Model 层更新数据失败了，直接调用 Controller 层显示出一个失败的提示界面。这样层次划分不清，造成我们做 ipad 版的时候很痛苦。最后我们做了代码重构，把 Model 的相应改变都用 Notification 来完成，使得在做 ipad 版开发时轻松了很多。
+所以，对于初学者，要正确地使用 MVC 模式还是挺难的，回想我们以前做公司某产品 iPhone 版的时候，就有一些 Model 层直接依赖了 Controller 层，比如 Model 层更新数据失败了，直接调用 Controller 层显示出一个失败的提示界面。这样层次划分不清，造成我们做 ipad 版的时候很痛苦。最后我们做了代码重构，把 Model 的相应改变都用 Notification 来完成，使得在做 ipad 版开发时轻松了很多。
 
 
-###Convention About synthesize
+### Convention About synthesize
+
 “Convention over configuration"（约定高于配置）成就了 Ruby On Rails，而 iOS 也有很多编程的约定。这些约定单独看没有什么好处，约定的最大好处就是，如果大家都遵守它，那么代码风格会趋于一致，你会很方便地读懂或修改别人的代码。
 
 我们可以从第一课 PPT 的第 50 页看到如下的代码：
 
 {% img /images/synthesize_convention.jpg %}
 
-从图中可以看到，该课程推荐大家在使用 synthesize 关键字时，为 property 设置一个下划线前缀。我也看过一些 iphone 的开源项目，比如 facebook 开源的 [three20](https://github.com/facebook/three20/) ，它是遵守了这样的约定的。
+从图中可以看到，该课程推荐大家在使用 synthesize 关键字时，为 property 设置一个下划线前缀。我也看过一些 iPhone 的开源项目，比如 facebook 开源的 [three20](https://github.com/facebook/three20/) ，它是遵守了这样的约定的。
 
 其它的约定还包括：
 
 * 以 new, copy, alloc 开头的方法，都应当由调用者来 release，而其它方法，都返回一个 autorelease 对象。
-* 通常 iphone 顶部的 bar 应该用 UINavigation 控件，而底部的 bar 应该用 UIToolbar 控件。
+* 通常 iPhone 顶部的 bar 应该用 UINavigation 控件，而底部的 bar 应该用 UIToolbar 控件。
 * 所有的 UI 操作都应该在主线程 (UI 线程) 进行。这个似乎不是约定，但是好多同学不知道，也写在这儿吧。
 
 
 ### UIView
+
 刚开始对界面之间的跳转很不理解，后来发现其实很简单，就是一层一层叠起来的 View。从 View A 上点击一个按钮跳转到 View B，其实就是把 View B“盖” 在 View A 上面而已。
 而 “盖” 的方式有好多种，通常的方法有 2 种：
 
@@ -91,6 +94,7 @@ NSDictionary * userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWit
 上面说的是界面之间的跳转。对于一个界面内，其控件的布局其实也是一个一个叠起来的，之所以说叠，是指如果 2 个控件如果有重叠部分，那么处于上面的那个控件会盖住下面的。
 
 ### Nib File
+
 Nib 文件实际上内部格式是 XML，而它本身并不编译成任何二进制代码。所以你如果用 iFile 之类的软件在 iPhone 上查看一些安装好的软件的目录，可以看到很多的以 nib 结尾的文件，这些就是该软件的界面文件。虽然这些 XML 经过了一些压缩转换，但是我们还是可以看到一些信息，例如它使用了哪些系统控件等。
 
 Nib 文件刚开始给我的感觉很神秘，后来发现它其实就是用于可视化的编辑 View 类用的。其中的 File's Owner 一栏，用于表示这个 View 对应的 Controller 类。通常情况下，Controller 类会有一个名为 view 的变量，指向这个 view 的实例，我们也可以建立多个 IBOutlet 变量，指向这个 view 上的控件，以便做一些界面上的控制。
@@ -111,7 +115,8 @@ self.button = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 200, 100)] autor
 [self.button addTarget:self action:@selector(buttonPressed) forControlEvents:(UIControlEventTouchUpInside)];
 ```
 
-###总结
+### 总结
+
 总体来讲，学习 iOS 开发还是比较容易的。我大概花了一个月时间学习 iPhone 开发，就可以边做边学了。
 
 苹果的设计对于开发者来说是非常友好的，很多时候使用相应的控件就行了，都不用操心底层细节。不象 Android 开发，一会儿要考虑不同手机分辨率不一样了，一会儿又要考虑有些不是触摸屏了，一会儿又发现某款手机的 cpu 内存太弱了跑不起来，需要优化程序。另外，Objective-C 相对于 C++ 语言来说，要简单优雅得多，而且更加强大，所以做 iOS 的开发者很省心。

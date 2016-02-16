@@ -6,7 +6,7 @@ comments: true
 categories: summary
 ---
 
-##前言
+## 前言
 
 [《iOS 开发进阶》](https://github.com/tangqiaoboy/iOS-Pro) 终于出版了，在架构师峰会的签售会上，首批 100 本图书在签售的两天很快就卖光了，前几天首先在[互动出版社](http://product.china-pub.com/3770871)上架的首批图书也在一天内卖缺货了，能得到读者这么热烈地支持，我还是很惊喜。[技术人攻略](http://segmentfault.com/blog/devlevelup) 的创始人张兰说：“你应该写一篇总结”。我自己也想好好的整理一下这个出版的过程，给大家分享一下此书的写作过程。
 

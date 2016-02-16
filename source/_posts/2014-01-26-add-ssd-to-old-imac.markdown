@@ -3,7 +3,7 @@ layout: post
 title: "自己动手给iMac换SSD"
 date: 2014-01-26 22:06
 comments: true
-categories: fun
+categories: mac
 ---
 
 公司的 iMac 是 2011 年款的，经过 2 年的使用，现在已经变得比较慢了，用`htop`看了一下，其实 cpu 占用率一直不高，主要是磁盘 IO 比较慢，所以考虑自己动手给 iMac 换一个 SSD。在此将整个过程分享给大家。

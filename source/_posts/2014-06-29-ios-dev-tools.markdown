@@ -8,17 +8,17 @@ categories: iOS
 
 {% img /images/ColorSync-Utility-icon.png %}
 
-##版权说明
+## 版权说明
 
 本文首发于《程序员》杂志 2014 年 6 月刊，未经允许，请勿转载。
 
-##前言
+## 前言
 
 从苹果发明 iPhone 起，AppStore 上的一个又一个类似 flappy bird 的一夜暴富的故事刺激着大量开发者加入移动开发大军。随着这些开发者出现的，还有大量方便 iOS 开发者的各种工具。这些工具作为整个应用开发生态链的重要一环，极大地方便了广大应用开发者，节省了应用开发的时间。
 
 本文将从应用工具、命令行工具、插件工具 3 个方面，介绍这些优秀的应用。
 
-##图形应用工具
+## 图形应用工具
 
 ### Charles
 
@@ -56,9 +56,9 @@ ImageOptim 的实现原理是使用各种开源的图像压缩工具，然后取
 
 马克鳗（<http://www.getmarkman.com/>）是国人开发的一款免费标注工具，可以方便地在美术输出的设计稿上标注相应界面元素的大小，颜色，边距，说明等。
 
-##命令行工具
+## 命令行工具
 
-## CocoaPods
+### CocoaPods
 
 {% img /images/xcode-cmd-cocoapods.png %}
 
@@ -81,7 +81,7 @@ ImageOptim 的实现原理是使用各种开源的图像压缩工具，然后取
 
 详细的使用说明，欢迎阅读我的文章：[《用 CocoaPods 做 iOS 程序的依赖管理》](http://blog.devtang.com/blog/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/)
 
-## nomad
+### nomad
 
 nomad（<http://nomad-cli.com/>）是一个方便你操作苹果开发者中心（Apple Developer Center）的命令行工具，可以做的事情包括方便地添加测试设备，更新证书文件，增加 App id，验证 IAP 的凭证等。
 
@@ -107,7 +107,7 @@ ios profiles:devices:add TangQiao_Profile "TangQiaos iPhone"=<Device Identifier>
 
 nomad 还有很多功能，建议大家阅读其官方网站的文档进一步学习。
 
-## xctool
+### xctool
 
 xctool（<https://github.com/facebook/xctool>）是 facebook 开源的一个 iOS 编译和测试的工具。使用它而不是用 Xcode 的 UI 界面是因为它是一个纯命令行工具。比如：我们可以使用 xctool 在命令生下进行编译和单元测试，然后将测试结果集成到 Jenkins 中，这样就实现了自动化的持续集成。虽然苹果也在 OSX Server 上推出了自己的自动化集成工具 BOT，但其配置和使用上现在仍然不太方便。
 
@@ -138,7 +138,7 @@ path/to/xctool.sh \
 
 xctool 还有很多功能，建议大家阅读 xctool 官方网站的文档进一步了解更多的功能。
 
-## appledoc
+### appledoc
 
 appledoc（<https://github.com/tomaz/appledoc>）是一个从源码中抽取文档的工具。
 
@@ -167,7 +167,7 @@ appledoc -o <output_path> \
 
 详细的使用介绍，欢迎阅读我的文章：[《使用 Objective-C 的文档生成工具:appledoc》](http://blog.devtang.com/blog/2012/02/01/use-appledoc-to-generate-xcode-doc/)
 
-##Xcode 插件
+## Xcode 插件
 
 Xcode 是 iOS 的集成开发环境，虽然苹果一直在不断改进 Xcode，但程序员总是有各种新奇的想法和需求，当 Xcode 无法满足他们时，于是他们就会通过插件的方式来为 Xcode 增加新的功能。本节将会给大家介绍一些常用的 Xcode 增强插件。
 
@@ -269,6 +269,6 @@ XcodeBoost（<https://github.com/fortinmike/XcodeBoost>）包含多个辅助修�
  * 可以复制粘贴代码时不启用 Xcode 的自动缩进功能（Xcode 的自动缩进经常出问题，造成已经调整好的代码缩进，因为粘贴时被 Xcode 调整坏了）
  
  
-##小结
+## 总结
 
 本文分图形应用工具，命令行工具，Xcode 插件三个部分，介绍了 iOS 开发中好用的工具。其中涉及的图形工具部分是收费的，而命令行工具和 Xcode 插件工具全部是免费并且开源的工具，笔者在此也感谢广大的开源软件作者，是他们让整个软件生态圈更加美好。

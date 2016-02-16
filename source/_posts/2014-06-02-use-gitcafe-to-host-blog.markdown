@@ -86,7 +86,7 @@ GitCafe 的自定义域名设置比 github 要友好得多，它不但提供了�
 
 如果你也想像我一样，想在博客底部添加对 GitCafe 的感谢，可以参考 [这个提交](https://github.com/tangqiaoboy/tangqiaoboy.github.com/commit/a8ff6914d6fca786baf5702de3da01d408bd7b43)。它通过修改 Octopress 的`source/_includes/custom/footer.html`模版文件完成。
 
-##感谢
+## 感谢
 
 最后再次感谢 GitCafe，上个月在 QCon 大会上了解到他们的发展思路和 Github 很不一样。虽然它还是一家创业公司，但是我期待看到它最终能够推动国内开源和技术社区的发展。
 

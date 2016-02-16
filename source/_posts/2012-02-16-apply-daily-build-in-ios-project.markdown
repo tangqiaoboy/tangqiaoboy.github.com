@@ -7,7 +7,7 @@ categories: iOS
 published: true
 ---
 
-##前言
+## 前言
 Daily Build 是一件非常有意义的事情，也是敏捷开发中关于 “持续集成” 的一个实践。Daily Build 对于开发来说有如下好处：
 
  * 保证了每次 check in 的代码可用，不会造成整个工程编译失败。
@@ -17,9 +17,9 @@ Daily Build 是一件非常有意义的事情，也是敏捷开发中关于 “�
 
 <!--more-->
 
-##步骤
+## 步骤
 
-###xcodebuild 命令
+### xcodebuild 命令
 如何做 daily build 呢？其实 Xcode 就提供了命令行 build 的命令，这个命令是 xcodebuild，用 xcodebuild -usage
 可以查看到所有的可用参数，如下所示：
 
@@ -52,7 +52,7 @@ xcodebuild -configuration DailyBuild -target "YourProduct"
 
 执行完命令后，会在当前工程下的 build/DailyBuild-iphoneos/ 目录下生成一个名为： YourProduct.app 的文件。这个就是我们 Build 成功之后的程序文件。
 
-###生成 ipa 文件
+### 生成 ipa 文件
 接下来我们需要生成 ipa 文件，在生成 ipa 文件这件事情上，xcode 似乎没有提供什么工具，不过这个没什么影响，因为 ipa 文件实际上就是一个 zip 文件，我们使用系统的 zip 命令来生成 ipa 文件即可。需要注意的是，ipa 文件并不是简单地将编辑好的 app 文件打成 zip 文件，它需要将 app 文件放在一个名为 Payload 的文件夹下，然后将整个 Payload 目录打包成为 .ipa 文件，命令如下：
 
 ``` bash
@@ -63,7 +63,7 @@ cd ipa
 zip -r $FILE_NAME *
 ```
 
-###生成安装文件
+### 生成安装文件
 苹果允许用 itms-services 协议来直接在 iphone/ipad 上安装应用程序，我们可以直接生成该协议需要的相关文件，这样产品经理和测试同学都可以直接在设备上安装新版的应用了。相关的参考资料可以见：[这里](http://blog.encomiabile.it/2010/12/21/ios4-and-wireless-application-deploy/) 和 [这里](http://blog.s135.com/itms-services/)
 
 具体来说，就是需要生成一个带 itms-services 协议的链接的 html 文件，以及一个 plist 文件。
@@ -146,14 +146,14 @@ EOF
 
 ```
 
-###定时运行
+### 定时运行
 这一点非常简单，使用 crontab -e 命令即可。大家可以随意 google 一下 crontab 命令，可以找到很多相关文档。假如我们要每周 1-5 的早上 9 点钟执行 daily build，则 crontab 的配置如下：
 
 ```
 0 9 * * * 1-5 /Users/tangqiao/dailybuild.sh >> /Users/tangqiao/dailybuild.log 2>&1
 ```
 
-###失败报警
+### 失败报警
 在 daily build 脚本运行失败时，最好能发报警邮件或者短信，以便能够尽早发现。发邮件可以用 python 的 smtplib 来写，示例如下：
 
 ``` python
@@ -178,7 +178,7 @@ except Exception:
 
 ```
 
-###上传
+### 上传
 daily build 编译出来如果需要单独上传到另外一台 web 机器上，可以用 ftp 或者 scp 协议。如果 web 机器悲剧的是 windows 机器的话，可以在 windows 机器上开一个共享，然后用 mount -t smbfs 来将这个共享 mount 到本地，相关的示例代码如下：
 ``` bash
 mkdir upload
@@ -197,7 +197,7 @@ fi
 umount ./upload
 ```
 
-##遇到的问题
+## 遇到的问题
 本来我写的自动化脚本在 Mac OS X 10.6 下运行得很好。但是升级到 lion 后，脚本在手动执行时很正常，但是在用 crontab 启动时就会出现找不到开发者证书的错误。在网上搜了很久也没有找到解决办法。最后我试了一下在 “钥匙串访问” 中把开发者证书从 “登录” 那栏拖动到 “系统” 那栏，居然就解决了，如下图所示：
 
 {% img /images/dailybuild_issue.jpg %}
@@ -208,5 +208,5 @@ umount ./upload
  * <http://shappy1978.iteye.com/blog/765842>
 
 
-##总结
+## 总结
 将以上各点结合起来，就可以用 bash 写出一个 daily build 脚本了。每天这一切都会自动完成，心情相当好。

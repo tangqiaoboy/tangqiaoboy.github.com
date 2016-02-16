@@ -11,7 +11,7 @@ categories: iOS
  1. 系统对象的缓存
  1. `Tagged Pointer`对象
 
-## autorelase对象
+## 讨论一：autorelase对象
 
 按照苹果的编程约定，由非`alloc`,`copy`返回的对象都是`autorelease`的，所以对于以下代码，虽然变量`number`是`__weak`的，但是由于`[NSNumber numberWithInt:100]`返回的对象是`autorelase`的，所以仍然能通过NSLog打印出来。
 
@@ -44,7 +44,7 @@ NSLog(@"number = %@", number);
 在上面这个例子中，果然如我们所料，`number`在通过NSLog查看值时，变成了nil。
 
 
-###讨论二：关于NSNumber对象的缓存
+## 讨论二：关于NSNumber对象的缓存
 
 我们在做以上实验时，发现一个有趣的现象，如果你把100变成了10，则`number`变成在NSLog时，就能够输出值来，不再是nil了。如下是测试代码：
 
@@ -70,7 +70,7 @@ another = [NSNumber numberWithInt:100];
 NSLog(@"%p %p", number, another);
 ```
 
-###讨论三：64位系统与Tagged Pointer对象
+## 讨论三：64位系统与Tagged Pointer对象
 
 讨论本来已经结束了，结果我在写这篇博客的时候，手贱又测试了一下，发现在64位的模拟器下，无论创建多少次，也无论int的值是多少，所有相同int值的`NSNumber`对象地址都是一样的！
 

@@ -123,7 +123,7 @@ categories: summary
 
 看了这篇文章，明天你打算和谁来一场「一对一沟通」？
 
-### 版权说明
+## 版权说明
 
 本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/articles/analysis-of-one-to-one-communication#rd)。如需转载，请与 InfoQ 中文站联系。
 

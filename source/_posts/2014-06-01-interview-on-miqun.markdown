@@ -3,14 +3,14 @@ layout: post
 title: "专访《iOS测试指南》作者羋峮"
 date: 2014-06-01 17:07:31 +0800
 comments: true
-categories: iOS interview
+categories: iOS
 ---
 
-###版权说明
+## 版权说明
 
 本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/04/interview-ios-test-guide-author)。如需转载，请与 InfoQ 中文站联系。
 
-###前言
+### 前言
 
 在 2014 年 [QCon 北京](http://www.qconbeijing.com/) 大会上，羋峮进行了他的新书 [《iOS 测试指南》](http://www.amazon.cn/%E5%9B%BE%E4%B9%A6/dp/product-description/B00JPVNFKM) 的签售会。在大会中，我代表 InfoQ 与羋峮进行了一次专访，羋峮分享了他在 iOS 平台做自动化测试的一些经验。
 

@@ -6,24 +6,24 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，文章地址是[这里](http://www.infoq.com/cn/news/2015/03/implementation-of-kvo)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 
 【摘要】：本期 iOS 移动开发周报带来如下内容：iOS 开发者收入调查报告、如何自己动手实现 KVO、QQ 中未读气泡拖拽消失的实现分析、InfoQ 上移动端话题汇总、UIResponder 等。
 
-##新闻
+## 新闻
 
  1. [《iPhone 6 再立功：中国区 iOS 份额历史新高》](http://www.cocoachina.com/apple/20150306/11250.html)：据来自 Kantar Worldpanel ComTech 的最新数据，截止至 2015 年一月的前三个月内，苹果 iOS 系统份额在中国区创历史新高，卖出的每四台智能手机就有一个是 iPhone。
 
  1. [《iOS 开发者收入调查报告（一）：个人开发者篇》](http://www.cocoachina.com/programmer/20150304/11205.html)：2014 年 12 月，CocoaChina 以网上调查问卷形式发起了 “2014 iOS 开发者收入调查报告” 活动，得到了广大开发者的支持。在对问卷数据进行了整理分析后形成了本次调查报告，从而让我们对国内 iOS 开发者的收入和生存状态有一个大概的了解。本文是该调查的最终报告。
 
-##教程
+## 教程
 
  1. [《如何自己动手实现 KVO》](http://tech.glowing.com/cn/implement-kvo/)：KVO 是 Objective-C 对观察者模式（Observer Pattern）的实现。也是 Cocoa Binding 的基础。当被观察对象的某个属性发生更改时，观察者对象会获得通知。本文探究了 KVO (Key-Value Observing) 实现机制，并去实践一番：利用 Runtime 自己动手去实现 KVO 。
 
@@ -45,12 +45,12 @@ categories: iOS weekly
 
  1. [《First Impressions using React Native》](http://jlongster.com/First-Impressions-using-React-Native)：作者介绍了他使用 Facebook 即将开源的 React Native 的感受。
 
-##工具
+## 工具
 
  1. [iOS-Universal-Framework](https://github.com/kstenerud/iOS-Universal-Framework)：iOS-Universal-Framework 是一个方便你将第三方 SDK 编译成 Framework 的开源工具。
 
  1. [Origami](http://facebook.github.io/origami/)：Origami Live 支持在 iOS 设备上预览 Quartz Composer 项目，Origami 2.0 添加了导出 Objective-C、Java、JS 代码的功能，以后做原型效率更高了。由 [@ 汤圣罡](http://weibo.com/lexrus) 推荐。
 
-##开源项目
+## 开源项目
 
  1. [NativeScript](link)：NativeScript 是一个类似 React Native 的开源框架，使用 JavaScript 调用原生 API，构建原生应用，支持 iOS、 Android 和 WP 等多平台。

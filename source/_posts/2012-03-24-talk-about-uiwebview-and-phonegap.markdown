@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "关于UIWebView和PhoneGap的总结"
+title: "关于UIWebView的总结"
 date: 2012-03-24 20:19
 comments: true
-categories: iOS javascript
+categories: iOS
 ---
 
 ## 前言

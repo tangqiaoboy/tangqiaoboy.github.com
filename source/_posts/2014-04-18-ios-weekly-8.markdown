@@ -6,17 +6,17 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/04/etag-improve-ios-url-function)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 【摘要】：本期iOS移动开发周报带来如下内容：SDWebImage缓存图片的机制、使用Etag增强iOS的URL缓存功能、从Facebook看移动开发的发展、FuzzyAutocomplete插件等。
 
-##教程
+## 教程
 
  1. [《SDWebImage缓存图片的机制》](http://www.overcode.hk/?p=449)：文章详细介绍了SDWebImage对于图片的缓存逻辑的实现细节。
  
@@ -32,7 +32,7 @@ categories: iOS weekly
 
  1. [《关于 Mac 右键菜单》](http://maoa.cn/?post=414)：Mac OS X Lion 的 Launch Service 用于关联应用程序和文件并维护最近打开的项目列表。在文件关联和右键菜单方面，每当系统安装一个新的应用程序，都会调用 Launch Service 的 API 注册关联的文件类型。文章详细介绍了这其中的过程。
  
-##工具
+## 工具
 
  1. [fnd.io](https://fnd.io): fnd.io 是一个App Store的网页版，搜索速度非常快，可以用来代替itunes进行应用的检索。
  
@@ -40,7 +40,7 @@ categories: iOS weekly
  
  1. [FuzzyAutocomplete](https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin)：FuzzyAutocomplete是一个Xcode自动补全插件，刚刚更新到了2.0版本。它可以让你不需要再遵循从头匹配的原则来补全代码，而是随便输入你记得的关键字来进行匹配，整个插件的响应速度也非常快。
 
-##开源项目
+## 开源项目
 
  1. [Lockbox](https://github.com/granoff/Lockbox): Lockbox是一个帮助你方便地将数据保存到keychain中的开源工具类。
 

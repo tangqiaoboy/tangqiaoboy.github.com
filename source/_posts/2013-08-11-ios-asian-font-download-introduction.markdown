@@ -8,7 +8,7 @@ categories: iOS
 
 {% img /images/wawati-sample.jpg %}
 
-##引言
+## 引言
 
 在今年 WWDC 的内容公开之前，大家都以为 iOS 系统里面只有一种中文字体。为了达到更好的字体效果，有些应用在自己的应用资源包中加入了字体文件。但自己打包字体文件比较麻烦，原因在于：
 
@@ -22,17 +22,17 @@ categories: iOS
 
 <!-- more -->
 
-##功能介绍
+## 功能介绍
 
 使用动态下载中文字体的 API 可以动态地向 iOS 系统中添加字体文件，这些字体文件都是下载到系统的目录中（目录是`/private/var/mobile/Library/Assets/com_apple_MobileAsset_Font/`），所以并不会造成应用体积的增加。并且，由于字体文件是 iOS 系统提供的，也免去了字体使用版权的问题。虽然第一次下载相关的中文字体需要一些网络开销和下载时间，但是这些字体文件下载后可以在所有应用间共享，所以可以遇见到，随着该 API 使用的普及，大部分应用都不需要提示用户下载字体，因为很可能这些字体在之前就被其它应用下载下来了。
 
-##字体列表
+## 字体列表
 
 在 [这个链接](http://support.apple.com/kb/HT5484?viewlocale=zh_CN) 中，苹果列出了提供动态下载和使用中文字体文件列表。不过，由于下载的时候需要使用的名字是 PostScript 名称，所以如果你真正要动态下载相应的字体的话，还需要使用 Mac 内自带的应用 “字体册 “来获得相应字体的 PostScript 名称。如下显示了从” 字体册 “中获取《兰亭黑-简 特黑》字体的 PostScript 名称的截图：
 
 {% img /images/font-postscript-name.jpg %}
 
-##API 介绍
+## API 介绍
 
 苹果提供的动态下载代码的 [Demo 工程](http://developer.apple.com/library/ios/#samplecode/DownloadFont/Listings/DownloadFont_ViewController_m.html
 ) 链接在这里。将此 Demo 工程下载下来，即可学习相应 API 的使用。下面我对该工程中相应 API 做简单的介绍。
@@ -120,7 +120,7 @@ CTFontDescriptorMatchFontDescriptorsWithProgressHandler( (__bridge CFArrayRef)de
 
 {% img /images/wawati-sample.jpg %}
 
-##iOS 版本限制
+## iOS 版本限制
 
 以上代码只能运行在 iOS6 以上的系统，但当前还有不少用户是 iOS5 的系统。不过，随着苹果在 WWDC2013 中推出 iOS7 的 beta 版，很多人都期待着使用 iOS7。从历史数据上看，苹果 iOS 新版本推出后，通常 3 个月内就可以达到 50% 以上的使用比例。所以，可以遇见到在今年年底，iOS5 的用户将所剩无几。如果我们打算在年底只支持 iOS6 以上的系统，那么就可以通过上面介绍的方法使用大量中文字体来美化你的应用。
 

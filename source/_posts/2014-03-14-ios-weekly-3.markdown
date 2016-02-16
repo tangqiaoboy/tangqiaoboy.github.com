@@ -6,17 +6,17 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/03/apple-ios71-xcode51)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 【摘要】：本周移动开发周报带来如下内容：苹果发布iOS7.1相关内容，ReactiveCocoa和Origami相关的教程，一些来自于Facebook的开源项目。
 
-##新闻
+## 新闻
 
  1. [《苹果发布iOS 7.1更新》](http://tech.sina.com.cn/it/apple/2014-03-11/01399228853.shtml)：苹果在3月11日正式发布了iOS 7.1更新，支持连接车载系统CarPlay。iOS 7.1 对用户界面进一步做了改进，同时改进了Touch ID指纹识别的能力，并针对iPhone 4做了优化。也此同时，苹果也同步放出了支持iOS 7.1的集成编译环境Xcode 5.1正式版，开发者可以从[苹果开发者中心](http://developer.apple.com/)下载新版本的Xcode。
  
@@ -29,7 +29,7 @@ categories: iOS weekly
      * [《clipsToBounds 属性默认值变了》](http://weibo.com/1658814735/AAvyB25js)
      * [《第三方库不支持64位造成编译错误》](http://weibo.com/2157980617/AAv3IwVrH?mod=weibotime)
 
-##教程
+## 教程
 
  1. [《ReactiveCocoa Tutorial – The Definitive Introduction》](http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1): RayWenderlich网站放出了从零开始学ReactiveCocoa系列教程第一课。讲得很基本很实用，适合想学ReactiveCocoa的同学作为入门教材。
 
@@ -40,12 +40,12 @@ categories: iOS weekly
  1. [《The 4 Minute Guide to Quartz Composer
 》](http://vimeo.com/88468610)和[《Prototyping with Facebook Origami》](http://vimeo.com/85578380)：两篇介绍Facebook免费提供的基于Quartz Composer的交互设计工具Origami的视频教程（需要翻墙）。
   
-##工具
+## 工具
 
  1. 手工写`.gitignore`文件常常费时费力还容易出错，<http://www.gitignore.io/> 是一个`.gitignore`的生成网站，iOS工程的`.gitignore`生成地址是这个： <http://www.gitignore.io/api/xcode,objective-c>
 
 
-##开源项目
+## 开源项目
 
  1. [Shimmer](https://github.com/facebook/Shimmer): Facebook 开源了他旗下应用 Paper 的加载效果，它使用了WWDC 2009中介绍的`-[CALayer mask]`的技术方案。
 

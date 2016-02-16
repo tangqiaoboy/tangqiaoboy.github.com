@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git的使用感受"
+title: "Git 的使用感受"
 date: 2012-02-03 21:08
 comments: true
 categories: shell
@@ -12,12 +12,14 @@ categories: shell
 
 <!--more-->
 
-##学习成本
+## 学习成本
+
 首先我感觉 Git 的学习成本还是比较高的。svn 基本上不到 20 个命令就可以应付日常的工作了，而 Git 有上百个命令。我在学习 SVN 的时候，基本上没有看什么书，最多就是在网上随便看了一些贴子，就基本会使用 SVN 了。而我花在 Git 的学习时间算下来，至少有 1 周。
 
 因为 Git 的学习成本较高，所以当一个会 svn 的同学刚刚接触 Git 的时候，如果简单地把 Git 当 SVN 用，就会感觉 Git 相当难用。我在公司就时常听到同事抱怨它。所以我认为，要想真正用好 Git，还是需要投入时间来学习它，否则是很难使用的。
 
-##Git 的内部结构
+## Git 的内部结构
+
 Git 真正是一个面向程序员的工具，它的内部数据结构是一个有向无环图，并且，你必须理解它的内部数据结构后，才能掌握它。因为你的很多操作，都其实对应的是这个有向无环图的操作。比如:
 
 * git commit 就是增加一个结点。
@@ -34,12 +36,13 @@ Git 真正是一个面向程序员的工具，它的内部数据结构是一个�
 
 了解了 Git 的内部结构，对于这些 Git 的命令就更加理解了。
 
-##svn 的坑
+## svn 的坑
 
 svn 在平常使用上基本没什么坑，平时通过
-<pre>svn pe svn:ignore . </pre> 设置好忽略的文件，以免误把不应该加入版本管理的文件加进来。
+`svn pe svn:ignore .` 设置好忽略的文件，以免误把不应该加入版本管理的文件加进来。
 
 我唯一遇到的一次问题是这样的：我有一个目录要加入 svn 的版本库，但是目录里面的一些文件不想加入。如果直接输入 svn add 目录名，就会把目录下所有文件都加入到版本管理中。如果 cd 到那个目录里面配置 svn:ignore，又会因为当前目录还不在版本管理中，设置不了。最后找到的解决办法是在 svn add 的时候增加 --non-recursive 参数：
+
 ```
 svn add dirname --non-recursive
 或者是：
@@ -47,6 +50,7 @@ $ svn add dirname --depth empty
 ```
 
 还有就是对于一些不小心用 svn add 加入了版本管理，但实际上不应该加的目录。可以这么做：
+
 ```
 svn export spool spool-tmp    (这里 export 可以将原目录中的 .svn 目录给清除掉)
 svn rm spool
@@ -56,7 +60,7 @@ svn propset svn:ignore 'spool' .
 svn ci -m 'Ignoring a directory called "spool".'
 ```
 
-##Git 的坑
+## Git 的坑
 
  * 在 windows 下的文件的权限因为无法和 linux 上完全一致，所以用 Git 检出的文件权限可能显示为被更改。
 另外因为 windows 下的换行和 linux 上也不一样，协作开发时也容易出问题。所以在 windows 上使用 Git 的同学需要加上以下 2 行配置参数：
@@ -68,14 +72,18 @@ git config --global core.autocrlf true
 第二句是将文件 checkout 时自动把 LF 转成 CRLF，check in 时自动把 CRLF 转成 LF
 ```
 
- * svn 的 svn revert filename 对应的其实是 git checkout -- filename, 而 git revert xxx 是基于 xxx 提交所做的改动，做一次反向提交，和 svn revert 完全不一样。
+ * svn 的 `svn revert filename` 对应的其实是 `git checkout -- filename`, 而 `git revert xxx` 是基于 xxx 提交所做的改动，做一次反向提交，和 svn revert 完全不一样。
 
 
-##Git 的一些小技巧
+## Git 的一些小技巧
+
+### 节省clone体积
+
+有些时候，我们只想简单学习一下项目代码，这个时候，用 `git clone rep_address --depth 1` 可以只 clone 每个文件最新的一个提交，这样速度会快很多。
 
 ### 强制推送
 
- 一旦推送到远程仓库后，就不要用类似 git reset, git ci --amend, git rebase 等破坏性提交了，否则远程仓库会因为你的新推送不是 Fast Forward 而拒绝提交 (关于什么是 Fast Forward 要讲的太多了，自已看书吧)。如果实在不小心做了。在确定别人没有检出前，用 git push -f 可以强制推送到远程仓库中。如下图:
+一旦推送到远程仓库后，就不要用类似 `git reset`, `git ci --amend`, `git rebase` 等破坏性提交了，否则远程仓库会因为你的新推送不是 Fast Forward 而拒绝提交 (关于什么是 Fast Forward 要讲的太多了，自已看书吧)。如果实在不小心做了。在确定别人没有检出前，用 `git push -f` 可以强制推送到远程仓库中。如下图:
 
 {% img /images/git_push_f.jpg %}
 
@@ -85,11 +93,11 @@ git config --global core.autocrlf true
  在公司没有应用 git 前，你可以用 git svn 来做管理。 git svn 相关命令：
 
 ```
-     git svn clone -r REV1:HEAD svn_addr local_addr
-     git svn dcommit  提交到 SVN
-     git svn fetch    从 svn up 信息
-     git svn rebase   将从 svn up 过来的信息，rebase 成 git 提交
-     git svn rebase --continue  冲突后继续 rebase 信息
+git svn clone -r REV1:HEAD svn_addr local_addr
+git svn dcommit  提交到 SVN
+git svn fetch    从 svn up 信息
+git svn rebase   将从 svn up 过来的信息，rebase 成 git 提交
+git svn rebase --continue  冲突后继续 rebase 信息
 ```
 
 用 git svn clone 的时候，带上 -r rev1:HEAD 参数，可以省去将 SVN 整个提交历史抓取下来的时间。
@@ -130,7 +138,7 @@ git push add2 master
 git remote set-url origin yourname@yourhost.com:~/path/repository_name
 ```
 
-###如何用 Git 将一个文件的历史提交恢复？
+### 如何用 Git 将一个文件的历史提交恢复？
 
 上次遇到一个问题，我某次提交改动了很多文件，但是其中有一个是不应该改的。所以我需要把这次提交中关于那个文件的改动撤销。直接用 git checkout 命令可以检出某一个文件的历史版本，然后就可以将对这个文件的改动取消了。如下：
 
@@ -198,7 +206,7 @@ done
 chmod +x .git/hooks/pre-commit
 ```
 
-###让常用操作自动带颜色
+### 让常用操作自动带颜色
 默认的 git diff, status, log 什么的都是不带颜色的，可以用如下命令让它们都带上颜色。另外还有一些有趣的命令，一并列在下面。
 
 ```

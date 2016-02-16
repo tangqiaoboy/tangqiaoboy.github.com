@@ -8,7 +8,7 @@ categories: iOS
 
 {% img /images/zxing-icon.png %}
 
-##前言
+## 前言
 
 [ZXing](https://code.google.com/p/zxing/)([Github镜像地址](https://github.com/zxing/zxing))是一个开源的条码生成和扫描库（开源协议为[Apache2.0](http://www.apache.org/licenses/LICENSE-2.0))。它不但支持众多的条码格式，而且有各种语言的实现版本，它支持的语言包括：Java, C++, C#, Objective-C, ActionScript和Ruby。
 
@@ -16,7 +16,7 @@ categories: iOS
 
 <!-- more -->
 
-##集成步骤
+## 集成步骤
 
 首先去Google Code或Github将ZXing的代码下载下来，整个工程比较大，我们只需要其中涉及iOS的部分，所以最好做一些裁剪。简单来说，我们只需要保留cpp和iphone这2个文件夹，其余的全部删掉。如下图所示：
 
@@ -55,11 +55,11 @@ categories: iOS
 
 恭喜你，完成这步之后，你就已经完成ZXing库的集成了。下面谈谈如何使用ZXing库来做二维码识别。
 
-##二维码识别
+## 二维码识别
 
 ZXing的iOS版本提供2种方法来做二维码识别功能，第一种方法比较简单，第二种方法比较复杂。我在做Demo时使用了第一种方法，做真正项目开发的时候使用了第二种方法，所以都给大家介绍一下。
 
-###使用方法一
+### 使用方法一
 ZXing直接提供了一个扫描二维码的View Controller，即ZXingWidgetController。在需要使用的界面代码中，加入文件依赖：
 
 ``` objc
@@ -92,7 +92,7 @@ ZXing直接提供了一个扫描二维码的View Controller，即ZXingWidgetCont
 
 ```
 
-###使用方法二
+### 使用方法二
 
 方法二与方法一的区别就相当于AVFoundation和UIImagePickerController的区别一样。简单来说，就是使用方法二比方法一更加麻烦，但是获得的可定制性更高。
 
@@ -141,7 +141,7 @@ ZXing的Decoder类提供了以下回调函数获得识别结果：
 
 ```
 
-##Trouble Shoot & Tips
+## Trouble Shoot & Tips
 
 我在使用中遇到了一些问题，主要是编译的问题。
 
@@ -150,7 +150,7 @@ ZXing的Decoder类提供了以下回调函数获得识别结果：
  3. 报错：No such file or directory，出现该错误可能是你的Header Search Path写错了，或者就是你的zxing库的目录结构不是我上面强调的，好好检查一下吧。
  4. 如果你需要生成二维码做测试，推荐一个不错的在线生成二维码的网站：<http://cli.im/>
 
-##ZXing和OpenCV的兼容问题
+## ZXing和OpenCV的兼容问题
 
 ZXing 2.1 和OpenCV 2.4.3的iOS库有一些兼容问题，他们对C++标准库的版本和编译器版本都有一些需求，造成满足一方了，另一方就编译不通过了。Stackoverflow上有人终于找到了一个让它们和平共处的方法，但是只适用于iOS5.0以上版本。正好我们的App只支持iOS5.0+，所以就搞定了。所以如果你也正好遇到这个问题，可以参考[这个贴子](http://stackoverflow.com/questions/13498581/opencv-zxing-incompatibility-on-ios)。
 

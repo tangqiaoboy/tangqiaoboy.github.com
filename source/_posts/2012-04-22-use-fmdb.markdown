@@ -34,7 +34,7 @@ while ([rs next]) {
 
 该使用说明主要翻译自 fmdb 的 github 项目说明文档: <https://github.com/ccgus/fmdb>
 
-### 引入相关文件
+###  引入相关文件
 
 首先将 FMDB 从 github 上 clone 下来，然后将以下文件 copy 到你的工程中：
 
@@ -50,7 +50,7 @@ FMDatabaseQueue.m
 FMResultSet.h
 FMResultSet.m
 ```
-###建立数据库
+### 建立数据库
 
 建立数据库只需要如下一行即可 , 当该文件不存在时，fmdb 会自己创建一个。如果你传入的参数是空串：@"" ，则 fmdb 会在临时文件目录下创建这个数据库，如果你传入的参数是 NULL，则它会建立一个在内存中的数据库。
 
@@ -58,7 +58,7 @@ FMResultSet.m
 FMDatabase *db = [FMDatabase databaseWithPath:@"/tmp/tmp.db"];
 ```
 
-###打开数据库
+### 打开数据库
 
 使用如下语句，如果打开失败，可能是权限不足或者资源不足。通常打开完操作操作后，需要调用 close 方法来关闭数据库。
 
@@ -73,14 +73,14 @@ if (![db open]) {
 [db close];
 ```
 
-###执行更新操作
+### 执行更新操作
 除了 Select 操作之外，其它的都是更新操作。更新操作使用如下方法，如果有错误，可以用 error 参数中获得。
 
 ``` objc
 -[FMDatabase executeUpdate:error:withArgumentsInArray:orVAList:]
 ```
 
-###执行查询操作
+### 执行查询操作
 
 查询操作示例如下。注意：即使操作结果只有一行，也需要先调用 FMResultSet 的 next 方法。
 
@@ -115,7 +115,7 @@ objectForColumn:
 
 通常情况下，你并不需要关闭 FMResultSet，因为相关的数据库关闭时，FMResultSet 也会被自动关闭。
 
-###数据参数
+### 数据参数
 
 通常情况下，你可以按照标准的 SQL 语句，用 ? 表示执行语句的参数，如：
 
@@ -139,7 +139,7 @@ NSString *sql = @"insert into User (name, password) values (?, ?)";
 [db executeUpdate:@"INSERT INTO myTable VALUES (?)", [NSNumber numberWithInt:42]];
 ```
 
-###线程安全
+### 线程安全
 
 如果我们的 app 需要多线程操作数据库，那么就需要使用 FMDatabaseQueue 来保证线程安全了。
 切记不能在多个线程中共同一个 FMDatabase 对象并且在多个线程中同时使用，这个类本身不是线程安全的，这样使用会造成数据混乱等问题。
@@ -178,7 +178,7 @@ FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:aPath];
 }];
 
 ```
-##工具
+## 工具
 
 为了查看 Sqlite 中的数据，一个好的图形化界面的数据库管理程序是必不可少的。mysql 有 phpMyAdmin，那么 sqlite 呢？
 
@@ -186,7 +186,7 @@ FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:aPath];
 
 {% img /images/sqlite_manager.jpg %}
 
-##总结
+## 总结
 FMDB 将 SQLite API 进行了很友好的封装，使用上非常方便，对于那些使用纯 Sqlite API 来进行数据库操作的 app，可以考虑将其迁移到基于 FMDB 上，这对于以后数据库相关功能的开发维护，可以提高不少效率。
 
 我在学习 fmdb 的时候做了一个小工程用于练习，我把它放到 github 上了。感兴趣的可以自行下载：<https://github.com/tangqiaoboy/FmdbSample> 

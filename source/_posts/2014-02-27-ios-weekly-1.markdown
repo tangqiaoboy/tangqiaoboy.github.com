@@ -6,15 +6,15 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/02/apple-ssl-bug)。如需转载，请与InfoQ中文站联系。
 
-###前言
+## 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
-##新闻
+## 新闻
  1. [《苹果收购iOS测试平台TestFlight的开发商》](http://tech.sina.com.cn/mobile/n/apple/2014-02-22/08379183001.shtml)，苹果公司确认收购知名iOS测试平台TestFlight的开发商Burstly。与此同时，TestFlight表示将停止提供Android平台产品，不再面向新用户销售Android版测试软件开发包(SDK)，而当前用户仍可以继续使用。
 
  1. [《由苹果的低级Bug想到的》](http://coolshell.cn/articles/11112.html): 2月22日苹果修复了SSL连接验证的一个bug，该bug会引起中间人攻击。文章作者详细分析了Bug产生的潜在原因和一些思考，包括代码风格、测试、以及goto语句的使用。
@@ -23,7 +23,7 @@ categories: iOS weekly
  
  1. [《Facebook Paper使用的第三方库》](http://blog.rpplusplus.me/blog/2014/02/11/facebook-paper-used-3rd/)：作者在文章中分享了facebook paper使用的第三方库。该列表中的第三方库对广大iOS开发者来说，具有很好的参考意义。 
  
-##教程
+## 教程
 
  1. [《初识iPhone基带通讯》](http://blog.xcodev.com/archives/iphone-baseband-intro/)：基带（Baseband）是手机的通讯模块，它负责移动网络的调制与解调工作，它与手机核心通讯功能息息相关。作者在文章中介绍了，如何在越狱的iPhone中，用基带进行通讯。
  
@@ -37,11 +37,11 @@ categories: iOS weekly
  
  6. [《objc.io系列文章中文翻译汇总》](http://iosinit.com/?p=787)：objc.io是国外的一个iOS教程网站，它每一期的教程会有一个主题，在这个主题下会有6篇左右的文章（有时由浅入深，有时侧重点不同），实属iOS学习中的精品资源。因此，每一期objc.io文章出来的时候，都会有一些热心的读者将文章翻译成中文。作者将网上的翻译汇总在文章中，方便大家阅读。
  
-##工具
+## 工具
 
  1. [Crash Manager](https://itunes.apple.com/cn/app/crash-manager/id806327079?mt=8)：Crash Manager是Crashlytics的非官方iPhone客户端，而且在AppStore上免费。InfoQ也曾撰文介绍过Crashlytics的使用：[《统计Crash的工具Crashlytics》](http://www.infoq.com/cn/articles/crashlytics-crash-statistics-tools)。
 
-##开源项目
+## 开源项目
 
  1. [DyCI](https://github.com/DyCI/dyci-main) ：DyCI是一个动态注入工具，用于向iOS应用中注入代码而不用重新启动应用。
  

@@ -6,21 +6,11 @@ comments: true
 categories: iOS
 ---
 
-## <font color='red'>Charles 中国特惠 </font>
-
-{% img /images/charles-promo.png %}
-
-Charles 正版[五折优惠活动](http://item.taobao.com/item.htm?&id=524230901640)（限时：2015 年 11 月 14 日 - 30 日），仅限中国区购买，[点击购买](http://item.taobao.com/item.htm?&id=524230901640)。在活动期结束后，价格将从 169 元上涨到 199 元。
-
-手机 / 微信读者，复制以下内容，然后打开「淘宝客户端」即可看到商品：
-
->Charles 网络封包分析工具，使用￥Charles 特惠￥抢先预览（长按复制整段文案，打开手机淘宝即可进入活动内容）
-
 ## 更新
 
-本部分的内容写于2013年12月，2015年11月有更新，更新版的文章见：[《Charles 从入门到精通》](/blog/2015/11/14/charles-introduction/)
+本部分的内容写于2013年12月，2015年11月有更新，更新版的文章见：[《Charles 从入门到精通》](/2015/11/14/charles-introduction/)
 
-##简介
+## 简介
 
 {% img /images/charles-logo.png %}
 
@@ -46,11 +36,11 @@ Charles 主要的功能包括：
 
 <!-- more -->
 
-##安装 Charles
+## 安装 Charles
 
 去 Charles 的官方网站（<http://www.charlesproxy.com>）下载最新版的 Charles 安装包，是一个 dmg 后缀的文件。打开后将 Charles 拖到 Application 目录 下即完成安装。
 
-##安装 SSL 证书
+## 安装 SSL 证书
 如果你需要截取分析 SSL 协议相关的内容。那么需要安装 Charles 的 CA 证书。具体步骤如下：
 
  1. 去 <http://www.charlesproxy.com/ssl.zip> 下载 CA 证书文件。
@@ -58,7 +48,7 @@ Charles 主要的功能包括：
  3. 从钥匙串访问中即可看到添加成功的证书。如下所示：
 {% img /images/charles-ca-2.png %}
  
-## 将 Charles 设置成系统代理
+##  将 Charles 设置成系统代理
 
 之前提到，Charles 是通过将自己设置成代理服务器来完成封包截取的，所以使用 Charles 的第一步是将其设置成系统的代理服务器。
 
@@ -93,17 +83,17 @@ Charles 主要提供 2 种查看封包的视图，分别名为 “Structure” �
 
 通常情况下，我们使用方法 1 做一些临时性的封包过滤，使用方法 2 做一些经常性的封包过滤。
 
-##截取 iPhone 上的网络封包
+## 截取 iPhone 上的网络封包
 
 Charles 通常用来截取本地上的网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。下面我就以 iPhone 为例，讲解如何进行相应操作。
 
-####Charles 上的设置
+### Charles 上的设置
 
 要截取 iPhone 上的网络请求，我们首先需要将 Charles 的代理功能打开。在 Charles 的菜单栏上选择 “Proxy”->"Proxy Settings"，填入代理端口 8888，并且勾上 "Enable transparent HTTP proxying" 就完成了在 Charles 上的设置。如下图所示:
 
 {% img /images/charles-proxy-setting.jpg %}
 
-####iPhone 上的设置
+### iPhone 上的设置
 
 首先我们需要获取 Charles 运行所在电脑的 IP 地址，打开 Terminal，输入`ifconfig en0`, 即可获得该电脑的 IP，如下图所示：
 
@@ -117,7 +107,7 @@ Charles 通常用来截取本地上的网络封包，但是当我们需要时，
 
 {% img /images/charles-proxy-confirm.jpg %}
 
-##截取 SSL 信息
+## 截取 SSL 信息
 
 Charles 默认并不截取 SSL 的信息，如果你想对截取某个网站上的所有 SSL 网络请求，可以在该请求上右击，选择 SSL proxy，如下图所示：
 
@@ -125,7 +115,7 @@ Charles 默认并不截取 SSL 的信息，如果你想对截取某个网站上�
 
 这样，对于该 Host 的所有 SSL 请求可以被截取到了。
 
-##模拟慢速网络
+## 模拟慢速网络
 
 在做 iPhone 开发的时候，我们常常需要模拟慢速网络或者高延迟的网络，以测试在移动网络下，应用的表现是否正常。Charles 对此需求提供了很好的支持。
 
@@ -135,7 +125,7 @@ Charles 默认并不截取 SSL 的信息，如果你想对截取某个网站上�
 
 如果我们只想模拟指定网站的慢速网络，可以再勾选上图中的 "Only for selected hosts" 项，然后在对话框的下半部分设置中增加指定的 hosts 项即可。
 
-##修改网络请求内容
+## 修改网络请求内容
 
 有些时候为了调试服务器的接口，我们需要反复尝试不同参数的网络请求。Charles 可以方便地提供网络请求的修改和重发功能。只需要在以往的网络请求上点击右键，选择 “Edit”，即可创建一个可编辑的网络请求。如下所示：
 
@@ -145,11 +135,11 @@ Charles 默认并不截取 SSL 的信息，如果你想对截取某个网站上�
 
 {% img /images/charles-execute-request.jpg %}
 
-##总结
+## 总结
 
 通过 Charles 软件，我们可以很方便地在日常开发中，截取和调试网络请求内容，分析封包协议以及模拟慢速网络。用好 Charles 可以极大的方便我们对于带有网络请求的 App 的开发和调试。
 
-参考链接：
+## 参考链接
 
  1. [Charles 主要的功能列表](http://www.charlesproxy.com/overview/about-charles/)
  1. [Charles 官网](http://www.charlesproxy.com/)

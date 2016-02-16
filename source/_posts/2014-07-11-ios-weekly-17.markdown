@@ -6,23 +6,23 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/07/swift-beta3-change)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 【摘要】：本期iOS移动开发周报带来如下内容：Swift 进入TIOBE 指数排名16，Swift 在 Beta3 中的变化，WebKit in iOS 8等。
 
-##新闻
+## 新闻
 
  1. [《Swift 进入TIOBE 指数排名16》](http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html)：在TIOBE的 2014年7月编程语言排行榜上，苹果公司新的编程语言Swift发布一个月内就进入TIOBE指数，名列位置16，前三名则没有变化，依旧是C、Java、Objective-C。
 
  1. [《韩国当局下令 Apple 改变 App Store 退款政策》](http://www.guomii.com/posts/38291)：近日韩国当局已经下令 Apple 修改其公司的 App Store 退款政策，理由是现有政策违反了公平贸易的相关规定。众所周知，目前 App Store 的退款政策是用户先提交请求，然后由 Apple 员工审核要不要进行退款。也就是说，最终是否能够退款存在着员工一定的主观因素，因此被韩国公平贸易委员会认为这是不公平的。
 
-##教程
+## 教程
 
  1. [《Swift 在 Beta3 中的变化》](http://andelf.github.io/blog/2014/07/08/swift-beta3-changes/)：刚刚更新的Xcode 6 Beta3中，Swift编译器又进行了较大的更改，本文章详细介绍了改动细节。
 
@@ -40,11 +40,11 @@ categories: iOS weekly
 
  1. [《移动APP背后的安全问题》](http://www.infoq.com/cn/presentations/security-issues-behind-mobile-app)：现在已进入移动互联网时代，吃喝玩乐、办公支付等等各种应用都在抢占移动APP市场，由于安全无处不在的本质，在多年前就已经有少数人在研究移动APP的中木马、钓鱼等等，但很少有人想到移动APP安全跟WEB安全的关系。安全宝安全团队Leader尹毅在视频中分享了： 1、移动APP市场安全现状 2、安卓APP的反编译及漏洞挖掘 3、利用移动APP渗透的各种“猥琐”思路 4、自动化移动APP安全漏洞挖掘的程序实现。
 
-##工具
+## 工具
 
  1. [《dSYM 文件分析工具》](http://answerhuang.duapp.com/index.php/2014/07/06/dsym_tool/)：Xcode编译项目后，我们会看到一个同名的 dSYM 文件，dSYM 是保存 16 进制函数地址映射信息的中转文件，我们调试的 symbols 都会包含在这个文件中，并且每次编译项目的时候都会生成一个新的 dSYM 文件。作者分享了一个工具，能够根据dSYM文件方便从Crash信息中分析出有可能错误的地方。
 
-##开源项目
+## 开源项目
 
  1. [QueryKit](https://github.com/kylef/QueryKit)：QueryKit是一个用Swift实现的、方便对CoreData数据进行查询的工具库。
 

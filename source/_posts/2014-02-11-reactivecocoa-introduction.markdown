@@ -8,12 +8,12 @@ categories: iOS
 
 本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/articles/reactivecocoa-ios-new-develop-framework)。如需转载，请与 InfoQ 中文站联系。
 
-##什么是 ReactiveCocoa 
+## 什么是 ReactiveCocoa 
 
 [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)（其简称为 RAC）是由 [Github](https://github.com/blog/1107-reactivecocoa-for-a-better-world) 开源的一个应用于 iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 [Reactive Extensions](http://msdn.microsoft.com/en-us/data/gg577609) 的设计和实现。
 
 
-##ReactiveCocoa 试图解决什么问题
+## ReactiveCocoa 试图解决什么问题
 
 经过一段时间的研究，我认为 ReactiveCocoa 试图解决以下 3 个问题：
 
@@ -23,7 +23,7 @@ categories: iOS
 
 <!-- more -->
 
-###传统 iOS 开发过程中，状态以及状态之间依赖过多的问题
+### 传统 iOS 开发过程中，状态以及状态之间依赖过多的问题
 
 我们在开发 iOS 应用时，一个界面元素的状态很可能受多个其它界面元素或后台状态的影响。
 
@@ -88,7 +88,7 @@ RAC(self.logInButton, enabled) = [RACSignal
 
 除了组合（combine）之外，RAC 的信号还支持链式（chaining）和过滤（filter)，以方便将信号进行进一步处理。
 
-###试图解决 MVC 框架的问题
+### 试图解决 MVC 框架的问题
 
 对于传统的 [Model-View-Controller](http://zh.wikipedia.org/zh-cn/MVC) 的框架，Controller 很容易变得比较庞大和复杂。由于 Controller 承担了 Model 和 View 之间的桥梁作用，所以 Controller 常常与对应的 View 和 Model 的耦合度非常高，这同时也造成对其做单元测试非常不容易，对 iOS 工程的单元测试大多都只在一些工具类或与界面无关的逻辑类中进行。
 
@@ -97,7 +97,7 @@ RAC 的信号机制很容易将某一个 Model 变量的变化与界面关联，
 因为引入了 ViewModel 层，所以单元测试可以在 ViewModel 层进行，iOS 工程的可测试性也大大增强了。InfoQ 也曾撰文介绍过 MVVM：[《MVVM 启示录》](http://www.infoq.com/cn/articles/mvvm-revelation/) 。
 
 
-###统一消息传递机制
+### 统一消息传递机制
 
 iOS 开发中有着各种消息传递机制，包括 KVO、Notification、delegation、block 以及 target-action 方式。各种消息传递机制使得开发者在做具体选择时感到困惑，例如在 objc.io 上就有 [专门撰文](http://www.objc.io/issue-7/communication-patterns.html)（[破船的翻译](http://beyondvincent.com/blog/2013/12/14/124-communication-patterns/) ），介绍各种消息传递机制之间的差异性。
 
@@ -158,7 +158,7 @@ RAC 的`RACSignal` 类也提供了`createSignal`方法来让用户创建自定�
 
 ```
 
-##如何使用 ReactiveCocoa
+## 如何使用 ReactiveCocoa
 
 ReactiveCocoa 可以在 iOS 和 OS X 的应用开发中使用，对于 iOS 开发者，可以将 [RAC 源码](https://github.com/ReactiveCocoa/ReactiveCocoa.git) 下载编译后，使用编译好的`libReactiveCocoa-iOS.a`文件。
 
@@ -170,7 +170,7 @@ pod 'ReactiveCocoa'
 
 ```
 
-##ReactiveCocoa 的特点
+## ReactiveCocoa 的特点
 
 RAC 在应用中大量使用了 block，由于 Objective-C 语言的内存管理是基于 [引用计数](http://zh.wikipedia.org/zh-cn/%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0) 的，为了避免循环引用问题，在 block 中如果要引用 self，需要使用`@weakify(self)`和`@strongify(self)`来避免强引用。另外，在使用时应该注意 block 的嵌套层数，不恰当的滥用多层嵌套 block 可能给程序的可维护性带来灾难。
 
@@ -179,9 +179,9 @@ RAC 的编程方式和传统的 MVC 方式差异巨大，所以需要较长的�
 
 作为一个 iOS 开发领域的新开源框架，ReactiveCocoa 带来了函数式编程和响应式编程的思想，值得大家关注并且学习。
 
-##一些学习资源
+## 一些学习资源
 
-###博客 & 教程
+### 博客 & 教程
 
  * <http://spin.atomicobject.com/2014/02/03/objective-c-delegate-pattern/>
  * <http://blog.bignerdranch.com/4549-data-driven-ios-development-reactivecocoa/>
@@ -200,16 +200,16 @@ RAC 的编程方式和传统的 MVC 方式差异巨大，所以需要较长的�
  * <http://blog.zhaojie.me/2009/09/functional-reactive-programming-for-csharp.html>
 
 
-###代码
+### 代码
 
  * <https://github.com/Machx/MVVM-IOS-Example>
  * <https://github.com/ReactiveCocoa/RACiOSDemo>
 
 
-###书籍
+### 书籍
  * <https://leanpub.com/iosfrp>
 
-###视频
+### 视频
  * <http://vimeo.com/65637501>
 
 

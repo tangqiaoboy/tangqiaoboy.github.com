@@ -8,7 +8,7 @@ categories: iOS summary
 
 {% img /images/facebook-logo.jpg %}
 
-##从 Facebook 谈起
+## 从 Facebook 谈起
 
 Facebook 最近绝对是互联网界的新闻明星。它首先是进行了大手笔的收购：2014 年 2 月，Facebook 以 160 亿美元现金加股票，以及 30 亿美元受限制股票福利的方式 [收购移动 IM 应用 WhatsApp](http://tech.ifeng.com/internet/special/fb-whatsapp/content-1/detail_2014_02/21/34032969_0.shtml)，总收购成本 190 亿美元。然后是继续发布了新产品：2014 年 2 月，Facebook 发布了一个新的移动端新闻阅读应用 [Paper](https://www.facebook.com/paper)。最后，Facebook 最近还将自己使用的大量工具开源，包括开源了 Paper 的加载效果 [Shimmer](https://github.com/facebook/Shimmer)，LLDB 的增强工具 [chisel](https://github.com/facebook/chisel)，以及 Key-Value Observing 工具 [KVOController](https://github.com/facebook/KVOController)，如果说这些开源工具让程序员如获至宝的话，那么 Facebook 将 Paper 的交互设计工具 [Origami](http://facebook.github.io/origami/) 免费开放，则是对广大设计师的福音，极大地方便了移动交互设计工作的开展。
 
@@ -16,7 +16,7 @@ Facebook 最近绝对是互联网界的新闻明星。它首先是进行了大�
 
 业界内大多讨论的话题都围绕在 Facebook 收购 WhatsApp 这件事情上，而作为一个移动开发者，我更加看重 Facebook 发布 Paper 这件事情。因为 Paper 并不是一个简单的应用，它有着非常优秀的交互效果，并且在产品设计和技术上都使用了许多前沿的技术，那就让我们看看，Paper 的开发到底有何不同之处？
 
-##交互设计
+## 交互设计
 
 我们首先从产品设计上看 Paper 的不同之处。Paper 虽然只是一个新闻客户端，但从大家对 Paper 的评价上，我们发现优秀的交互再一次成为大家关注的焦点。回想那些成功的应用，大多都有着令人心动的交互效果，例如：Tweetie 的下拉刷新，现在基本上成为 iPhone 上内容刷新的标准。Path 跳出来的红心让人心动，很多朋友甚至会没事点那个红心，欣赏那流畅的按钮散开效果。还有 Mailbox，用流畅的手势操作，将邮件管理与任务管理完美结合起来。
 
@@ -34,7 +34,7 @@ Facebook 最近绝对是互联网界的新闻明星。它首先是进行了大�
 
 另一方面，Facebook 的工程师在 [Quora 上反馈](http://www.quora.com/What-exactly-did-Jason-Prado-mean-when-he-said-Xcode-cannot-handle-our-scale/answer/Scott-Goodson-1) 说 Paper 在 Xcode 下打开需要 40 多秒钟，编译一次需要 30 分钟。这反映出大量的开源库的使用也给 iOS 集成编译环境 Xcode 提出了新的挑战，相信苹果会花大力气解决 Xcode 的性能问题。
 
-##总结
+## 总结
 
 Facebook 发布的 Paper 让我看到了移动开发领域的快速发展，大量新的工具和开源技术给了设计师和程序员机会和挑战，相信在移动互联网快速发展的浪潮中，会涌现出越来越多优秀的移动应用。谁会是未来移动互联网的霸主？让我们拭目以待。
 

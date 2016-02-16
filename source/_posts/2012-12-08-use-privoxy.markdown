@@ -20,23 +20,23 @@ You take the red pill, you stay in Wonderland, and I show you just how deep the 
 
 <!-- more -->
 
-##GoAgent
+## GoAgent
 
 [GoAgent](https://code.google.com/p/goagent/)是一个基于Google App Engine的翻墙工具。关于GoAgent的安装教程，网络上已经有很多了，大家可以随便搜索一下就可以找到，当然，记得用google搜索。
 
-##SwitchySharp
+## SwitchySharp
 
 拿GoAgent直接作代理服务器地址不太合适，因为如果全部走代理的话，国内的访问太慢了，所以我们需要给Chrome浏览器配置[SwitchySharp插件](https://chrome.google.com/webstore/detail/proxy-switchysharp/dpplabbmogkhghncfbfdeeokoefdjegm)，SwitchySharp插件加上自动更新的“墙”List（地址见下图），我们就可以在浏览器中享受无墙的世界了。
 
 {% img /images/switch-sharp.png %}
 
-##Privoxy
+## Privoxy
 
 因为虽然SwitchySharp搞定了访问网页时的代理智能切换，但是我们在使用诸如Dropbox, twitter客户端等软件时，还是无法智能切换到代理。而使用Privoxy就能解决这个问题。
 
 Privoxy是一个智能代理切换软件，它的使用必须基于GoAgent或其它已部署好的代理服务。下面介绍如何安装和配置privoxy。
 
-###安装
+### 安装
 
 使用brew就可以一键安装：
 
@@ -44,7 +44,7 @@ Privoxy是一个智能代理切换软件，它的使用必须基于GoAgent或其
 brew install privoxy
 ```
 
-###自动启动
+### 自动启动
 
 设置好自动启动后，我们就不用管它了。方法如下：
 
@@ -91,7 +91,7 @@ root           17984   0.0  0.2  2477764  17452   ??  Ss   10:13上午   0:50.28
 tcp4       0      0  127.0.0.1.8118         *.*                    LISTEN   
 ```
 
-###配置
+### 配置
 
 我们需要配置Provixy才能使用它。配置步骤如下：
 
@@ -121,7 +121,7 @@ tcp4       0      0  127.0.0.1.8118         *.*                    LISTEN
 
   {% img /images/mac-proxy.png %}
 
-###Tips
+### Tips
 
  1. 如果你的GoAgent监听在8087端口，而Privoxy监听在8118端口，那么到这一步，你就可以让你的所有应用正常翻墙了。
 需要注意的是SwitchySharp默认会忽略系统代理直接连接网络，你可能需要选择它的“使用系统代理设置”这一项，如下所示：
@@ -136,7 +136,7 @@ tcp4       0      0  127.0.0.1.8118         *.*                    LISTEN
     {% img /images/goagent-cer.png %}
 
 
-##参考文章
+## 参考文章
  1. <http://venmos.com/blog/2012/09/20/mac-autossh-privoxy/>
 
  2. <http://y-zh.net/archives/77>

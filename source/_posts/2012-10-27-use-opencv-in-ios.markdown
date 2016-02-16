@@ -6,7 +6,7 @@ comments: true
 categories: iOS
 ---
 
-##前言
+## 前言
 
 {% img /images/opencv.png %}
 
@@ -22,9 +22,9 @@ categories: iOS
 
 <!-- more -->
 
-##MacOS系统中使用OpenCV
+## MacOS系统中使用OpenCV
 
-###在Mac OS Lion中安装OpenCV
+###  在Mac OS Lion中安装OpenCV
 
 相信大部分Mac用户都安装了brew或port，如果你没有装，那么首先安装一下brew吧。使用如下命令安装brew:
 
@@ -41,7 +41,7 @@ brew install opencv
 
 安装成功后，你应该可以在“/usr/local/include"目录下找到名为opencv和opencv2的目录，这里面是OpenCV相关的头文件。你也可以在“/usr/local/lib"目录下找到许多以libopencv_开头的.dylib文件，这些是OpenCV的链接库文件。
 
-###在Mac OS Mountain Lion中安装OpenCV
+###  在Mac OS Mountain Lion中安装OpenCV
 
 按照[该教程](http://tilomitra.com/opencv-on-mac-osx/)，先用brew安装cmake.
 
@@ -62,7 +62,7 @@ sudo make install
 
 安装成功后，你应该可以在“/usr/local/include"目录下找到名为opencv和opencv2的目录，这里面是OpenCV相关的头文件。你也可以在“/usr/local/lib"目录下找到许多以libopencv_开头的.dylib文件，这些是OpenCV的链接库文件。
 
-###在MacOS系统中使用OpenCV
+### 在MacOS系统中使用OpenCV
 接着我们可以试着在Xcode工程中使用OpenCV。
 
 新建一个Cocoa Application的工程。工程建好后，选中工程的Target，在Build Settings一样，找到“Header Search Paths"这一个选项，将它的值改为“/usr/local/include"。
@@ -254,14 +254,14 @@ static void ProviderReleaseDataNOP(void *info, const void *data, size_t size)
 
 完成以上步骤后，恭喜你，你可以在源代码中自由地调用OpenCV的函数了。
 
-##在iOS系统中使用OpenCV
+## 在iOS系统中使用OpenCV
 
-####下载或编译opencv2.framework
+### 下载或编译opencv2.framework
 接下来介绍如何在iOS程序中使用OpenCV。在iOS上使用最新的OpenCV库比较简单，进入[opencv的官网](http://opencv.org/)，下载build好的名为opencv2.framework即可（[下载地址](http://sourceforge.net/projects/opencvlibrary/files/opencv-ios/2.4.3/opencv2.framework.zip/download?utm_expid=6384-3)）。
 
 如果你比较喜欢折腾，也可以自行下载opencv的源码，在本地编译opencv2.framework。[这里](http://docs.opencv.org/trunk/doc/tutorials/introduction/ios_install/ios_install.html#ios-installation)有官方网站的教程，步骤非常简单，不过我照着它的教程尝试了一下失败了。感觉还是XCode编译器与OpenCV代码的兼容性问题，所以就没有继续研究了。
 
-####在iOS程序中使用OpenCV
+### 在iOS程序中使用OpenCV
 新建一个iOS工程，将opencv2.framework直接拖动到工程中。然后，你需要在Build Settings中，将“C++ Standard Library”设置成libstdc++。
 
 因为opencv中的MIN宏和UIKit的MIN宏有冲突。所以需要在.pch文件中，先定义opencv的头文件，否则会有编译错误。将工程的.pch文件内容修改成如下所示：
@@ -441,7 +441,7 @@ static void ProviderReleaseDataNOP(void *info, const void *data, size_t size)
 
 ```
 
-##总结
+## 总结
 
 上面2个环境搭建好后，你就可以在MacOS上试验各种图象处理算法，然后很方便地移值到iOS上。
 

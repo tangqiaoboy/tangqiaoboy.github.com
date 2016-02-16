@@ -6,17 +6,17 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/05/ios-app-security-development)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 【摘要】：本期iOS移动开发周报带来如下内容：iOS应用安全开发概述，Collection View 动画，可变参数列表的实现原理，XcodeBoost插件等。
 
-##教程
+## 教程
 
  1. [《iOS应用安全开发，你不知道的那些事》](http://www.csdn.net/article/2014-04-30/2819573-The-Secret-Of-App-Dev-Security)：iOS应用由于其直接运行在手机上，相比运行在服务器的后台服务，更有可能被黑客攻击。本文从网络安全、本地文件和数据安全、源代码安全三个方面，阐述iOS应用在安全性上遇到的挑战。
 
@@ -34,7 +34,7 @@ categories: iOS weekly
  
  1. [subjc.com](http://subjc.com/)：subjc.com是一个介绍iOS界面编程技巧的网站。网站中有动画实例分析以及实现的代码。
 
-##工具
+## 工具
 
  1. [XcodeBoost](https://github.com/fortinmike/XcodeBoost)：XcodeBoost包含多个辅助修改代码的小功能，比如：
 
@@ -42,7 +42,7 @@ categories: iOS weekly
 	2. 可以在某一个源文件中直接输入正则表达式查找
 	3. 可以复制粘贴代码时不启用Xcode的自动缩进功能（Xcode的自动缩进经常出问题，造成已经调整好的代码缩进，因为粘贴时被Xcode调整坏了）
  
-##开源项目
+## 开源项目
 
  1. [Eggscellent开源](https://github.com/monoclesociety/eggscellent)：Eggscellent是Mac上的开源的番茄钟应用。
 

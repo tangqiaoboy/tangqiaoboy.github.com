@@ -1,24 +1,20 @@
 ---
 layout: post
-title: "Charles 从入门到精通(中国5折特惠)"
+title: "Charles 从入门到精通"
 date: 2015-11-14 12:00:47 +0800
 comments: true
 categories: iOS
 ---
 
-## <font color='red'>Charles 中国特惠 </font>
-
-{% img /images/charles-promo.png %}
+<!--
+## Charles 中国特惠
 
 Charles 正版[五折优惠活动](http://item.taobao.com/item.htm?&id=524230901640)（限时：2015 年 11 月 14 日 - 30 日），仅限中国区购买，[点击购买](http://item.taobao.com/item.htm?&id=524230901640)。在活动期结束后，价格将从 169 元上涨到 199 元。
+-->
 
-手机 / 微信读者，复制以下内容，然后打开「淘宝客户端」即可看到商品：
+## 目录
 
->Charles 网络封包分析工具，使用￥Charles 特惠￥抢先预览（长按复制整段文案，打开手机淘宝即可进入活动内容）
-
-## 目录与版权
-
-转载请保留顶部的 Charles 中国特惠内容，本文的内容主要包括：
+本文的内容主要包括：
  
  * Charles 的简介
  * 如何安装 Charles
@@ -105,13 +101,13 @@ Charles 主要提供两种查看封包的视图，分别名为 "Structure" 和 "
 
 Charles 通常用来截取本地上的网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。下面我就以 iPhone 为例，讲解如何进行相应操作。
 
-#### Charles 上的设置
+### Charles 上的设置
 
 要截取 iPhone 上的网络请求，我们首先需要将 Charles 的代理功能打开。在 Charles 的菜单栏上选择 "Proxy"->"Proxy Settings"，填入代理端口 8888，并且勾上 "Enable transparent HTTP proxying" 就完成了在 Charles 上的设置。如下图所示:
 
 {% img /images/charles-proxy-setting.jpg %}
 
-#### iPhone 上的设置
+### iPhone 上的设置
 
 首先我们需要获取 Charles 运行所在电脑的 IP 地址，Charles 的顶部菜单的 "Help"->"Local IP Address"，即可在弹出的对话框中看到 IP 地址，如下图所示：
 
@@ -127,7 +123,7 @@ Charles 通常用来截取本地上的网络封包，但是当我们需要时，
 
 ## 截取 Https 通讯信息
 
-#### 安装证书
+### 安装证书
 
 如果你需要截取分析 Https 协议相关的内容。那么需要安装 Charles 的 CA 证书。具体步骤如下。
 
@@ -141,7 +137,7 @@ Charles 通常用来截取本地上的网络封包，但是当我们需要时，
 
 这样，对于该 Host 的所有 SSL 请求可以被截取到了。
 
-#### 截取移动设备中的 Https 通讯信息
+### 截取移动设备中的 Https 通讯信息
 
 如果我们需要在 iOS 或 Android 机器上截取 Https 协议的通讯内容，还需要在手机上安装相应的证书。点击 Charles 的顶部菜单，选择 "Help" -> "SSL Proxying" -> "Install Charles Root Certificate on a Mobile Device or Remote Browser"，然后就可以看到 Charles 弹出的简单的安装教程。如下图所示：
 
@@ -216,7 +212,7 @@ Charles 的 Map 功能分 Map Remote 和 Map Local 两种，顾名思义，Map R
 {% img /images/charles-map-local.png %}
 
 
-# Rewrite 功能
+### Rewrite 功能
 
 Rewrite 功能功能适合对某一类网络请求进行一些正则替换，以达到修改结果的目的。
 
@@ -232,7 +228,7 @@ Rewrite 功能功能适合对某一类网络请求进行一些正则替换，以
 
 {% img /images/charles-rewrite-3.png %}
 
-## Breakpoints 功能
+### Breakpoints 功能
 
 上面提供的 Rewrite 功能最适合做批量和长期的替换，但是很多时候，我们只是想临时修改一次网络请求结果，这个时候，使用 Rewrite 功能虽然也可以达到目的，但是过于麻烦，对于临时性的修改，我们最好使用 Breakpoints 功能。
 

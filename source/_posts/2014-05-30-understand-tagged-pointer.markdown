@@ -6,17 +6,17 @@ comments: true
 categories: iOS
 ---
 
-###版权说明
+## 版权说明
 
 本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/articles/deep-understanding-of-tagged-pointer)。如需转载，请与 InfoQ 中文站联系。
 
 【摘要】：为了节省内存和提高执行效率，苹果提出了`Tagged Pointer`的概念。对于 64 位程序，引入 Tagged Pointer 后，相关逻辑能减少一半的内存占用，以及 3 倍的访问速度提升，100 倍的创建、销毁速度提升。本文从`Tagged Pointer`试图解决的问题入手，带领读者理解`Tagged Pointer`的实现细节和优势，最后指出了使用时的注意事项。
 
-##前言
+## 前言
 
 在 2013 年 9 月，苹果推出了 [iPhone5s](http://en.wikipedia.org/wiki/IPhone_5S)，与此同时，iPhone5s 配备了首个采用 64 位架构的 [A7 双核处理器](http://en.wikipedia.org/wiki/Apple_A7)，为了节省内存和提高执行效率，苹果提出了`Tagged Pointer`的概念。对于 64 位程序，引入 Tagged Pointer 后，相关逻辑能减少一半的内存占用，以及 3 倍的访问速度提升，100 倍的创建、销毁速度提升。本文从`Tagged Pointer`试图解决的问题入手，带领读者理解`Tagged Pointer`的实现细节和优势，最后指出了使用时的注意事项。
 
-##问题
+## 问题
 
 我们先看看原有的对象为什么会浪费内存。假设我们要存储一个 NSNumber 对象，其值是一个整数。正常情况下，如果这个整数只是一个 NSInteger 的普通变量，那么它所占用的内存是与 CPU 的位数有关，在 32 位 CPU 下占 4 个字节，在 64 位 CPU 下是占 8 个字节的。而指针类型的大小通常也是与 CPU 位数相关，一个指针所占用的内存在 32 位 CPU 下为 4 个字节，在 64 位 CPU 下也是 8 个字节。
 
@@ -27,7 +27,7 @@ categories: iOS
 
 我们再来看看效率上的问题，为了存储和访问一个 NSNumber 对象，我们需要在堆上为其分配内存，另外还要维护它的引用计数，管理它的生命期。这些都给程序增加了额外的逻辑，造成运行效率上的损失。
 
-##Tagged Pointer
+## Tagged Pointer
 
 为了改进上面提到的内存占用和效率问题，苹果提出了`Tagged Pointer`对象。由于 NSNumber、NSDate 一类的变量本身的值需要占用的内存大小常常不需要 8 个字节，拿整数来说，4 个字节所能表示的有符号整数就可以达到 20 多亿（注：2^31=2147483648，另外 1 位作为符号位)，对于绝大多数情况都是可以处理的。
 
@@ -86,7 +86,7 @@ bigNumber pointer is 0x10921ecc0
 
 可见，当 8 字节可以承载用于表示的数值时，系统就会以`Tagged Pointer`的方式生成指针，如果 8 字节承载不了时，则又用以前的方式来生成普通的指针。关于以上关于`Tag Pointer`的存储细节，我们也可以在 [这里](https://www.mikeash.com/pyblog/friday-qa-2012-07-27-lets-build-tagged-pointers.html) 找到相应的讨论，但是其中关于`Tagged Pointer`的实现细节与我们的实验并不相符，笔者认为可能是苹果更改了具体的实现细节，并且这并不影响`Tagged Pointer`我们讨论`Tagged Pointer`本身的优点。
 
-##特点
+## 特点
 
 我们也可以在 WWDC2013 的《Session 404 Advanced in Objective-C》视频中，看到苹果对于`Tagged Pointer`特点的介绍：
 
@@ -105,7 +105,7 @@ bigNumber pointer is 0x10921ecc0
 
 对于上面的写法，应该换成相应的方法调用，如 `isKindOfClass` 和 `object_getClass`。只要避免在代码中直接访问对象的 isa 变量，即可避免这个问题。
 
-##总结
+## 总结
 
 苹果将`Tagged Pointer`引入，给 64 位系统带来了内存的节省和运行效率的提高。`Tagged Pointer`通过在其最后一个 bit 位设置一个特殊标记，用于将数据直接保存在指针本身中。因为`Tagged Pointer`并不是真正的对象，我们在使用时需要注意不要直接访问其 isa 变量。
 

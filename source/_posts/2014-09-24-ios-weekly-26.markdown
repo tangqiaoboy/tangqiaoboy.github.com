@@ -6,21 +6,21 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/09/swift-strong-point)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 【摘要】：本期iOS移动开发周报带来如下内容：Swift 的强大之处、iOS8开发者专题、在Xcode 6中使用矢量PDF、iOS 8 App Extensions等。
 
-##新闻
+## 新闻
 
  1. [《Apple 上线 Android 到 iPhone 数据迁移教程》](http://www.guomii.com/posts/38832)：为了让更多的 Android 用户加入到 iPhone 阵营，Apple 主动出击，上线了一个[专门的页面](http://support.apple.com/kb/HT6407)，帮助 Android 用户购买 iPhone 之后迁移数据。涉及到的内容包括邮件、通讯录、日历、照片、视频、音乐、电子书、PDF、文档、应用等的迁移。
 
-##教程
+## 教程
 
  1. [《Swift 的强大之处》](http://objccn.io/issue-16-1/)：介绍了Swift语言的特性，包括支持函数式编程、类型安全、不可变性等。
 
@@ -46,11 +46,11 @@ categories: iOS weekly
 
  1. [《iOS 8 App Extensions Tech Talk Video》](http://www.raywenderlich.com/83021/ios-8-app-extensions-tech-talk-video)：该视频介绍了iOS 8引入的App Extensions功能。从用户视角和开发者视角分别对其做了介绍。
 
-##工具
+## 工具
 
  1. [specKing](http://www.wuwacorp.com/specking/)：specKing 与 [马克鳗](http://www.getmarkman.com/) 功能类似，用于全自动标示美术稿。不过 specKing 是以付费的 PS 外挂的形式发布的。
 
-##开源项目
+## 开源项目
 
  1. [iOS8-Sampler](https://github.com/shu223/iOS8-Sampler)：日本的shuさん制作的 iOS8 参考代码集。由 [@kimsungwhee](http://weibo.com/u/2289288323) 推荐。
 

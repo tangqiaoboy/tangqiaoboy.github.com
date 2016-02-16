@@ -6,7 +6,7 @@ comments: true
 categories: iOS
 ---
 
-##什么是 GCD
+## 什么是 GCD
 
 Grand Central Dispatch (GCD) 是 Apple 开发的一个多核编程的解决方法。该方法在 Mac OS X 10.6 雪豹中首次推出，并随后被引入到了 iOS4.0 中。GCD 是一个替代诸如 NSThread, NSOperationQueue, NSInvocationOperation 等技术的很高效和强大的技术。
 
@@ -14,11 +14,11 @@ GCD 和 block 的配合使用，可以方便地进行多线程编程。
 
 <!--More-->
 
-##应用举例
+## 应用举例
 
 让我们来看一个编程场景。我们要在 iPhone 上做一个下载网页的功能，该功能非常简单，就是在 iPhone 上放置一个按钮，点击该按钮时，显示一个转动的圆圈，表示正在进行下载，下载完成之后，将内容加载到界面上的一个文本控件中。
 
-###不用 GCD 前
+### 不用 GCD 前
 虽然功能简单，但是我们必须把下载过程放到后台线程中，否则会阻塞 UI 线程显示。所以，如果不用 GCD, 我们需要写如下 3 个方法：
 
  * someClick 方法是点击按钮后的代码，可以看到我们用 NSInvocationOperation 建了一个后台线程，并且放到 NSOperationQueue 中。后台线程执行 download 方法。
@@ -59,7 +59,7 @@ static NSOperationQueue * queue;
 }
 ```
 
-###使用 GCD 后
+### 使用 GCD 后
 如果使用 GCD，以上 3 个方法都可以放到一起，如下所示：
 
 ``` objc
@@ -90,7 +90,7 @@ static NSOperationQueue * queue;
 另外，代码变清楚了，虽然是异步的代码，但是它们被 GCD 合理的整合在一起，逻辑非常清晰。如果应用上 MVC 模式，我们也可以将 View Controller 层的回调函数用 GCD 的方式传递给 Modal 层，这相比以前用 @selector 的方式，代码的逻辑关系会更加清楚。
 
 
-##block 的定义
+## block 的定义
 
 block 的定义有点象函数指针，差别是用 ^ 替代了函数指针的 * 号，如下所示：
 
@@ -119,7 +119,7 @@ block 的定义有点象函数指针，差别是用 ^ 替代了函数指针的 *
  1. 程序块可以在代码中以内联的方式来定义。
  2. 程序块可以访问在创建它的范围内的可用的变量。
 
-##系统提供的 dispatch 方法
+## 系统提供的 dispatch 方法
 为了方便地使用 GCD，苹果提供了一些方法方便我们将 block 放在主线程 或 后台线程执行，或者延后执行。使用的例子如下：
 
 ``` objc
@@ -171,7 +171,7 @@ dispatch_release(urls_queue);
 
 ```
 
-##修改 block 之外的变量
+## 修改 block 之外的变量
 默认情况下，在程序块中访问的外部变量是复制过去的，即写操作不对原变量生效。但是你可以加上 __block 来让其写操作生效，示例代码如下：
 
 ``` objc
@@ -183,7 +183,7 @@ dispatch_release(urls_queue);
      // 这里，a 的值被修改为 1
 ```
 
-##后台运行
+## 后台运行
 使用 block 的另一个用处是可以让程序在后台较长久的运行。在以前，当 app 被按 home 键退出后，app 仅有最多 5 秒钟的时候做一些保存或清理资源的工作。但是应用可以调用 UIApplication 的`beginBackgroundTaskWithExpirationHandler`方法，让 app 最多有 10 分钟的时间在后台长久运行。这个时间可以用来做清理本地缓存，发送统计数据等工作。
 
 让程序在后台长久运行的示例代码如下：
@@ -215,7 +215,7 @@ dispatch_release(urls_queue);
 
 ```
 
-##总结
+## 总结
 总体来说，GCD 能够极大地方便开发者进行多线程编程。大家应该尽量使用 GCD 来处理后台线程和 UI 线程的交互。
 
 

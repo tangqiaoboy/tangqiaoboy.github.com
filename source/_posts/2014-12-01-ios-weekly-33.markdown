@@ -6,18 +6,18 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/12/google-inbox-reuse-code)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 
 【摘要】：本期iOS移动开发周报带来如下内容：Google Inbox 是如何跨平台重用代码的、iOS8.1.1系统被越狱、SizeClass 和AutoLayout教程等。
 
-##新闻
+## 新闻
 
  1. [《乔布斯去世后仍获141项专利》](http://tech.sina.com.cn/it/apple/2014-11-29/05179836762.shtml)：据《麻省理工技术评论》称，尽管苹果公司联合创始人史蒂夫·乔布斯过世已三年有余，但直到今天仍陆续有新的专利归于他名下。截至目前已被授予乔布斯的专利总数共有458项。
 
@@ -27,7 +27,7 @@ categories: iOS weekly
 
  1. [《Google Inbox 是如何跨平台重用代码的？》](http://coolshell.cn/articles/12136.html)：开发一个移动应用在当下并不是一件容易的事情。如果想要获得最多的用户，你的应用通常需要覆盖 iOS, Android, 和 Web 三大平台。这就意味着同一个应用需要开发三个版本，使用 Objective-C 或者 Swift 开发 iOS 版本，使用 Java 开发 Android 版本，使用 JavaScript/CSS/HTML5 开发 Web 版本。工作量增大的同时也意味着有更多的 bug 需要修复。本文介绍了 Google 在发布 Google Inbox 时，使用 J2Objc 实现了70%的代码跨平台复用。
 
-##教程
+## 教程
 
  1. [《读 Facebook App 头文件的一些收获》](http://limboy.me/ios/2014/11/28/facebook-app-headers.html)：最近在看一些 App 架构相关的文章，也看了 Facebook 分享的两个不同时期的架构（2013 和 2014），于是就想一窥 Facebook App 的头文件，看看会不会有更多的收获，确实有，还不少。作者分享了从头文件中获取到的一些信息。
 
@@ -47,7 +47,7 @@ categories: iOS weekly
 
  1. [《一起来做价值百万的Apple Watch App：分歧终端机》](http://www.imooc.com/view/242)：视频展示了如何使用WatchKit，如何通过MVC的绑定来处理用户事件，如何制作动画的功能。
 
-##开源项目
+## 开源项目
 
  1. [MobileDataSwitch](https://github.com/victorjiang/MobileDataSwitch)：MobileDataSwitch 使用 CoreTelephony 中的私有接口，切换移动网络开关。作者还添加了App Extensions支持，可以在下拉通知 Today 中增加快速设置开关。
  

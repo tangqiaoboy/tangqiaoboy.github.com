@@ -6,7 +6,7 @@ comments: true
 categories: mac
 ---
 
-##前言
+## 前言
 
 上次将我的[iMac硬盘换成SSD](http://blog.devtang.com/blog/2014/01/26/add-ssd-to-old-imac/)后，我是通过迁移助理将我的Mac Book Air的环境同步过去的，不知道为什么，半个月前出现了重启后电脑一直处于加转中的状态。尝试过了网上提供的以下方法都没有效果：
 

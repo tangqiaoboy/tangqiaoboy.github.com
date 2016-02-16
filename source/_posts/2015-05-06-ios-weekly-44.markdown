@@ -7,24 +7,24 @@ categories: iOS weekly
 ---
 
 
-###版权说明
+## 版权说明
 
 本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2015/05/ios-weekly-apple-watch)。如需转载，请与 InfoQ 中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 
 【摘要】：本期 iOS 移动开发周报带来如下内容：Apple Watch 产品体验报告、苹果推出了官方的分析工具、iOS 图形性能进阶与测试、iOS 应用架构谈等。
 
-##新闻
+## 新闻
 
  1. [《Apple Watch 产品体验报告》](http://www.jianshu.com/p/b4e8f2cbcd6d)：文章从各个维度对 Apple Watch 进行了体验总结，包括外观感受、交互设计、功能场景分析、差异化分析等。
 
  1. [《苹果推出了官方的分析工具》](http://blog.devtang.com/blog/2015/05/01/apple-release-analytics-beta/)：苹果在五月一号这天，向开发者发送邮件，邀请参与他自家的分析工具的试用。从苹果的介绍中看出这个工具的特点是：无需额外操作，相关功能是直接集成进 iOS 系统中的，对应用来说没有任何其它的代价。另外由于苹果的限制，一些功能是第三方工具是无法提供的（例如统计运营活动效果、统计查看 AppStore 页面效果等）。苹果提供这样的工具，有助于开发者更加有效地开展市场推广和运营相关的工作。
 
-##教程
+## 教程
 
  1. [《Increasing Performance by Reducing Dynamic Dispatch》](https://developer.apple.com/swift/blog/?id=27)：来自苹果官方博客的文章，介绍了通过减少动态分发，来提高 Swift 程序的执行效率的办法。具体做法上，文章分享了使用 `final` 关键字，使用 `private` 关键字，以及使用 `Whole Module Optimization` 编译参数来进行深度优化。
 
@@ -44,13 +44,13 @@ categories: iOS weekly
 
  1. [《实时显示 iOS 的编写 UI 代码效果》](http://www.jianshu.com/p/2ed5f7444900)：编写 iOS 应用 UI 的方式大概有两种，一种是 Storyboard/Xib，另一种是手写代码。采用 Storyboard/Xib 方式组织 UI，由于提供可视化的特性，只要从 UI 库中拖动 UI 控件，便可以显示结果，极大地提高开发速度。但面临一个问题就是多人协作开发，由于所有的 UI 都放在同一个 Storyboard 文件中，使用 Git/SVN 合并代码就会出现冲突。多人协作开发还不是主要问题，有人提出可以创建多个 Storyboard 来分开 UI 编写，而 Storyboard/Xib 最主要问题是代码复用性比较差。所以有些人就选择手写 UI 代码，这样不仅可以解决多人协作开发问题，而且通过自定义控件在多个 View 使用。但每次手写 UI 代码后都要编译、构建和运行，最后在模拟器显示，这样会拖慢开发速度。如果每次修改 UI 控件后，保存修改便实时在模拟器显示修改后结果，就可以极大的提高编写 UI 的速度。本文介绍了一种办法可以实时显示 iOS 编写的 UI 代码效果。
 
-##工具
+## 工具
 
  1. [《Which Clang Warning Is Generating This Message》](http://fuckingclangwarnings.com/)：Clang 的警告与语义对照表。通过它可以更加方便地知道 Clang 的警告所表达的意思。
 
  1. [PPEtcHosts](https://github.com/PonyCui/PPEtcHosts)：PPEtcHosts 是一个小工具，可以在应用内实现域名 Host 绑定，可以解决真机无法修改 `/etc/hosts` 的问题。
 
-##开源项目
+## 开源项目
 
  1. [KYGooeyMenu](https://github.com/KittenYang/KYGooeyMenu)：KYGooeyMenu 是一个具有 Gooey Effects 带粘性的扇形菜单控件。
 

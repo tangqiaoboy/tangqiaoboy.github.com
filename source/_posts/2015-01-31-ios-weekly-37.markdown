@@ -6,17 +6,17 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，地址是[这里](http://www.infoq.com/cn/news/2015/01/ios-v-advanced-technology-road)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 本期 iOS 移动开发周报带来如下内容：iOS大V的技术进阶之路、ARC 对 self 的内存管理、Method Swizzling 和 AOP 实践、使用 iMovie 和 Keynote 制作 App Preview等。
 
-##新闻
+## 新闻
 
  1. [《唐巧访谈： iOS大V的技术进阶之路》](http://www.cocoachina.com/programmer/20150115/10930.html)：文章来自于 CocoaChina 的访谈，采访对象是唐巧，他的新书[《iOS开发进阶》](https://github.com/tangqiaoboy/iOS-Pro)已经和大家见面.采访中唐巧表达了他对于技术学习、建设技术影响力等方面的经验和看法。
 
@@ -26,7 +26,7 @@ categories: iOS weekly
 
  1. [《2014 年 Oh My Star 总结》](http://iiiyu.com/2015/01/20/2014-oh-my-star-app-annual-summary/)：Oh My Star 是一款由国人 [@Sumi-iYu](http://weibo.com/n/Sumi-iYu) 开发的管理 Github 上 star 项目的工具。笔者使用过，对于 star 功能的重度用户来说，非常好用。本文分享了作者在开发该软件的过程以及收货。
 
-##教程
+## 教程
 
  1. [《ARC 对 self 的内存管理》](http://blog.sunnyxx.com/2015/01/17/self-in-arc/)：文章从 YTKNetwork 的几行代码出发，讨论了 LLVM 编译器在传递 self 参数时，对 self 的引用计数的特殊处理。
 
@@ -44,13 +44,13 @@ categories: iOS weekly
 
  1. [《Unit Testing in Swift: Dependency Injection》](http://natashatherobot.com/unit-testing-swift-dependency-injection/)：文章介绍了在 Swift 实现的单元测试中实现依赖注入，不过实际写起来还是比较麻烦。
 
-##工具
+## 工具
 
  1. [ship.io](https://ship.io)：ship.io 是一个持续集成服务。现在所有套餐免费，支持 Xcode 6.1.1。
 
  1. [Crowdin](https://crowdin.com/): Crowdin 是一个多语言翻译服务。可以便于开发者将应用改成支持多语言。类似的服务还有：[Transifex](https://www.transifex.com/)。
 
-##开源项目
+## 开源项目
 
  1. [BreakOutToRefresh](https://github.com/dasdom/BreakOutToRefresh)：BreakOutToRefresh 是一个有趣的项目，它利用 SpriteKit 在下拉刷新过程中做了一个打砖块游戏。
 

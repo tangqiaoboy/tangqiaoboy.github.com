@@ -27,7 +27,7 @@ XCode的Console界面报出了一些出错信息, 如下图所示：
 
 我根据Console里面的文字提示信息，猜出应该是出现了空指针nil的操作。但是具体出错在哪一行，却不知道。最终虽然找到了bug，但是debug的过程确实费了些时间。考虑到这个stace trace信息应该对我挺有帮助才对的，所以我就查了一下如何让这原本一堆16进制的调用栈信息更可读。于是在stackoverflow上找到了2个比较好的解决办法，在这里分享给大家。
 
-##方法一
+## 方法一
 
 该[方法](http://stackoverflow.com/questions/7841610/xcode-4-2-debug-doesnt-symbolicate-stack-call)的步骤是，首先在你的AppDelegate中定义一个方法, 用于处理异常：
 
@@ -82,14 +82,14 @@ Ape[2711:11303] Stack Trace: (
 
 ```
 
-##方法二
+## 方法二
 
 方法二相比方法一更加简单，具体做法是在XCode界面中按cmd + 6跳到Breakpoint的tab，然后点击左下角的+号，增加一个Exception的断点，如下图所示。这样，当异常出现时，会自动停在异常处，而不会抛出到UIApplicationMain。拿我的有bug的程序来说，代码会自动断在QuestionParser这个类的第378行。
 
 {% img /images/stacktrace-2.png %}
 
 
-##总结
+## 总结
 
 其实以前XCode是能显示出可读的stack trace信息的，似乎到了XCode4.2以后就出问题了。所以上面提到的2个办法相当于walk around解决了XCode4.2以后出现的bug。如果该文章对你有用，希望你能帮我点击下面的分享按钮，分享给更多朋友，同时也帮我宣传一下博客，这将有助于我分享更多的心得给大家，Have fun!
 

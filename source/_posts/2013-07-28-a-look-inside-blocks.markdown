@@ -104,7 +104,7 @@ struct SampleB {
 clang -rewrite-objc block.c
 ```
 
-### NSConcreteGlobalBlock 类型的 block 的实现
+## NSConcreteGlobalBlock 类型的 block 的实现
 
 我们先新建一个名为 block1.c 的源文件：
 
@@ -165,7 +165,7 @@ int main()
  4. descriptor 是用于描述当前这个 block 的附加信息的，包括结构体的大小，需要 capture 和 dispose 的变量列表等。结构体大小需要保存是因为，每个 block 因为会 capture 一些变量，这些变量会加到 __main_block_impl_0 这个结构体中，使其体积变大。在该例子中我们还看不到相关 capture 的代码，后面将会看到。
 
 
-### NSConcreteStackBlock 类型的 block 的实现
+## NSConcreteStackBlock 类型的 block 的实现
 
 我们另外新建一个名为 block2.c 的文件，输入以下内容：
 
@@ -350,7 +350,7 @@ static void *_Block_copy_internal(const void *arg, const int flags) {
 }
 ```
 
-### 变量的复制
+## 变量的复制
 
 对于 block 外的变量引用，block 默认是将其复制到其数据结构中来实现访问的，如下图所示（图片来自 [这里](http://rypress.com/tutorials/objective-c/blocks.html)）：
 
@@ -360,11 +360,11 @@ static void *_Block_copy_internal(const void *arg, const int flags) {
 
 {% img /images/block-capture-2.jpg %}
 
-### LLVM 源码
+## LLVM 源码
 
 在 LLVM 开源的关于 [block 的实现源码](https://llvm.org/svn/llvm-project/compiler-rt/trunk/BlocksRuntime/Block_private.h)，其内容也和我们用 clang 改写得到的内容相似，印证了我们对于 block 内部数据结构的推测。
 
-### ARC 对 block 类型的影响
+## ARC 对 block 类型的影响
 
 在 ARC 开启的情况下，将只会有 NSConcreteGlobalBlock 和 NSConcreteMallocBlock 类型的 block。
 
@@ -391,7 +391,7 @@ int main(int argc, const char * argv[])
 
 我个人认为这么做的原因是，由于 ARC 已经能很好地处理对象的生命周期的管理，这样所有对象都放到堆上管理，对于编译器实现来说，会比较方便。
 
-###参考链接
+## 参考链接
 
 希望本文能加深你对于 block 的理解。我在学习中，查阅了以下文章，一并分享给大家。祝大家玩得开心～
 

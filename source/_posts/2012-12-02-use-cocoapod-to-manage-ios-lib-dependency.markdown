@@ -35,7 +35,7 @@ CocoaPods 就会自动将这些第三方开源库的源码下载下来，并且�
 
 ## CocoaPods 的安装和使用介绍
 
-###安装
+### 安装
 
 安装方式异常简单 , Mac 下都自带 ruby，使用 ruby 的 gem 命令即可下载安装：
 
@@ -76,7 +76,7 @@ pod repo update
 
 将以上代码中的 `https://gitcafe.com/akuandev/Specs.git` 替换成 `http://git.oschina.net/akuandev/Specs.git` 即可使用 oschina 上的镜像。
 
-###使用 CocoaPods
+### 使用 CocoaPods
 
 使用时需要新建一个名为 Podfile 的文件，以如下格式，将依赖的库名字依次列在文件中即可
 
@@ -100,7 +100,7 @@ pod install
  1. 使用 CocoaPods 生成的 *.xcworkspace 文件来打开工程，而不是以前的 *.xcodeproj 文件。
  2. 每次更改了 Podfile 文件，你需要重新执行一次`pod update`命令。
 
-###查找第三方库
+### 查找第三方库
 
 你如果不知道 cocoaPods 管理的库中，是否有你想要的库，那么你可以通过 pod search 命令进行查找，以下是我用 pod search json 查找到的所有可用的库：
 
@@ -136,7 +136,7 @@ This file should always be kept under version control.
 
 {% endblockquote %}
 
-##为自己的项目创建 podspec 文件
+## 为自己的项目创建 podspec 文件
 
 我们可以为自己的开源项目创建`podspec`文件，首先通过如下命令初始化一个`podspec`文件：
 
@@ -151,7 +151,7 @@ pod spec create your_pod_spec_name
  * [《如何编写一个 CocoaPods 的 spec 文件》](http://ishalou.com/blog/2012/10/16/how-to-create-a-cocoapods-spec-file/) 
  * [《Cocoapods 入门》](http://studentdeng.github.io/blog/2013/09/13/cocoapods-tutorial/)。
 
-##使用私有的 pods
+## 使用私有的 pods
 
 我们可以直接指定某一个依赖的`podspec`，这样就可以使用公司内部的私有库。该方案有利于使企业内部的公共项目支持 CocoaPods。如下是一个示例：
 

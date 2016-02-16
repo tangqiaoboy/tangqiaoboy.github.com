@@ -28,7 +28,7 @@ categories: iOS
 4. 确实有学习成本。但是非常值得学习，能省不少开发精力。
 5. 虽然 ARC 是与 iOS5 一同推出，但是由于 ARC 的实现机制是在编译期完成，所以使用 ARC 之后 App 仍然可以支持 iOS4.3。稍微需要注意的是，如果要在 ARC 开启的情况下支持 iOS4.3，需要将 weak 关键字换成 __unsafe_unretained，另外还有一些细节需要处理，在这里我就不展开说了。
 
-   {% img /images/xcode-convert-to-arc.jpg %}
+{% img /images/xcode-convert-to-arc.jpg %}
 
 所以，希望大家都能在项目中使用 ARC，一旦你感受到它带来的好处，你就离不开它了。它也能让你从繁琐的内存管理代码中解放出来，将精力更多关注于代码结构、设计模式而不是底层的内存管理。
 

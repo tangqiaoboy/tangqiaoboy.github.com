@@ -6,23 +6,23 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/03/reduce-ios-size)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 【摘要】：本期移动开发周报带来如下内容：减小iOS应用程序的大小，Quartz Composer的增强工具Origami的教程以及jQC工具等。
 
-##新闻
+## 新闻
 
  1. [《The Mac Freebie Bundle 3.0》](https://deals.iphoneincanada.ca/sales/the-mac-freebie-bundle-3-0)：该网站提供了7个原本收费的Mac App的免费购买。笔者试用了一下其中的X-Mirage，它可以把iPhone投到Mac上，并提供录象功能，适合将演示导出成视频。另外那个页面有Bug，在购买时信用卡信息不用填写，留空就可以直接购买成功。
 
  1. [《App Store 将增加匹配相关搜索关键字的新功能》](http://www.macstories.net/news/apple-testing-related-search-suggestions-on-the-app-store/)：新增加的功能有助于提高相关关键词的点击量。
 
-##教程
+## 教程
 
  1. [《injection plugin for xcode》](http://nonomori.farbox.com/post/injection-plugin-for-xcode)：Injection Plugin For Xcode 是 Xcode 上的一个插件。利用它可以修改应用代码，实时在模拟器或实机上看到效果而不需要重启应用。作者介绍了该插件的详细使用方式。
  
@@ -37,11 +37,11 @@ categories: iOS weekly
 
  1. [《NSNumber对象缓存以及Tagged Pointer》](http://blog.devtang.com/blog/2014/03/21/weak_object_lifecycle_and_tagged_pointer/)：本文讨论了`NSNumber`对象的缓存以及苹果在64位系统引入的`Tagged Pointer`对象。
 
-##工具
+## 工具
 
  1. [jQC 1.0](http://qcdesigners.com/index.php/forums/topic/100/it-s-finally-here-j-qc-1-0-a-u/)：jQC是一个与Facebook之前开源的Origami兼容的工具，提供了15个新的Patch来提高Quartz Composer的功能。Quartz Composer是苹果提供的一个交互设计工具。
 
-##开源项目
+## 开源项目
 
  1. [WechatPayDemo](https://github.com/gbammc/WechatPayDemo): WechatPayDemo是一个非官方的微信支付Demo，基于微信SDK1.4.1构建。由于微信官方并没有提供支付功能的iOS Demo，加上官方的文档错误，使得本文作者花了较大精力调试。他希望开源这个工程来帮助其他iOS开发者少有一些弯路。
  

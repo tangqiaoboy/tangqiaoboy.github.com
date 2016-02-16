@@ -6,23 +6,23 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/04/ios-mobile-developmeng-weekly)。如需转载，请与InfoQ中文站联系。
 
-###前言
+## 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 【摘要】：本期iOS移动开发周报带来如下内容：专门针对越狱iOS设备的盗号木马出现，iOS7下载自定义的字体功能不可用，Toll-Free Bridging等。
 
-##新闻
+## 新闻
 
  1. [专门针对越狱iOS设备的盗号木马出现](http://blog.devtang.com/blog/2014/04/19/ios-jailbreak-trojan/)：国外的iOS开发者 [@iOn1c](https://twitter.com/iOn1c) 发现一个来自中国的开发者"WANG XIN"签名的iOS平台的木马插件，该插件是一个名为Unflod.dylib动态链接库，可以将越狱机器上的AppleID用户名和密码盗取，并且发送到指定服务器上。[这里](http://pastebin.com/raw.php?i=QxVRd2ha)有该恶意插件的反汇编代码。笔者作为一个资深iOS开发者，建议一般普通用户，如果是为了用盗版软件就别越狱了，各种国内的越狱渠道都非常不安全的。如果是开发者们为了研究安全而越狱的，最好也只是在专门研究用的iTouch上使用，以避免可能的安全风险。
  
  1. [iOS7下载自定义的字体功能不可用](http://weibo.com/1676354212/AFt7N5pl8)：墨客的作者[@an00na](http://weibo.com/1676354212/AFt7N5pl8)发现iOS提供的下载自定义的字体功能有bug，完全不能使用。相关的Bug说明在[这里](http://openradar.appspot.com/radar?id=5881896777023488)。
 
-##教程
+## 教程
 
  1. [《Toll-Free Bridging》](http://gracelancy.com/blog/2014/04/21/toll-free-bridging/)：作者[@晨钰Lancy](http://weibo.com/lancy1014/)在文章中介绍Toll-Free Bridging的实现原理，以及在ARC下Toll-Free Bridging的使用场景和注意事项。
  
@@ -34,7 +34,7 @@ categories: iOS weekly
  
  1. [《字体加载三种方式》](http://nonomori.farbox.com/post/zi-ti-jia-zai-san-chong-fang-shi)：作者介绍了三种加载字体的方式：静态加载、动态加载、动态下载苹果提供的多种字体。
 
-##开源项目
+## 开源项目
 
  1. [PromiseKit](https://github.com/mxcl/PromiseKit)：异步模式在iOS编程中非常常见。针对异步编程，业界提出了Promise的抽象（又称作Deferred模式）。通过这些一些库，开发人员能够在实际编程中使用Promise模式，每个Promise都拥有一个叫做then的唯一接口，当Promise失败或成功时，它就会进行回调。它代表了一种可能会长时间运行而且不一定必须完成的操作结果。这种模式不会阻塞和等待长时间的操作完成，而是返回一个代表了承诺的（promised）结果的对象。PromiseKit是Promise模式的iOS实现。
  

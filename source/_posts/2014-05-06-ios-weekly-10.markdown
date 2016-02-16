@@ -6,17 +6,17 @@ comments: true
 categories: iOS weekly
 ---
 
-###版权说明
+## 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/05/facebook-pop-opensource)。如需转载，请与InfoQ中文站联系。
 
-###前言
+### 前言
 
 欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
 
 【摘要】：本期iOS移动开发周报带来如下内容：苹果发布 2014 年第二季度财报，Facebook将神奇动画引擎Pop开源，Objc.io中文翻译站建成，iOS 7.1.1 更新可能造成升级失败等。
 
-##新闻
+## 新闻
 
  1. [《Facebook 发布应用内深度链接技术：AppLinks》](http://tech2ipo.com/64670)：Facebook 刚刚在 f8 开发者大会上正式发布了 AppLinks 技术。该链接技术允许开发者在任何内容中植入链接，在点击后将用户带到应用内的其他地方，或是另一款应用内、或另一款应用的商城下载页面。[这里](http://vimeo.com/93018959)有 AppLinks 技术的介绍视频。
  
@@ -31,7 +31,7 @@ categories: iOS weekly
  
  1. [《Facebook第一季度财报：净利润同比增193%》](http://money.21cbh.com/2014/4-24/1MMDA2NTVfMTE0NzI1Mg.html)：4月24日Facebook发布了截至3月31日的2014财年第一季度未经审计财报。报告显示，Facebook第一季度营收为25.02亿美元，比去年同期的14.58亿美元增长72%；净利润为6.42亿美元，比去年同期的2.19亿美元增长193%。
 
-##教程
+## 教程
 
  1. [Objc.io中文翻译站建成](http://objccn.io/)：[@onevcat](http://onevcat.com/)和[@方一雄](http://weibo.com/fangyixiong?topnav=1&wvr=5&topsug=1)、[@nixzhu](http://weibo.com/nixzhu)等几十个译者一起努力，完成了objc.io上的所有文章的翻译，这是一个objc.io的完整、准确、优雅的中文翻译版本，为中国 Objective-C 社区带来最佳实践和先进技术。整个过程花费了一个多月。这是值得每一个iOS开发者学习的资料。
 
@@ -48,11 +48,11 @@ categories: iOS weekly
 
  1. [《小细节大作为：提高iOS访问权限通过率有这几个办法》](http://www.36kr.com/p/211441.html)：Brenden Mulligan是群组照片聚合应用Cluster的创始人之一，兼设计师。作为一名产品设计师和企业家，Brenden的作品包括 OneSheet和ArtistData等。在文章中，Brenden讲述了原生应用Cluster是如何提高iOS访问权限通过率的。
 
-##工具
+## 工具
 
  1. [TouchColor](https://itunes.apple.com/cn/app/touchcolor/id859727780?mt=8)：TouchColor是一个由[@方秋枋](http://tw.weibo.com/100mango)开发的优雅简洁，功能完善的取色器。它提供照片取色，照相取色，实时取色三大功能，并且在AppStore上免费提供下载。
  
-##开源项目
+## 开源项目
 
  1. [POP](https://github.com/facebook/pop)：POP是Paper使用到的动效引擎。
  

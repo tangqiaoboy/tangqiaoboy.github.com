@@ -6,7 +6,8 @@ comments: true
 categories: shell
 ---
 
-###前言
+### 前言
+
 让我们回想一下手工提交review请求的过程:
 
 1. 首先得用 svn diff > filename.diff 生成diff文件。
@@ -18,7 +19,7 @@ categories: shell
 
 <!--more-->
 
-###RBTool安装和配置
+### RBTool安装和配置
 是不是觉得很烦索？其实review board官网提供了一个RBTool，
 可以帮你把这些步骤全部省掉，一切只需要在命令行敲一条 post-review指令即可。
 很心动吧？让我们来看看如何安装RBTool。
@@ -42,7 +43,7 @@ REPOSITORY = "https://dev.yourcompany.com/svn/xxxx"
 
 这2行分别代表你们公司的review board网址和svn根目录地址。
 
-###RBTool的使用
+### RBTool的使用
 OK，以后你要提交review请求，只需要在项目根目录下输入 post-review 即可。第一次需要输入登陆review board的用户名密码，post-review工具会记住密码，以后就不用输入了。post-review默认会将你当前svn目录下的diff修改提交到review board上。你也可以加上一些指定的参数来指定group, people, description等等。比如我就写了一个小脚本，将post-review改成：
 <pre>
 post-review --target-groups=mygroup --target-people=friendname1,friendname2

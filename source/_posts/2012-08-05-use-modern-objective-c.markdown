@@ -6,11 +6,11 @@ comments: true
 categories: iOS
 ---
 
-苹果在今年的 WWDC2012 大会上介绍了大量 Objective-C 的新特性，能够帮助 iOS 程序员更加高效地编写代码。在不久前更新的 XCode4.4 版本中，这些新特性已经可以使用了。让我们看看这些新特性有哪些：
+苹果在今年的 WWDC2012 大会上介绍了大量 Objective-C 的新特性，能够帮助 iOS 程序员更加高效地编写代码。在不久前更新的 Xcode4.4 版本中，这些新特性已经可以使用了。让我们看看这些新特性有哪些：
 
 <!-- more -->
 
-##Object Literals
+## Object Literals
 
 这个是我认为最赞的一个改进。Object Literals 允许你方便地定义数字、数组和字典对象。这个功能类似于 java5 提供的 auto boxing 功能。这虽然是一个语法糖，但我认为对提高写代码效率帮助很大。让我们先来看看以前定义数字、数组和字典对象的方法：
 
@@ -56,13 +56,13 @@ categories: iOS
 怎么样？是不是简单多了？而且，为了方便你的旧代码迁移到新的写法，xcode 专门还提供了转换工具，在 xcode4.4 中，选择 Edit -> Refactor -> Convert to Modern Objective-C Syntax 即可。如下所示：
 {% img /images/modern-objc-convert-tool.jpg %}
 
-##局部的函数调用不用前向申明
+## 局部的函数调用不用前向申明
 
 这虽然是一个挺小的改进，但是很贴心。假如我们在一个源文件中有 2 个函数：分别名为 foo 和 bar，其中 foo 的定义在 bar 前面。那如果在 foo 函数内部直接调用 bar，编译器会报警告说找不到函数 bar。
 
 而现在，我们可以随意地在源文件中放置函数 bar 的位置。编译器在找不到 bar 时，会再源码后面找，如果找到了 bar，就不会报错了。
 
-##带有类型的 enum
+## 带有类型的 enum
 
 现在我们可以定义 enum 是无符号整数还是整数，这样编译器会更加智能的做类型检查。如下所示：
 
@@ -79,7 +79,7 @@ typedef enum TableViewCellType : NSInteger {
 }TableViewCellType;
 ```
 
-##默认生成 @synthesize 代码
+## 默认生成 @synthesize 代码
 
 以前写完一个诸如 @property (nonatomic, strong) NSString * username; 变量定义后，马上得转到 .m 文件中去增加相应的 @synthesize username = _username; 代码。
 
@@ -92,7 +92,7 @@ typedef enum TableViewCellType : NSInteger {
 1. 你同时提供了该 property 的 setter 和 getter 方法。
 2. 你的这个 property 是 readonly 的，并且你提供了其 getter 方法。
 
-##遍历元素
+## 遍历元素
 
 你是如何遍历数组的元素的？通常我们有 2 种做法，一种是用 for in，另一种是用一个变量来循环数组下标。如下：
 
@@ -129,9 +129,9 @@ typedef enum TableViewCellType : NSInteger {
     }];
 ```
 
-##Subscripting Methods
+## Subscripting Methods
 
-这个新特性在 WWDC2012 的视频中提到了，但是在 XCode4.4 中没有实现（在 XCode4.5 中实现了）。也是一个很体贴的语法糖，它允许你用中括号来代替原本的方法来获取和设置数组元素。
+这个新特性在 WWDC2012 的视频中提到了，但是在 Xcode4.4 中没有实现（在 Xcode4.5 中实现了）。也是一个很体贴的语法糖，它允许你用中括号来代替原本的方法来获取和设置数组元素。
 
 简单来说，以前的 [array objectAtIndex:idx] 和 [array replaceObjectAtIndex:idx withObject:obj]，可以直接写作 array[idx] 和 array[idx] = obj 了。其实这个特性在很多高级语言中都实现了，只是 Objective-C 生于 80 年代，一直没改进这个。
 
@@ -162,7 +162,7 @@ typedef enum TableViewCellType : NSInteger {
 - (void)setObject:(id)value atIndexedSubscript:(NSUInteger)idx;
 ```
 
-##Tips
+## Tips
 上面提到了不用写 @synthesize 了，那原本写的那么多 @synthesize 怎么办呢？作为有代码洁癖的我很想把它们删掉，但怎么删呢？一个文件一个文件打开，然后行一行删掉吗？放心，苹果已经帮我们想了解决方案。在 WWDC2012 Session 400 Developer Tools Kickoff 中，苹果介绍了具体做法。步骤如下：
 
 1. 首先使用区域查找，因为一般项目都会依赖第三方的开源库，我们可不想更改别人的库，所以我们只查找我们库中的文件，如下图所示：
@@ -177,16 +177,16 @@ typedef enum TableViewCellType : NSInteger {
 
 {% img /images/modern-objc-search-result.png %}
 
-3. 我们点击搜索界面的 preview 按钮，查看替换效果，可以看到，对于我们测试代码，XCode 生成的预览图已经正确地当对应代码删掉了。然后我们就可以点击替换，去掉所有的 @synthesize 代码了。
+3. 我们点击搜索界面的 preview 按钮，查看替换效果，可以看到，对于我们测试代码，Xcode 生成的预览图已经正确地当对应代码删掉了。然后我们就可以点击替换，去掉所有的 @synthesize 代码了。
 
 {% img /images/modern-objc-replace-review.png %}
 
 
-在下载完 XCode4.4 后，我就把我们的工程代码都转换成了新特性的语法。在转换后，我发现原本 25000 行的代码少了将近 1000 行。心里还是很开心的，因为又可以少写一些体力活类型的代码了。
+在下载完 Xcode4.4 后，我就把我们的工程代码都转换成了新特性的语法。在转换后，我发现原本 25000 行的代码少了将近 1000 行。心里还是很开心的，因为又可以少写一些体力活类型的代码了。
 
 还是那句话，希望这些新特性能够让大家玩得开心。
 
-###参考资料
+### 参考资料
  * LLVM 官方网站比较全面地介绍了 Object Literal： <http://clang.llvm.org/docs/ObjectiveCLiterals.html>
  * WWDC2012 Session 400 Developer Tools Kickoff
  * WWDC2012 Session 405 Modern Objective-C 

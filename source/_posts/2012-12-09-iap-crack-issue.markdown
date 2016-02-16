@@ -6,7 +6,7 @@ comments: true
 categories: iOS
 ---
 
-###介绍
+### 介绍
 
 大概在今年7月份，有俄罗斯黑客[破解](http://www.in-appstore.com/)了苹果的应用内付费（In-App Purchases），设备在不越狱的情况下就可以免费获得来自苹果官网App Store里应用的收费道具。受影响的产品众多，包括著名的Angry Birds，切水果，Mega Jump, Pandora等。[这里](https://docs.google.com/spreadsheet/ccc?key=0AvSXyNTiqEXMdGRKZlN1Snl5S3h1Z1NsTTFYTlJPTUE#gid=0)有一份受影响的著名的游戏应用列表。
 
@@ -20,7 +20,7 @@ categories: iOS
 
 从该文档中我们可以知道，iOS6以下的所有设备（包括越狱或非越狱设备），都会受到该漏洞的影响。
 
-###攻击原理
+### 攻击原理
 
 我们知道通常的IAP购买行为，从逻辑上就是设备向App Store发起一个购买操作，App Store在验证过用户的密码确认身份后，扣费并返回购买成功的凭证，整个网络操作是通过SSL加密的。
 
@@ -29,7 +29,7 @@ categories: iOS
 1. 用户给自己添加一个受信任的证书以完成SSL通讯的证书校验
 2. 设置一个伪DNS（域名解析服务）地址，把AppStore的域名指向假的地址。
 
-###应对措施
+### 应对措施
 
 现在看来，暂时有效的应对方法是，将该交易凭证上传到我们自己的服务器上，然后让我们自己的服务器与AppStore进行验证，以确认该凭证是否是伪造的，然后将验证结果返回给设备。苹果的官方网站上也是这么介绍的。这样做麻烦的地方是，对于那些游戏和工具类应用，增加了服务器开发和维护的开销。
 

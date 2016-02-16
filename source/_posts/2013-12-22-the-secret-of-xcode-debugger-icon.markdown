@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "XCode Debugger中的Icon符号的意义"
+title: "Xcode Debugger中的Icon符号的意义"
 date: 2013-12-22 19:23
 comments: true
 categories: iOS

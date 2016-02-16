@@ -6,7 +6,7 @@ comments: true
 categories: iOS
 ---
 
-##前言
+## 前言
 
 Objective-c 语言在申请对象的时，需要使用两段构造 ([Two Stage Creation](http://volonbolon.net/post/634999801/two-stage-creation-in-cocoa)) 的模式。一个对象的创建，需要先调用 alloc 方法或 allocWithZone 方法，再调用 init 方法或 initWithSomething 方法。如下是一个 NSString 对象的创建示例：
 
@@ -20,11 +20,11 @@ NSString * str = [[NSString alloc] initWithString:@"http://blog.devtang.com"];
 
 <!-- more -->
 
-##对象的创建
+## 对象的创建
 
 我们先来看看在对象的创建过程中，alloc 和 init 到底做了哪些事情。
 
-###alloc 方法
+###  alloc 方法
 根据苹果的 [官方文档](https://developer.apple.com/library/mac/#documentation/cocoa/conceptual/CocoaFundamentals/CocoaObjects/CocoaObjects.html#//apple_ref/doc/uid/TP40002974-CH4-SW54)。当对象创建时，cocoa 会从应用程序的虚拟地址空间上为该对象分配足够的内存。cocoa 会遍历该对象所有的成员变量，通过成员变量的类型来计算所需占用的内存。
 
 当我们通过 alloc 或 allocWithZone 方法创建对象时，cocoa 会返回一个未” 初使化 “过的对象。在这个过程中，cocoa 除了上面提到的申请了一块足够大的内存外，还做了以下 3 件事：
@@ -35,7 +35,7 @@ NSString * str = [[NSString alloc] initWithString:@"http://blog.devtang.com"];
 
 isa 成员变量是在 [NSObject](https://developer.apple.com/library/mac/#documentation/cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html#//apple_ref/occ/cl/NSObject) 中定义的，所以保证 Cocoa 的所有对象都带有此成员变量。借助该变量可以实现 Cocoa 对象在运行时的自省 (Introspection) 功能。
 
-###init 方法
+### init 方法
 
 大部分情况下，我们都不希望所有成员变量都是零，所以 init 方法会做真正的初使化工作，让对象的成员变量的值符合我们程序逻辑中的初始化状态。例如，NSMutableString 可能就会额外再申请一块字符数组，用于动态修改字符串。
 
@@ -52,7 +52,7 @@ NSString * s = [NSString alloc];
 NSString * s = [[NSString alloc] init];
 ```
 
-###new
+### new
 
 在后来，苹果也引入了类方法：new。但是由于历史原因，init 方法是实例方法而非类方法，所以作为类方法的 new，只能简单地等价于 alloc + init，不能指定 init 的参数，所以用处不大。苹果在设计上也禁止多次调用 init 方法，例如如下代码会抛出 NSInvalidArgumentException。
 
@@ -61,8 +61,7 @@ NSString * str = [NSString new];
 str = [str initWithString:@"Bar"];
 ```
 
-
-##为什么这么设计
+## 为什么这么设计
 
 说回来文章开始时提出来问题，为什么苹果要这么设计而其它语言不这么设计？
 
@@ -77,14 +76,14 @@ str = [str initWithString:@"Bar"];
 
 而对于大多数出生在 90 年代的语言来说 (例如 Java,JavaScript,C#)，由于内存具体的分配方案都不需要程序员操心了，所以就不需要单独为内存分配实现一个 alloc 方法了。
 
-##后记
+## 后记
 
-###allocWithZone 被废弃
+### allocWithZone 被废弃
 自从 Mac OS X 10.5 上引入了垃圾回收机制后，苹果就不建议程序员使用 allocWithZone 了，事实上，cocoa 框架也会忽略 allocWithZone 指定的分区。苹果在文档中也 [提到](https://developer.apple.com/library/mac/#documentation/cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html#//apple_ref/occ/clm/NSObject/allocWithZone:)，allocWithZone 仅仅是一个历史遗留设计了。下图是苹果的文档截图：
 
 {% img /images/allocWithZone.png  %}
 
-### Objective-C 的历史
+## Objective-C 的历史
 
 Objective-C 是一门非常老的语言。如果你查阅文档，你会发现它和 C++ 出生在同一时代（两种语言的发行年份都是 [1983 年](http://en.wikipedia.org/wiki/Stepstone)），都是作为 C 语言的面向对象的接班人被推出。当然，最终 C++ 胜出。由于历史久远，Objective-C 也无法有太多优秀的语言做参考，所以，有很多历史遗留的设计。在 2007 年苹果公司发布了 Obj-C 2.0, 对其进行了大量改进。
 

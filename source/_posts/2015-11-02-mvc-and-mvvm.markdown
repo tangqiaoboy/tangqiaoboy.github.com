@@ -6,8 +6,6 @@ comments: true
 categories: iOS
 ---
 
-{% img /images/mvc-and-mvvm.jpg %}
-
 # 被误解的 MVC
 
 ## MVC 的历史
@@ -163,7 +161,7 @@ MVVM 在实际使用中，确实能够使得 Model 层和 View 层解耦，但�
 
 而我想说，我们需要保持的是一个拥抱变化的心，以及理性分析的态度。在新技术的面前，不盲从，也不守旧，一切的决策都应该建立在认真分析的基础上，这样才能应对技术的变化。
 
-###版权说明
+# 版权说明
 
 本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/articles/rethinking-mvc-mvvm)。如需转载，请与InfoQ中文站联系。
 

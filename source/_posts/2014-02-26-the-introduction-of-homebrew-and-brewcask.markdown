@@ -29,9 +29,9 @@ brew cask install evernote
 
 <!-- more -->
 
-##安装
+## 安装
 
-###安装 homebrew
+### 安装 homebrew
 
 用以下一行命令即可安装 homebrew
 ```
@@ -41,7 +41,7 @@ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 之后执行 `brew doctor` 命令可以看看`homebrew`的环境是否正常。通常第一次安装完 brew 之后，还需要安装苹果的`Command Line Tools`。
 
 
-###安装 cask
+### 安装 cask
 
 用如下命令来安装 cask:
 
@@ -50,7 +50,7 @@ brew tap phinze/cask
 brew install brew-cask
 ```
 
-##LaunchRocket
+## LaunchRocket
 
 另外再附带推荐一个工具。
 

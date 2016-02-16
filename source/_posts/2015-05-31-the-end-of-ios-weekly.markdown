@@ -3,7 +3,7 @@ layout: post
 title: "结束撰写 iOS 开发周报"
 date: 2015-05-31 20:59:12 +0800
 comments: true
-categories: weekly iOS
+categories: iOS weekly
 ---
 
 ### 开始
