@@ -2,8 +2,6 @@
 layout: post
 title: "关于博主"
 date: 2016-02-15 14:32
-comments: true
-categories: summary
 ---
 
 ![](http://ww4.sinaimg.cn/small/65dc76a3jw8exkme9y57dj20yi0ymabn.jpg)
