@@ -1,0 +1,55 @@
+---
+layout: post
+title: "iOS移动开发周报-第11期"
+date: 2014-05-16 21:36:16 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/05/ios-app-security-development)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：iOS应用安全开发概述，Collection View 动画，可变参数列表的实现原理，XcodeBoost插件等。
+
+##教程
+
+ 1. [《iOS应用安全开发，你不知道的那些事》](http://www.csdn.net/article/2014-04-30/2819573-The-Secret-Of-App-Dev-Security)：iOS应用由于其直接运行在手机上，相比运行在服务器的后台服务，更有可能被黑客攻击。本文从网络安全、本地文件和数据安全、源代码安全三个方面，阐述iOS应用在安全性上遇到的挑战。
+
+ 1. [《Collection View 动画》](http://objccn.io/issue-12-5/)：`UICollectionView` 和相关类的设置非常灵活和强大。但是灵活性一旦增强，某种程度上也增加了其复杂性： `UICollectionView` 比老式的 `UITableView` 更有深度，适用性也更强。本文的第一部分将集中讨论并举例说明如何用不同的类和方法来共同帮助实现一些常见的 `UICollectionView` 动画。在第二部分，我们将看一下带有 collection views 的 view controller 转场动画以及在 `useLayoutToLayoutNavigationTransitions` 可用时使用其进行转场，如果不可用时，我们会实现一个自定义转场动画。
+ 
+ 1. [《Variable Argument Lists》](http://gracelancy.com/blog/2014/05/05/variable-argument-lists/)：可变参数函数（Variadic Function），即是指一个可以接受可变数量的参数的函数。在C语言中，对该特性的支持，即是通过可变参数列表（Variable Argument list）来实现的。本文讨论了其具体的实现内部原理。最后作者[晨钰Lancy](http://weibo.com/lancy1014)介绍了其开源的一个能够接收block作为回调的自定义的[AlertView组件](https://github.com/lancy/cyalertview)。
+ 
+ 1. [《assert出问题了》](http://imoldman.github.io/blog/2014/04/30/why-assert-enabled-under-release-in-xcode/)：作者分享了在Xcode中使用Assert时需要注意的问题。
+ 
+ 1. [《CoreData的坑》](http://stackoverflow.com/questions/7385439/exception-thrown-in-nsorderedset-generated-accessors)：[pinxue](http://weibo.com/pinxue)分享了一个持续3年都没有修复的CoreData的Bug。
+ 
+ 1. [《使用cocoapods创建多个类似工程的尝试》](http://www.taofengping.com/2014/05/07/multi-similar-application/#.U3N25q2SyrJ)：因为业务的需要，作者做了一批类似无聊图的App，应用本身没有复杂的逻辑，所有类“无聊图”的应用都针对特定的用户群，设计了不同界面风格的，比如适合宅男的女神应用，适合吃货的美食应用等等诸如此类，大概一共七八个。作者介绍了其使用cocoapods创建多个类似工程的尝试。
+ 
+ 1. [《Mac 软件和学习经验分享》](http://miao.hu/2012/02/26/osx-exp-share/)：作者介绍了一些优秀的 Mac 软件和学习Mac的经验。
+ 
+ 1. [subjc.com](http://subjc.com/)：subjc.com是一个介绍iOS界面编程技巧的网站。网站中有动画实例分析以及实现的代码。
+
+##工具
+
+ 1. [XcodeBoost](https://github.com/fortinmike/XcodeBoost)：XcodeBoost包含多个辅助修改代码的小功能，比如：
+
+ 	1. 可以在.m文件中复制方法实现，然后将该方法的定义粘贴到对应的.h文件中
+	2. 可以在某一个源文件中直接输入正则表达式查找
+	3. 可以复制粘贴代码时不启用Xcode的自动缩进功能（Xcode的自动缩进经常出问题，造成已经调整好的代码缩进，因为粘贴时被Xcode调整坏了）
+ 
+##开源项目
+
+ 1. [Eggscellent开源](https://github.com/monoclesociety/eggscellent)：Eggscellent是Mac上的开源的番茄钟应用。
+
+ 1. [Viewfinder](https://github.com/viewfinderco/viewfinder)：移动支付公司 Square 将去年收购的照片应用 Viewfinder 开源了，包含服务端、iOS 和 Android 应用代码。[这里](http://corner.squareup.com/2014/05/open-sourcing-viewfinder.html)有该项目的介绍。
+ 
+ 1. [PNChart](https://github.com/kevinzhow/PNChart)：作者[周楷雯Kevin](http://weibo.com/kevinzhow)发布了PNChart 0.5版本，提供了一个更漂亮的Pie Chart界面。
+ 
+ 1. [文本编辑器Atom开源](https://atom.io/)：GitHub将其开发的文本编辑器Atom开源。
+ 
+ 

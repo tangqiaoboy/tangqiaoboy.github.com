@@ -1,0 +1,44 @@
+---
+layout: post
+title: "iOS移动开发周报-第22期"
+date: 2014-08-24 19:14:22 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/08/shares-of-apple)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果股价创新高，iOS8自动调整UITableView布局，Swift学习心得等。
+
+##新闻
+
+ 1. [《苹果股价创新高 市值全球第一超第二名30%》](http://tech.qq.com/a/20140820/007526.htm)： 8月20日，苹果公司周二收盘股价创下历史新高水平，超过了2012年保持的最高记录。苹果作为全球市值最高的公司，比全球市值第二大的埃克森美孚公司高出了30%。
+
+##教程
+
+ 1. [《Swift学习心得》](http://zonble.net/archives/2014_08/1616.php)：作者分享了学习Swift语言的心得，包括苹果为什么要设计Swift语言以及Swift语言的各种特性。
+
+ 1. [《iOS8自动调整UITableView和UICollectionView布局》](http://yulingtianxia.com/blog/2014/08/17/New-in-Table-and-Collection-Views/)：本文讲述了UITableView、UICollectionView实现self-sizing cell布局的知识，以及如何用InvalidationContext优化UICollectionView布局的更新。作者微博：[@杨萧玉HIT](http://weibo.com/yulingtianxia)。
+
+ 1. [《创建SpriteKit游戏的最佳范例》](http://yulingtianxia.com/blog/2014/08/19/best-practices-for-building-spritekit-games/)：本文从拓展性、游戏构造和性能三个方面分别讲述建立SpriteKit游戏时的一些实践经验和范例。作者微博：[@杨萧玉HIT](http://weibo.com/yulingtianxia)。
+
+ 1. [《在企业内部分发 iOS 应用程序》](http://beyondvincent.com/blog/2014/07/30/provision-ios-ipa-app-for-in-house-enterprise-distribution/)：在企业内部分发 iOS 应用程序非常复杂，作者详细介绍了实现的过程。
+
+ 1. [《Value and Reference Types》](https://developer.apple.com/swift/blog/?id=10)：苹果的这篇官方微博介绍了Swift的值类型和引用类型的差别。
+
+ 1. [《How to Add Table View Search in Swift》](http://www.raywenderlich.com/76519/add-table-view-search-swift)：来自raywenderlich的教程，用Swift实现为TableView增加搜索功能。
+
+ 1. [《Swift Name Mangling》](https://www.mikeash.com/pyblog/friday-qa-2014-08-15-swift-name-mangling.html)：文章分析了Swift编译器对于函数名的处理方式。
+
+ 1. [《Swift Literal Convertibles》](http://nshipster.com/swift-literal-convertible/)：文章介绍了Swift中的字面量（Literal）的类型转换规则。
+
+##开源项目
+
+ 1. [fishhook](https://github.com/facebook/fishhook)：fishhook是Facebook开源的一个可以hook系统方法的工具。
+ 

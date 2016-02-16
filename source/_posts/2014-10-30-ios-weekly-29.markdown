@@ -1,0 +1,44 @@
+---
+layout: post
+title: "iOS移动开发周报-第29期"
+date: 2014-10-30 21:34:29 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/10/apple-ios-app-support-64)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果要求所有iOS新应用2015年2月起支持64位、怎样为iOS8应用制作预览视频、可视化开发 - IB的新时代等。
+
+##新闻
+
+ 1. [《苹果要求所有iOS新应用2015年2月起支持64位》](https://developer.apple.com/news/?id=10202014a)：苹果通过官方开发中心宣布，从2015年2月1日开始，所有上传至App Store官方商店的新iOS应用都必须支持64位。目前，支持64位的苹果设备包括iPhone 5S及以后的iPhone设备。
+
+##教程
+
+ 1. [《终极指南 - 怎样为iOS8应用制作预览视频》](http://beforweb.com/node/581)：说到App Store的改版，最值得设计师、开发者和市场人员关注的大概就是视频预览功能了。官方将其称为“应用预览(App Previews)”，如今已经正式出现在iOS8的App Store当中。自然，已经有一大波设计师和开发者为他们的产品制作了预览视频并通过iTunes Connect上传。坦率的说，如果你也有自己的产品，那么也该开始考虑做这件事了。本文介绍了为iOS8应用制作预览视频技巧和工具。
+
+ 1. [《WWDC 2014 Session笔记 - 可视化开发，IB 的新时代》](http://onevcat.com/2014/10/ib-customize-view/)：文章介绍了 Xcode 6 中为 IB 锦上添花的一个特性，那就是实时地预览自定义 view，这个特性让 IB 开发的流程更加直观可视，也可以减少很多无聊的参数配置和 UI 设置的时间。
+
+ 1. [《我在开发第一个Swift App过程中学到的四件事》](http://www.cocoachina.com/swift/20141022/10008.html)：本文作者Greg Heo，这是他为讲授iOS 8 App Extensions视频教程而实际使用Swift开发了一款App的经验，本是是他开发过程中的心得体验。
+
+ 1. [《让你的 Mac App 支持 OS X Yosemite 的暗色菜单（Dark Menu）》](http://imtx.me/archives/1913.html)：文章介绍了如何让应用兼容 Yosemite 的暗色菜单。
+
+ 1. [《玩转 Sketch 系列文章一：进入一个全新的时代》](http://www.waerfa.com/sketch-skills-series-chapter-one)：很多设计师都已经把主要的工作平台彻底迁移到了 Sketch。那么，是什么让他们放下了多年的 Photoshop，转身投入了 Sketch 的怀抱呢？理由很复杂，但用一句话表达：再也找不到比 Sketch 更顺手的设计软件了！对于那些还没有深入接触 Sketch 的同学，本文将是一个入门引导。虽然没有具体某一模块或功能的介绍，但文章从 Sketch 那上百种吸引人的特性中，选出几样与你分享，让你对它有一个大致的了解。
+
+ 1. [《Custom Subscripting in Swift Tutorial》](http://www.raywenderlich.com/79764/custom-subscripting-swift-tutorial)：文章介绍了在Swift语言中使用自定义下标操作符。
+
+ 1. [《Fully Scaleable Apple iOS Devices for Sketch》](http://robbiepearce.com/devices)：作者提供了用于设计的iOS设备Sketch资源。
+
+##开源项目
+
+ 1. [YTKKeyValueStore](https://github.com/yuantiku/YTKKeyValueStore)：YTKKeyValueStore是由笔者开源出来的一个基于sqlite的key-value存储工具。它被使用在了粉笔网、猿题库、小猿搜题三个客户端中后，我发现它不但完全能够满足大多数移动端开发的需求，而且非常适合移动端采用，所以开源出来。
+
+ 1. [SuperRecord](https://github.com/michaelarmstrong/SuperRecord)：SuperRecord是一个方便在Swift语言中使用CoreData的库。
+

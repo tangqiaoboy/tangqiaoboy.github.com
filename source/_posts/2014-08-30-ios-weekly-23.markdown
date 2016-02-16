@@ -1,0 +1,45 @@
+---
+layout: post
+title: "iOS移动开发周报-第23期"
+date: 2014-09-01 20:22:54 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/08/afnetworking2.0)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果发出9月9日发布会邀请函，AFNetworking2.0源码解析，objc与鸭子对象，Protecting iOS Applications等。
+
+##新闻
+
+1. [《苹果发出9月9日发布会邀请函》](http://tech.sina.com.cn/mobile/n/apple/2014-08-29/01339582927.shtml)：苹果公司刚刚向外界发出邀请函，太平洋时间9月9日上午10点（北京时间9月10日凌晨1点），将在美国库伯提诺市弗林特剧院举行发布会。本次发布会的主角极有可能是iPhone 6及iWatch智能手表。
+
+##教程
+
+ 1. [《AFNetworking2.0源码解析》](http://blog.cnbang.net/tech/2320/)：AFNetworking是著名的iOS网络库，文章作者分享了其阅读AFNetworking2.0源码的收获。
+
+ 1. [《Creating a Custom Control in Swift》](http://www.raywenderlich.com/76433/how-to-make-a-custom-control-swift)：文章介绍了如何使用Swift自定义一个进度条控件。
+
+ 1. [《iOS干货精选》](http://baoz.me/452378)：本文是《码农周刊》中的精品文章的集合，包括iOS和Android部分。
+
+ 1. [《Kicking Off our $500K Learn Swift Series》](http://www.topcoder.com/blog/kicking-off-our-500k-learn-swift-series/)：TopCoder推出学习Swift系列比赛，拿出多达50万美元奖励学习成绩突出者。
+
+ 1. [《Optionals Case Study: valuesForKeys》](https://developer.apple.com/swift/blog/?id=12)：来自苹果官方博客的教程，通过学习Dictionary的valuesForKeys方法，来了解Optional类型。
+
+ 1. [《Xcode5 Asset Catalog 使用备忘》](http://blog.csdn.net/u011247468/article/details/16332071)：Asset Catalog是Xcode5引入的一个新的图片管理方式，文章介绍了使用Asset Catalog创建可拉伸图片的方法。
+
+ 1. [《objc与鸭子对象（上）》](http://blog.sunnyxx.com/2014/08/24/objc-duck/)、[《objc与鸭子对象（下）》](http://blog.sunnyxx.com/2014/08/26/objc-duck-advanced/)：文章上半部分介绍了鸭子类型和它在ObjC中的实践，以及一个使用NSProxy实现JSON Entity的鸭子类。下半部分介绍了鸭子对象的进阶用法，并简单介绍由鸭子对象思想衍生出的依赖注入。
+
+ 1. [《Protecting iOS Applications》](http://www.polidea.com/#!heartbeat/blog/Protecting_iOS_Applications)：文章系统地介绍了如何保护iOS程序的代码安全，防止反汇编分析。
+
+ 1. [《Swift’s Answer to #pragma mark, FIXME and TODO》](http://iosdevelopertips.com/xcode/swift-replacement-pragma.html)：文章介绍了在ObjC中支持的#pragma mark, FIXME 和 TODO，在Swift语言中是如何使用的。
+
+##开源项目
+
+ 1. [ios-class-guard](https://github.com/Polidea/ios-class-guard)：一个用于混淆iOS的类名、方法名以及变量名的开源库。

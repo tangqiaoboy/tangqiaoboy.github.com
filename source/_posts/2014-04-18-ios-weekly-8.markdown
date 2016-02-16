@@ -1,0 +1,50 @@
+---
+layout: post
+title: "iOS移动开发周报-第8期"
+date: 2014-04-18 21:58:29 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/04/etag-improve-ios-url-function)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：SDWebImage缓存图片的机制、使用Etag增强iOS的URL缓存功能、从Facebook看移动开发的发展、FuzzyAutocomplete插件等。
+
+##教程
+
+ 1. [《SDWebImage缓存图片的机制》](http://www.overcode.hk/?p=449)：文章详细介绍了SDWebImage对于图片的缓存逻辑的实现细节。
+ 
+ 1. [《使用Etag增强iOS的URL缓存功能》](http://shiningio.com/2014/04/12/ios-url-cache-with-etags/)：iOS下对于缓存的支持有很多，比如Core Data，它可以很方便的建模和操作本地SQLite数据库， NSUserDefaults则可以用来缓存一些用户配置等等。本篇主要谈谈使用Etag标签来解决iOS下的URL缓存问题。服务端使用的是Tornado，原生支持Etag，而且默认处于开启状态，因此在应用层面基本不需要额外的代码处理。客户端使用NSURLCache配合AFNetworking进行网络请求。
+
+ 1. [《初始化阶段 —— load 和 initialize》](http://www.cnblogs.com/biosli/p/NSObject_inherit.html)：文章介绍了load函数和initialize函数各自的加载顺序。最后文章总结出：将针对于类修改放在intialize中，将针对Category的修改放在load中。假如是修改系统的类，一般会通过添加Category来添加功能，如果修改initialize会导致原生的intialize不会执行，所以放在load中会比较妥当。
+ 
+ 1. [《ObjC @interface的设计哲学与设计技巧》](http://blog.sunnyxx.com/2014/04/13/objc_dig_interface/)：学习Objective-C语言时，尤其是先学过其他编程语言再来看Objective-C时，总会对Objective-C的类声明的关键字interface感到有点奇怪，在其它面向对象的语言中通常由class关键字来表示，而interface在Java中表示的却大约相当于Objective-C的protocol，这个关键字的区别究竟代表了Objective-C语言的设计者怎样的思想呢，在Objective-C类设计中需要注意哪些问题呢？作者在文章中对这个问题进行一些思考和探究。
+ 
+ 1. [《从Facebook看移动开发的发展》](http://blog.devtang.com/blog/2014/04/16/mobile-development-view-from-facebook/)：作者从Facebook的故事切入，分享了未来移动开发快速发展中，给设计师和程序员带来的挑战。
+ 
+ 1. [《CoreData Object 变成 Fault 的另一种方式》](http://imtx.me/archives/1888.html)：CoreData是一个架构庞大、学习曲线比较陡峭的 iOS 组件，每次遇到问题都会对其有新的认识。文章分享了关于错误认知 Object（NSManagedObject）与 Context（NSManagedContext）的引用关系而导致的 Fault 问题。
+
+ 1. [《关于 Mac 右键菜单》](http://maoa.cn/?post=414)：Mac OS X Lion 的 Launch Service 用于关联应用程序和文件并维护最近打开的项目列表。在文件关联和右键菜单方面，每当系统安装一个新的应用程序，都会调用 Launch Service 的 API 注册关联的文件类型。文章详细介绍了这其中的过程。
+ 
+##工具
+
+ 1. [fnd.io](https://fnd.io): fnd.io 是一个App Store的网页版，搜索速度非常快，可以用来代替itunes进行应用的检索。
+ 
+ 1. [Shortcut Foo](https://www.shortcutfoo.com/)：Shortcut Foo是一个训练你记忆快捷键的网站，除了包括iOS的第三方IDE AppCode的内容外，还包括vim，emacs, git等内容。
+ 
+ 1. [FuzzyAutocomplete](https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin)：FuzzyAutocomplete是一个Xcode自动补全插件，刚刚更新到了2.0版本。它可以让你不需要再遵循从头匹配的原则来补全代码，而是随便输入你记得的关键字来进行匹配，整个插件的响应速度也非常快。
+
+##开源项目
+
+ 1. [Lockbox](https://github.com/granoff/Lockbox): Lockbox是一个帮助你方便地将数据保存到keychain中的开源工具类。
+
+ 1. [Framework7](https://github.com/nolimits4web/framework7/)： Framework7 是一个功能齐全的 HTML 框架，用来构建 iOS7 应用程序。Framework7 允许你使用Javascript代码来实现应用的列表，侧边栏，弹出框等控件。
+  
+  
+ 

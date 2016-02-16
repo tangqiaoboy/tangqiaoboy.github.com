@@ -1,0 +1,51 @@
+---
+layout: post
+title: "iOS移动开发周报-第12期"
+date: 2014-05-24 10:04:19 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/05/apple-renew-wwdc2014-application)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果更新WWDC 2014应用、GCD 深入理解、objc.io第12期翻译等。
+
+##新闻
+
+ 1. [《苹果更新WWDC 2014应用 公布主题演讲时间》](http://tech.sina.com.cn/mobile/n/apple/2014-05-22/08099393630.shtml)：2014年苹果公司全球开发者大会(WWDC)将于6月2日举行。5月21日，他们更新了iOS版WWDC官方应用，并将公布主题演讲时间。
+
+ 1. [《各种WWDC2014现场聚会》](https://github.com/orta/wwdc_parties_2014)：该项目列出了各种第三方公司或组织打算在WWDC时候进行的线下聚会。
+
+ 1. [《关于发现的一个流氓黑客恶意盗号插件的源头追踪》](http://weicdsq.lofter.com/post/20a5c5_13cc45e)：威锋技术组分享了追踪一个恶意盗号插件源头的过程。从中我们可以看到越狱手机市场有多么混乱和危险。笔者认为，如果不是研究安全为目的，就不要越狱，特别是不要为了装盗版而越狱。
+
+
+##教程
+
+ 1. [《GCD 深入理解：第二部分》](https://github.com/nixzhu/dev-blog/blob/master/2014-05-14-grand-central-dispatch-in-depth-part-2.md)：本文是由[Riven](http://weibo.com/riven0951)和[@nixzhu](https://twitter.com/nixzhu)共同翻译的GCD 深入理解的第二部分。文章更加深入地介绍了 GCD 的高级用法，包括 Dispatch Group 、并发的危害、正确的阻塞方式、信号量以及 Dispatch Source 等。
+
+ 1. [《objc.io第12期翻译：动画》](http://objccn.io/issue-12/)：本期翻译涵盖了iOS动画的方方面面——从 UIView 动画，Core Animation，一直到从零打造一个你自己定义的动画。文章还讨论了 View Controller 和 Collection View 有关的动画，以及如何让动画变得可以交互。
+
+ 1. [《Using Sketch Mirror, LiveView, SilkScreen, Skala Preview, AirServer & others via USB》](http://bomberstudios.com/post/54587126654/using-sketch-mirror-liveview-silkscreen-skala)：文章介绍了用 USB 热点共享提高演示时 iPhone 画面帧数的技巧，该技巧可用于在使用AirServer或Sketch mirror等应用时，在wifi糟糕的环境下解决数据传输太慢的问题。
+
+ 1. [《High Performance Core Data》](http://highperformancecoredata.com/)：文章列出了讲Core Data 性能方面的各种资源，包括博客、Podcast以及开源代码。
+
+  1. [NSScreenCast](http://nsscreencast.com/)：NSScreenCast是一个风格有趣的iOS教程网站。
+
+##工具
+
+ 1. [avocado](https://github.com/ideo/avocado/)：avocado是一个基于Facebook Origami的交互设计工具集。其由[IDEO](http://www.ideo.com/)开源，可用于做交互原型设计。
+
+ 1. [resolution.im](http://resolution.im/)：resolution.im是一个提问各种iOS设备尺寸信息以及设计模版的网站。
+ 
+##开源项目
+
+ 1. [BCMeshTransformView](https://github.com/Ciechan/BCMeshTransformView)：BCMeshTransformView是一个用于实现Mesh变换效果的开源库，关于Mesh变换，可以查阅[这篇博文](http://ciechanowski.me/blog/2014/05/14/mesh-transforms/)。
+
+ 1. [AGGeometryKit-POP](https://github.com/hfossli/AGGeometryKit-POP)：AGGeometryKit-POP是一个基于facebook POP的动效框架，这里有一个它能提供的动效[演示视频](http://vimeo.com/95383807)。
+

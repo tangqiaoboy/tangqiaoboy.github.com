@@ -1,0 +1,62 @@
+---
+layout: post
+title: "iOS移动开发周报-第2期"
+date: 2014-03-07 21:44
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/03/apple-store-gray-chain)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+
+##新闻
+
+ 1. [《利用苹果商店规则漏洞的灰色地下产业链》](http://daily.zhihu.com/story/3350426)：作者在文章中介绍了一些投机分子，利用苹果商店在汇率上的漏洞，借助汇率和实际汇率的差价来倒卖商品。据文中介绍，一款不错的手游产品，每月的账面销售额为700万元，但可能真正到账的只有550万元，其余的150万元中约有50万元的黑卡耗损，而剩余的100万则被这些汇率倒卖者攫取。
+
+ 1. [《Apple即将推出CarPlay功能》](http://www.guomii.com/posts/37790)：Apple宣布几大顶级汽车制造商即将推出CarPlay。据苹果介绍，CarPlay是一种更智能、更安全且更有意思的在车中使用iPhone的方式。
+ 
+ 1. [《2013移动行业分析》](http://djt.qq.com/mobile/article/1073) 腾讯移动分析发布了2013年移动行业数据分析报告，报告介绍了iOS的用户比例和版本分布。根据文中的统计，国内移动终端iOS市场份额为24.7%。另外不同于国外的情况是，国内iOS5的用户比例仍然高达12%。
+ 
+ 1. [《iOS Security》](http://images.apple.com/iphone/business/docs/iOS_Security_Feb14.pdf)：苹果发布官方的安全方面的文档，介绍了iOS系统从硬件，文件系统到网络等各方面的安全细节。
+  
+ 1. [《WhatsApp 架构设计》](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html): 作者在文章中分享了最近被Facebook收购的WhatsApp的架构，包括它使用到的前后端技术框架以及硬件，文章中也分享了一些提高服务器并发连接数和可扩展性的经验。  
+  
+##教程
+
+ 1. [《CocoaPods详解之----制作篇》](http://blog.csdn.net/wzzvictory/article/details/20067595)：作者详细介绍了CocoaPods依赖库的创建过程，这对于开源项目作者来说很有帮助。
+
+ 1. [《通过实现一个TableView来理解iOS UI编程》](http://blog.jobbole.com/61101/)：作者通过实现一遍TableView来理解UIKit的一些技术细节，包括几何布局框架、UI的层次架构、子类化UIScrollView、Cell的重用、响应和处理事件和可扩展性等技术细节。
+
+ 1. [《iOS 开发者应该知道的 ARM 结构》](http://www.yidianzixun.com/article/news_eaf23f7ff41d4862ecbf0d10441cf5f5?s=1)：到目前为止，所有的 iOS 设备都使用 ARM 结构处理器。作者在文章中介绍了ARM处理器的各种特点，包括条件执行、Thumb 指令集、内存对齐和除法等技术细节。
+ 
+ 1. [《iOS 开发：绘制像素到屏幕》](http://segmentfault.com/a/1190000000390012)：像素是如何绘制到屏幕上面的？把数据输出到屏幕的方法有很多，通过调用很多不同的framework和不同的函数。作者在文章中介绍了这个过程背后的东西，这能够帮助大家在遇到性能问题时调试解决问题。 
+ 
+ 1. [《玩转字符串》](http://iosinit.com/?p=854) 和 [《字符串渲染》](http://iosinit.com/?p=880): 作者翻译了objc.io第九期关于字符串的系列文章。《玩转字符串》中介绍了字符串的比较、搜索、排序以及格式化等功能。《字符串渲染》中介绍了字符串在UILabel、UITextField以及Core Text中的渲染细节。
+ 
+ 1. [《Object Encoding and Decoding with NSSecureCoding Protocol》](http://iosdevelopertips.com/general/object-encoding-and-decoding-with-nssecurecoding.html)：作者在文章中介绍了如何使用NSSecureCoding来序列化和反序列化对象。文章最后，作者提供了一个名为[AutoCoding](https://github.com/nicklockwood/AutoCoding)的开源项目来帮助大家实现相关的功能。
+
+ 1. [《苹果最新的设计指南》](https://developer.apple.com/design/): 苹果发布了其最新的设计指南，试图帮助开发者更好地学习iOS7风格的应用和游戏设计。新版指南提供了大量的视频和文档，内容涵盖应用和游戏开发的各个方面。
+
+ 
+##工具
+
+ 1. [《四个iOS开发的小工具》](http://koofrank.com/blog/2014/02/28/my-first-article/)：作者在文章中介绍了4个有助于iOS开发的小工具。不过笔者并不同意文章后半部分的关于Blocks内联的内容。
+
+ 1. 著名的Xcode插件：[Alcatraz](https://github.com/supermarin/Alcatraz) 完成了对Xcode 5的适配，大家可以用它方便地管理XCode的相关第三方插件。
+
+##开源项目
+
+ 1. QFish分享了一个小项目：[xproj](https://github.com/qfish/xproj)，可以帮iOS开发者批量地为工程文件添加编译参数 `-fno-objc-arc` 或 `-fobjc-arc`。
+ 
+ 1. [ECMobile 3.0.0](https://github.com/GeekZooStudio/ECMobile_iOS)发布，完全基于 BeeFramework 0.5.0 开发，它可以作为使用BeeFramework的参考项目。
+
+ 1. [移动开发小冉](http://weibo.com/ranwj)写了一个类似虾米音乐的iOS App首页左右滑动效果的示例程序，代码质量很高，项目地址在[这里](https://github.com/nonstriater/NTSlidingViewController)。
+ 
+ 1. [SWParallaxScrollView](https://github.com/5sw/SWParallaxScrollView)：SWParallaxScrollView是一个具有多个层次的可滑动视图，可以实现不同层之间不同的滑动速度。该技术常常用来做应用初次启动时的介绍。
+ 

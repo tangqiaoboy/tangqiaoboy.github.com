@@ -1,0 +1,48 @@
+---
+layout: post
+title: "iOS移动开发周报-第18期"
+date: 2014-07-22 21:19:39 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/07/apple-ibm-cooperation)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果与 IBM 展开长期深度合作，Swift官方博客，Swift开发的视频教程等。
+
+##新闻
+
+ 1. [《苹果与 IBM 展开长期深度合作，双方优势互补，专注企业级移动市场》](http://www.36kr.com/p/213771.html)：苹果与 IBM 达成排他性合作协议，联合各自领先市场的优势，共同打造一样新品类商业应用，建立全新的企业级移动体验——IBM 享誉已久的大数据及分析能力将注入苹果的 iPhone 与 iPad——结合后者擅长的用户体验，共同改善企业及员工使用 iOS 设备工作的流程。
+
+ 1. [《苹果官方数据显示iOS 7渗透率已达90%》](http://www.cocoachina.com/applenews/apple/2014/0715/9148.html)：苹果最新数据显示，7月7日到13日之间，在访问App Store的设备中，90%的设备运行了iOS 7系统，而距离iOS 7正式发布仅仅为10个月的时间。不过国内iOS 7系统的比例还远远未达到80%。
+
+##教程
+
+ 1. [《Swift官方博客》](https://developer.apple.com/swift/blog/)：苹果在开发者中心建立了Swift官方博客，用于帮助开发者获得Swift的相关知识和资源。
+
+ 1. [《利用QuincyKit + KSCrash构建自己的Crash Log收集与管理系统 》](http://wonderffee.github.io/blog/2014/07/19/quincykit-and-kscrash/)：iOS bug定位是极看重crash log的，目前网上Crash Log收集与管理服务较有名的有Crashlytics, Flurry, 友盟等。本文介绍了QuincyKit + KSCrash构建自己的Crash Log收集与管理系统的适用场景和特点。
+
+ 1. [《0 代码 ViewController》](http://blog.sunnyxx.com/2014/07/17/ios_0code_vc/)：作者尝试利用Interface Builder的Object控件实现了一个0行代码的View Controller，在减小Controller体积小，提供了一些新颖的思路。不过需要注意，其文章示例代码中的ViewModel持久了View对象，其实不是指的（MVVM）中ViewModel，更像是一个Controller的代理。
+
+ 1. [《From Objective-C to Swift: thoughts and hints》](http://www.thinkandbuild.it/from-objective-c-to-swift/)：文章详细比较了Objective-C与Swift在编程中的细节差异。
+
+## 视频
+
+ 1. [《Swift开发的视频》](http://www.imooc.com/learn/149)：jakelin做了一个Swift开发的视频，视频从头到尾的讲述了如何开发一个Swift Weather app，同时也讲述了CococaPods，Core Location和AFNetworking的使用，源码地址在 [这里](https://github.com/JakeLin/SwiftWeather) 。
+
+##工具
+
+ 1. [蒲公英](http://pgyer.com/)：蒲公英是专为iOS开发者提供的免费应用众测平台，旨在解决开发者将应用分发给内测用户及众测时的繁杂、低效的问题。使用蒲公英，开发者可将应用一键上传至蒲公英网站实现托管，托管后的应用拥单独的下载页面。开发者只需将下载页面地址（或二维码）发给内测用户，测试用户即可用手机直接安装，避免了之前测试用户需要将手机用数据线连接到电脑，才能安装测试应用的痛苦过程。它的特点是可以帮你用企业证书签名，同时设置密码，帮助大家分发测试版本。
+
+ 1. [jazzy](https://github.com/realm/jazzy)：jazzy是一个为Objective-C和Swift语言生成帮助文档的开源工具。
+
+##开源项目
+
+ 1. [Realm](https://github.com/realm/realm-cocoa)：Realm是一个真正为移动设备打造的数据库，同时支持Objective-C和Swfit。Realm宣称其相比Sqlite，在移动设备上有着更好的性能表现。
+

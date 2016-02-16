@@ -1,0 +1,62 @@
+---
+layout: post
+title: "iOS移动开发周报-第10期"
+date: 2014-05-06 21:48:24 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/05/facebook-pop-opensource)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果发布 2014 年第二季度财报，Facebook将神奇动画引擎Pop开源，Objc.io中文翻译站建成，iOS 7.1.1 更新可能造成升级失败等。
+
+##新闻
+
+ 1. [《Facebook 发布应用内深度链接技术：AppLinks》](http://tech2ipo.com/64670)：Facebook 刚刚在 f8 开发者大会上正式发布了 AppLinks 技术。该链接技术允许开发者在任何内容中植入链接，在点击后将用户带到应用内的其他地方，或是另一款应用内、或另一款应用的商城下载页面。[这里](http://vimeo.com/93018959)有 AppLinks 技术的介绍视频。
+ 
+ 1. [《AppCode 3.0的改进》](http://blog.jetbrains.com/objc/2014/04/appcode-3-0-eap-opens-with-an-integrated-ui-designer-and-improved-project-settings/)：jetbrains公司在其官方博客上介绍了对于AppCode 3.0的改进，他们在EAP中集成了项目设置和UI编辑。使得AppCode对Xcode的依赖性更小。在此之前，iOS工程中的UI编辑必须在Xcode中进行。
+ 
+ 1. [《Facebook将神奇动画引擎Pop开源》](http://geek.csdn.net/news/detail/7534)：Facebook 2月发布的新闻类应用Paper，因为其灵动的用户界面和交互，成为近来最令人眼前一亮的移动产品之一，而POP是Paper使用到的动效引擎。
+  
+ 1. [iOS 7.1.1 更新，但可能造成升级失败](http://weibo.com/1708947107/B1grIt913?mod=weibotime)：iOS7.1.1
+进一步改进了 Touch ID 的指纹识别，修复了可能影响键盘响应能力的错误，修复了启用 VoiceOver后使用蓝牙键盘时出现的问题。笔者发现非常多朋友的iPhone通过OTA升级iOS 7.1.1失败了，需要连接itunes恢复。他们的手机均未越狱。当然，也有升级成功的，大家小心，升级前一定先备份好资料。
+
+ 1. [《苹果发布 2014 年第二季度财报，收入同比增长 5%，净利润同比增7%》](http://tech.sina.com.cn/it/2014-04-24/05149341652.shtml)：苹果公司发布了2014财年第二财季业绩。报告显示，苹果公司第二财季营收为456.46亿美元，比去年同期的436.03亿美元增长5%；净利润为102.23亿美元，比去年同期的95.47亿美元增长7%。苹果公司第二财季营收和每股收益均超出华尔街分析师预期，推动其盘后股价大幅上涨逾7%。
+ 
+ 1. [《Facebook第一季度财报：净利润同比增193%》](http://money.21cbh.com/2014/4-24/1MMDA2NTVfMTE0NzI1Mg.html)：4月24日Facebook发布了截至3月31日的2014财年第一季度未经审计财报。报告显示，Facebook第一季度营收为25.02亿美元，比去年同期的14.58亿美元增长72%；净利润为6.42亿美元，比去年同期的2.19亿美元增长193%。
+
+##教程
+
+ 1. [Objc.io中文翻译站建成](http://objccn.io/)：[@onevcat](http://onevcat.com/)和[@方一雄](http://weibo.com/fangyixiong?topnav=1&wvr=5&topsug=1)、[@nixzhu](http://weibo.com/nixzhu)等几十个译者一起努力，完成了objc.io上的所有文章的翻译，这是一个objc.io的完整、准确、优雅的中文翻译版本，为中国 Objective-C 社区带来最佳实践和先进技术。整个过程花费了一个多月。这是值得每一个iOS开发者学习的资料。
+
+ 1. [《制作一个可以滑动操作的 Table View Cell》](https://github.com/nixzhu/dev-blog/blob/master/2014-04-26-make-swipeable-table-view-cell-actions-without-going-nuts-scroll-views.md)：Apple 通过 iOS 7 的邮件（Mail）应用介绍了一种新的用户界面方案——向左滑动以显示一个有着多个操作的菜单。本教程将会向你展示如何制作一个这样的 Table View Cell，而不用因嵌套的 Scroll View 陷入困境。
+ 
+ 1. [《精通iCloud文档存储》](http://objcio.com/blog/2014/04/25/mastering-the-icloud-document-store/)：即便已经推出了3年，iCloud 文档存储依然是一个充满神秘、误解和抱怨的话题。iCloud 同步经常被批评不可靠且速度慢。虽然在 iCloud 的早期有一些严重的 bug，开发者们还是不得不学习有关文件同步的课程。文件同步事关重大，为应用开发带来了新方向，一个经常被低估的方向，比如进行同步服务相关的合作时，对于处理文件异步更改的需要。
+本文会介绍几个创建支持 iCloud 的应用时可能会遇到的一些绊脚石。
+
+ 1. [《关于用 OS X 做网站服务器》](http://www.v2ex.com/t/109496)：V2EX的作者分享了关于用 OS X 做网站服务器的经验。
+ 
+ 1. [《Xcode 5 – Tips and tricks》](http://ios-blog.co.uk/getting-started/xcode-5-tips-and-tricks/)：文章介绍了Xcode 5相关的常用快捷键。
+ 
+ 1. [《研究 UIActivityViewController》](https://github.com/nixzhu/dev-blog/blob/master/2014-04-22-ui-activity-viewcontroller.md)：UIActivityViewController出现于 iOS 6，在应用里为分享和操作数据提供了一个统一的服务接口。作者详细介绍了UIActivityViewController的使用以及如何创建一个自定义 UIActivity。
+
+ 1. [《小细节大作为：提高iOS访问权限通过率有这几个办法》](http://www.36kr.com/p/211441.html)：Brenden Mulligan是群组照片聚合应用Cluster的创始人之一，兼设计师。作为一名产品设计师和企业家，Brenden的作品包括 OneSheet和ArtistData等。在文章中，Brenden讲述了原生应用Cluster是如何提高iOS访问权限通过率的。
+
+##工具
+
+ 1. [TouchColor](https://itunes.apple.com/cn/app/touchcolor/id859727780?mt=8)：TouchColor是一个由[@方秋枋](http://tw.weibo.com/100mango)开发的优雅简洁，功能完善的取色器。它提供照片取色，照相取色，实时取色三大功能，并且在AppStore上免费提供下载。
+ 
+##开源项目
+
+ 1. [POP](https://github.com/facebook/pop)：POP是Paper使用到的动效引擎。
+ 
+ 1. [PopTut](https://github.com/jerols/PopTut)：一个使用POP做动效的示例工程。除了示例代码外，作者也提供了[视频教程](https://www.youtube.com/watch?v=ErJ4FnPa_Qk)。
+  
+ 1. [《github优秀开源项目大全-iOS》](http://wangzz.github.io/blog/2014/04/25/githubyou-xiu-xiang-mu-ios/)：作者搜集了在github上的一些优秀的开源项目。
+

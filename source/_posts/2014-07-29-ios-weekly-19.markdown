@@ -1,0 +1,64 @@
+---
+layout: post
+title: "iOS移动开发周报-第19期"
+date: 2014-07-30 22:10:03 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/07/apple-earnings-announcement)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果第三季度财报公布，iOS界面开发的大一统，Flipboard开源的FLEX工具等。
+
+##新闻
+
+ 1. [《净利润达77亿美元!苹果第三季度财报公布》](http://pad.pconline.com.cn/514/5144196.html)：苹果发布了截至6月28日的2014财年第三季度财报。从财报中我们可以看到，苹果在第三财季营收374亿美元，同比增长6%；净利润为77亿美元，同比增长12%。
+
+ 1. [《苹果iOS在日本占据了超过50%的市场》](http://tech.qq.com/a/20140721/005712.htm)：苹果iOS在日本占据了超过50%的市场，在中国的份额为14.7%。
+
+ 1. [《苹果财报解读》](http://www.huxiu.com/article/38395/1.html)：中国地区 iPhone 销量上升 48%，iPhone 6 备受瞩目。
+
+##教程
+
+ 1. [《WWDC 2014 Session笔记 - iOS界面开发的大一统》](http://onevcat.com/2014/07/ios-ui-unique/)：iOS 8 和 OS X 10.10 中一个被强调了多次的主题就是大一统，Apple 希望通过 Hand-off 和各种体验的无缝切换和集成将用户黏在由 Apple 设备构成的生态圈中。对于广大 iOS 开发者赖以生存的 UIKit 来说，这次最大的变化就是 Size Classes 的引入和新的 Presentation 系统了，本文对Size Classes及其相关知识进行了详细的介绍。
+
+ 1. [《Airspeed Velocity》](http://airspeedvelocity.net/)：一个专门介绍Swift语言的博客。
+
+ 1. [《ALEXANDROS SALAZAR》](http://nomothetis.svbtle.com/)：一个专门介绍Swift语言的博客。
+
+ 1. [《Supercharging Your Xcode Efficiency》](http://www.raywenderlich.com/72021/supercharging-xcode-efficiency)：文章介绍了各种提高开发效率的Xcode使用技巧。
+
+ 1. [《插件》](http://objccn.io/issue-14-3/)：插件是给你已经发布的 App 增加功能的一个好办法，Mac 上的 App 支持插件已经有很长的历史了。在 NSBundle 的帮助下，插件开发变得很简单，本文介绍了在Mac上进行插件开发的方法。
+
+ 1. [《Awesome iOS》](https://github.com/vsouza/awesome-ios)：一个iOS的各类优秀的开源项目集合。
+
+ 1. [《iOS开发如何提高》](http://blog.devtang.com/blog/2014/07/27/ios-evelup-tips/)：本文分享了iOS开发提高的各种方法。
+
+ 1. [《如何编写 iOS 8 Widget》](http://weibo.com/2584320772/BfHoM6MM4)：作者简单介绍了 iOS 8 Widget的编写方法。
+
+##视频
+
+ 1. [《UIKonf 2014》](https://www.youtube.com/user/UIKonf/feed)：国外的iOS开发技术会议UIKonf视频。
+
+##工具
+
+ 1. [Peckham](https://github.com/markohlebar/Peckham)：你是否遇到这样的场景?在源码中用到一个类，写完发现因为没有import它的头文件，所以编译不通过。正常情况下，你需要跳转到源代码头部加入该头文件，然后再继续跳回上次编辑位置继续写代码。这样的跳转很不方便，而且让你的逻辑被打断。[Peckham](https://github.com/markohlebar/Peckham)是一个帮助你填写#import头文件的Xcode插件，使用它可以方便在源代码的任意位置插入所需要的头文件。
+
+ 1. [RoboVM](http://www.robovm.com/)：用Java来写原生的iOS程序。
+
+ 1. [FLEX](https://github.com/Flipboard/FLEX)：FLEX是Flipboard开源的一系列在应用中调试的工具集。该工具集提供了查看和修改相关view的属性功能。
+
+ 1. [AppBot](https://appbot.co/): AppBot是可以订阅App Store用户的评价和评分，不局限于自己的产品，其他App也可以订阅然后会邮件发送给你，随时了解用户的评价，改善产品。本条来自 [@KooFrank](http://weibo.com/phpmaple)的推荐。
+
+##开源项目
+
+ 1. [vpn-deploy-playbook](https://github.com/ftao/vpn-deploy-playbook)：一个自动部署各种翻墙服务的工具，包括IPSec，L2TP，PPTP，Cisco AnyConnect，SigmaVPN，APN，shadowsocks，OpenVPN，DNS，SPDY，用户管理等功能。
+ 
+ 1. [iReSign](https://github.com/maciekish/iReSign)：一个可以把ipa用企业证书重新签名的开源项目。
+ 

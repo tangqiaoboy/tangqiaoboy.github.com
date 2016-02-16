@@ -1,0 +1,54 @@
+---
+layout: post
+title: "iOS移动开发周报-第20期"
+date: 2014-08-12 20:08:34 +0800
+comments: true
+categories:  iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/08/ios-notification-center)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：iOS 通知中心扩展制作入门，iOS APP可执行文件的组成，objc非主流代码技巧等。
+
+##教程
+
+ 1. [《iOS 通知中心扩展制作入门》](http://onevcat.com/2014/08/notification-today-widget/)：本文通过一个简单的实用 demo 介绍了一下 iOS 8 中扩展开发的一些共通方法和一个通知中心扩展的实际制作。
+
+ 1. [《iOS APP可执行文件的组成》](http://blog.cnbang.net/tech/2296/)：iOS APP编译后，除了一些资源文件，剩下的就是一个可执行文件，本文分析了该可执行文件的组成。该文章的作者是 [@bang](http://weibo.com/bang)。
+
+ 1. [《SpriteKit在iOS8和OSX10.10中的新特性》](http://yulingtianxia.com/blog/2014/08/08/spritekitzai-ios8he-osx10-dot-10zhong-de-xin-te-xing/#jtss-tsina)：在iOS8和OSX10.10中SpriteKit迎来了重大升级。在物理表现方面增加了着色器，光照和阴影；在物理模拟方面增加了像素物理体、力场和宇宙动力学和约束等；在Xcode中集成了场景编辑器，你不需要写代码就能完成一些复杂的工作；此外它还集成了SceneKit以及其他的改进。本文对这些新特性做了详细介绍。
+
+ 1. [《使用LLDB远程调试APP》](http://billwang1990.github.io/blog/2014/08/07/remote-use-lldb/)：文章作者因为最近要开始学习一些iOS逆向的一些东西，调试别人的app自然是必不可少的工作。试验后发现用GDB调试并不好用，而且苹果推的也是LLDB，所以需要使用LLDB来进行调试工作。使用LLDB就不像使用GDB进行调试那么方便，使用GDB的话直接在Cydia里面安装好GDB之后，ssh到你的设备就可以开始工作了，使用LLDB远程调试你越狱设备上的APP稍微麻烦一点。作者详细介绍了使用细节。
+
+ 1. [《Objective-C之优雅的命名》](http://blog.xcodev.com/archives/objective-c-naming/)：计算机语言是人和计算机之间通讯的媒介。好的代码应该是就像人对计算机说话那样，自然而优雅。命名看上去是一件很简单的事，而往往越是简单的事越难做好，否则大师们也不会把命名看成是计算机界的难题了。如何把Objective-C这门计算机语言以优雅的方式“说”出，还是比较考验工程师对它的理解深度的。在苹果的SDK中有大量的API，我们可以从这些API中体会到一些命名的艺术。
+
+ 1. [《Apples to apples, Part II》](http://www.jessesquires.com/apples-to-apples-part-two/)：本文是JSQMessagesViewController 的作者 Jesse Squires 博客上写的一篇 Objective-C 与 Swift 性能对比分析文章。从中可以了解到在开启完优化之后，Swift在性能上的表现是非常不错的。本文来自 [@isaced](http://weibo.com/u/2034474825)的推荐。
+
+ 1. [《iOS8-day-by-day》](https://github.com/ShinobiControls/iOS8-day-by-day)：这是一个学习iOS8的系列文章合集，一共有16篇文章。
+
+ 1. [《objc非主流代码技巧》](http://blog.sunnyxx.com/2014/08/02/objc-weird-code/)：看开源代码时，总会看到一些大神级别的代码，给人眼前一亮的感觉，多数都是被淡忘的C语言语法，作者在文章中总结了objc写码中遇到的各类非主流代码技巧和一些妙用。
+
+ 1. [《iOS音频播放 (五)：AudioQueue》](http://msching.github.io/blog/2014/08/02/audio-in-ios-5/)：本文讲解了如何使用AudioQueue播放音频数据。
+
+##工具
+
+ 1. [Faux Pas for Xcode](http://fauxpasapp.com/)：Faux Pas for Xcode是一个项目检查工具。使用它相当于给自己的项目请了一个专业的 Reviewer，它会指出项目级别上不规范不合理的地方，并且有相关内容的链接可以学习。
+
+ 1. [App Icons Create Tool](http://ios.b2mp.cn/tools)：这是  [@往何处寻](http://weibo.com/helou?from=usercardnew) 做的一键创建iOS APP应用图标的在线工具，可以帮助你生成各种尺寸的应用图标。
+
+ 1. [ios-dev-playbook](https://github.com/lexrus/ios-dev-playbook): ios-dev-playbook是一个快速配置 iOS 开发需要的服务器工具。目前只支持 Debian Wheezy服务器，可以安装 GitLab、Countly、Jenkins 等。该项目作者是[@lexrus](https://twitter.com/lexrus)。
+
+##开源项目
+
+ 1. [Alamofire](https://github.com/Alamofire/Alamofire)：Alamofire是AFNetworking的作者mattt新写的网络请求的swift库。
+
+ 1. [EasyIOS](http://www.oschina.net/p/easyios): EasyIOS是基于MVVM 的iOS开发框架。它封装了Scene、SceneModel、Model、Action四种模型来对IOS进行开发，4种模型的定义解决了IOS开发中ViewController承担了过多角色而造成的代码质量低下，使得结构思路更加清晰。
+ 
+ 1. [1Password Extension for iOS Apps](https://github.com/AgileBits/onepassword-app-extension)：1Password的扩展SDK，可以方便地集成到iOS应用中。
+

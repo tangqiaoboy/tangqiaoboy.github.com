@@ -1,0 +1,56 @@
+---
+layout: post
+title: "iOS移动开发周报-第14期"
+date: 2014-06-10 20:36:23 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/06/ios-mobile-weekly)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果发布Swift编程语言以及Swift编程语言相关学习资料。
+
+##教程
+
+ 1. [《The Swift Programming Language》](https://itunes.apple.com/gb/book/swift-programming-language/id881256329?mt=11)：这是苹果官方出版的Swift学习教材，可以免费下载到iBooks中阅读。其中文版翻译项目也在 Github 上火热进行中，地址在[这里](https://github.com/numbbbbb/the-swift-programming-language-in-chinese)。
+
+ 1. [《Swift Cheat Sheet and Quick Reference》](http://www.raywenderlich.com/73967/swift-cheat-sheet-and-quick-reference)：出自raywenderlich的一份Swift快速参考手册，现在还比较简单，但它正快速更新中。
+
+ 1. [《Swift Language Highlights: An Objective-C Developer’s Perspective》](http://www.raywenderlich.com/73997/swift-language-highlights)：文章比较了Swift和Objective-C语言的差异性。
+
+ 1. [《WWDC14 Session 402 》学习笔记](http://blog.txx.im/blog/2014/06/07/wwdc14-session-402/)：[@糖炒小虾_txx](http://weibo.com/rpplusplus)完成了三篇关于Swift的学习笔记，主要内容均来自WWDC14 Session 402的视频。
+
+ 1. [《Swift 和Objective-C性能测试》](http://www.splasmata.com/?p=2798)：苹果在WWDC视频中只是简单提到Swift在排序和加密算法上比Objective-C快。本文对两者的性能进行了更复杂的测试，文章中做的测试结果如下：循环100万次，Objective-C比Swift快 29倍；变量增加1， Objective-C比Swift快 46倍。还有一些其它比较，大家可以自己看原文，所以真相是：Swift其实不一定比OC快。
+
+ 1. [《行走于 Swift 的世界中》](http://onevcat.com/2014/06/walk-in-swift/)：笔者和周围朋友讨论swift的技术细节，大家都觉得swift比想像中要复杂，onevcat的本文讲述了不少swift的细节。从中你会看到，swift真的不简单。
+
+ 1. [《Swift编程语言资料大合集》](http://code.csdn.net/news/2820075)：来自CSDN整理的Swift学习合集资料。
+
+ 1. [《Swift 特刊》](http://weekly.manong.io/issues/33?ref=swift)：来自码农周刊的Swift学习合集资料。
+
+##工具
+
+[下载脚本](http://www.iwangke.me/2014/06/07/wwdc-2014-download-script/)：该脚本是WWDC 2014 PDF 及session 视频下载脚本。
+
+##开源项目
+
+ 1. [WWDC的示例代码](https://developer.apple.com/wwdc/resources/sample-code/)：比起GitHub上的开源项目，官方的代码更有参考价值。比如Session 406的代码Lister就用一个Swift实现的包含OSX和iOS的Productivity App，还演示了各种Cocoa新功能。
+
+ 1. [FlappySwift](https://github.com/fullstackio/FlappySwift)：FlappySwift用swift重写的一个开源Flappy Bird游戏。
+
+ 1. [JokeClient-Swift](https://github.com/YANGReal/JokeClient-Swift)：JokeClient-Swift是[@YANGReal](http://weibo.com/208083608)用swift写了一个开源的糗事百科的客户端，主要涉及网络请求，图片加载、缓存、自定义UITableViewCell、delegate以及closure，内容接口基于糗事百科API。
+
+ 1. [swift-2048](https://github.com/austinzheng/swift-2048)：一个用Swift实现的2048游戏。
+
+ 1. [UIImageView-BetterFace-Swift](https://github.com/croath/UIImageView-BetterFace-Swift)：UIImageView-BetterFace-Swift是一个根据目标图象中头像的位置进行智能图片裁剪的开源库，该地址是其更新的Swift版本。
+
+ 1. [Easy-Cal-Swift](https://github.com/onevcat/Easy-Cal-Swift)：swift是类型安全（type safe) 的语言。但是，由于它有类型推断（type inference）能力，所以当能推断出类型时，你不必非要写对应的类型。对于 字面量（literal value），整数会被推断成Int，浮点数会被推断成Double类型。但是，它并没有定义整数和浮点之间的加法，本项目实现了一个常用的运算符重载，这样就可以支持整数和浮点数做加法了。
+
+ 1. [HackerNews](https://github.com/amitburst/HackerNews)：用Swift实现的HackerNews客户端。
+ 

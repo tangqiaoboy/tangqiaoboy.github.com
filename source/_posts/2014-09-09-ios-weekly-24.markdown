@@ -1,0 +1,56 @@
+---
+layout: post
+title: "iOS移动开发周报-第24期"
+date: 2014-09-09 21:16:05 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/09/itunes-connect)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果更新了iTunes Connect的设计、UIKit Dynamics 教程：抛掷 Views、iOS APP 架构漫谈等。
+
+##新闻
+
+ 1. [《苹果更新了 iTunes Connect 的设计》](http://www.36kr.com/p/215155.html)：新版的iTunes Connect与 iOS 即视感更浓厚，与 iCloud.com 的风格更搭。
+
+##教程
+
+ 1. [《UIKit Dynamics 教程：抛掷 Views》](http://beyondvincent.com/blog/2014/09/02/uikit-dynamics-tutorial-tossing-views/)：文章介绍了如何用手势很自然的将 view 抛掷出屏幕。本文非常适合中级开发者，因为对 view 抛掷操作中，使用的技术嵌套了多个效果，例如使用内置的 UIKit 框架对 view 进行旋转 (rotation)、飞离 (fly-away) 动画。
+
+ 1. [《iOS APP 架构漫谈》](http://studentdeng.github.io/blog/2014/08/29/ios-architecture/)：文章从一些具体的场景出发，讲解iOS应用架构的技巧。
+
+ 1. [《Objective-C中的+initialize和+load》](http://www.anselz.com/2014/09/07/objective-c%E4%B8%AD%E7%9A%84initialize%E5%92%8Cload/)：文章介绍了Objective-C中的`+initialize`和`+load`方法的一些执行细节和注意事项。
+
+ 1. [《iOS程序main函数之前发生了什么》](http://blog.sunnyxx.com/2014/08/30/objc-pre-main/)：一个iOS app的main()函数位于main.m中，这是我们熟知的程序入口。但对objc了解更多之后发现，程序在进入我们的main函数前已经执行了很多代码，比如熟知的+ load方法等。本文将跟随程序执行顺序，刨根问底，从dyld到runtime，看看main函数之前都发生了什么。
+
+ 1. [《API Design》](http://mattgemmell.com/api-design/)：文章介绍了Objective-C中类、接口以及通知的接口设计原则。
+
+ 1. [《Common App Rejections》](https://developer.apple.com/app-store/review/rejections/)：苹果官方总结了一些常见的应用审核被拒的情况。
+
+ 1. [《Xcode vs. Gatekeeper》](http://furbo.org/2014/09/03/xcode-vs-gatekeeper/)：文章介绍了通过禁用 Gatekeeper 的功能，来加快第一次开启Xcode 的速度的办法。
+
+ 1. [《Implementing Observable in Swift》](http://www.merowing.info/2014/07/implementing-observable-in-swift/#.VA1YcrySyXw)：文章介绍了如何在Swift中实现类似Objective-C中的KVO功能。
+
+ 1. [《Some ideas for projects in Swift》](http://chris.eidhof.nl/posts/swift-ideas.html)：文章列出了Swift要真正被大家方便使用起来，还需要提供的第三方库。
+
+##视频
+
+ 1. [《QQ IM后台架构的演化与启示(二) --移动时代》](http://www.infoq.com/cn/presentations/evolution-and-enlightenment-of-qq-im-backend-architecture)：腾讯技术副总监韦彬介绍了QQ IM后台包括状态系统、消息系统、逻辑层等基础架构是如何应对移动时代的挑战并继续演化。
+
+##工具
+
+ 1. [MCLog](https://github.com/yuhua-chen/MCLog): MCLog是一个可以提供Xcode中的console log过滤功能的Xcode插件。
+
+ 1. [Form](http://www.relativewave.com/form.html)：Form是一个类似Origami的原型设计工具。它比Origami强大的地方在于，它可以直接在移动端查看效果。
+
+##开源项目
+
+ 1. [f8DeveloperConferenceApp](https://github.com/ParsePlatform/f8DeveloperConferenceApp)：这是一个f8 Conference Apps的会议应用，由Parse开源。
+

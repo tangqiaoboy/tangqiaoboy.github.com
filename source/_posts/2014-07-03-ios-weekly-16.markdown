@@ -1,0 +1,52 @@
+---
+layout: post
+title: "iOS移动开发周报-第16期"
+date: 2014-07-03 20:41:49 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/07/ios8-new-features)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：i​OS 8的新特性，敏感逻辑的保护方案，iOS绘图教程，WKWebView的使用等。
+
+##教程
+
+ 1. [《i​OS 8》](http://nshipster.cn/ios8/)：Mattt Thompson在文章中介绍了iOS8的各种新特性。
+
+ 1. [《iOS安全攻防：敏感逻辑的保护方案》](http://blog.csdn.net/yiyaaixuexi/article/details/29210413)：文章介绍了一种低学习成本的，简易的Objective-C逻辑代码重写为C代码的办法。
+
+ 1. [《谈谈 iOS 8 拍照和摄影功能的增强》](http://imtx.me/archives/1899.html)：iPhone 的照相功能有着敏捷的反应速度和不错的成像素质，使得 iPhone 成为最佳的随手拍手机。这次 WWDC 14 上尽管没有任何新硬件的更新，但是 iOS 8 在照相功能上的增强再次让我这样的随手拍狂人激动不已。文章主要介绍了iOS 8 带来的倒计时拍摄和延时摄影功能。
+
+ 1. [《WWDC14 Session 401 學習筆記》](http://blog.rpplusplus.me/blog/2014/06/26/wwdc14-session-401/)：文章总结了WWDC14 Session 401介绍的PlayGround、Interface Builder和Debug相关功能的改进。
+
+ 1. [《iOS绘图教程》](http://www.cnblogs.com/xdream86/archive/2012/12/12/2814552.html)：本文是《Programming iOS5》中Drawing一章的翻译，考虑到主题完整性，翻译版本中加入了一些书中未涉及到的内容。该文章中比较完整地介绍了iOS的整个绘图原理及相关的API。
+
+ 1. [《Core Animation基本概念和Additive Animation》](http://studentdeng.github.io/blog/2014/06/24/core-animation/)：文章介绍一些Core Animation基本概念，最后提到一些iOS8的动画改动。
+
+ 1. [《Interesting Swift Features》](https://mikeash.com/pyblog/friday-qa-2014-06-20-interesting-swift-features.html)：文章介绍了Swift相对于Objective-C增加的一些有趣的特性，并且讨论了其带来的好处。
+
+ 1. [《Introduction to Swift Part 6: Functions》](http://www.raywenderlich.com/76260/video-tutorial-introduction-swift-part-6-functions)：Ray Wenderlich上的关于Swift函数的视频教程。
+
+ 1. [《Facebook Pop Tech Talk Video》](http://www.raywenderlich.com/76248/facebook-pop-tech-talk-video)：Ray Wenderlich上的关于Facebook Pop的视频教程。
+
+ 1. [《Getting started with WKWebView using Swift in iOS 8》](http://www.kinderas.com/technology/2014/6/7/getting-started-with-wkwebview-using-swift-in-ios-8)：文章介绍了iOS8中新加的WKWebView的使用。
+
+##工具
+
+ 1. [macdown](https://github.com/uranusjr/macdown)：macdown是一个开源的Mac下的markdown编辑器。
+
+##开源项目
+
+ 1. [LTMorphingLabel](https://github.com/lexrus/LTMorphingLabel)：用swift写的文字飘入飘出的效果。
+
+ 1. [Crashlytics-FPCustomHandler](https://github.com/hewigovens/Crashlytics-FPCustomHandler)：这是一个为 Crashlytics 写的 category, 可以方便添加自己的崩溃处理函数。
+
+ 1. [ParseChat](https://github.com/relatedcode/ParseChat)：ParseChat是基于Parse实现的一个实时的聊天室开源应用。
+

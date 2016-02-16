@@ -1,0 +1,44 @@
+---
+layout: post
+title: "iOS移动开发周报-第31期"
+date: 2014-11-19 22:09:57 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/11/objective-c-runtime)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：黑幕背后的__block修饰符、刨根问底Objective－C Runtime、Flashlight等。
+
+##新闻
+
+ 1. [《三名iOS系统恶意程序制作者被抓获》](http://tech.sina.com.cn/mobile/n/apple/2014-11-14/21329792202.shtml)：11月14日据首都网警微博报道，北京市公安局将iOS系统恶意程序的三名制作者抓获，涉案网站被关停。11月初，有研究人员在iOS系统中发现了一个名为Wirelurker的漏洞，可以让iPhone在不越狱的情况下感染病毒，并且有可能已经影响了数十万用户。
+
+ 1. [《第三方SSD的电脑升级Yosemite需要关闭kext signing》](http://www.tuicool.com/articles/zIFbQ3r)：苹果在本次升级里为 Yosemite 增加了一个新型的安全插件“kext signing”，存储在 NVRAM/PRAM 里，未经苹果认证的第三方 SSD 硬盘都将被这个插件过滤掉，所以会有用户在升级后开机遇到灰叉的情况，这时你可以使用最新版的Trim Enabler 3.3 ，升级前可提前关闭“kext signing”。
+
+##教程
+
+ 1. [《黑幕背后的__block修饰符》](http://chun.tips/blog/2014/11/13/hei-mu-bei-hou-de-blockxiu-shi-fu/)：文章通过使用 `clang -rewrite-objc` 命令，分析了 `__block` 修饰符是如何做到改变引用的变量的值。
+
+ 1. [《刨根问底Objective－C Runtime（3）－ 消息 和 Category》](http://t.cn/R7meOzE)：文章通过一道习题，利用分析Objective-C实现源代码，讲解了Objective-C的消息和Category的实现原理。
+ 
+ 1. [《刨根问底Objective－C Runtime（4）－ 成员变量与属性》](http://t.cn/R7melvT)：本篇笔记主要是讲述Objective－C Runtime的成员变量和属性。
+
+ 1. [《UIAlert​Controller》](http://nshipster.cn/uialertcontroller/)：你知道 UIAlertView、UIActionSheet (以及它们各自的 delegate protocols) 在 iOS 8 中已经被废弃了吗？本文章的主题就是 UIAlertController，向大家展示如何替换旧的 alert，以及这些操作方法的高级扩展。
+ 
+ 1. [《Swift Comparison Protocols》](http://nshipster.cn/swift-comparison-protocols/)：Objective-C 让我们对相等性和唯一性的本质慢慢有了带有哲学色彩的思考。为了解救那些不愿意向论文一样的哲理卑身屈膝的开发者，Swift 为此作出了很多改进。在 Swift 中，Equatable 是一个基本类型，由此也演变出了 Comparable 和 Hashable 两种类型。这三个一起组成了这门语言关于对象比较的核心元素。本文介绍了 Swift 中的比较功能。
+ 
+ 1. [《WKWeb​View》](http://nshipster.cn/wkwebkit/)：WKWebView 是现代 WebKit API 在 iOS 8 和 OS X Yosemite 应用中的核心部分。它代替了 UIKit 中的 UIWebView 和 AppKit 中的 WebView，提供了统一的跨双平台 API。本文比较了 WKWebView 与 UIWebView 的功能。
+
+##工具
+
+ 1. [Flashlight](https://github.com/nate-parrott/Flashlight)：Flashlight 是为 Spotlight 写插件的非官方框架。
+
+ 1. [FlashlightPlugins](https://github.com/allenhsu/FlashlightPlugins)：FlashlightPlugins 基于 Flashlight 的中文插件列表。
+ 

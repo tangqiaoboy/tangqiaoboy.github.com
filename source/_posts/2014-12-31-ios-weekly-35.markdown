@@ -1,0 +1,47 @@
+---
+layout: post
+title: "iOS移动开发周报-第35期"
+date: 2014-12-31 22:03:13 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/12/developer-favorite-swift-skills)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+
+【摘要】：本期iOS移动开发周报带来如下内容：90后CEO的开源心得、iOS8 企业应用部署Bug、盘点开发者最喜爱的Swift技巧、iOS开发的一些奇巧淫技等。
+
+##新闻
+
+ 1. [《90后CEO的开源心得：Github 2500 star是如何炼成的》](http://www.cocoachina.com/programmer/20141224/10747.html)：如果你是一名 iOS 开发者同时还是 Github 的重度使用者，那么你多半见过这个项目：PNChart，一个提供带动画的图表控件。截止到目前为止，PNChart 在 Github上 的 star 数已经超过2500，是一个备受开发者喜爱的 iOS 第三方开源库。该开源库的作者周楷雯，在本文中分享了如何打造一个成功的iOS开源项目。
+
+ 1. [《苹果获反向AirPlay专利，在iPhone上同步播放Apple TV内容》](http://www.36kr.com/p/218161.html)：苹果刚刚获得了美国专利与商标局授予的一项新专利，这项专利可以让内容在便携式设备上同步显示，即可以让 Apple TV 这样位置固定的设备上播放的内容，实时同步到 iPhone、iPad 等 iOS 设备上。
+
+##教程
+
+ 1. [《iOS8 企业应用部署Bug》](http://thierry-xing.iteye.com/blog/2119241)：使用iOS企业部署（In-House Distribution）方式进行应用升级时，在 iOS8 下无法成功，删除应用再重新安装也不行。如果你也遇到了这个问题，那么可以看看作者是如何解决的。需要说明的是，该Bug在 iOS 8.1.2 更新中得到了修复。
+
+ 1. [《盘点开发者最喜爱的Swift技巧》](http://www.csdn.net/article/2014-12-25/2823312-favorite-swift-tips-and-tricks)：Swift 发布才半年左右，却已深得众多开发者的青睐，也有了许多学习资源、项目和开发工具。在本文中，来自objc.io、LinkedIn等各个公司的软件工程师及资深开发者总结了自己在接触 Swift 过程中最喜爱的贴士与技巧。
+
+ 1. [《iOS开发的一些奇巧淫技》](http://www.jianshu.com/p/50b63a221f09)：作者分享了一些 iOS 开发中涉及的小技巧。
+
+ 1. [《Swift 脚本编写》](http://blog.nswebfrog.com/2014/12/22/swift-script/#541841-tsina-1-77759-d0fc3b3b40d03e6b36d60be81253e42e)：作为苹果新一代的编程语言，Swift 不仅可以用来开发 iOS 应用，还可以用来编写脚本，来完成 OS X 下的一些自动化的工作。终于可以用我们熟悉的语言来写自动化脚本了，想想是不是就觉得心里有点小激动呢^_^。本文从一个Hello World脚本开始，介绍了如何用Swift完成脚本编写工作。
+
+ 1. [《一步一步教你写classdump》](http://bbs.iosre.com/forum.php?mod=viewthread&tid=645)：最近刚读完《Mac OS X and iOS Internals》的前几章，也想练练手，写tweak，app也烦了，基于上述原因就试着写了这个demo。虽然这些功能都可以通过 otool 和 classdump 去实现，但也算是对 macho 文件格式的一种学习吧。
+
+ 1. [《iOS-Core-Animation-Advanced-Techniques》](https://github.com/AttackOnDobby/iOS-Core-Animation-Advanced-Techniques)：一本不错的翻译图书，介绍了关于Core Animation的各方面的知识。
+
+ 1. [《Swift语言指南》](https://github.com/ipader/SwiftGuide)：这份指南汇集了 Swift 语言主流学习资源，并以开发者的视角整理编排。
+
+ 1. [《Swift 项目使用 CoreData 可能会碰到的 32 位系统问题》](http://imtx.me/archives/1917.html)：最近在项目中偶然发现了一个问题，那就是 Swift 的 CoreData 在 32 位系统下与 64 位系统下表现不一致的问题。简单的说：如果你的 CoreData 模型有一个声明为 Boolean 的 Attribute，并且在代码中使用 NSNumber 来包装（而不是Bool）的话，很可能会遇到这个问题。作者介绍了该问题的细节和解决办法。
+
+##开源项目
+
+ 1. [peertalk](https://github.com/rsms/peertalk)：peertalk 是一个支持 iOS 与 Mac 通过 USB 相互通讯的开源库。 Duet Display 基于此实现了将 Mac 界面呈现到 iOS 设备上。
+

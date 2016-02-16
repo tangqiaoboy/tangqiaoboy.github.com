@@ -1,0 +1,56 @@
+---
+layout: post
+title: "iOS移动开发周报-第40期"
+date: 2015-03-10 20:48:50 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，文章地址是[这里](http://www.infoq.com/cn/news/2015/03/implementation-of-kvo)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+
+【摘要】：本期 iOS 移动开发周报带来如下内容：iOS 开发者收入调查报告、如何自己动手实现 KVO、QQ 中未读气泡拖拽消失的实现分析、InfoQ 上移动端话题汇总、UIResponder 等。
+
+##新闻
+
+ 1. [《iPhone 6 再立功：中国区 iOS 份额历史新高》](http://www.cocoachina.com/apple/20150306/11250.html)：据来自 Kantar Worldpanel ComTech 的最新数据，截止至 2015 年一月的前三个月内，苹果 iOS 系统份额在中国区创历史新高，卖出的每四台智能手机就有一个是 iPhone。
+
+ 1. [《iOS 开发者收入调查报告（一）：个人开发者篇》](http://www.cocoachina.com/programmer/20150304/11205.html)：2014 年 12 月，CocoaChina 以网上调查问卷形式发起了 “2014 iOS 开发者收入调查报告” 活动，得到了广大开发者的支持。在对问卷数据进行了整理分析后形成了本次调查报告，从而让我们对国内 iOS 开发者的收入和生存状态有一个大概的了解。本文是该调查的最终报告。
+
+##教程
+
+ 1. [《如何自己动手实现 KVO》](http://tech.glowing.com/cn/implement-kvo/)：KVO 是 Objective-C 对观察者模式（Observer Pattern）的实现。也是 Cocoa Binding 的基础。当被观察对象的某个属性发生更改时，观察者对象会获得通知。本文探究了 KVO (Key-Value Observing) 实现机制，并去实践一番：利用 Runtime 自己动手去实现 KVO 。
+
+ 1. [《QQ 中未读气泡拖拽消失的实现分析》](http://kittenyang.com/drawablebubble/)：QQ 中针对强迫症有个很棒的交互，对于那些暂时不想理会的未读信息气泡，可以直接手指拖拽去掉。本文介绍了其实现方法。
+
+ 1. [《UITextView 编辑时插入自定义表情-简单的图文混编》](http://t.cn/Rw3he5x)：在 iOS 开发中，经常需要用 UITextView 作为编辑文本的输入控件。但是如何在编辑时插入自定义表情呢？本文简单的用 NSTextAttachment、NSAttributedString 的特性，实现了在 UITextView 中编辑文字时插入自定义表情图片，同时可以返回带有表情 “替换符” 的纯文本字符串。
+
+ 1. [《提升 UITableView 性能-复杂页面的优化》](http://tutuge.me/2015/02/19/%E6%8F%90%E5%8D%87UITableView%E6%80%A7%E8%83%BD-%E5%A4%8D%E6%9D%82%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%BC%98%E5%8C%96/)：随着 App 的用户界面的内容越来越丰富，再强的手机可能都无法同时渲染复杂的 UI 界面和保证流畅的体验。本文分享了一些提升 UITableView 性能的技巧。
+
+ 1. [《InfoQ 上移动端话题汇总》](http://weibo.com/p/1001603816757822408978)：[@ 移动开发小冉](http://weibo.com/ranwj) 整理了一下 InfoQ 上关于移动方面的分享内容，涉及移动端架构、测试、流程优化等多方面的内容。
+
+ 1. [《 在非越狱的 iPhone 6 (iOS 8.1.3) 上进行钓鱼攻击 (盗取 App Store 密码)》](http://blog.csdn.net/zhengminwudi/article/details/43916791)：iOS 逆向工程的一大应用场景是 iOS 安全。它既可以作为攻击的矛，也可以作为防御的盾。由蒸米带来的本文就是一则典型的以逆向工程为矛的案例，他对 CoreFoundation 里私有函数的运用画龙点睛，值得学习。
+
+ 1. [《UIResponder》](http://southpeak.github.io/blog/2015/03/07/uiresponder/)：在 UIKit 中，IApplication、UIView、UIViewController 这几个类都是直接继承自 UIResponder 类。另外 SpriteKit 中的 SKNode 也是继承自 UIResponder 类。因此 UIKit 中的视图、控件、视图控制器，以及我们自定义的视图及视图控制器都有响应事件的能力。本文详细介绍了一个 UIResponder 类提供的基本功能。
+
+ 1. [《实现一个 TODO 宏》](http://blog.sunnyxx.com/2015/03/01/todo-macro/)：文章介绍了如何实现一个能产生编译器警告的 TODO 宏，用于在代码里做备忘。
+
+##视频
+
+ 1. [《First Impressions using React Native》](http://jlongster.com/First-Impressions-using-React-Native)：作者介绍了他使用 Facebook 即将开源的 React Native 的感受。
+
+##工具
+
+ 1. [iOS-Universal-Framework](https://github.com/kstenerud/iOS-Universal-Framework)：iOS-Universal-Framework 是一个方便你将第三方 SDK 编译成 Framework 的开源工具。
+
+ 1. [Origami](http://facebook.github.io/origami/)：Origami Live 支持在 iOS 设备上预览 Quartz Composer 项目，Origami 2.0 添加了导出 Objective-C、Java、JS 代码的功能，以后做原型效率更高了。由 [@ 汤圣罡](http://weibo.com/lexrus) 推荐。
+
+##开源项目
+
+ 1. [NativeScript](link)：NativeScript 是一个类似 React Native 的开源框架，使用 JavaScript 调用原生 API，构建原生应用，支持 iOS、 Android 和 WP 等多平台。

@@ -1,0 +1,57 @@
+---
+layout: post
+title: "iOS移动开发周报-第26期"
+date: 2014-09-24 20:49:02 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/09/swift-strong-point)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：Swift 的强大之处、iOS8开发者专题、在Xcode 6中使用矢量PDF、iOS 8 App Extensions等。
+
+##新闻
+
+ 1. [《Apple 上线 Android 到 iPhone 数据迁移教程》](http://www.guomii.com/posts/38832)：为了让更多的 Android 用户加入到 iPhone 阵营，Apple 主动出击，上线了一个[专门的页面](http://support.apple.com/kb/HT6407)，帮助 Android 用户购买 iPhone 之后迁移数据。涉及到的内容包括邮件、通讯录、日历、照片、视频、音乐、电子书、PDF、文档、应用等的迁移。
+
+##教程
+
+ 1. [《Swift 的强大之处》](http://objccn.io/issue-16-1/)：介绍了Swift语言的特性，包括支持函数式编程、类型安全、不可变性等。
+
+ 1. [《Swift 的函数式 API》](http://objccn.io/issue-16-4/)：Swift 引入了泛型和函数式编程的思想，极大地扩展了设计的空间。文章借对 Core Image 进行函数式 API 封装为例，展示出应用 Swift 进行函数式编程的能力。
+
+ 1. [《iOS8开发者专题》](http://www.cocoachina.com/special/ios8/)：由CocoaChina整理出来的iOS8相关的资料汇总。
+
+ 1. [《用 Swift 开发一个 TODO 应用》](http://blog.callmewhy.com/2014/09/15/todo-list-in-swift/)：作者 [@请叫我汪二](http://weibo.com/small1030light) 在文章中教你如何完成一个 TODO 的应用，功能包括添加任务和浏览任务。适合有一定 Objective-C 的开发基础但是还没怎么接触 Swift 的 iOS 开发者，希望通过这样一个简单的例子可以和大家一起熟悉一下 Swift。
+
+ 1. [《黑魔法__attribute__((cleanup))》](http://blog.sunnyxx.com/2014/09/15/objc-attribute-cleanup/)：编译器属性 `__attribute__`用于向编译器描述特殊的标识、检查或优化。作者在文章中介绍了其中一个名为`cleanup`的“黑魔法”属性。
+
+ 1. [《Swift中类的初始化器与继承》](http://nonomori.farbox.com/post/swiftzhong-lei-de-chu-shi-hua-qi-yu-ji-cheng)：Swift 为类定义了两种初始化器来确保类中所有的储存属性都能得到一个初始化值。这两种初始化器就是「指定初始化器」(Designated Initializer)与「便利初始化器」(Convenience Initializer)，文章对其做了介绍。
+
+ 1. [《大屏iPhone的适配》](http://blog.ibireme.com/2014/09/16/adapted_to_iphone6/)：自从苹果出了大屏iPhone后，iOS开发也要做适配了， 这里大概总结下这几天了解到的大屏适配的注意事项。
+
+ 1. [《Using Vector Images in Xcode 6》](http://martiancraft.com/blog/2014/09/vector-images-xcode6/)：文章介绍了在Xcode 6中使用矢量PDF图形的具体操作方法。
+
+ 1. [《Swifty methods》](http://radex.io/swift/methods/)：文章讨论了Swift的函数命名习惯，并与Objective-C语言做了对比。
+
+ 1. [《Apple Pay Human Interface Guidelines》](https://developer.apple.com/apple-pay/Apple-Pay-Human-Interface-Guidelines.pdf)：苹果发布了支付功能Apple Pay的人机交互指南。
+
+## 视频
+
+ 1. [《iOS 8 App Extensions Tech Talk Video》](http://www.raywenderlich.com/83021/ios-8-app-extensions-tech-talk-video)：该视频介绍了iOS 8引入的App Extensions功能。从用户视角和开发者视角分别对其做了介绍。
+
+##工具
+
+ 1. [specKing](http://www.wuwacorp.com/specking/)：specKing 与 [马克鳗](http://www.getmarkman.com/) 功能类似，用于全自动标示美术稿。不过 specKing 是以付费的 PS 外挂的形式发布的。
+
+##开源项目
+
+ 1. [iOS8-Sampler](https://github.com/shu223/iOS8-Sampler)：日本的shuさん制作的 iOS8 参考代码集。由 [@kimsungwhee](http://weibo.com/u/2289288323) 推荐。
+
+

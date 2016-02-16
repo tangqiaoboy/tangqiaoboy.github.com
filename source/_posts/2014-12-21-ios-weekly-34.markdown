@@ -1,0 +1,57 @@
+---
+layout: post
+title: "iOS移动开发周报-第34期"
+date: 2014-12-21 19:56:06 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/12/ios-code-android-app)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：浅谈 iOS 版本号、UIScrollView 实践经验、设计优雅的移动游戏、如何把iOS代码编译为Android应用等。
+
+##新闻
+
+ 1. [《iPhone 6/6 Plus中国销量曝光：单月销量650万》](http://tech.sina.com.cn/mobile/n/n/2014-12-12/doc-iavxeafr6871711.shtml)：据iSuppli Corp.中国研究总监王阳爆料，iPhone 6和iPhone 6 Plus在国内受欢迎的情况大大超过预期，苹果在中国的单月销量在11月超过了650万台，全年在中国的销量将超过4000万台。
+
+##教程
+
+ 1. [《 Date parsing performance on iOS》](http://vombat.tumblr.com/post/60530544401/date-parsing-performance-on-ios-nsdateformatter)：文章介绍了一个关于格式化时间的”黑科技“，作者使用 sqlite 替换 NSDateFormatter，提高了16倍的转换效率。
+
+ 1. [《浅谈 iOS 版本号》](http://club.fir.im/topic/548c09a1f6de25850440afd7)：FIR.im 一直在尽量兼容不同使用习惯的版本号形式, 但是在使用中我们发现好多开发者对怎么更好的用版本号来标示应用很陌生。这是篇基础文章，简单介绍 iOS 的版本号。
+
+ 1. [《UIScrollView 实践经验》](http://tech.glowing.com/cn/practice-in-uiscrollview/)：UIScrollView（包括它的子类 UITableView 和 UICollectionView）是 iOS 开发中最常用也是最有意思的 UI 组件，大部分 App 的核心界面都是基于三者之一或三者的组合实现。UIScrollView 是 UIKit 中为数不多能响应滑动手势的 view，相比自己用 UIPanGestureRecognizer 实现一些基于滑动手势的效果，用 UIScrollView 的优势在于 bounce 和 decelerate 等特性可以让 App 的用户体验与 iOS 系统的用户体验保持一致。本文通过一些实例讲解 UIScrollView 的特性和实际使用中的经验。
+
+ 1. [《设计优雅的移动游戏》](http://objccn.io/issue-18-1/)：设计手机游戏是一个有趣的主意，理论上，做智能手机或者平板电脑游戏与其他平台游戏设计没有根本的不同。手机游戏在传统系统属性上与其他类型以及平台极其相似，无论你想创造一个开心农场，使命召唤还是国际象棋。但实践中，想要创建一个成功的手机游戏完全是另一回事。有很多其他的顾虑，从市场饱和及难以被发现，到玩法定型及设备的尺寸因素等。由于这些原因，作为一个设计师来说创造一个优秀的手机游戏就像在玩“困难模式”。文章介绍了手机游戏的两个特征：游戏时长和交互方法，另外介绍了几种适用于移动平台的系统设计方法。本文译者：[@唯木念](http://diwu.me)。
+
+ 1. [《Metal》](http://objccn.io/issue-18-2/)：Metal 是针对 iPhone 和 iPad 中 GPU 编程的高度优化的框架。其名字来源是因为 Metal 是 iOS 平台中最底层的图形框架 (意指 "最接近硬件")。该框架被设计用来实现两个目标: 3D 图形渲染和并行计算。这两者有很多共同点。它们都在数量庞大的数据上并行运行特殊的代码，并可以在 GPU 上执行。本文介绍了 Metal 的好处以及使用基础。本文译者：migrant。
+
+ 1. [《Scene Kit》](http://objccn.io/issue-18-3/)：在 WWDC 2012，Apple 向 OS X 开发者们介绍了 Scene Kit，这个 Cocoa 下的 3D 渲染框架。在第一版通用 3D 渲染器发布后，一年内又陆续增加了像 shader (着色器) 修改器、节点约束、骨骼动画等几个强大的特性 (随 Mavericks 发布)。今年，Scene Kit 变的更加强大，支持了粒子效果、物理引擎、脚本事件以及多通道分层渲染等多种技术，而且，对于很多人来说更关键的是，它终于可以在 iOS 中使用了。本文介绍了Scene Kit的概要知识，以及如何使用它来写游戏。本文译者：[孙源](http://blog.sunnyxx.com)。
+
+ 1. [《游戏中的多点互联》](http://objccn.io/issue-18-4/)：多点互联是苹果的一个传输无关的网络框架，提供网络的发现、创建和通信功能。MPC 的关键用途在于创建临时网络中的点对点连接，而不需要考虑天气、无线、蓝牙等各种因素，只需要有个人网络就行。一旦创建之后，各个节点可以安全地共享消息、数据和文件资源。大部分的游戏都更适合用 GameKit 开发，它有很多直接使用 MPC 实现的游戏相关的封装。不过作为 MPC 的进阶手册，本文主要涉及 MPC 的各种使用技巧。本文译者：[汪海洋](http://blog.callmewhy.com)。
+
+ 1. [《虚拟音域 - 声音设计的艺术》](http://objccn.io/issue-18-5/)：由于声音占据我们日常生活的很大部分，所以声音在游戏开发中也越来越重要。然而，要实现完全身临其境的虚拟现实，最大的挑战之一就是设计逼真的声音环境。如果你身处一个虚拟森林中，但却听不到树叶的沙沙声，也听不到昆虫的鸣叫声，你就不会感觉到真实。在某些方面，音效设计是吃力不讨好的活计。你什么都正确的话，没人会注意到这些，但是一旦你做错了什么，人们百分之百会注意到。这是一项痛苦，细节导向，但又几乎被忽略的工作。但是，当你捕捉到一种美妙的声音体验或真实的声音环境时，你会感觉到一种乐趣，这种乐趣很大程度上弥补了工作辛苦、收获甚少的不足。本文介绍了音效各方面的知识，包括：记录声音、麦克风、数码音频软件、拟音、音频滤波器、混合音效等知识。本文译者：[树叶](http://blog.sina.com.cn/u/1867019351)
+
+ 1. [《Continuous Integration for iOS Development》](http://madebymany.com/blog/continuous-integration-for-ios-development)：文章介绍了如何基于Xcode的Bot做持续集成。
+
+ 1. [《NSUndo​Manager》](http://nshipster.com/nsundomanager/)：本文介绍了 NSUndoManager 的使用。NSUndoManager 可以用来做一些撤销操作。
+ 
+ 1. [《视频特效制作》](http://www.jianshu.com/p/6313025349a9)：文章介绍了一些视频特效制作方法，包括给视频添加边框、给视频添加水印、给视频添加动画、做出3D效果、视频推进效果等技术细节。
+
+##视频
+
+ 1. [《如何把iOS代码编译为Android应用》](http://boolan.com/lecture/1000001076#0-tsina-1-39436-397232819ff9a47a7b7e80a40613cfe1)：OurCoders.com站长 [@tinyfool](http://www.weibo.com/tinyfool?from=feed&loc=nickname)介绍了他们通过将Objective-C底层移植到Android平台，最终把iOS代码编译为Android应用的过程。
+
+##开源项目
+
+ 1. [MMWormhole](https://github.com/mutualmobile/MMWormhole)：MMWormhole 是一个方便开发者在 iOS 应用与 iOS extensions 之间交换数据的开源框架。
+
+ 1. [RTImageAssets](https://github.com/rickytan/RTImageAssets)：RTImageAssets 是一个 Xcode 插件，用来生成 @3x 的图片资源对应的 @2x 和 @1x 版本，只要拖拽高清图到 @3x 的位置上，然后按 `Ctrl+Shift+A` 即可自动生成两张低清的补全空位。当然，如果你对图片质量要求不高的话，你也可以从 @2x 的图生成 @3x 版本。
+
+ 1. [PQFCustomLoaders](https://github.com/poolqf/PQFCustomLoaders)：PQFCustomLoaders 提供了高质量的、定制化的加载进度条。

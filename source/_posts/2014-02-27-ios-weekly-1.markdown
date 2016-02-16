@@ -1,0 +1,48 @@
+---
+layout: post
+title: "iOS移动开发周报-第1期"
+date: 2014-02-27 17:23
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/02/apple-ssl-bug)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+##新闻
+ 1. [《苹果收购iOS测试平台TestFlight的开发商》](http://tech.sina.com.cn/mobile/n/apple/2014-02-22/08379183001.shtml)，苹果公司确认收购知名iOS测试平台TestFlight的开发商Burstly。与此同时，TestFlight表示将停止提供Android平台产品，不再面向新用户销售Android版测试软件开发包(SDK)，而当前用户仍可以继续使用。
+
+ 1. [《由苹果的低级Bug想到的》](http://coolshell.cn/articles/11112.html): 2月22日苹果修复了SSL连接验证的一个bug，该bug会引起中间人攻击。文章作者详细分析了Bug产生的潜在原因和一些思考，包括代码风格、测试、以及goto语句的使用。
+ 
+ 1. [《百度面试》](http://studentdeng.github.io/blog/2014/02/11/baidu-interview/)：作者在文章中分享了百度移动云可穿戴部门iOS开发职位的面试经历，其中多个技术问题值得大家深入学习。
+ 
+ 1. [《Facebook Paper使用的第三方库》](http://blog.rpplusplus.me/blog/2014/02/11/facebook-paper-used-3rd/)：作者在文章中分享了facebook paper使用的第三方库。该列表中的第三方库对广大iOS开发者来说，具有很好的参考意义。 
+ 
+##教程
+
+ 1. [《初识iPhone基带通讯》](http://blog.xcodev.com/archives/iphone-baseband-intro/)：基带（Baseband）是手机的通讯模块，它负责移动网络的调制与解调工作，它与手机核心通讯功能息息相关。作者在文章中介绍了，如何在越狱的iPhone中，用基带进行通讯。
+ 
+ 2. [《[译]iOS7最佳实践：一个天气App案例(一)》](http://sjpsega.com/blog/2014/02/11/yi--ios-7-best-practices-part-1/)和[《[译]iOS7最佳实践：一个天气App案例(二)》](http://sjpsega.com/blog/2014/02/15/yi--ios-7-best-practices-part-2/)：在这篇来自raywenderlich的教程中，作者详细介绍了如何使用依赖管理工具Cocoapods、纯代码布局、响应式编程框架ReactiveCocoa以及OpenWeatherMap完成一个天气应用，具有很高的学习价值。
+ 
+ 3. [《基于脚本实现动态库注入》](http://blog.csdn.net/yiyaaixuexi/article/details/19642621)：作者分享了她在越狱手机上，基于脚本向某个应用动态注入动态库的想法和实践。
+ 
+ 4. [《Xcode5 Plugins 开发简介》](http://studentdeng.github.io/blog/2014/02/21/xcode-plugin-fun/)：作者在文章中介绍了如何给Xcode5开发插件。最后作为示例，开发了一个简单的插件，记录Xcode开发中Building的时间。
+ 
+ 5. [《TDD的iOS开发初步以及Kiwi使用入门》](http://onevcat.com/2014/02/ios-test-with-kiwi/)：测试驱动开发(Test Driven Development，简称为TDD)是保证代码质量的一种程序开发方法。作者介绍了在iOS开发中使用TDD及Kiwi的方法。
+ 
+ 6. [《objc.io系列文章中文翻译汇总》](http://iosinit.com/?p=787)：objc.io是国外的一个iOS教程网站，它每一期的教程会有一个主题，在这个主题下会有6篇左右的文章（有时由浅入深，有时侧重点不同），实属iOS学习中的精品资源。因此，每一期objc.io文章出来的时候，都会有一些热心的读者将文章翻译成中文。作者将网上的翻译汇总在文章中，方便大家阅读。
+ 
+##工具
+
+ 1. [Crash Manager](https://itunes.apple.com/cn/app/crash-manager/id806327079?mt=8)：Crash Manager是Crashlytics的非官方iPhone客户端，而且在AppStore上免费。InfoQ也曾撰文介绍过Crashlytics的使用：[《统计Crash的工具Crashlytics》](http://www.infoq.com/cn/articles/crashlytics-crash-statistics-tools)。
+
+##开源项目
+
+ 1. [DyCI](https://github.com/DyCI/dyci-main) ：DyCI是一个动态注入工具，用于向iOS应用中注入代码而不用重新启动应用。
+ 
+ 

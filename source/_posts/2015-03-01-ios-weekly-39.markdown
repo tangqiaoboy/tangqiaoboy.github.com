@@ -1,0 +1,53 @@
+---
+layout: post
+title: "iOS移动开发周报-第39期"
+date: 2015-03-01 13:46:28 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，文章地址是[这里](http://www.infoq.com/cn/news/2015/02/core-image-introduction)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期 iOS 移动开发周报带来如下内容：Core Image 介绍、写 iOS SDK 注意事项、利用 CocoaLumberjack 搭建自己的 Log 系统、KSHObjcUML 等。
+
+##新闻
+
+ 1. [《Google 宣布淘汰 SPDY》](http://www.williamlong.info/archives/4142.html)：Google 宣布计划淘汰该公司在 2009 年推出的 SPDY 协议，SPDY 原本定位为替代 HTTP 协议的新协议，Google 原本打算以它来加速 HTTP 的传输速度并推动成为标准，不过现在决定将支持 HTTP/2，并逐渐淘汰 SPDY，预计 2016 年就会完全从 Chrome 中移除对 SPDY 协议的支持。
+
+##教程
+
+ 1. [《Core Image 介绍》](http://objccn.io/issue-21-6/)：这篇文章为初学者介绍了 Core Image，一个 OS X 和 iOS 的图像处理框架。
+
+ 1. [《Builder Pattern 在 Objective-C 中的使用》](http://limboy.me/ios/2015/02/07/builder-pattern.html)：作者从一个真实场景出发，介绍了结合 block 使用工厂模式的实践方式。
+
+ 1. [《写 iOS SDK 注意事项》](http://blog.devtang.com/blog/2015/01/31/write-sdk-tips/)：我发现即使是像腾讯、小米这样的大厂提供的 SDK，在质量和规范上也有很多问题，文本分享了写 iOS SDK 注意事项。
+
+ 1. [《CoreData 与 ReactiveCocoa 混用时要注意的线程问题》](http://imtx.me/archives/1926.html)：作者从一个 Crash 出发，分享了查找和修复问题的整个过程。
+
+ 1. [《iOS 开发如何快速成长 ?》](http://www.jianshu.com/p/5adb536fd32b)：作者分享了自己的一些心得，包括：做有难度的项目、尽量少抱大腿、多读源码、多读国外的 iOS 开发网站和 blog、要孜孜不倦的学习。
+
+ 1. [《久违的的 LLDB 篇一，让 lldb 提升你的效率》](http://www.jianshu.com/p/f888db82fc27)：作者分享了一些 LLDB 使用小技巧。
+
+ 1. [《利用 CocoaLumberjack 搭建自己的 Log 系统》](http://nonomori.farbox.com/post/li-yong-cocoalumberjack-da-jian-zi-ji-de-log-xi-tong)：CocoaLumberjack 最早是由 Robbie Hanson 开发的日志库，可以在 iOS 和 MacOSX 开发上使用。其简单，快读，强大又不失灵活。本文介绍了利用 CocoaLumberjack 搭建自己的 Log 系统的过程。
+
+ 1. [《Let's Build @synchronized》](https://mikeash.com/pyblog/friday-qa-2015-02-20-lets-build-synchronized.html)：本文讲解了 synchronized 关键字的内部实现原理。
+
+##视频
+
+ 1. [《Controlling Complexity in Swift》](http://realm.io/news/andy-matuschak-controlling-complexity/)：本视频的作者来自 [Andy Matuschak](https://twitter.com/andy_matuschak)，他曾在苹果 UIKit 组工作，在本视频中，他分享了用 Swift 来控制复杂度的经验。
+
+##工具
+
+ 1. [KSHObjcUML](https://github.com/kimsungwhee/KSHObjcUML)：KSHObjcUML 是一个 Objective-C 类引用关系图的 Xcode 插件。作者是：[@kimsungwhee](http://weibo.com/u/2289288323)。
+
+ 1. [Xliffie](https://itunes.apple.com/app/id961651406)：Xliffie 是 [@ 汤圣罡](http://weibo.com/lexrus) 推荐的一个本地化必备工具，它对 Xcode 生成的 Xliff 文件支持较好。
+
+ <hr />
+广告：亚马逊上正在销售我的《iOS开发进阶》签名版，输入优惠码`JXBEGSGKUV`，可在结帐时减7元，点击查看：[购买链接](http://www.amazon.cn/b?node=1474130071)。
+

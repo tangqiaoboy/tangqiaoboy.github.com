@@ -1,0 +1,50 @@
+---
+layout: post
+title: "iOS移动开发周报-第7期"
+date: 2014-04-10 23:34:02 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/04/apple-wwdc2014-ticket)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果WWDC2014门票开卖，
+ARC下dealloc过程，修改OSX和iOS程序内容的内存修改器等。
+
+##新闻
+
+1. [苹果WWDC2014门票开卖，开发者需通过抽签的方式申请购买](http://nb.zol.com.cn/445/4451916.html)：2014年苹果开发者大会（WWDC）将于6月2日至6日在旧金山Moscone West中心举行。而本次WWDC大会的门票将于旧金山当地时间4月7日上午十点开始发售，开发者需通过抽签的方式申请购买，下午五点到八点公布获得门票的名单。
+
+
+##教程
+
+ 1. [《Dynamic Linking》](http://realmacsoftware.com/blog/dynamic-linking)：文章详细解释了动态链接库在iOS程序中的加载过程，作者在也尝试自己实现了一个动态链接库并且在iOS程序中成功加载，不过文章最后指出，在AppStore上架的的应用，如果要加载动态链接库，该链接库需要得到苹果的签名才能加载成功，虽然这在技术上是可行的，但苹果现阶段的审核要求是不接受这种应用的。作者也将相关代码开源在 [Dynamic-iOS](https://github.com/ddeville/Dynamic-iOS) 项目中。
+ 
+ 1. [《iOS 7 交互式过渡》](http://nonomori.farbox.com/post/ios-7-jiao-hu-shi-guo-du)：iOS 7 新加入了自定义 View Controller 之间的过渡效果的方法。本文介绍了如何利用相关的API实现自定义的过滤效果。文章的内容主要包括：实现自定义过渡、使用自定义过渡、让过渡变得可以交互。文中例子的工程文件也已上传至[GitHub](https://github.com/PeteC/InteractiveViewControllerTransitions)。
+ 
+ 1. [《ARC下dealloc过程及.cxx_destruct的探究》](http://blog.sunnyxx.com/2014/04/02/objc_dig_arc_dealloc/)：在MRC时代，我们经常在`dealloc`方法将内部其他对象释放掉，申请的非Objc对象的内存当然也需要一并处理掉，最后调用super，继续将父类对象做析构。而在ARC时代，大部分的代码都不再需要了。这些相应的代码是如何由编译器完成的？带着这样的疑问，作者研究了LLVM的具体实现细节。
+ 
+ 1. [《Enemy of the State》](https://github.com/jspahrsummers/enemy-of-the-state/blob/master/Enemy%20of%20the%20State.pdf)：作者分享了程序架构中存在状态的坏处以及避免状态的一些方法：优先使用不可变对象、使用ReactiveCocoa框架、使用Model-View-ViewModel框架。 
+ 
+ 
+##工具
+
+1. [在Xcode调试时忽略部分异常](http://chen.do/blog/2013/09/30/selectively-ignoring-objective-c-exceptions-in-xcode/)：作者提供了一些llvm增强脚本，用于方便地在调试时忽略掉部分异常。增强脚本的代码也开源在[这里](https://gist.github.com/chendo/6759305/raw/ignore_specified_objc_exceptions.py)。
+
+1. [ClipMenu](https://github.com/naotaka/ClipMenu)：开源的Mac OS剪贴板管理工具。
+
+1. [Polychromatic](https://github.com/kolinkrewinkel/Polychromatic)：一个只高亮属性和变量的Xcode插件。 
+
+1. [Reveal-Plugin-for-XCode](https://github.com/shjborage/Reveal-Plugin-for-XCode)：作者写了一个Reveal插件，可以使工程不作任何修改的情况下使用Reveal，该插件已在Alcatraz上架。  
+
+##开源项目
+
+ 1. [HippocampHairSalon](https://github.com/iosre/HippocampHairSalon)：一个可以用于修改OSX和iOS程序内容的内存修改器。内存修改器最早出现在游戏中，可以修改游戏中人物的生命值等参数。其作者也在[这里](http://iosre.com/forum.php?mod=viewthread&tid=105&page=1&extra=#pid521)介绍了其制作的详细原理。
+  

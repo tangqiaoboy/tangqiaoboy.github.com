@@ -1,0 +1,52 @@
+---
+layout: post
+title: "iOS移动开发周报-第6期"
+date: 2014-04-03 21:37:15 +0800
+comments: true
+categories: iOS weekly
+---
+
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/04/apple-change-account-price)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果修改了中国区开发者帐号的付费价格、苹果调整了5个地区的AppStore应用价格以避免利用汇率的套利、iPhone版Office应用免费等。
+
+##新闻
+
+ 1. 苹果在最近修改了中国区的开发者帐号（Developer Program）的付费方式，开始支持人民币支付并取消了美元支付。不过相对于以前99$每年的注册费用，现在需要使用688人民币。按现在的市场价汇率计算，相比以前，开发者需要多支付将近70元费用。
+ 
+ 1. [iPhone版Office免费](http://iosdevelopertips.com/app-store/microsoft-office-mobile-iphone-now-free.html)：微软将自己旗下的iPhone版Office的价格修改为免费，下载地址是[这里](https://itunes.apple.com/cn/app/microsoft-office-mobile/id541164041?mt=8)。
+ 
+ 1. 苹果于4月1日给开发者发邮件称：将会调整包括南非在内的5个地区的AppStore应用价格。在这之前，由于南非的货币持续贬值，一些投机分子，利用苹果商店在汇率上的漏洞，借助苹果商店汇率和实际汇率的差价来倒卖商品。[《利用苹果商店规则漏洞的灰色地下产业链》](http://daily.zhihu.com/story/3350426)揭露了该行为。
+ 
+ 1. [《Projects that power GitHub for Mac》](https://github.com/showcases/projects-that-power-github-for-mac)：GitHub在其官方网站上分享了在开发Mac版GitHub客户端时使用的第三方库，共30个。
+
+##教程
+
+ 1. [《面向iOS开发者的Android教程》](http://www.objc.io/issue-11/)：著名的iOS原创教程网站objc.io最近推出了一期介绍Android的教程。由于作者都是具有iOS开发经验的，所以教程内容特别适合于已经有iOS开发经验的读者。文章许多知识的讲解也会拿iOS开发中已有的概念来做对比，加深读者理解。
+
+ 1. [《小心NSAssert》](http://billwang1990.github.io/blog/2014/03/26/nsassert-vc-nscassert/)：作者分享了在block中使用`NSAssert`时需要小心循环引用的问题。
+ 
+ 1. [《最近开发中遇到的问题汇总》](http://blog.xcodev.com/archives/issus-2014-4-2/)：文章依次介绍了最近开发中遇到的问题，包括：《UIButton在Disabled状态下标题混乱的问题》、《含软连字符的字符串计算显示长度的问题》和《UINavigationBar左右两边按钮可同时点击的问题》。
+
+ 1. [《Core Bluetooth Concept》](http://studentdeng.github.io/blog/2014/03/22/corebluetooth/)：作者介绍了在iOS设备中使用`CoreBluetooth`API来实现基于蓝牙4.0通讯相关的基础知识和示例工程。
+ 
+ 1. [《NSHashTable & NSMapTable》](http://billwang1990.github.io/blog/2014/03/31/nshashtable-and-nsmaptable/)：作者简单介绍了一下iOS开发中相对于`NSDictionary`和`NSSet`来说，不常被人使用的`NSHashTable`和`NSMapTable`的相关知识。
+ 
+ 
+##工具
+
+ 1. [CocoaPodUI](https://github.com/Galeas/CocoaPodUI)：`CocoaPodUI`是一个Xcode中的GUI插件，为iOS工程第三方依赖管理工具`CocoaPods`提供UI管理界面。
+ 
+##开源项目
+
+ 1. [Breakpoints_v2.xcbkptlist](https://gist.github.com/raven/8553761)：作者介绍了如何不修改工程设置和源码，将reveal集成到调试环境中的办法。[reveal](http://revealapp.com/)是一个动态调试和修改界面的工具。
+ 
+ 
+

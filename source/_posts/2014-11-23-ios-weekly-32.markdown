@@ -1,0 +1,51 @@
+---
+layout: post
+title: "iOS移动开发周报-第32期"
+date: 2014-11-24 21:42:41 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/11/1yuan-apple-app-store-pricing)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+
+【摘要】：本期iOS移动开发周报带来如下内容：“1元”正式成苹果中国区应用商店新定价、Apple Watch人机界面指南、Apple WatchKit 初探等。
+
+##新闻
+
+ 1. [《苹果公司发布iOS 8.1.1升级补丁》](http://tech.sina.com.cn/it/apple/2014-11-18/06419801088.shtml)：11月18日凌晨消息，苹果公司已对上个月针对iPhone、iPad和iPod Touch发布的iOS 8.1操作系统正式推出了iOS 8.1.1升级补丁。iOS 8.1.1将可改善基于iOS 8系统运行的、使用A5芯片的较老设备的表现，也就是指iPad 2和iPhone 4s。除了发布iOS 8.1.1以外，苹果公司还发布了OS X 10.10.1升级补丁以修复WiFi网络表现及其他问题。
+
+ 1. [《“1元”正式成苹果中国区应用商店新定价》](http://tech.sina.com.cn/mobile/n/apple/2014-11-21/16439814574.shtml)：11月19日，苹果中国区App Store应用商店出现1元应用，当时曾有消息称这是短期促销行为，不过目前苹果公司已经正式宣布，人民币1元及3元将是中国区应用商店的新定价，作为一个永久价格选项。
+
+ 1. [《CocoaPods将要支持Swift》](https://github.com/CocoaPods/CocoaPods/pull/2835)：从 CocoaPods 的一个pull request中，我们了解到著名的 iOS 依赖管理工具 CocoaPods 将要支持 Swift 语言。
+
+ 1. [《AppleWatch需求被低估 苹果股价创历史新高》](http://it.sohu.com/20141121/n406233892.shtml)：11月21日，据外国媒体报道，在经过新一轮的多名华尔街分析师上调公司目标股价之后，再加上摩根士丹利认为一些投资者低估了苹果智能手表Apple Watch的市场需求预期，苹果周四股价呈现出上涨局面。苹果股价在当周曾达到历史新高的117.28美元。
+
+##教程
+
+ 1. [《Apple Watch人机界面指南（中文版）》](http://vdisk.weibo.com/s/yWUvUXSZiJFiv)：苹果于11月19号放出了Apple Watch的官方设计指南。这是由[微博无线设计团队](http://weibo.com/uiteam?from=feed&loc=nickname)翻译的中文版指南。
+ 
+ 1. [《使用 Swift 构建自定义（且“可设计”的）控件》](https://github.com/nixzhu/dev-blog/blob/master/2014-11-20-build-custom-control-in-swift.md)：大约两年前，我写了一篇关于在 iOS 上构件自定义控件的教程。那篇教程获得了社区的高度赞赏，所以我决定将其用 Swift 更新并加入 Designable/Inspectable 属性以支持直接在 Interface Builder 里调整控件的外观。
+
+ 1. [《Apple WatchKit 初探》](http://onevcat.com/2014/11/watch-kit/)： 11月19日，Apple 发布了第一版的 Watch Kit 的 API，对于开发者来说，这款新设备的一些更详细的信息也算是逐渐浮出水面。可以说第一版的 WatchKit 开放的功能总体还是令人满意的。Apple 在承诺逐渐开放的方向上继续前进。本文介绍了Watch app 架构和主要的类等相关知识。
+
+ 1. [《WatchKit 之 数据共享》](http://nonomori.farbox.com/post/webkit-zhi-shu-ju-gong-xiang)：本文介绍了如何使 Watch App 与 iOS App 之间进行数据共享。
+
+ 1. [《WatchKit 之 导航》](http://nonomori.farbox.com/post/watchkit-zhi-dao-hang)：在 Watch App 中，当涉及到多个界面跳转时，我们共有两种导航方式可使用：`Hierarchical` 与 `Page-based`。本文将对这两种导航方式以及 Modal 展现方式做简单的介绍。
+
+##工具
+
+ 1. [Auto-Importer](https://github.com/lucholaf/Auto-Importer-for-Xcode)：Auto-Importer是一个自动导入类对应的头文件的Xcode插件。
+
+##开源项目
+
+ 1. [Carthage](https://github.com/Carthage/Carthage)：Carthage是一个去中心化的依赖管理工具。
+
+ 1. [CotEditor](https://github.com/coteditor/CotEditor)：CotEditor是一个OS X下的开源的纯文本编辑器。
+ 

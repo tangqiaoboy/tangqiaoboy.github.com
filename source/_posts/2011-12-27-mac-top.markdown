@@ -1,0 +1,18 @@
+---
+layout: post
+title: "mac下的top命令"
+date: 2011-12-27 13:30
+comments: true
+categories: [mac]
+---
+
+以前只是在linux机器上使用top命令。常用的快键键是:
+
+ * p键 - 按cpu使用率排序
+ * m键 - 按内存使用量排序
+
+这2个快捷键在mac上都不一样。对应的是，先输入o，然后输入cpu则按cpu使用量排序，输入rsize则按内存使用量排序。
+
+<!--more-->
+
+如果记不清了，可以在top的界面上按?，在弹出的帮助界面中即可看到。

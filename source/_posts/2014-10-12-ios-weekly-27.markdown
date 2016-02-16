@@ -1,0 +1,57 @@
+---
+layout: post
+title: "iOS移动开发周报-第27期"
+date: 2014-10-12 16:33:21 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/10/ios6)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：国内iOS6比例已经低于5%，Apple 发布 Swift 语言和 Xcode 入门视频，Facebook's iOS Infrastructure等。
+
+##新闻
+
+ 1. [《国内iOS6比例已经低于5%》](http://weibo.com/1708947107/BoBnZ1qy9?mod=weibotime#_rnd1412427404394)：来自国内友盟的统计以及笔者开发的应用（猿题库）统计结果都显示，国内的iOS6用户比例已经低于5%。
+
+ 1. [《苹果关闭iOS 7.1.2验证：iOS 8将无法降级》](http://tech.sina.com.cn/mobile/n/apple/2014-09-27/10059651916.shtml)：在发布iOS 8的两个更新之后，苹果停止了为iOS 7.1.2固件提供签名。这意味着，已经升级至新版iOS 8的用户将无法再降级回iOS 7.1.2。
+
+ 1. [《新恶意软件iWorm已感染全球1.7万台Mac电脑》](http://tech.sina.com.cn/mobile/n/apple/2014-10-04/08109666982.shtml)：信息安全研究人员近期发现，全球超过1.7万台Mac电脑已经感染了一种名为“iWorm”的新的OS X恶意软件。这种恶意软件曾使用Reddit网站作为传播媒介，能窃取用户数据，触发多种系统操作，并执行Lua脚本。用户可以通过测试路径`/Library/Application Support/JavaW`是否存在，在判断是否中病毒。如果OS X找不到这一文件夹，那么Mac电脑就是安全的。
+
+##教程
+
+ 1. [《iOS8 Swift Cheat Sheet and Quick Reference Guide》](http://swift-cheatsheet.co.uk/)：这份速查表列出了Swift的常见的基本用法。
+
+ 1. [《 获取当前安装的所有App》](http://bbs.iosre.com/forum.php?mod=viewthread&tid=422)：作者介绍了利用私有API在非越狱的iOS 7和8机器上，获取iOS中安装的所有App的办法。
+ 
+ 1. [《iOS8企业应用部署Bug》](http://weibo.com/p/23041889d963070102v39b)：作者发现使用iOS企业部署（In-HouseDistribution）方式进行应用升级时，在iOS8下无法成功，删除应用再重新安装也不行。经过调研，作者发现这个是Apple的bug，并且提供了临时解决办法。
+ 
+ 1. [《The best resources for learning iOS design and Xcode》](https://designcode.io/learn)：作者整理了一系列关于iOS 设计和 Xcode 方面的学习资源，并提供邮件订阅。
+
+ 1. [《基于Core Animation的KTV歌词视图的平滑实现》](http://www.iwangke.me/2014/10/06/how-to-implement-a-core-animation-based-60-fps-ktv-lyrics-view/)：文章介绍了唱吧歌词视图的技术实现细节。
+
+ 1. [《10 Swift IOS open-source projects you cannot ignore》](https://medium.com/swift-programming/15-swift-ios-open-source-projects-you-cannot-ignore-6bd4ac37d7dd)：文章介绍了10大不能错过的 Swift 开源项目。
+
+ 1. [《iOS 8 Custom Keyboard Tutorial: How to Create A Third-Party Keyboard Extension》](http://www.appdesignvault.com/ios-8-custom-keyboard-extension/#a_aid=mdev)：文章介绍了如何在iOS8下自定义键盘。
+
+##视频
+
+ 1. [《Apple 发布 Swift 语言和 Xcode 入门视频》](http://www.guomii.com/posts/39029)：Apple 在 Swift 官方博客上发布了一段6分钟多的视频，介绍如何从零开始使用 Xcode 套件开发 iOS 应用，非常值得想现在开始学 iOS 开发的朋友一看。
+
+ 1. [《Facebook's iOS Infrastructure》](https://www.youtube.com/watch?v=XhXC4SKOGfQ)：Facebook在视频中分享了他们的iOS端架构。
+
+##开源项目
+
+ 1. [SwiftSSL](https://github.com/SwiftP2P/SwiftSSL)：SwiftSSL 是一个基于CommonCrypto的Swift语言的加密库。
+
+ 1. [SwiftHTTP](https://github.com/daltoniam/SwiftHTTP)：用Swift语言实现的HTTP网络库。
+
+ 1. [SQLite.swift](https://github.com/stephencelis/SQLite.swift)：SQLite.swift是一个将SQLite3封装成Swift语言的包装库。
+
+ 1. [Slidden](https://github.com/Brimizer/Slidden): Slidden是一个老外开源的开发自定义键盘的库，利用这个开源库，可以方便的配置键位、颜色以及键位对应的图片。

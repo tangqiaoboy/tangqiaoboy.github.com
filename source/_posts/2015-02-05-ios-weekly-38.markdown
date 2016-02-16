@@ -1,0 +1,58 @@
+---
+layout: post
+title: "iOS移动开发周报-第38期"
+date: 2015-02-05 21:36:03 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，文章地址是[这里](http://www.infoq.com/cn/news/2015/02/facebook-react-native)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期 iOS 移动开发周报带来如下内容：Facebook 推出 React Native、Swift 小技巧、RunLoop 主题的分享、使用蒲公英来做 iOS 测试应用的分发等。
+
+##新闻
+
+ 1. [《分析师称 14 年四季度 iPhone 销量达 7300 万台》](http://tech.sina.com.cn/mobile/n/apple/2015-01-25/10049980631.shtml)：1 月 25 日上午消息，凯基证券分析师郭明池称，2014 年四季度 iPhone 销量达 7300 万台，iPad 销量达 2140 万台；并预计 2015 年一季度 iPhone 销量为 6160 万台，iPad 销量为 1010 万台。
+
+ 1. [《2014 年 iOS 应用开发者收入超好莱坞美国票房》](http://tech.sina.com.cn/i/2015-01-23/doc-iavxeafs0339155.shtml)：市场研究公司 Asymco 分析师霍拉斯·德迪乌 (Horace Dediu) 本周发布研究报告称，iOS 应用经济的规模已经超过了好莱坞电影在美国的票房。2014 年全年，开发者通过苹果获得的收入为 100 亿美元。
+
+##教程
+
+ 1. [《objc 中国 Issue 20：访谈》](http://objccn.io/issue-20/)：
+objc 中国 Issue 20 完成了三位传奇开发者的访谈，很有意思。从天才少年 Andy Matuschak ，到两次创业的 Loren Brichter，以及俄国妹子 Natasha Murashev，篇篇精彩。希望通过了解他们的经历，你会有所收获。
+
+ 1. [《Swift 怎样更优雅地处理网络返回数据》](http://www.jianshu.com/p/5d4789db4310)：我们在 iOS 开发中进行网络请求的时候，一般是获取到服务器返回的 data 后，再根据我们的需要转换成 JSON，图像等信息。但如果你的应用中存在各种类型的返回数据，那么你可能就要在各个网络请求的中进行重复的处理了。本文介绍了如何使用 Swift 中的泛型和 extension 让你的数据解析工作更优雅。
+
+ 1. [《OS X 10.10 Yosemite: The Ars Technica Review》](http://arstechnica.com/apple/2014/10/os-x-10-10/22/)：由 [图拉鼎](http://www.weibo.com/tualatrix?from=feed&loc=avatar) 推荐：这篇从 CPU 指令集、编译器来剖析 Swift 的文章，对其的设计越来越肯定了。简单的说，Swift 是一门使用 High Level 语言的语法及特性，同时仍有 Low Level 效能的一门语言。
+
+ 1. [《Swift 小技巧（三）：如何用 Swift 思维设计网络请求》](http://imtx.me/archives/1921.html)：近来在用 Swift 开发 App 的过程中，最大的心得就是：我开始渐渐用「Swift 思维」来思考了。回顾刚开始我用 Swift 时，只是套用它的语法而已，脑子里依然是 Objective-C 思维。这段时间，随着对 Swift 基本特性的掌握，我开始有意识地学习并尝试一些 Swift 才有的特性，此谓「Swift 思维」。Swift 有很多专有（Objective-C 没有的）的模式，今天我就从一个很简单的例子讲起，那就是：如何用 Swift 思维设计网络请求。
+
+ 1. [《wift 小技巧（五）：正确地启用 Logging 机制》](http://imtx.me/archives/1924.html)：文章介绍了如何在 Swift 项目里正确地设置 Logging 。
+
+ 1. [《The Death of Cocoa》](http://nshipster.cn/the-death-of-cocoa/)：Cocoa 实际就是 Objective-C 的标准库，包含了许多用语言编写程序最需要的一些框架，例如 Foundation、AppKit 和 Core Data。即使 Swift 才开始被使用几个月，Cocoa 已经开始失去它原有的光芒了。在语言方面，我们都见到了 Swift 是终结 Objective-C 的开始，但是作为基本库的 Cocoa 呢？(这已经不是苹果第一次把它的标准库淘汰了，记得 Carbon 么)？如果我们用 Swift 基本库重新建立一套 Foundation 会怎么样？让我们来看看一些 Cocoa 做过的具体的例子，并看看一个新的 Swift 基本库在哪些地方可以提高。
+
+ 1. [《Core Location in i​OS 8》](http://nshipster.cn/core-location-in-ios-8/)：自从 iPhone 存在以来，位置服务就一直处于非常重要的位置。Core Location API 也在 iPhone OS SDK 最初的公开版本里就存在了。iOS 8 ，Core Location 被改动了不少，不管是允许开发者做之前并不被允许的开发，还是帮助维护用户隐私。更特别的是，iOS 8 给 Core Location 带来了三个主要的改进：更分化的权限，室内定位以及访问监控。本文对此改进做了详细的介绍。
+
+ 1. [《Apple Watch: WatchKit 应用程序要点》](http://beyondvincent.com/2015/01/20/2015-01-20-Apple-Watch/)：本文介绍了在开发 Apple Watch 应用程序时需要注意的要点。包括 WatchKit 应用程序和 WatchKit 扩展，以及 WatchKit 应用程序的生命周期。此系列的文章还有：[《WatchKit 框架: 将应用程序从裤兜里取出来》](http://beyondvincent.com/2015/01/20/2015-01-20-watchkit-framework-taking-apps-pocket/)。
+
+##视频
+
+ 1. [《RunLoop 主题的分享 by 孙源 @sunnyxx》](http://v.youku.com/v_show/id_XODgxODkzODI0.html)：来自百度的孙源组织了一次关于 Objective-C RunLoop 的技术分享。
+ 
+ 1. [《React.js Conf 2015 Keynote - Introducing React Native》](https://www.youtube.com/watch?v=KVZ-P-ZI6W4&app=desktop)：这是 Facebook 出品的 react.js 的视频介绍。Facebook 打算用它来统一移动端的编程语言，react.js 把界面全部用 native 控件实现，js 只作为后端逻辑层。Facebook 也打算开源该框架，如果这个框架成功，将改变整个业界的移动开发效率，因为 iOS 和 android 代码可以大部分复用。注：视频来自 youtube。
+
+##工具
+
+ 1. [《使用蒲公英来做 iOS 测试应用的分发》](http://blog.devtang.com/blog/2015/01/22/pgy-usage-guide/)： “蒲公英” 是一个应用的免费分发服务，它帮助开发者能够方便地做 iOS 应用的测试分发工作。本文介绍了蒲公英的基本使用方法。
+
+
+##开源项目
+
+ 1. [Developing iOS 8 Apps with Swift](https://github.com/x140yu/Developing_iOS_8_Apps_With_Swift)：《Developing iOS 8 Apps with Swift》是 Stanford 公开课，本项目是其中文字幕翻译。
+

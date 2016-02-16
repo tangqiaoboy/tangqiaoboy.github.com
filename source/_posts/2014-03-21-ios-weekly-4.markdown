@@ -1,0 +1,46 @@
+---
+layout: post
+title: "iOS移动开发周报-第4期"
+date: 2014-03-21 20:23
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/03/lldb-debug-command)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+本周iOS移动开发周报，带来一系列iOS开发教程以及2个开源项目。这期中的2个开源项目都比较值得关注，一个是VVebo写的GIF解决方案，另一个是用OC实现的QQ自动回复机器人。后者的作者是图书[《iOS应用逆向工程》](http://item.jd.com/11389860.html)的作者，这本书也是一本不错的安全方面的入门图书，一并推荐给大家。
+
+##教程
+
+ 1. [《分析iOS Crash文件：符号化iOS Crash文件的3种方法》](http://wufawei.com/2014/03/symbolicating-ios-crash-logs/)：文章介绍了拿到用户的`.crash`文件之后，如何符合化（Symbolicating）crash文件的3种方法。它们分别是：使用Xcode、使用命令行工具symbolicatecrash，以及使用命令行工具atos。这些方法可以帮助开发者尽快找到应用crash的原因。
+ 
+ 1. [《自定义控件》](http://objcio.com/blog/2014/03/10/custom-controls/)：本文翻译自objc.io的《Custom Controls》，讨论了一些自定义视图和控件的诀窍和技巧。文章先对UIKit已经提供的控件做了一个概览，介绍一些渲染技巧，随后深入到视图和它们的所有者之间的通信策略，并简略探讨了辅助功能、本地化和测试。
+ 
+ 1. [《关于字典的介绍》](http://nshipster.cn/dictionary-services/)：文章介绍了OS X和iOS里面系统提供的字典服务以及调用方法。其中OS X中介绍的是使用私有API的方法，而iOS中介绍的是使用公开的`UIReferenceLibraryViewController`的方法。
+  
+ 1. [《Android Development Tips For iOS Devs》](http://stuartkhall.com/posts/android-development-tips-for-ios-devs)：写给iOS开发者看的Android开发技巧，适合有iOS开发背景的朋友学习Android开发。
+
+ 1. [《iOS 7之UICollectionView与UIKit Dynamics》](http://iosinit.com/?p=1022)：`UIKit Dynamics` 是 iOS 7 中基于物理动画引擎的一个新功能–它被特别设计使其能很好地与 `CollectionView` 配合工作。本文介绍了如何将这两个特性结合在一起。文章翻译自objc.io第5期。
+ 
+ 1. [《LLDB调试命令初探》](http://www.starfelix.com/blog/2014/03/17/lldbdiao-shi-ming-ling-chu-tan/)：LLDB是LLVM下的调试器，Xcode从4.0开始编译器开始改用LLVM，相应的调试器也从gdb改为LLDB。而从 Xcode5.0开始所有工程也被自动设置为使用LLDB。本文从初学者的角度讲解了在日常的开发中如何使用LLDB以及LLDB常用的命令。
+ 
+ 1. [《提高Interface Builder高效工作的8个技巧》](http://beyondvincent.com/blog/2014/03/19/18-tips-for-working-effectively-with-interface-builder/)：文章介绍了Xcode的界面编辑器Interface Builder的8个使用技巧，可以提高工作效率。
+ 
+ 1. [《自由地控制 Xcode Open Quickly 打开方式》](http://imtx.me/archives/1885.html)：文章介绍了Xcode Open Quickly使用的一则技巧，可以方便地控制打开方式。
+
+ 1. [《static和被裁的符号表》](http://blog.csdn.net/yiyaaixuexi/article/details/21469769)：作者念茜这次从安全防御角度出发，讲解利用static关键字裁掉函数符号，以便不让攻击者理清自己程序的敏感业务逻辑，提高应用的逆向门槛。
+
+##开源项目
+
+ 1. 微博客户端 [VVebo](http://weibo.com/appsupport) 的作者开源了他自己为VVebo写的GIF解决方案 [VVeboImageView](https://github.com/johnil/VVeboImageView)， 占用内存很小。
+
+ 1. [《iOS客户端自动回复机器人源码》](https://github.com/iosre/Skua)：作者实现了一个QQ的自动回复机器人。
+ 
+ 
+

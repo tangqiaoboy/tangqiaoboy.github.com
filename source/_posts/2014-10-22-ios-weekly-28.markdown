@@ -1,0 +1,45 @@
+---
+layout: post
+title: "iOS移动开发周报-第28期"
+date: 2014-10-22 21:49:37 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/10/apple-product-release-conference)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果召开新品发布会、收据验证、Facebook开源AsyncDisplayKit等。
+
+##新闻
+
+ 1. [《苹果召开新品发布会》](http://money.163.com/14/1017/10/A8OJTF7700254TI5.html)：北京时间10月17日凌晨1点，苹果在美国加州库比蒂诺总部Infinite Loop园区的Town Hall大会堂如期召开了主题为“久违了（It’s been way too long）”的新品发布会。这也是继苹果iPhone6、iPhone 6 Plus正式发布后，苹果在今年秋季举办的第二场大型发布会。在此次发布会上，苹果正式发布了iPad Air 2、iPad mini 3；视网膜屏iMac；新款Mac mini；以及iOS8.1和Yosemite系统。
+
+##教程
+
+ 1. [《( ) -> ( )》](http://blog.sunnyxx.com/2014/10/14/fp-essential/)：`() -> ()`不是什么表情符号，而是一种高度抽象的编程范式，它表示了一个函数式的编程思想，即值的变化过程。本文从swift语言入手分析，元组，函数，闭包等的设计对它进行解释，并阐释swift语言设计的大局观，最后分享一个Reactive Cocoa作者的Talk中的编程思想。
+ 
+ 1. [《收据验证》](http://objccn.io/issue-17-3/)：收据 (Receipts) 是在 OS X 10.6.6 更新后，和 Mac App Store 一起出现的。 iOS 在内购的时候总是需要向服务器提供收据。验证收据的代码部分必须在安全方面高度敏感。如果被避开或者攻击，你就失去了核实用户权限的能力，并且无法验证用户是否购买。因此，让验证收据的代码能够承受黑客的攻击变得至关重要。本文讨论了如何安全地验证收据。
+
+ 1. [《如何用Swift做一个不错的按钮变换动画》](http://robb.is/working-on/a-hamburger-button-transition/)：文章介绍了如何用Swift语言，采用`Core Graphics`来完成两个按钮之间的切换动画效果（效果图如下所示）。作者也将相关的代码开源在了[这里](https://github.com/robb/hamburger-button)。
+
+ ![](http://robb.is/img/hamburger-button.gif)
+
+ 1. [《适配 iOS 8 时遇到的问题两则：远程推送和 Unwind Segue》](http://imtx.me/archives/1910.html)：作者介绍了适配 iOS 8 时遇到的问题以及解决方案，值得大家参考。
+
+ 1. [《为什么唱吧iOS 6.0选择了Mantle》](http://www.iwangke.me/2014/10/13/Why-Changba-iOS-choose-Mantle/)：唱吧6.0一个很重大的修改就是基于Mantle重建(新建)了Model层。文章分享了使用Mantle的决策及执行过程。
+
+##开源项目
+
+ 1. [AsyncDisplayKit](https://github.com/facebook/AsyncDisplayKit)：AsyncDisplayKit是facebook开源的一个框架，它能让复杂的用户交互效果流畅地显示，facebook使用它开发完成了paper。Facebook也在 [这篇文章](https://code.facebook.com/posts/721586784561674/introducing-asyncdisplaykit-for-smooth-and-responsive-apps-on-ios/) 中，详细介绍了AsyncDisplayKit。
+
+ 1. [KZBootstrap](https://github.com/krzysztofzablocki/KZBootstrap)：一个方便iOS工程初始化的项目，它包含一些推荐的工程设置和工具。
+
+ 1. [NewsFourApp](https://github.com/chenqihui/NewsFourApp)：一个模仿网易4.0新UI框架的开源项目。
+
+ 

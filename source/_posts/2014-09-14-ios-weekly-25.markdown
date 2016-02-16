@@ -1,0 +1,48 @@
+---
+layout: post
+title: "iOS移动开发周报-第25期"
+date: 2014-09-14 19:56:42 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/09/iphone-6-release)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：苹果发布 iPhone6 和 Apple Watch、Swift 1.0 GM发布、Xcode 6支持PDF Vector作为图像素材、iPhone6分辨率与适配等。
+
+##新闻
+
+ 1. [《苹果发布 iPhone6 和 Apple Watch》](http://news.ifeng.com/a/20140910/41926157_0.shtml)：北京时间9月10日凌晨1点，美国苹果公司在30年前发布Mac电脑的故地，正式发布了全新一代 iPhone 6以及可穿戴设备 Apple Watch。
+
+ 1. [《Swift 1.0 GM发布》](http://www.infoq.com/cn/news/2014/09/swift-10-gm)：北京时间9月10日，Swift迎来了第二个里程碑：Swift 1.0 GM发布。GM是Golden Master的缩写，GM版几乎等同于正式版.不过这次苹果还特意在发布新闻中提到GM版并非final版本，未来Swift还将添加其它更高级的新功能、提升性能以及精简语法。
+ 
+ 1. [《Xcode 6支持PDF Vector作为图像素材》](http://weibo.com/1846569133/BmD7gEvkZ)：Xcode 6 的默认 App 模板已经用 PDF Vector 矢量作为图像素材了。所以 iOS 的适配可以说是轻松的，布局用 AutoLayout，图标用矢量，可以无视分辨率的存在。设计师们在用 Sketch 设计时，不要再输出1x、2x、3x 的 PNG 了。
+ 
+ 1. [《苹果隐晦表示Apple Watch续航约为一天》](http://digi.it.sohu.com/20140912/n404256321.shtml)：苹果没有在发布会上提到Apple Watch的续航问题，但在记者问到时，苹果官方的回复是：“我们没有对外公布，但是我们希望用户白天戴表，晚上可以充电。”
+ 
+ 1. [《iTunes Connect Bug导致只接受支持arm64的应用》](http://weibo.com/1708947107/BmuUHA9RY?mod=weibotime#_rnd1410529835695)：苹果9月10日的iTunes Connect更新造成一个Bug，导致审核后台只接受支持arm64的应用上传。由于国内大量的第三方SDK并未更新到支持arm64，所以此Bug导致国内众多应用无法上传。好在问题只持续了一天，但是此事也给那些一直懒于更新第三方SDK的厂商敲响了警钟。
+
+##教程
+
+ 1. [《Swift》](http://www.objc.io/issue-16/)：objc.io第16期的专题为Swift，为我们带来了关于Swift的5篇精品文章。
+ 
+ 1. [《iPhone6分辨率与适配》](http://blog.sunnyxx.com/2014/09/10/iphone6-resolution/)：文章介绍了iPhone6的图片适配问题。
+ 
+ 1. [《你的Pod出现内存泄露了吗》](http://www.taofengping.com/2014/09/09/leak-GPUImage_cocoapods/#.VBL897ySyXw)：文章介绍了深度使用Cocoapods时可能遇到的内存泄漏问题。
+ 
+ 1. [《xcode6 开启 iPhone6 & iPhone6 plus 分辨率》](http://kimsungwhee.com/xcode6-%E5%BC%80%E5%90%AF-iphone6-iphone6-plus-%E5%88%86%E8%BE%A8%E7%8E%87/)：文章介绍了在Xcode6 GM下如何开启iPhone6和iPhone6 plus的分辨率。作者微博：[@kimsungwhee](http://weibo.com/u/2289288323)。
+ 
+ 1. [《Asynchronous Testing With Xcode 6》](http://www.bignerdranch.com/blog/asynchronous-testing-with-xcode-6/)：在Xcode 6以前，写异步的测试用例比较麻烦。该文章介绍了在Xcode 6下使用`XCTestExpectation`类，如何更方便地写一些异步的测试用例。
+
+##开源项目
+
+ 1. [Reachability](https://github.com/tonymillion/Reachability)：苹果提供过一个Reachability类，用于检测网络状态。但是该类由于年代久远，并不支持ARC。该项目旨在提供一个苹果的Reachability类的替代品，支持ARC和block的使用方式。
+
+ 1. [ZAlert](https://github.com/ch3n/ZAlert)：ZAlert是一个用Swift实现的，用于显示`UIAlertView`和`UIActionSheet`的工具类，支持链式调用，仅支持iOS8。作者微博：[@ch3nz](http://weibo.com/fantcbug)。
+

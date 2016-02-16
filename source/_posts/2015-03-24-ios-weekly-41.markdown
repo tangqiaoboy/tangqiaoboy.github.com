@@ -1,0 +1,55 @@
+---
+layout: post
+title: "iOS移动开发周报-第41期"
+date: 2015-03-24 16:22:45 +0800
+comments: true
+categories: iOS weekly
+---
+
+###版权说明
+
+本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2015/03/evaluate-react-native)。如需转载，请与InfoQ中文站联系。
+
+###前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期 iOS 移动开发周报带来如下内容：如何评价 React Native、用纯代码构建一个 Widget、FastImageCache 解析等。
+
+##新闻
+
+ 1. [苹果推出 Apple Watch](http://www.cocoachina.com/apple/20150310/11273.html)：3 月 10 日，苹果公司 2015 年春季发布会在美国旧金山芳草地艺术中心召开。苹果在会上宣布推出 Apple Watch，续航时间为 18 小时。Apple Watch 将于 4 月 10 日开始预售，4 月 24 日开始发货。首批发售区域包含中国。
+
+ 1. [CocoaPods 0.36 正式发布，实现 Swift 和 iOS 8 动态框架支持](http://www.csdn.net/article/2015-03-13/2824206-cocoapods-036-adds-swift-framework)：CocoaPods 于近日发布了 CocoaPods 0.36 正式版，其最大的改动便是为 iOS 引入了动态框架，并增加了对 AlamoFire、SwiftyJSON 等使用 Swift 所编写的库的支持，此举将影响包括 CocoaPods/Xcodeproj 在内的所有 CocoaPods gems。
+
+ 1. [苹果开始整治 iMessage 垃圾信息](http://weibo.com/1989324563/C8khmrwB3?ref=&type=comment#_rnd1426425896500)：苹果在最新的 iOS 更新中，集成了更加方便的举报 iMessage 垃圾信息的功能。这将使得用户可以更方便地举报垃圾信息。
+
+ 1. [2014 iOS 开发者收入调查报告（二）：企业开发者篇](http://www.cocoachina.com/programmer/20150316/11339.html)：本次调研以 CocoaChina 网站用户为基础，总样本数量为 3591，调研时间为 2014 年 12 月 16 日-2015 年 1 月 31 日。调查报告的内容涉及开发经验、工作年限、待遇和工资满意度。
+
+##教程
+
+ 1. [《如何评价 React Native？》](http://www.zhihu.com/question/27852694/answer/41704172)：来自知乎的这个回答详细介绍了 Facebook 即将开源的 React Native 的相关知识，包括核心实现、设计考虑、以及 React Native 的优势和劣势。
+
+ 1. [《iOS 开发的一些小技巧篇一》](http://www.jianshu.com/p/221507eb8590)：[@ 武蕴牛 x](http://weibo.com/u/2159267225?from=feed&loc=nickname) 总结了 iOS 开发中的一些小技巧。
+
+ 1. [《iOS 开发的一些小技巧篇二》](http://www.jianshu.com/p/80ebbb1950ba)：[@ 武蕴牛 x](http://weibo.com/u/2159267225?from=feed&loc=nickname) 总结了 iOS 开发中的关于截图的技巧。
+
+ 1. [《如何用纯代码构建一个 Widget(today extension)》](http://adad184.com/2014/10/29/2014-10-29-how-to-setup-today-extension-programmatically/)：随着 iOS8 的发布，各种 iPhone 的新玩法出现了，其中最引人关注的就是 today extension(也叫做 widget)。网上有很多相关的文章教你如何编写一个简单的 widget，但是却没有一篇适合我们这种纯代码的拥趸。本文介绍了如何用纯代码的方式来构建一个 widget。
+
+ 1. [《iOS 图片加载速度极限优化—FastImageCache 解析》](http://blog.cnbang.net/tech/2578/)：FastImageCache 是 Path 团队开发的一个开源库，用于提升图片的加载和渲染速度，让基于图片的列表滑动起来更顺畅，本文分析了它的实现方式。
+
+ 1. [《Swift 语言 iOS 开发：CALayer 十则示例》](http://www.cocoachina.com/ios/20150318/11350.html)：我们在 iOS 应用中看到的都是视图，包括按钮视图、表视图、滑动条视图，还有可以容纳其他视图的父视图等。但你或许不知道在 iOS 中支撑起每个视图的是一个叫做 " 图层（layer）" 的类，确切地说是 CALayer。本文中您会了解 CALayer 及其工作原理，还有应用 CALayer 打造酷炫效果的十则示例，比如绘制矢量图形、渐变色，甚至是粒子系统。
+
+ 1. [《iOS 开发中的争议（一）》](http://blog.devtang.com/blog/2015/03/15/ios-dev-controversy-1/)：作者在文章中讨论了关于 Objective-C 语言中如下问题的争议：类的成员变量应该如何定义？
+
+##工具
+
+ 1. [QLImageset](https://github.com/qfish/QLImageset)：QLImageset 是一个 QuickLook 插件：快速预览 imageset 文件夹包含的图片及其尺寸。
+
+##开源项目
+
+ 1. [Persei](https://github.com/Yalantis/Persei)：Persei 是一个在顶部显示或隐藏菜单的 Swift 开源库。
+
+ 1. [BLKFlexibleHeightBar](https://github.com/bryankeller/BLKFlexibleHeightBar)：BLKFlexibleHeightBar 是一个使导航栏高度可以动态变化的 UI 库。
+
+ 1. [Form](https://github.com/hyperoslo/Form)：Form 是一个方便开发者创建表单填写工作的 UI 库。
