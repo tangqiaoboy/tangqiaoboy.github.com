@@ -18,7 +18,7 @@ categories: iOS weekly
 
 ## 新闻
 
- 1. [专门针对越狱iOS设备的盗号木马出现](http://blog.devtang.com/blog/2014/04/19/ios-jailbreak-trojan/)：国外的iOS开发者 [@iOn1c](https://twitter.com/iOn1c) 发现一个来自中国的开发者"WANG XIN"签名的iOS平台的木马插件，该插件是一个名为Unflod.dylib动态链接库，可以将越狱机器上的AppleID用户名和密码盗取，并且发送到指定服务器上。[这里](http://pastebin.com/raw.php?i=QxVRd2ha)有该恶意插件的反汇编代码。笔者作为一个资深iOS开发者，建议一般普通用户，如果是为了用盗版软件就别越狱了，各种国内的越狱渠道都非常不安全的。如果是开发者们为了研究安全而越狱的，最好也只是在专门研究用的iTouch上使用，以避免可能的安全风险。
+ 1. [专门针对越狱iOS设备的盗号木马出现](/2014/04/19/ios-jailbreak-trojan/)：国外的iOS开发者 [@iOn1c](https://twitter.com/iOn1c) 发现一个来自中国的开发者"WANG XIN"签名的iOS平台的木马插件，该插件是一个名为Unflod.dylib动态链接库，可以将越狱机器上的AppleID用户名和密码盗取，并且发送到指定服务器上。[这里](http://pastebin.com/raw.php?i=QxVRd2ha)有该恶意插件的反汇编代码。笔者作为一个资深iOS开发者，建议一般普通用户，如果是为了用盗版软件就别越狱了，各种国内的越狱渠道都非常不安全的。如果是开发者们为了研究安全而越狱的，最好也只是在专门研究用的iTouch上使用，以避免可能的安全风险。
  
  1. [iOS7下载自定义的字体功能不可用](http://weibo.com/1676354212/AFt7N5pl8)：墨客的作者[@an00na](http://weibo.com/1676354212/AFt7N5pl8)发现iOS提供的下载自定义的字体功能有bug，完全不能使用。相关的Bug说明在[这里](http://openradar.appspot.com/radar?id=5881896777023488)。
 

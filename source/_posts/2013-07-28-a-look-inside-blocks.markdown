@@ -19,7 +19,7 @@ In programming languages, a closure is a function or reference to a function tog
 翻译过来，闭包是一个函数（或指向函数的指针），再加上该函数执行的外部的上下文变量（有时候也称作自由变量）。
 
 block 实际上就是 Objective-C 语言对于闭包的实现。
-block 配合上 dispatch_queue，可以方便地实现简单的多线程编程和异步编程，关于这个，我之前写过一篇文章介绍：[《使用 GCD》](http://blog.devtang.com/blog/2012/02/22/use-gcd/)。
+block 配合上 dispatch_queue，可以方便地实现简单的多线程编程和异步编程，关于这个，我之前写过一篇文章介绍：[《使用 GCD》](/2012/02/22/use-gcd/)。
 
 本文主要介绍 Objective-C 语言的 block 在编译器中的实现方式。主要包括：
 

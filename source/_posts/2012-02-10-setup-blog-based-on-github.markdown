@@ -120,7 +120,7 @@ rake install
 
 ## 其它
 
-对于国内的用户来说，Github 因为服务器在国外，访问速度上不可避免有些慢。我在 2014 年 5 月尝试将博客同时放到 Github 和 GitCafe 上（GitCafe 提供博客服务，而 Github 作为备份服务器），使得国内访问速度非常理想，感兴趣的朋友可以参考这篇文章：[《将博客从 GitHub 迁移到 GitCafe》](http://blog.devtang.com/blog/2014/06/02/use-gitcafe-to-host-blog/)
+对于国内的用户来说，Github 因为服务器在国外，访问速度上不可避免有些慢。我在 2014 年 5 月尝试将博客同时放到 Github 和 GitCafe 上（GitCafe 提供博客服务，而 Github 作为备份服务器），使得国内访问速度非常理想，感兴趣的朋友可以参考这篇文章：[《将博客从 GitHub 迁移到 GitCafe》](/2014/06/02/use-gitcafe-to-host-blog/)
 
 ## Tips
 

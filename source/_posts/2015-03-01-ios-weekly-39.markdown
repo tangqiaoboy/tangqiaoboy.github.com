@@ -26,7 +26,7 @@ categories: iOS weekly
 
  1. [《Builder Pattern 在 Objective-C 中的使用》](http://limboy.me/ios/2015/02/07/builder-pattern.html)：作者从一个真实场景出发，介绍了结合 block 使用工厂模式的实践方式。
 
- 1. [《写 iOS SDK 注意事项》](http://blog.devtang.com/blog/2015/01/31/write-sdk-tips/)：我发现即使是像腾讯、小米这样的大厂提供的 SDK，在质量和规范上也有很多问题，文本分享了写 iOS SDK 注意事项。
+ 1. [《写 iOS SDK 注意事项》](/2015/01/31/write-sdk-tips/)：我发现即使是像腾讯、小米这样的大厂提供的 SDK，在质量和规范上也有很多问题，文本分享了写 iOS SDK 注意事项。
 
  1. [《CoreData 与 ReactiveCocoa 混用时要注意的线程问题》](http://imtx.me/archives/1926.html)：作者从一个 Crash 出发，分享了查找和修复问题的整个过程。
 

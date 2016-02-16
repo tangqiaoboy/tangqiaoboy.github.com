@@ -71,7 +71,7 @@ categories: iOS
 
 ## 算法的调试和移植
 
-由于我们整个技术团队都使用 Mac 电脑进行开发，所以我们对于算法的调试都是在 Mac 平台上完成的，我使用了开源的图象处理库 OpenCV，在搭建 OpenCV 环境时遇到一些问题，最终完成环境搭建后，我将相关的经验总结在博文 [《在 MacOS 和 iOS 系统中使用 OpenCV》](http://blog.devtang.com/blog/2012/10/27/use-opencv-in-ios/) 中。
+由于我们整个技术团队都使用 Mac 电脑进行开发，所以我们对于算法的调试都是在 Mac 平台上完成的，我使用了开源的图象处理库 OpenCV，在搭建 OpenCV 环境时遇到一些问题，最终完成环境搭建后，我将相关的经验总结在博文 [《在 MacOS 和 iOS 系统中使用 OpenCV》](/2012/10/27/use-opencv-in-ios/) 中。
 
 由于算法需要同时应用在 iOS 和 Android 平台，所以我主要用 C++ 语言实现算法。Xcode 可以很好地支持 Objective-C 语言和 C++ 语言混编，只需要将相关的源文件扩展名从 .m 改为 .mm 即可。而 Android 平台所采用的 Java 语言，也支持通过 [JNI](http://en.wikipedia.org/wiki/Java_Native_Interface) 的方式来调用 C++ 的代码。这样就可以方便地将识别算法移植到手机中了。
 

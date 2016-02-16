@@ -26,7 +26,7 @@ categories: iOS
 
 Charles（<http://www.charlesproxy.com>）是在 Mac 下常用的截取网络封包的工具，在做 iOS 开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。Charles 通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。
 
-Charles 详细的使用说明，欢迎阅读我的文章：[《iOS 开发工具-网络封包分析工具 Charles》](http://blog.devtang.com/blog/2013/12/11/network-tool-charles-intr/)
+Charles 详细的使用说明，欢迎阅读我的文章：[《iOS 开发工具-网络封包分析工具 Charles》](/2013/12/11/network-tool-charles-intr/)
 
 ### 界面调试
 
@@ -79,7 +79,7 @@ ImageOptim 的实现原理是使用各种开源的图像压缩工具，然后取
  2. 每次更改了 Podfile 文件，你需要重新执行一次`pod update`命令。
  3. 当你执行`pod install`之后，除了 Podfile 外，CocoaPods 还会生成一个名为`Podfile.lock`的文件，你应该把这个文件加入到版本管理中。因为 Podfile.lock 会锁定当前各依赖库的版本，之后如果多次执行`pod install` 不会更改版本，要`pod update`才会改`Podfile.lock`了。这样的好处是：当多人协作的时候，可以保证所有人的第三库环境是完全一样的。
 
-详细的使用说明，欢迎阅读我的文章：[《用 CocoaPods 做 iOS 程序的依赖管理》](http://blog.devtang.com/blog/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/)
+详细的使用说明，欢迎阅读我的文章：[《用 CocoaPods 做 iOS 程序的依赖管理》](/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/)
 
 ### nomad
 
@@ -165,7 +165,7 @@ appledoc -o <output_path> \
 --project-company <project_company> .
 ```
 
-详细的使用介绍，欢迎阅读我的文章：[《使用 Objective-C 的文档生成工具:appledoc》](http://blog.devtang.com/blog/2012/02/01/use-appledoc-to-generate-xcode-doc/)
+详细的使用介绍，欢迎阅读我的文章：[《使用 Objective-C 的文档生成工具:appledoc》](/2012/02/01/use-appledoc-to-generate-xcode-doc/)
 
 ## Xcode 插件
 
@@ -198,7 +198,7 @@ curl -L http://git.io/lOQWeA |\
 
 以下所有介绍的插件均可用该方法来安装或删掉，就不另行介绍了。
 
-Alcatraz 详细的使用介绍，欢迎阅读我的文章：[《使用 Alcatraz 来管理 Xcode 插件》](http://blog.devtang.com/blog/2014/03/05/use-alcatraz-to-manage-xcode-plugins/)
+Alcatraz 详细的使用介绍，欢迎阅读我的文章：[《使用 Alcatraz 来管理 Xcode 插件》](/2014/03/05/use-alcatraz-to-manage-xcode-plugins/)
 
 ### KSImageNamed
 

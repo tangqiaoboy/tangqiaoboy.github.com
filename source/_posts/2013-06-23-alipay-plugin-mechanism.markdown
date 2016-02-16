@@ -61,7 +61,7 @@ amr 本意表示是一个音频文件，明显不对，尝试将其后缀名改�
 
 要验证这个需要读该插件的 js 源代码，整个 js 源码逻辑还是比较干净的，主要用了玉伯写的 [seajs](http://seajs.org/docs/) 做模块化加载，[backbone.js](http://backbonejs.org/) 是一个前端的 MVC 框架，[zepto.js](http://zeptojs.com/) 是一个更适合于移动端使用的 "JQuery"。
 
-大概扫了一下，感觉更可能是用的方法一：直接和支付宝后台通讯 , 因为 Config.js 中都明确将网络通讯的地址写下来了。另一个证据是，利用下面的脚本扫描整个 js 源码，只能在 backbone 中搜到对于 iframe 的使用。而在 iOS 开发中，如果 js 端和 native 端要通讯，是需要用到 iframe 的，详细原理可以参见我的另一篇文章 [《关于 UIWebView 和 PhoneGap 的总结》](http://blog.devtang.com/blog/2012/03/24/talk-about-uiwebview-and-phonegap/)。不过我不能完全确认，因为我还没有找到相应控制页面切换和跳转的 js 代码，如果你找到了，麻烦告诉我。
+大概扫了一下，感觉更可能是用的方法一：直接和支付宝后台通讯 , 因为 Config.js 中都明确将网络通讯的地址写下来了。另一个证据是，利用下面的脚本扫描整个 js 源码，只能在 backbone 中搜到对于 iframe 的使用。而在 iOS 开发中，如果 js 端和 native 端要通讯，是需要用到 iframe 的，详细原理可以参见我的另一篇文章 [《关于 UIWebView 和 PhoneGap 的总结》](/2012/03/24/talk-about-uiwebview-and-phonegap/)。不过我不能完全确认，因为我还没有找到相应控制页面切换和跳转的 js 代码，如果你找到了，麻烦告诉我。
 
 ``` bash
 find . -type f -name "*.js" | xargs grep "iframe"

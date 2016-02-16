@@ -8,7 +8,7 @@ categories: iOS
 
 ### 前言
 
-我在去年的一篇文章 [《iOS5 中 UIViewController 的新方法》](http://blog.devtang.com/blog/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/) 中介绍了 iOS5 引入的关于 ViewController 的新方法。但是现在如果运行该文章中的 Sample 代码的话，你会发现 Log 中不会再出现 viewDidUnload 方法被调用的记录。这是因为在 iOS6 中，viewDidUnload 回调方法被 Deprecated 掉了。查看苹果的文档，可以看到如下的说明。
+我在去年的一篇文章 [《iOS5 中 UIViewController 的新方法》](/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/) 中介绍了 iOS5 引入的关于 ViewController 的新方法。但是现在如果运行该文章中的 Sample 代码的话，你会发现 Log 中不会再出现 viewDidUnload 方法被调用的记录。这是因为在 iOS6 中，viewDidUnload 回调方法被 Deprecated 掉了。查看苹果的文档，可以看到如下的说明。
 
 {% img /images/viewdidunload-1.jpg %}
 

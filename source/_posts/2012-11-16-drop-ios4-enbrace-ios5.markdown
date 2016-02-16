@@ -44,7 +44,7 @@ Storyboard（故事板）是XCode4和iOS5提供的一个用于控制View Control
 
 UIKit在iOS5进行了大量更新。除了新增了如UIStepper控件外，也为以前的控件增加了更多的定制接口。我们可以方便地定义UINavigationBar, UITabBar, UIToolBar等常用控件。
 
-苹果在iOS5中给UIViewController新增加的5方法以及一个属性。关于这个新特性我在[这篇文章](http://blog.devtang.com/blog/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/)中详细介绍过。新增的方法主要解决的是让 view的load/unLoad/appear/disappear的相关回调可以传递到子view controller中。
+苹果在iOS5中给UIViewController新增加的5方法以及一个属性。关于这个新特性我在[这篇文章](/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/)中详细介绍过。新增的方法主要解决的是让 view的load/unLoad/appear/disappear的相关回调可以传递到子view controller中。
 
 ## CoreImage
 
@@ -77,7 +77,7 @@ UIKit在iOS5进行了大量更新。除了新增了如UIStepper控件外，也�
 以上所有效果可以叠加作用在一起，最终你可以创造出自己的图片处理效果。最终你可以通过CIContext，将处理过的CIImage转换成UIImage输出。有了Core Image，你可以方便地开发图象处理相关的应用，而不用关心图象处理算法的细节。
 
 ##  NSJSONSerialization
-在我的[《不要使用SBJSON(json-framework)》](http://blog.devtang.com/blog/2012/05/05/do-not-use-sbjson/) 一文中，我提到了关于JSON解析库的性能测试。测试结果表明，苹果从iOS5开始提供的 [NSJSONSerialization](http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html#//apple_ref/doc/uid/TP40010946) 类有着最好的性能表现。所以，从iOS5以后，你可以扔掉那些第三方JSON解析库了。
+在我的[《不要使用SBJSON(json-framework)》](/2012/05/05/do-not-use-sbjson/) 一文中，我提到了关于JSON解析库的性能测试。测试结果表明，苹果从iOS5开始提供的 [NSJSONSerialization](http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html#//apple_ref/doc/uid/TP40010946) 类有着最好的性能表现。所以，从iOS5以后，你可以扔掉那些第三方JSON解析库了。
 
 ##  ViewController切换
 iOS提供了如下新的接口来切换ViewController，而以前的presentModalViewController和dismissModalViewControllerAnimated被Deprecated掉了。

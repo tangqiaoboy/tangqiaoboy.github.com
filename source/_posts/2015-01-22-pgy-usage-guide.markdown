@@ -10,7 +10,7 @@ categories: iOS
 
 ## 前言
 
-我在 [《给 iOS 工程增加 Daily Build》](http://blog.devtang.com/blog/2012/02/16/apply-daily-build-in-ios-project/) 一文中介绍过如何用命令行生成 IPA 文件以及通过 `itms-services` 协议 来让用户可以直接在网页上安装测试应用。但是这种方法虽然有效，但是还是比较麻烦，因为：
+我在 [《给 iOS 工程增加 Daily Build》](/2012/02/16/apply-daily-build-in-ios-project/) 一文中介绍过如何用命令行生成 IPA 文件以及通过 `itms-services` 协议 来让用户可以直接在网页上安装测试应用。但是这种方法虽然有效，但是还是比较麻烦，因为：
 
  1. 开发者需要自己写相关的 Build 脚本。
  1. 开发者需要自己搭建好应用下载的服务器。

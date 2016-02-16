@@ -34,7 +34,7 @@ MVC 模式算是客户端类程序使用的设计模式的标配了。iOS 对于
    1. 设置 View 的 data source, 如 UITableViewDataSource。
   通过这 3 种模式，View 达到了既能向 Controller 通讯，又不需要知道具体的 Controller 是谁是目的，这样就和 Controller 解耦了。
 
-* 最后我们看 Model。Model 在图上有一个信号塔类似的图形，旁边写着 Notification & KVO。这表明 Model 主要是通过 Notification 和 KVO 来和 Controller 通讯的。关于 Notification，我写了一个模版代码片段如下:（关于代码片段的管理，推荐大家看我写的另一篇文章：[使用 Github 来管理 xcode4 中的代码片段](http://blog.devtang.com/blog/2012/02/04/use-git-to-manage-code-snippets/)
+* 最后我们看 Model。Model 在图上有一个信号塔类似的图形，旁边写着 Notification & KVO。这表明 Model 主要是通过 Notification 和 KVO 来和 Controller 通讯的。关于 Notification，我写了一个模版代码片段如下:（关于代码片段的管理，推荐大家看我写的另一篇文章：[使用 Github 来管理 xcode4 中的代码片段](/2012/02/04/use-git-to-manage-code-snippets/)
 
 ``` objc
 // 监听通知

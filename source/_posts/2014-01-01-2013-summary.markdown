@@ -15,7 +15,7 @@ categories: summary
 
 我主要的技术分享渠道包括：
 
-1. 个人博客。今年一共完成了24篇原创博客。相比于去年的36篇，少了很多。主要是因为很多精力分散到微信公共帐号上去了。不过今年文章的质量相比去年更高了，写了包括[《Objective-C对象模型及应用》](http://blog.devtang.com/blog/2013/10/15/objective-c-object-model/)和[《谈Objective-C Block的实现》](http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/)这类比较深入的文章。
+1. 个人博客。今年一共完成了24篇原创博客。相比于去年的36篇，少了很多。主要是因为很多精力分散到微信公共帐号上去了。不过今年文章的质量相比去年更高了，写了包括[《Objective-C对象模型及应用》](/2013/10/15/objective-c-object-model/)和[《谈Objective-C Block的实现》](/2013/07/28/a-look-inside-blocks/)这类比较深入的文章。
 
 2. [InfoQ网站](http://www.infoq.com/cn/) 。今年一共完成了7篇发表在[InfoQ](http://www.infoq.com/cn/) 上的[稿件](http://www.infoq.com/cn/author/%E5%94%90%E5%B7%A7) , 其中原创技术文章4篇，翻译技术新闻1篇，采访稿2篇。
 

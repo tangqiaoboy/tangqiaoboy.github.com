@@ -33,7 +33,7 @@ MGTemplateEngine的作者官方博客在[这里](http://mattgemmell.com/2008/05/
 我们在使用时，对此开源库的Filter类进行了修改，主要增加了3个自定义的filter，用于提供我们的格式化时间，转义html和过滤空头象的用户的方式。
 
 ### JSONKit
-[JSONKit](https://github.com/johnezang/JSONKit)是一个比较高效的JSON解析库。我之前比较过各大JSON解析库的性能（[文章在此](http://blog.devtang.com/blog/2012/05/05/do-not-use-sbjson/)），JSONKit算是非常不错的，大概的使用示例如下：
+[JSONKit](https://github.com/johnezang/JSONKit)是一个比较高效的JSON解析库。我之前比较过各大JSON解析库的性能（[文章在此](/2012/05/05/do-not-use-sbjson/)），JSONKit算是非常不错的，大概的使用示例如下：
 
 ``` objc
 #import "JSONKit.h"

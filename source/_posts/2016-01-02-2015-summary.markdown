@@ -34,7 +34,7 @@ categories: summary
 
 这样大概记录了一周多，我基本上知道了自己的时间是如何花掉的了。然后，我开始归类自己的时间花费，看看主要花在了哪些地方。对于一些优先级不高的事情，我会注意调整它，不要让它把重要的事情给耽误了。
 
-我也开始总结一个产品技术负责人的工作。在想得差不多了之后，我利用每周一早上和 CTO 的沟通机会进行讨论，最终，我完成了文章：[《涅槃重生:我的技术转管理之路》](http://blog.devtang.com/blog/2015/12/18/from-dev-to-manager/)，并且在北京架构师峰会上做了相应的技术转管理分享。
+我也开始总结一个产品技术负责人的工作。在想得差不多了之后，我利用每周一早上和 CTO 的沟通机会进行讨论，最终，我完成了文章：[《涅槃重生:我的技术转管理之路》](/2015/12/18/from-dev-to-manager/)，并且在北京架构师峰会上做了相应的技术转管理分享。
 
 现在我不那么焦虑了，不过觉得自己还是需要多学习和提高。
 
@@ -44,7 +44,7 @@ categories: summary
 
 {% img /images/ios_pro_17000.jpg %}
 
-虽然称不上完美无缺，我个人对这本书的自评是问心无愧的。我用 Scrum 的管理方式来管理这本书的写作过程，我想在互联网时代，按时发布产品比什么都重要，所以，虽然有很多想继续完善的地方，我还是把它付印了。我也把写这本书的过程总结下来，完成了 [《我是如何完成《iOS 开发进阶》的编写的》](http://blog.devtang.com/blog/2015/01/11/how-to-finish-ios-pro-book/)，希望能给想出书的同行一些帮助。
+虽然称不上完美无缺，我个人对这本书的自评是问心无愧的。我用 Scrum 的管理方式来管理这本书的写作过程，我想在互联网时代，按时发布产品比什么都重要，所以，虽然有很多想继续完善的地方，我还是把它付印了。我也把写这本书的过程总结下来，完成了 [《我是如何完成《iOS 开发进阶》的编写的》](/2015/01/11/how-to-finish-ios-pro-book/)，希望能给想出书的同行一些帮助。
 
 由于我从一线 iOS 开发工作中脱离，《iOS 开发进阶》很可能不会再更新出第二版了，17000 册这个成绩，对于当时 30 岁的我来说，还算是一个不错的里程碑。这次写作让我感受到了出版的乐趣，其实我自己还在蕴量一些写作素材，或许以后会给大家一些新的分享。
 
@@ -54,44 +54,44 @@ categories: summary
 
 我仔细分析了一下今年的博客文章，内容涉及面很广。包括一些 iOS 开发方面的文章，如：
 
- * [写 iOS SDK 注意事项](http://blog.devtang.com/blog/2015/01/31/write-sdk-tips/)
- * [iOS 开发中的争议（一）](http://blog.devtang.com/blog/2015/03/15/ios-dev-controversy-1/)
- * [iOS 开发中的争议（二）](http://blog.devtang.com/blog/2015/03/22/ios-dev-controversy-2/)
- * [被误解的 MVC 和被神化的 MVVM](http://blog.devtang.com/blog/2015/11/02/mvc-and-mvvm/)
+ * [写 iOS SDK 注意事项](/2015/01/31/write-sdk-tips/)
+ * [iOS 开发中的争议（一）](/2015/03/15/ios-dev-controversy-1/)
+ * [iOS 开发中的争议（二）](/2015/03/22/ios-dev-controversy-2/)
+ * [被误解的 MVC 和被神化的 MVVM](/2015/11/02/mvc-and-mvvm/)
 
 另外，我也向「娱乐记者」转变，采访了一些国内新出现的 iOS 大牛，以及报道一些行业新闻，比如
 
- * [谈谈苹果开源 Swift](http://blog.devtang.com/blog/2015/06/16/talk-about-swift-open-source/)
- * [专访 YYKit 作者 ibireme: 开源大牛是怎样炼成的](http://blog.devtang.com/blog/2015/11/26/yykit-auther-interview/)
+ * [谈谈苹果开源 Swift](/2015/06/16/talk-about-swift-open-source/)
+ * [专访 YYKit 作者 ibireme: 开源大牛是怎样炼成的](/2015/11/26/yykit-auther-interview/)
 
 我更不务正业地写起了硬件的评测：
 
- * [Apple Watch 使用体验](http://blog.devtang.com/blog/2015/06/28/apple-watch-usage-exp/)
+ * [Apple Watch 使用体验](/2015/06/28/apple-watch-usage-exp/)
 
 当然，最离谱的就是我开始卖软件了，我和荔枝数码合作先后卖了 Reveal 和 Charles 两款 iOS 开发中需要的效率工具软件，也为此写了一些文章：
 
- * [Reveal 中国特惠活动](http://blog.devtang.com/blog/2015/05/25/can-we-buy-time/)
- * [Charles 从入门到精通 (中国 5 折特惠)](http://blog.devtang.com/blog/2015/11/14/charles-introduction/)
+ * [Reveal 中国特惠活动](/2015/05/25/can-we-buy-time/)
+ * [Charles 从入门到精通 (中国 5 折特惠)](/2015/11/14/charles-introduction/)
 
 因为工作关系，我也开始总结自己的技术转管理收获，完成了：
 
- * [浅析一对一沟通](http://blog.devtang.com/blog/2015/10/25/one-on-one-summary/)
- * [涅槃重生:我的技术转管理之路](http://blog.devtang.com/blog/2015/12/18/from-dev-to-manager/)
+ * [浅析一对一沟通](/2015/10/25/one-on-one-summary/)
+ * [涅槃重生:我的技术转管理之路](/2015/12/18/from-dev-to-manager/)
 
 在产品工作上面，总结了：
 
- * [数据的秘密（上）- 为什么要关注数据](http://blog.devtang.com/blog/2015/09/02/why-we-need-monitor-data/)
- * [数据的秘密（下）- 如何分析数据](http://blog.devtang.com/blog/2015/09/03/how-to-monitor-data/)
+ * [数据的秘密（上）- 为什么要关注数据](/2015/09/02/why-we-need-monitor-data/)
+ * [数据的秘密（下）- 如何分析数据](/2015/09/03/how-to-monitor-data/)
 
 ## 读书
 
 另外，今年开始认真写读书笔记，完成了：
 
- * [《引爆点》读书心得](http://blog.devtang.com/blog/2015/03/01/tipping-point/)
- * [《从 0 到 1 》读书笔记](http://blog.devtang.com/blog/2015/04/04/from-0-to-1-book-summary/)
- * [《成为技术领导者》读书心得](http://blog.devtang.com/blog/2015/08/01/become-a-tech-leader-summary/)
- * [《异类》读书心得](http://blog.devtang.com/blog/2015/08/02/the-story-of-success-book-summary/)
- * [《逆转》读书心得](http://blog.devtang.com/blog/2015/08/22/reverse-book-summary/)
+ * [《引爆点》读书心得](/2015/03/01/tipping-point/)
+ * [《从 0 到 1 》读书笔记](/2015/04/04/from-0-to-1-book-summary/)
+ * [《成为技术领导者》读书心得](/2015/08/01/become-a-tech-leader-summary/)
+ * [《异类》读书心得](/2015/08/02/the-story-of-success-book-summary/)
+ * [《逆转》读书心得](/2015/08/22/reverse-book-summary/)
 
 其实还看了一些别的书，包括《格鲁夫给经理人的第一课》、《增长黑客》、《领导梯队》等，但是都没有完成笔记，之后打算补上。
 

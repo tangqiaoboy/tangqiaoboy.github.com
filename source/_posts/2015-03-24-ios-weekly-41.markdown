@@ -40,7 +40,7 @@ categories: iOS weekly
 
  1. [《Swift 语言 iOS 开发：CALayer 十则示例》](http://www.cocoachina.com/ios/20150318/11350.html)：我们在 iOS 应用中看到的都是视图，包括按钮视图、表视图、滑动条视图，还有可以容纳其他视图的父视图等。但你或许不知道在 iOS 中支撑起每个视图的是一个叫做 " 图层（layer）" 的类，确切地说是 CALayer。本文中您会了解 CALayer 及其工作原理，还有应用 CALayer 打造酷炫效果的十则示例，比如绘制矢量图形、渐变色，甚至是粒子系统。
 
- 1. [《iOS 开发中的争议（一）》](http://blog.devtang.com/blog/2015/03/15/ios-dev-controversy-1/)：作者在文章中讨论了关于 Objective-C 语言中如下问题的争议：类的成员变量应该如何定义？
+ 1. [《iOS 开发中的争议（一）》](/2015/03/15/ios-dev-controversy-1/)：作者在文章中讨论了关于 Objective-C 语言中如下问题的争议：类的成员变量应该如何定义？
 
 ## 工具
 

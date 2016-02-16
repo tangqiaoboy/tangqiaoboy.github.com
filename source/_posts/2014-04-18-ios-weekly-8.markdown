@@ -26,7 +26,7 @@ categories: iOS weekly
  
  1. [《ObjC @interface的设计哲学与设计技巧》](http://blog.sunnyxx.com/2014/04/13/objc_dig_interface/)：学习Objective-C语言时，尤其是先学过其他编程语言再来看Objective-C时，总会对Objective-C的类声明的关键字interface感到有点奇怪，在其它面向对象的语言中通常由class关键字来表示，而interface在Java中表示的却大约相当于Objective-C的protocol，这个关键字的区别究竟代表了Objective-C语言的设计者怎样的思想呢，在Objective-C类设计中需要注意哪些问题呢？作者在文章中对这个问题进行一些思考和探究。
  
- 1. [《从Facebook看移动开发的发展》](http://blog.devtang.com/blog/2014/04/16/mobile-development-view-from-facebook/)：作者从Facebook的故事切入，分享了未来移动开发快速发展中，给设计师和程序员带来的挑战。
+ 1. [《从Facebook看移动开发的发展》](/2014/04/16/mobile-development-view-from-facebook/)：作者从Facebook的故事切入，分享了未来移动开发快速发展中，给设计师和程序员带来的挑战。
  
  1. [《CoreData Object 变成 Fault 的另一种方式》](http://imtx.me/archives/1888.html)：CoreData是一个架构庞大、学习曲线比较陡峭的 iOS 组件，每次遇到问题都会对其有新的认识。文章分享了关于错误认知 Object（NSManagedObject）与 Context（NSManagedContext）的引用关系而导致的 Fault 问题。
 

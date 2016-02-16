@@ -21,7 +21,7 @@ categories: iOS
 ## IAP 审核相关的坑
 
 
-IAP 开发的详细步骤我写在 [另一篇博客](http://blog.devtang.com/blog/2012/12/09/in-app-purchase-check-list/) 中了。在此主要介绍审核时遇到的问题。
+IAP 开发的详细步骤我写在 [另一篇博客](/2012/12/09/in-app-purchase-check-list/) 中了。在此主要介绍审核时遇到的问题。
 
 ### IAP 类型错误
 

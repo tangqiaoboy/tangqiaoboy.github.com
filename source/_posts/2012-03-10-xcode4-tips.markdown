@@ -89,7 +89,7 @@ cmd + shift + [      在 tab 栏之间切换
 ### Snippets
 代码片段 (Snippets) 是 xcode4 新增的功能。用于管理一些常用的代码段，在需要时通过代码补全自动生成出来，可以提高工作效率。
 
-关于这个，可以参见我的另一篇文章：<http://blog.devtang.com/blog/2012/02/04/use-git-to-manage-code-snippets/>
+关于这个，可以参见我的另一篇文章：</2012/02/04/use-git-to-manage-code-snippets/>
 
 ### 下载 xcode
 从 Xcode4.3 开始，苹果将 Xcode 的下载放到了 Lion 的 mac app store 中。郁闷的是，中国区连接 app store 下载的速度相当慢，在试了一些方法（例如设置 hosts, 设置 dns）之后，我发现最好的办法如下：

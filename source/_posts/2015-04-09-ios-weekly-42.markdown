@@ -32,7 +32,7 @@ categories: iOS weekly
 
  1. [《跨平台开发时代的 (再次) 到来？》](http://onevcat.com/2015/03/cross-platform/)：这篇文章主要想谈谈最近又刮起的移动开发跨平台之风，并着重介绍和对比一下像是 Xamarin，NativeScript 和 React Native 之类的东西。
 
- 1. [《iOS 开发中的争议（二）》](http://blog.devtang.com/blog/2015/03/22/ios-dev-controversy-2/)：本文作者分享了 iOS 中的一个争议话题：对于 UI 界面的编写工作，到底应该用 xib/storyboard 完成，还是用手写代码来完成？
+ 1. [《iOS 开发中的争议（二）》](/2015/03/22/ios-dev-controversy-2/)：本文作者分享了 iOS 中的一个争议话题：对于 UI 界面的编写工作，到底应该用 xib/storyboard 完成，还是用手写代码来完成？
 
  1. [《正确使用 Block 避免 Cycle Retain 和 Crash》](http://tanqisen.github.io/blog/2013/04/19/gcd-block-cycle-retain/)：Block 作为 C 语言的扩展，并不是高新技术，和其他语言的闭包或 lambda 表达式是一回事。需要注意的是由于 Objective-C 在 iOS 中不支持 GC 机制，使用 Block 必须自己管理内存，而内存管理正是使用 Block 坑最多的地方，错误的内存管理 要么导致 return cycle 内存泄漏要么内存被提前释放导致 crash。本文介绍了从 Block 实现原理切入，介绍了使用 Block 需要注意的地方。
 

@@ -24,7 +24,7 @@ categories: iOS
 
 {% img /images/ape-coretext-1.png %}
 
-对于富文本排版，除了可以用 CoreText 实现外，还可以用 UIWebView 实现。我以前写过一篇介绍如何用 UIWebView 进行复杂内容显示和交互的文章 [《关于 UIWebView 和 PhoneGap 的总结》](http://blog.devtang.com/blog/2012/03/24/talk-about-uiwebview-and-phonegap/)，里面介绍了使用 UIWebView 如何处理参数传递，同步与异步等问题，感兴趣的同学也可以翻看。 
+对于富文本排版，除了可以用 CoreText 实现外，还可以用 UIWebView 实现。我以前写过一篇介绍如何用 UIWebView 进行复杂内容显示和交互的文章 [《关于 UIWebView 和 PhoneGap 的总结》](/2012/03/24/talk-about-uiwebview-and-phonegap/)，里面介绍了使用 UIWebView 如何处理参数传递，同步与异步等问题，感兴趣的同学也可以翻看。 
 
 基于 CoreText 来实现和基于 UIWebView 来实现相比，前者有以下好处：
 

@@ -89,7 +89,7 @@ struct { @defs( NSObject) }
 
 ## @autoreleasepool
 
-@autoreleasepool 是用于 ARC 下代替 NSAutoreleasePool 的保留字，我把它写在这里，是想告诉那些以为 ARC 慢的同学，在苹果的 [这篇官方文档](http://developer.apple.com/library/ios/#releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html) 中有提到， @autoreleasepool 比 NSAutoreleasePool 快 6 倍。当然，文档中也提到，ARC 下不止 Autorelease Pool 的实现变快了，retain 和 release 也快很多。如果你还没有在工程中使用 ARC，推荐看看我的 [《是否应该使用 ARC》](http://blog.devtang.com/blog/2013/03/27/should-we-use-arc/)。
+@autoreleasepool 是用于 ARC 下代替 NSAutoreleasePool 的保留字，我把它写在这里，是想告诉那些以为 ARC 慢的同学，在苹果的 [这篇官方文档](http://developer.apple.com/library/ios/#releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html) 中有提到， @autoreleasepool 比 NSAutoreleasePool 快 6 倍。当然，文档中也提到，ARC 下不止 Autorelease Pool 的实现变快了，retain 和 release 也快很多。如果你还没有在工程中使用 ARC，推荐看看我的 [《是否应该使用 ARC》](/2013/03/27/should-we-use-arc/)。
 
 ## Cheat Sheet
 

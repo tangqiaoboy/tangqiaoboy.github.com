@@ -50,7 +50,7 @@ categories: iOS
 
 ## 省心省事
 
-刚刚说到，在类中完全使用 `_property` 的方式来访问私有成员变量，是不会有内存管理上的问题的。但是使用 `self.property` 的方式来访问私有变量是不是也是一样不会有内存管理上的问题呢？确实也是，但是有一点需要注意：我们最好不要在 init 和 dealloc 中使用 `self.property` 的方式来访问成员变量，这一点是写在苹果的官方文档里的，我在以前的文章里也介绍过。(见：[《不要在init和dealloc函数中使用accessor》](http://blog.devtang.com/blog/2011/08/10/do-not-use-accessor-in-init-and-dealloc-method/)）
+刚刚说到，在类中完全使用 `_property` 的方式来访问私有成员变量，是不会有内存管理上的问题的。但是使用 `self.property` 的方式来访问私有变量是不是也是一样不会有内存管理上的问题呢？确实也是，但是有一点需要注意：我们最好不要在 init 和 dealloc 中使用 `self.property` 的方式来访问成员变量，这一点是写在苹果的官方文档里的，我在以前的文章里也介绍过。(见：[《不要在init和dealloc函数中使用accessor》](/2011/08/10/do-not-use-accessor-in-init-and-dealloc-method/)）
 
 所以，如果你用 `self.property` 来访问私有成员变量。那么你需要注意，在 init 和 dealloc 中不使用这种方式。这其实对程序员来说是一个负担，你需要不停提醒自己有没有犯错。如果你使用完全的 `_property` 的方式来访问私有成员变量，就不用想这一类问题了。
 

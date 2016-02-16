@@ -6,7 +6,7 @@ comments: true
 categories: summary
 ---
 
-我之前一直使用 [Github Pages 功能](https://pages.github.com/) 以及 [Octopress](http://octopress.org/) 来搭建个人博客，我也写了一篇文章 [《象写程序一样写博客：搭建基于 github 的博客》](http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/) 来分享博客搭建的技术细节。
+我之前一直使用 [Github Pages 功能](https://pages.github.com/) 以及 [Octopress](http://octopress.org/) 来搭建个人博客，我也写了一篇文章 [《象写程序一样写博客：搭建基于 github 的博客》](/2012/02/10/setup-blog-based-on-github/) 来分享博客搭建的技术细节。
 
 但是自从我的博客每天访问量超过 2000 次以后，我就发现博客的访问速度还是一个不可忽视的问题。通过 [监控宝](http://www.jiankongbao.com/) 和 [Google Analytics](http://www.google.com/analytics/)，我发现有些博客文章的平均打开时间长达 4 秒钟。于是我开始考虑将博客搭建在更快的服务器上面。
 

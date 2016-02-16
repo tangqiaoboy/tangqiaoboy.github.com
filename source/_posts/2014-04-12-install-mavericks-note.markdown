@@ -8,7 +8,7 @@ categories: mac
 
 ## 前言
 
-上次将我的[iMac硬盘换成SSD](http://blog.devtang.com/blog/2014/01/26/add-ssd-to-old-imac/)后，我是通过迁移助理将我的Mac Book Air的环境同步过去的，不知道为什么，半个月前出现了重启后电脑一直处于加转中的状态。尝试过了网上提供的以下方法都没有效果：
+上次将我的[iMac硬盘换成SSD](/2014/01/26/add-ssd-to-old-imac/)后，我是通过迁移助理将我的Mac Book Air的环境同步过去的，不知道为什么，半个月前出现了重启后电脑一直处于加转中的状态。尝试过了网上提供的以下方法都没有效果：
 
  1. 启动时按住Shift键进入安全模式（没能进入）
  1. 同时按下 Command、Option、P 与 R 键不放（成功执行，但还是无法进入系统）
@@ -84,7 +84,7 @@ brew install apple-gcc42
 ## 使用brew cask来安装应用
 
 
-之前专门[写文章介绍](http://blog.devtang.com/blog/2014/02/26/the-introduction-of-homebrew-and-brewcask/)过`brew cask`, 这次打算试试常用软件都用它来装，首先安装brew cask:
+之前专门[写文章介绍](/2014/02/26/the-introduction-of-homebrew-and-brewcask/)过`brew cask`, 这次打算试试常用软件都用它来装，首先安装brew cask:
 
 
 ``` bash

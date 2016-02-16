@@ -35,7 +35,7 @@ categories: iOS weekly
 
  1. [《减小iOS应用程序的大小》](http://beyondvincent.com/blog/2014/03/24/reducing-the-size-of-my-app/)：本文收集了一些减小程序安装包大小的相关技巧(当第一次下载和安装程序时)。如果是针对升级程序的话，可以看这篇文章: [《减小iOS应用程序升级时所需下载的大小》](https://developer.apple.com/library/ios/qa/qa1779/)，这与第一次安装使用的工作原理有所不同。
 
- 1. [《NSNumber对象缓存以及Tagged Pointer》](http://blog.devtang.com/blog/2014/03/21/weak_object_lifecycle_and_tagged_pointer/)：本文讨论了`NSNumber`对象的缓存以及苹果在64位系统引入的`Tagged Pointer`对象。
+ 1. [《NSNumber对象缓存以及Tagged Pointer》](/2014/03/21/weak_object_lifecycle_and_tagged_pointer/)：本文讨论了`NSNumber`对象的缓存以及苹果在64位系统引入的`Tagged Pointer`对象。
 
 ## 工具
 

@@ -91,7 +91,7 @@ NSLog(@"%p %p", number, another);
  {% img /images/tagged_pointer_1.jpg %}
 
 
-但`Tagged Pointer`的引入也带来了问题，即`Tagged Pointer`因为并不是真正的对象，而是一个伪对象，所以你如果完全把它当成对象来使，可能会让它露马脚。比如我在[《Objective-C对象模型及应用》](http://blog.devtang.com/blog/2013/10/15/objective-c-object-model/)一文中就写道，所有对象都有 `isa` 指针，而`Tagged Pointer`其实是没有的，因为它不是真正的对象。
+但`Tagged Pointer`的引入也带来了问题，即`Tagged Pointer`因为并不是真正的对象，而是一个伪对象，所以你如果完全把它当成对象来使，可能会让它露马脚。比如我在[《Objective-C对象模型及应用》](/2013/10/15/objective-c-object-model/)一文中就写道，所有对象都有 `isa` 指针，而`Tagged Pointer`其实是没有的，因为它不是真正的对象。
 
 因为不是真正的对象，所以如果你直接访问`Tagged Pointer`的`isa`成员的话，在编译时将会有如下警告：
 

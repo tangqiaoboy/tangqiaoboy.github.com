@@ -176,7 +176,7 @@ pod update --no-repo-update
 brew install appledoc
 ```
 
-关于 appledoc，我在另一篇博客 [《使用 Objective-C 的文档生成工具:appledoc》](http://blog.devtang.com/blog/2012/02/01/use-appledoc-to-generate-xcode-doc/) 中有专门介绍。它最大的优点是可以将帮助文档集成到 Xcode 中，这样你在敲代码的时候，按住 opt 键单击类名或方法名，就可以显示出相应的帮助文档。
+关于 appledoc，我在另一篇博客 [《使用 Objective-C 的文档生成工具:appledoc》](/2012/02/01/use-appledoc-to-generate-xcode-doc/) 中有专门介绍。它最大的优点是可以将帮助文档集成到 Xcode 中，这样你在敲代码的时候，按住 opt 键单击类名或方法名，就可以显示出相应的帮助文档。
 
 ## 原理
 

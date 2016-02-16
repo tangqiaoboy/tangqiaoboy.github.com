@@ -38,7 +38,7 @@ categories: iOS weekly
 
  1. [《Awesome iOS》](https://github.com/vsouza/awesome-ios)：一个iOS的各类优秀的开源项目集合。
 
- 1. [《iOS开发如何提高》](http://blog.devtang.com/blog/2014/07/27/ios-evelup-tips/)：本文分享了iOS开发提高的各种方法。
+ 1. [《iOS开发如何提高》](/2014/07/27/ios-evelup-tips/)：本文分享了iOS开发提高的各种方法。
 
  1. [《如何编写 iOS 8 Widget》](http://weibo.com/2584320772/BfHoM6MM4)：作者简单介绍了 iOS 8 Widget的编写方法。
 

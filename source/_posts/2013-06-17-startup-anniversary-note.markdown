@@ -29,9 +29,9 @@ categories: summary
 在项目开发中学习是最好的学习方式，这次创业我也不止做了一个 App，每做一个 App，我就会尝试一些新的技术方案和挑战。
 
  * 在做粉笔网客户端时，我尝试了完全使用 ARC，也尝试用 UIWebView 写了很多 javascript。
- * 在做猿题库行测时，我尝试了使用 AVFoundation 来自定义扫描界面，尝试用 [OpenCV](http://blog.devtang.com/blog/2012/10/27/use-opencv-in-ios/) 来实现答题卡识别算法，尝试用 CoreText 做部分界面的渲染。
- * 在做猿题库申论时，我尝试用 [Storyboard](http://blog.devtang.com/blog/2012/12/15/do-not-use-storyboard/) 和 [cocoapod](http://blog.devtang.com/blog/2012/12/02/use-cocoapod-to-manage-ios-lib-dependency/) 来做包管理。
- * 在做猿题库司法考试时，考虑到团队可能扩大，我尝试用全手写界面的方式来开发。并且用 [Git Submodule](http://blog.devtang.com/blog/2013/05/08/git-submodule-issues/) 来管理猿题库公用模块。
+ * 在做猿题库行测时，我尝试了使用 AVFoundation 来自定义扫描界面，尝试用 [OpenCV](/2012/10/27/use-opencv-in-ios/) 来实现答题卡识别算法，尝试用 CoreText 做部分界面的渲染。
+ * 在做猿题库申论时，我尝试用 [Storyboard](/2012/12/15/do-not-use-storyboard/) 和 [cocoapod](/2012/12/02/use-cocoapod-to-manage-ios-lib-dependency/) 来做包管理。
+ * 在做猿题库司法考试时，考虑到团队可能扩大，我尝试用全手写界面的方式来开发。并且用 [Git Submodule](/2013/05/08/git-submodule-issues/) 来管理猿题库公用模块。
  * 在即将上线的猿题库新课程中，我尝试了结合多 target 编译和 Submodule 来管理多个猿题库之间的差别，力求将新课程的开发成本减少到只需一些配置文件即可。
 
 如果不是因为创业，我可能都无法决定使用这些技术方案，更别说负责整个 iOS 端了。
