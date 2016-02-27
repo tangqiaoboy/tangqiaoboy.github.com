@@ -163,5 +163,5 @@ MVVM 在实际使用中，确实能够使得 Model 层和 View 层解耦，但�
 
 # 版权说明
 
-本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/articles/rethinking-mvc-mvvm)。如需转载，请与InfoQ中文站联系。
+本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/articles/rethinking-mvc-mvvm)。如需转载，请与 InfoQ 中文站联系。
 

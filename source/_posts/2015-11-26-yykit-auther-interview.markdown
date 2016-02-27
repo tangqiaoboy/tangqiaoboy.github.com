@@ -8,7 +8,7 @@ categories: iOS
 
 ### 版权说明
 
-本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2015/11/ibireme-interview)。如需转载，请与InfoQ中文站联系。
+本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2015/11/ibireme-interview)。如需转载，请与 InfoQ 中文站联系。
 
 ### 前言
 

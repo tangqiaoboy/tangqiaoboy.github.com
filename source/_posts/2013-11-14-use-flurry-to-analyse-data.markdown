@@ -16,7 +16,7 @@ categories: iOS
 
 {% img /images/flurry-logo.png %}
 
-本文为InfoQ中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/articles/use-flurry-to-statistics-and-analysis-user-behavior)。如需转载，请与InfoQ中文站联系。
+本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/articles/use-flurry-to-statistics-and-analysis-user-behavior)。如需转载，请与 InfoQ 中文站联系。
 
 [Flurry](http://www.flurry.com/)是一家专门为移动应用提供数据统计和分析的公司。他们的数据统计分析SDK支持的平台包括iPhone, iPad, Android, Windows Phone, Java ME和BlackBerry。使用Flurry服务的公司包括eBay、Yahoo、Hulu和Skype等超过11万家公司，涉及的应用超过36万个。
 
