@@ -4,6 +4,7 @@ title: "用Git进行协同开发"
 date: 2012-02-29 19:08
 comments: true
 categories: shell
+tags: Git
 ---
 
 ## 问题场景描述

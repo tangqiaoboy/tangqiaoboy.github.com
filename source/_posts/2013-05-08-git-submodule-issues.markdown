@@ -4,6 +4,7 @@ title: "Git submodule的坑"
 date: 2013-05-08 21:44
 comments: true
 categories: shell
+tags: Git
 ---
 
 ## 前言

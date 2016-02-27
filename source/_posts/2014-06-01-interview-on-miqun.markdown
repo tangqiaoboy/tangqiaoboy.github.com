@@ -4,6 +4,7 @@ title: "专访《iOS测试指南》作者羋峮"
 date: 2014-06-01 17:07:31 +0800
 comments: true
 categories: iOS
+tags: Interview
 ---
 
 ## 版权说明

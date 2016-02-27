@@ -4,6 +4,7 @@ title: "专访 YYKit 作者 ibireme: 开源大牛是怎样炼成的"
 date: 2015-11-26 20:47:13 +0800
 comments: true
 categories: iOS
+tags: Interview
 ---
 
 ### 版权说明

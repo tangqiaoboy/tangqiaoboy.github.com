@@ -1,6 +1,6 @@
 ---
 layout: post
-title: " 涅槃重生:我的技术转管理之路 "
+title: "涅槃重生:我的技术转管理之路"
 date: 2015-12-18 21:32:00 +0800
 comments: true
 categories: summary

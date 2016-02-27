@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "首届Swift开发者大会见闻"
+title: "首届 Swift 开发者大会见闻"
 date: 2016-01-10 22:31:55 +0800
 comments: true
 categories: iOS
+tags: Swift
 ---
 
 今天是中国 iOS 开发者的一次聚会，因为首届 Swift 开发者大会在北京成功举办了。这次会议的质量很高，大会的相关 keynote 和 视频，稍后都会在官网上公开，所以没能参会的同学可以关注官网（ <http://atswift.io/> ）的内容更新。我作为大会的主席（其实基本没出什么力）全程参与了全天的大会，在此记录下一些参会的见闻。
