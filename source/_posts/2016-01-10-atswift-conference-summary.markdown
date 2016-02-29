@@ -11,6 +11,8 @@ tags: Swift
 
 先说说本次的大会的演讲内容吧。这次大会的 Keynote 可[在此下载](https://github.com/atConf/atswift-2016-resources)。
 
+2016.02.29更新：中国首届swift开发者大会的视频已经放出：<http://www.imooc.com/learn/600>
+
 ### Chris 
 
 开场的是 objc.io 的创始人 Chris Eidhof。Chris 是大会演讲者中唯一没有准备 keynote 的人，但是演讲相当精彩。Chris 虽然没有 keynote，但是内容是精心准备过的，他先用 playground 简单介绍了一些 Swift 的内容后，就转到一个游戏 Demo 的重构工作中，整个重构工作包括几点：
