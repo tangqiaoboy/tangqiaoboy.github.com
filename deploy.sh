@@ -2,7 +2,7 @@
 
 # hexo clean
 
-hexo generate
+# hexo generate
 cd public
 # git init
 git add .
