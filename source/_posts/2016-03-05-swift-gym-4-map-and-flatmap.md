@@ -139,15 +139,23 @@ let b2 = a2.map{ $0 * 2 }
 再举一个例子，比如我们想把一个字符串转成 NSDate 实例，如果不用 `map` 方法，我们只能这么写：
 
 ```
-var date: NSDate? = ...
-var formatted = date == nil ? nil : NSDateFormatter().stringFromDate(date!)
+let date: NSDate? = NSDate()
+let formatter = NSDateFormatter()
+formatter.dateFormat = "YYYY-MM-dd"
+var formatted: String? = nil
+if let date = date {
+    formatted = formatter.stringFromDate(date)
+}
 ```
 
 而使用 `map` 函数后，代码变得更短，更易读：
 
 ```
-var date: NSDate? = ...
-var formatted = date.map(NSDateFormatter().stringFromDate)
+let date: NSDate? = NSDate()
+let formatter = NSDateFormatter()
+formatter.dateFormat = "YYYY-MM-dd"
+let formatted = date.map(formatter.stringFromDate)
+
 ```
 
 看出来特点了吗？当我们的输入是一个 Optional，同时我们需要在逻辑中处理这个 Optional 是否为 nil，那么就适合用 `map` 来替代原来的写法，使得代码更加简短。
