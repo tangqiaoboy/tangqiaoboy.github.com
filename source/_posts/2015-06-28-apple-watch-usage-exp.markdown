@@ -3,7 +3,7 @@ layout: post
 title: "Apple Watch 使用体验"
 date: 2015-06-28 13:47:22 +0800
 comments: true
-categories: iOS summary
+categories: iOS
 ---
 
 虽然做了多年 iOS 开发，但我算不上一个真正意义上的果粉，所以 Apple Watch 出来的时候，我并没有马上下单，而是等到周围有几个朋友买了之后，在征询过他们的意见后，我才决定下单。

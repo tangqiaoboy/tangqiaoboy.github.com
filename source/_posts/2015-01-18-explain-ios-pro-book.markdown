@@ -3,7 +3,7 @@ layout: post
 title: "对《iOS开发进阶》一书的解释"
 date: 2015-01-18 10:17:21 +0800
 comments: true
-categories: iOS summary
+categories: iOS
 ---
 
 《iOS开发进阶》虽然仅仅在[互动出版社](http://product.china-pub.com/3770871)可以买到，还没有在京东和亚马逊上架，但是在 v2ex 上已经引起了一些讨论和误解，见 [此贴](http://v2ex.com/t/161929?p=1)。所以我想在这里，对本书的内容和定位做一些解释。

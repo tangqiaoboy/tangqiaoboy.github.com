@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "从Facebook看移动开发的发展"
+title: "从 Facebook 看移动开发的发展"
 date: 2014-04-16 20:37:59 +0800
 comments: true
-categories: iOS summary
+categories: iOS
 ---
 
 {% img /images/facebook-logo.jpg %}
