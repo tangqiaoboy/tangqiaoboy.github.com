@@ -137,7 +137,7 @@ UIKit 在转场开始前生成遵守转场环境协议`<UIViewControllerContextT
 Slide 动画控制器的核心代码：
 
     class SlideAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
-        init(type: SDETransitionTye) {...}
+        init(type: SDETransitionType) {...}
         
         func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
             ...
@@ -372,7 +372,7 @@ iOS 8 带来了适应性布局，[`<UIContentContainer>`](https://developer.appl
                              fromViewController fromVC: UIViewController, 
                                  toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
             //使用上一节实现的 Slide 动画控制器，需要提供操作类型信息。
-            let transitionType = SDETransitionTye.NavigationTransition(operation)
+            let transitionType = SDETransitionType.NavigationTransition(operation)
             return SlideAnimationController(type: transitionType)
         }
     }
@@ -408,7 +408,7 @@ iOS 8 带来了适应性布局，[`<UIContentContainer>`](https://developer.appl
             let toIndex = tabBarController.viewControllers!.indexOf(toVC)!
             
             let tabChangeDirection: TabOperationDirection = toIndex < fromIndex ? .Left : .Right
-            let transitionType = SDETransitionTye.TabTransition(tabChangeDirection)
+            let transitionType = SDETransitionType.TabTransition(tabChangeDirection)
             let slideAnimationController = SlideAnimationController(type: transitionType)
             return slideAnimationController
         }
