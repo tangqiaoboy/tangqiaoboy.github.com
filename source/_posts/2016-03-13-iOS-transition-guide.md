@@ -2,7 +2,7 @@
 title: iOS 视图控制器转场详解
 date: 2016-03-13 16:15:47
 categories: iOS
-tags: 投稿
+tags: [投稿, Swift]
 ---
 
 > 作者：[seedante](http://weibo.com/u/1815689155)，神秘人士，他的 [GitHub](https://github.com/seedante)。
