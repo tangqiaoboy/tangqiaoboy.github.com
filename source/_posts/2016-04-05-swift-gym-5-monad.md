@@ -2,7 +2,9 @@
 title: Swift 烧脑体操（五）- Monad
 categories: iOS
 tags: Swift
+date: 2016-04-05 22:56:07
 ---
+
 
 ![](http://ww2.sinaimg.cn/mw690/65dc76a3gw1f08hrkcyydj20i40cigv2.jpg)
 
