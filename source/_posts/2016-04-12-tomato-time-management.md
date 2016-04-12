@@ -1,5 +1,5 @@
 ---
-title: 「番茄工作法」简介
+title: 「番茄工作法」- 简单的时间管理方法
 date: 2016-04-12 21:20:55
 categories: summary
 tags:
@@ -46,6 +46,12 @@ tags:
 
  1. 我们应该认识到，工作被打断是在所难免的，总会有一些临时的沟通工作无法被计划，并且是有价值的。所以，「番茄钟」失败后，不应该有过多的情绪，尽快重启一个「番茄钟」，你的工作应该很快就会进入状态。
 
+ 1. 各位做 iOS 开发的同学有多少买了 Apple Watch？我发现 Apple Watch 就是最好的「番茄钟」，我将 Apple Watch 的计时器放到了表盘上，抬手就可以开始一个番茄时间，非常方便（下图）。时间到了就会震动，也不会影响到旁边的同事。
+
+{% img /images/apple-watch-timer.jpg %}
+
 ## 推荐读物
+
+![](http://img14.360buyimg.com/n1/g12/M00/00/03/rBEQYFMn13UIAAAAAAY-iISkO8AAAC2dgKel0kABj6g946.jpg)
 
  * [《番茄工作法图解：简单易行的时间管理方法》](http://item.jd.com/10406129.html)：一本 10 几块钱的、薄薄的充满图案的小册子，让你轻松理解番茄工作法。
