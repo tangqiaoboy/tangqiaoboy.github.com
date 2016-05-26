@@ -5,6 +5,8 @@ categories: summary
 tags:
 ---
 
+{% img /images/mentor-guide.jpg %}
+
 # 概述
 
 本文希望帮助 Mentor 在指导实习生和新员工时，建立一些基本的共识和准则。本文主要讨论的是技术类的岗位。
