@@ -7,7 +7,7 @@ tags: books
 
 ## 序
 
-![格鲁夫给经理人的第一课](http://upload-images.jianshu.io/upload_images/12199-5514b01b879a2353.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+{% img /images/high-output-management-book.png %}
 
 [《格鲁夫给经理人的第一课》](http://item.jd.com/11232323.html) 最早出版于 2007 年，书原名为《High Output Management》。本书的作者格鲁夫是 Intel 的前 CEO，领导了 Intel 从一家濒临倒闭的存储器公司，转型为微处理器公司，并且在个人 PC 开始流行时，成功和微软缔结 Wintel 联盟，主宰了整个 PC 电脑时代。
 
@@ -47,9 +47,9 @@ tags: books
  * 趋势指标，用于分析变化趋势的指标。
  * 重复印证表，用于修正预测行为，提高预测准备性的指标。
 
-![线性指标](http://upload-images.jianshu.io/upload_images/12199-f0aae68eec23af4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+{% img /images/hom-1.png %}
 
-![重复印证表](http://upload-images.jianshu.io/upload_images/12199-77d792ffb2a60993.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+{% img /images/hom-2.png %}
 
 作者接着提到了计划生产。这个事情是预期未来的销售额而提前生产（放到库存）的一种行为。这里面合理地预测未来是核心，否则要么就会造成没有商品可卖，要么就会造成库存过高。刚刚提到的「重复印证表」可以比较好地帮助我们做预测的调整。
 
@@ -63,7 +63,8 @@ tags: books
 
 本章的最后，作者提出了管理杠杆率的概念，并且用下面的漫画来做了解释。作者认为，通过定义管理的「产出」，我们可以专注于那些提高产出的管理活动，那些高投入产出比的管理活动被作者称作「管理杠杆率」高，进而应该被优先安排和执行。
 
-![管理杠杆率](http://upload-images.jianshu.io/upload_images/12199-8b498835aa24905f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+{% img /images/hom-3.png %}
+
 
 ## 第二部分：打好团体战
 
@@ -178,7 +179,8 @@ tags: books
 
 关于部门会议，作者的经验是经理人要注意大家讨论的主题和效率，事先讨论的主题需要明确，最好大家在开会前能做好准备。经理人要尽量让讨论是自由的，避免成为自己主宰的「一言堂」。部门会议的议题应该尽量让部属来负责，经理人的责任只是保证讨论不要偏题即可。
 
-![讨论不要偏题](http://upload-images.jianshu.io/upload_images/12199-930d4cfcc2578162.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+{% img /images/hom-4.png %}
+
 
 运营总结会议是让那些通常没有机会开部门会议的同事提供互动的机会，让他们有机会彼此学习及分享经验。
 
@@ -208,9 +210,7 @@ tags: books
  * 然后是在意见充分被表达之后的决策
  * 最后是一旦最后决策产生，那些少数不同意的同事，都应该在之后执行过程中全力支持。
 
-![理想决策的三个阶段](http://upload-images.jianshu.io/upload_images/12199-4ed61e5312425ed1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
+{% img /images/hom-5.png %}
 
 ### 第六章 规划是为了明天
 
@@ -266,7 +266,7 @@ tags: books
 
 本章讨论了两种组织形式：「任务导向组织」和「功能导向组织」。
 
-![两种组织形式](http://upload-images.jianshu.io/upload_images/12199-7e60dfbe27488335.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+{% img /images/hom-6.png %}
 
 任务导向组织是以具体的完成某件事情为目标而形成的组织。功能导向组织是以完成某个细分功能而形成的组织。这两种组织各有优缺点，很多时候需要以混合的形式存在于一家公司，而具体如何混合，在不同的公司差异相当大。
 
@@ -328,7 +328,7 @@ tags: books
 
 格鲁夫认为，如果一个工作的  CUA 因素高，而个人关注的是团体利益，那么就只能用文化价值观来作为行为的指导。但是如果个人关注的是自身利益，那么就会如下图显示的那样，情况变得「一筹莫展」。
 
-![CUA 因素](http://upload-images.jianshu.io/upload_images/12199-da193413a0c1498c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+{% img /images/hom-7.png %}
 
 格鲁夫举了一个例子，当海滩上发生灾难时，每个人都只顾及保全自己的性命，而救援工作需要极高的 CUA 因素，所以现场只会是一片混乱。
 
@@ -363,7 +363,7 @@ tags: books
 
 作者认为，激励应该和马斯洛的需求金字塔理论相符。
 
-![马斯洛的需求金字塔](http://upload-images.jianshu.io/upload_images/12199-bfca9bcee492d4c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+{% img /images/hom-8.png %}
 
 在「归属感与认同感」这一层，我们应该让同事们都喜欢当前的工作环境和同事关系，认同当前公司做的事情。同事之间的合作应该是愉快和融洽的，同事中还会有自己欣赏的牛人，有自己的好朋友可以一起吃饭、聊天。
 
@@ -432,7 +432,7 @@ tags: books
 
 不过，格鲁夫介绍了如何向一个完全不合格的员工传达绩效评估，我感觉很有价值。格鲁夫用解决问题的阶段来描述不合格员工的状态。
 
-![解决问题的阶段](http://upload-images.jianshu.io/upload_images/12199-88b215bc177f7cac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+{% img /images/hom-9.png %}
 
 这些阶段具体解释如下：
 
