@@ -4,6 +4,7 @@ title: "写在创业一周年"
 date: 2013-06-17 20:56
 comments: true
 categories: summary
+tags: startup
 ---
 
 {% img /images/startup-anniversary.jpg %}
