@@ -4,6 +4,7 @@ title: "《引爆点》读书心得"
 date: 2015-03-01 15:32:15 +0800
 comments: true
 categories: books summary
+tags: books
 ---
 
 {% img /images/TippingPointBook.jpg %}

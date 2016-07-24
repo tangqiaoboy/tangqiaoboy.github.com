@@ -2,7 +2,7 @@
 title: 《把时间当做朋友》：一本关于心智的启蒙书
 categories: books summary
 date: 2016-04-19 08:28:17
-tags:
+tags: books
 ---
 
 

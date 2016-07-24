@@ -4,6 +4,7 @@ title: "《从 0 到 1 》读书笔记"
 date: 2015-04-04 15:22:41 +0800
 comments: true
 categories: books summary
+tags: books
 ---
 
 {% img /images/from-zero-to-one-book.jpg %}

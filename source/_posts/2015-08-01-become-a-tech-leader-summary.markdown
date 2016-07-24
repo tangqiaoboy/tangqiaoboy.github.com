@@ -4,6 +4,7 @@ title: "《成为技术领导者》读书心得"
 date: 2015-08-01 12:23:32 +0800
 comments: true
 categories: books summary
+tags: books
 ---
 
 {% img /images/become-a-tech-leader-book.jpg %}
