@@ -1,8 +1,10 @@
 ---
 title: 理解 iOS 的内存管理
 categories: iOS
+date: 2016-07-30 08:43:42
 tags:
 ---
+
 
 ## 远古时代的故事
 
