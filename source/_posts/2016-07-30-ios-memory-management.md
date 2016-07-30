@@ -131,6 +131,8 @@ ARC 能够解决 iOS 开发中 90% 的内存管理问题，但是另外还有 10
 
 {% img /images/memory-cycle-2.png %}
 
+### 主动断开循环引用
+
 解决循环引用问题主要有两个办法，第一个办法是我明确知道这里会存在循环引用，在合理的位置主动断开环中的一个引用，使得对象得以回收。如下图所示：
 
 {% img /images/memory-cycle-3.png %}
@@ -155,9 +157,21 @@ ARC 能够解决 iOS 开发中 90% 的内存管理问题，但是另外还有 10
 
 不过，主动断开循环引用这种操作依赖于程序员自己手工显式地控制，相当于回到了以前 “谁申请谁释放” 的内存管理年代，它依赖于程序员自己有能力发现循环引用并且知道在什么时机断开循环引用回收内存（这通常与具体的业务逻辑相关），所以这种解决方法并不常用，更常见的办法是使用弱引用 (weak reference) 的办法。
 
+### 使用弱引用
+
 弱引用虽然持有对象，但是并不增加引用计数，这样就避免了循环引用的产生。在 iOS 开发中，弱引用通常在 delegate 模式中使用。举个例子来说，两个 ViewController A 和 B，ViewController A 需要弹出 ViewController B，让用户输入一些内容，当用户输入完成后，ViewController B 需要将内容返回给 ViewController A。这个时候，View Controller 的 delegate 成员变量通常是一个弱引用，以避免两个 ViewController 相互引用对方造成循环引用问题，如下所示：
 
 {% img /images/memory-cycle-4.png %}
+
+### 弱引用的实现原理
+
+弱引用的实现原理是这样，系统对于每一个有弱引用的对象，都维护一个表来记录它所有的弱引用的指针地址。这样，当一个对象的引用计数为 0 时，系统就通过这张表，找到所有的弱引用指针，继而把它们都置成 nil。
+
+从这个原理中，我们可以看出，弱引用的使用是有额外的开销的。虽然这个开销很小，但是如果一个地方我们肯定它不需要弱引用的特性，就不应该盲目使用弱引用。举个例子，有人喜欢在手写界面的时候，将所有界面元素都设置成 weak 的，这某种程度上与 Xcode 通过 Storyboard 拖拽生成的新变量是一致的。但是我个人认为这样做并不太合适。因为：
+
+ 1. 我们在创建这个对象时，需要注意临时使用一个强引用持有它，否则因为 weak 变量并不持有对象，就会造成一个对象刚被创建就销毁掉。
+ 1. 大部分 ViewController 的视图对象的生命周期与 ViewController 本身是一致的，没有必要额外做这个事情。
+ 1. 早先苹果这么设计，是有历史原因的。在早年，当时系统收到 Memory Warning 的时候，ViewController 的 View 会被 unLoad 掉。这个时候，使用 weak 的视图变量是有用的，可以保持这些内存被回收。但是这个设计已经被废弃了，替代方案是将相关视图的 CALayer 对应的 CABackingStore 类型的内存区会被标记成 volatile 类型，详见[《再见，viewDidUnload方法》](/2013/05/18/goodbye-viewdidunload/)。
 
 ### 使用 Xcode 检测循环引用
 
@@ -177,11 +191,11 @@ Xcode 的 Instruments 工具集可以很方便的检测循环引用。为了测�
 
 在 Xcode 的菜单栏选择：Product -> Profile，然后选择 “Leaks”，再点击右下角的”Profile” 按钮开始检测。如下图
 
-{% img /images/memory-instruments-1.png %}
+{% img /images/memory-instruments-1.jpg %}
 
 这个时候 iOS 模拟器会运行起来，我们在模拟器里进行一些界面的切换操作。稍等几秒钟，就可以看到 Instruments 检测到了我们的这次循环引用。Instruments 中会用一条红色的条来表示一次内存泄漏的产生。如下图所示：
 
-{% img /images/memory-instruments-2.png %}
+{% img /images/memory-instruments-2.jpg %}
 
 我们可以切换到 Leaks 这栏，点击”Cycles & Roots”，就可以看到以图形方式显示出来的循环引用。这样我们就可以非常方便地找到循环引用的对象了。
 
