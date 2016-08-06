@@ -7,7 +7,7 @@ categories: iOS
 tags: Git
 ---
 
-###代码片段介绍
+### 代码片段介绍
 
 xcode4 引入了一个新 feature: code snippets，在整个界面的右下角，可以通过快捷键：cmd + ctrl + opt + 2 调出来。code snippets 是一些代码的模版，对于一些常见的编程模式，xcode 都将这些代码抽象成模版放到 code snippet 中，使用的时候，只需要键入快捷键，就可以把模版的内容填到代码中。
 
