@@ -6,7 +6,13 @@ comments: true
 categories: iOS
 ---
 
-## 目录
+## 目录及更新说明
+
+更新记录：
+
+ * 2013 年 12 月，第一版。
+ * 2015 年 11 月，增加 Rewrite 相关介绍。
+ * 2016 年 8 月，增加 Charles 4 的介绍，反向代理功能和设置外部代理，并且介绍了如何解决与翻墙软件的冲突。
 
 本文的内容主要包括：
  
@@ -21,13 +27,17 @@ categories: iOS
  * 修改网络请求内容
  * 给服务器做压力测试
  * 修改服务器返回内容
+ * 反向代理
+ * 设置外部代理，解决与翻墙软件的冲突
  * 总结
 
 
-<!--
-## Charles 中国特惠
+## Charles 限时优惠
 
-Charles 正版[五折优惠活动](http://item.taobao.com/item.htm?&id=524230901640)（限时：2015 年 11 月 14 日 - 30 日），仅限中国区购买，[点击购买](http://item.taobao.com/item.htm?&id=524230901640)。在活动期结束后，价格将从 169 元上涨到 199 元。
+Charles 4 正版限时优惠优惠活动（限时：2016 年 8 月 8 日 - 15 日），优惠 30 元，[点击领取优惠券](https://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=881336826&activityId=8764822622de490a82ccc6383abce406)。
+
+<!--
+淘口令：Charles 新版发布，使用￥Charles￥限时特惠购买正版（长按复制整段文案，打开手机淘宝即可进入活动内容）
 -->
 
 ## 简介
@@ -50,6 +60,11 @@ Charles 主要的功能包括：
  1. 支持修改网络请求参数。
  1. 支持网络请求的截获并动态修改。
  1. 支持模拟慢速网络。
+
+Charles 4 新增的主要功能包括：
+
+ 1. 支持 Http 2。
+ 1. 支持 IPv6。
 
 ## 安装 Charles
 
@@ -212,6 +227,8 @@ Charles 的 Map 功能分 Map Remote 和 Map Local 两种，顾名思义，Map R
 
 {% img /images/charles-map-local.png %}
 
+Map Local 在使用的时候，有一个潜在的问题，就是其返回的 Http Response Header 与正常的请求并不一样。这个时候如果客户端校验了 Http Response Header 中的部分内容，就会使得该功能失效。解决办法是同时使用 Map Local 以下面提到的 Rewrite 功能，将相关的 Http 头 Rewrite 成我们希望的内容。
+
 
 ### Rewrite 功能
 
@@ -240,6 +257,18 @@ Breakpoints 功能类似我们在 Xcode 中设置的断点一样，当指定的�
 {% img /images/charles-breakpoint.png %}
 
 需要注意的是，使用 Breakpoints 功能将网络请求截获并修改过程中，整个网络请求的计时并不会暂停，所以长时间的暂停可能导致客户端的请求超时。
+
+## 反向代理
+
+Charles 的反向代理功能允许我们将本地的端口映射到远程的另一个端口上。例如，在下图中，我将本机的 61234 端口映射到了远程（www.yuantiku.com）的80端口上了。这样，当我访问本地的 61234 端口时，实际返回的内容会由 www.yuantiku.com 的 80 端口提供。
+
+{% img /images/charles-reverse-proxy.jpg %}
+
+## 设置外部代理，解决与翻墙软件的冲突
+
+Charles 的原理是把自己设置成系统的代理服务器，但是在中国，由于工作需要，我们常常需要使用 Google 搜索，所以大部分程序员都有自己的翻墙软件，而这些软件的基本原理，也是把自己设置成系统的代理服务器，来做到透明的翻墙。
+
+为了使得两者能够和平共处，我们可以在 Charles 的 `External Proxy Settings` 中，设置翻墙的代理端口以及相关信息。同时，我们也要关闭相关翻墙软件的自动设置，使其不主动修改系统代理，避免 Charles 失效。
 
 ## 总结
 
