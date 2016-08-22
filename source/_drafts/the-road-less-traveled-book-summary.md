@@ -1,7 +1,7 @@
 ---
 title: 如何自律和爱 - 读《少有人走的路》
 categories: books summary
-tags:
+tags: books
 ---
 
 {% img /images/the-road-less-traveled-book.jpg %}
