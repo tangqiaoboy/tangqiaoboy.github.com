@@ -5,6 +5,18 @@ categories: iOS
 tags: Swift
 ---
 
+## 索引
+
+Swift 烧脑系列文章列表：
+ * [Swift 烧脑体操（一） - Optional 的嵌套](/2016/02/27/swift-gym-1-nested-optional/)
+ * [Swift 烧脑体操（二） - 函数的参数](/2016/02/27/swift-gym-2-function-argument/)
+ * [Swift 烧脑体操（三） - 高阶函数](/2016/02/27/swift-gym-3-higher-order-function/)
+ * [Swift 烧脑体操（四） - map 和 flatMap](/2016/03/05/swift-gym-4-map-and-flatmap/)
+ * [Swift 烧脑体操（五）- Monad](/2016/04/05/swift-gym-5-monad/)
+ * [Swift 烧脑体操（六）- 类型推断](/2016/05/22/swift-gym-6-type-infer/)
+
+## 正文
+
 前几天，一个朋友在微博上通过私信问了我一个问题，如下的代码，为什么变量 `crr` 没能把值为 nil 的元素过滤掉？
 
 ```

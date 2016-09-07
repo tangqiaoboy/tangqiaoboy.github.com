@@ -5,9 +5,15 @@ categories: iOS
 tags: Swift
 ---
 
-## 版权说明
+## 索引
 
-本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/articles/swift-brain-gym-map-and-flatmap)。如需转载，请与 InfoQ 中文站联系。
+Swift 烧脑系列文章列表：
+ * [Swift 烧脑体操（一） - Optional 的嵌套](/2016/02/27/swift-gym-1-nested-optional/)
+ * [Swift 烧脑体操（二） - 函数的参数](/2016/02/27/swift-gym-2-function-argument/)
+ * [Swift 烧脑体操（三） - 高阶函数](/2016/02/27/swift-gym-3-higher-order-function/)
+ * [Swift 烧脑体操（四） - map 和 flatMap](/2016/03/05/swift-gym-4-map-and-flatmap/)
+ * [Swift 烧脑体操（五）- Monad](/2016/04/05/swift-gym-5-monad/)
+ * [Swift 烧脑体操（六）- 类型推断](/2016/05/22/swift-gym-6-type-infer/)
 
 ## 前言
 
@@ -493,3 +499,4 @@ if let _ = b {
  * 通过阅读源码，我们更加深入理解了 `map` 和 `flatMap` 函数内部的机制。
  * 我们讨论了 `map` 和 `flatMap` 的取名问题，最后得出：一个类型如果支持 `map`，则表示它是一个 [Functor](https://en.wikipedia.org/wiki/Functor)；一个类型如果支持 `flatMap`，则表示它是一个 [Monad](https://en.wikipedia.org/wiki/Monad_(functional_programming)。
  * 我们讨论了 `map` 中使用不当造成的多重 Optional 问题。
+

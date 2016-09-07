@@ -8,6 +8,16 @@ date: 2016-04-05 22:56:07
 
 ![](http://ww2.sinaimg.cn/mw690/65dc76a3gw1f08hrkcyydj20i40cigv2.jpg)
 
+## 索引
+
+Swift 烧脑系列文章列表：
+ * [Swift 烧脑体操（一） - Optional 的嵌套](/2016/02/27/swift-gym-1-nested-optional/)
+ * [Swift 烧脑体操（二） - 函数的参数](/2016/02/27/swift-gym-2-function-argument/)
+ * [Swift 烧脑体操（三） - 高阶函数](/2016/02/27/swift-gym-3-higher-order-function/)
+ * [Swift 烧脑体操（四） - map 和 flatMap](/2016/03/05/swift-gym-4-map-and-flatmap/)
+ * [Swift 烧脑体操（五）- Monad](/2016/04/05/swift-gym-5-monad/)
+ * [Swift 烧脑体操（六）- 类型推断](/2016/05/22/swift-gym-6-type-infer/)
+
 ## 前言
 
 Swift 其实比 Objective-C 复杂很多，相对于出生于上世纪 80 年代的 Objective-C 来说，Swift 融入了大量新特性。这也使得我们学习掌握这门语言变得相对来说更加困难。不过一切都是值得的，Swift 相比 Objective-C，写出来的程序更安全、更简洁，最终能够提高我们的工作效率和质量。
