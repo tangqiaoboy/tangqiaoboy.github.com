@@ -42,3 +42,5 @@ date: 2016-02-15 14:32
  * [七牛](http://www.qiniu.com/products/live?utm_campaign=zhiboyunproduct&utm_source=tangqiao&utm_medium=advposition&utm_content=png)
  * [掘金](http://gold.xitu.io/welcome/ios/?utm_source=tangqiao&utm_medium=banner&utm_content=gaoshou&utm_campaign=q3_personal)
  * [番茄土豆](https://pomotodo.com/landing?medium=web_devtang)
+ * [2016 年 iDev 大会](http://www.bagevent.com/event/207773?bag_track=tangqiao)
+ 
