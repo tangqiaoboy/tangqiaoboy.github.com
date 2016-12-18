@@ -8,13 +8,13 @@ date: 2016-02-15 14:32
 
 ## 简介
 
-唐巧，男，80 后，程序员。[InfoQ](http://www.infoq.com/cn/author/%E5%94%90%E5%B7%A7) 编辑, [《iOS 开发进阶》](http://item.jd.com/11598468.html) 作者 , 在 [猿题库](http://yuantiku.com/) 创业。
+唐巧，男，80 后，程序员，作为核心员工在 [猿辅导](https://www.yuanfudao.com/) 参与创业，担任 [小猿搜题](https://www.yuansouti.com/) 产品技术负责人。著有[《iOS 开发进阶》](http://item.jd.com/11598468.html) 一书。
 
-曾开发 [网易邮箱](http://mail.163.com/)、网易微博（已挂掉）、[有道云笔记](http://note.youdao.com/)、[猿题库](http://yuantiku.com/)、[小猿搜题](http://www.yuansouti.com/)。
+曾开发 [网易邮箱](http://mail.163.com/)、网易微博、[有道云笔记](http://note.youdao.com/)、[猿题库](https://www.yuantiku.com/)、[小猿搜题](https://www.yuansouti.com/)。
 
-本博客主要的内容包括 iOS 开发技巧、创业感悟、读书心得。
+本博客主要的内容包括 iOS 开发技巧、创业感悟、读书心得、产品研究笔记。
 
-欢迎关注我的微博：[@唐巧_boy](http://weibo.com/tangqiaoboy)、我的 [Github](https://github.com/tangqiaoboy)，以及我的「iOS开发」微信公众号：
+欢迎关注我的微博：[@唐巧_boy](http://weibo.com/tangqiaoboy)、我的 [Github](https://github.com/tangqiaoboy)，以及我的「iOS开发by唐巧」微信公众号：
 
 <img src="/images/weixin-qr.jpg" width="200px" />
 
