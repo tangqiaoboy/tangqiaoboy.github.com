@@ -37,7 +37,7 @@ Topcoder 比赛结果，[来源](http://community.topcoder.com/tc?module=CompCon
 10 月份开始做 iPad 版的开发，最终于 12 月初提交上线。上线后排名一路上升，最高达到了效率类第一名的位置。现在一直稳定在效率类前 5 名。
 
 2011-12-20 的 app store 截图：
-{%img /images/ynote_iPad_rank_2011-12-20.png %}
+{%img /images/ynote_ipad_rank_2011-12-20.png %}
 
 10 月份做了一个个人项目，图书馆借书系统的改造。把借书改成分布式的，每个人都要承担图书的保管任务，这样就不会丢书了。虽然只用了 3 天时间，但是能在工作时间做个人项目感觉还是挺爽的。
 
