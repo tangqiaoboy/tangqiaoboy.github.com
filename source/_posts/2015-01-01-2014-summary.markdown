@@ -4,6 +4,7 @@ title: "2014年个人总结"
 date: 2015-01-01 21:03:18 +0800
 comments: true
 categories: summary
+tags: anniversary
 ---
 
 2014 年对于我来说是重要的一年，因为一方面我刚好年满 30 岁了，另一方面我的家庭生活和工作都经历了很大的变化。值得总结的包括：

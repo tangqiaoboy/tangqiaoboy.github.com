@@ -4,6 +4,7 @@ title: "2012年个人总结"
 date: 2013-01-01 14:31
 comments: true
 categories: summary
+tags: anniversary
 ---
 
 和 [去年](/2012/01/01/2011-summary/) 一样，记录一下今年的成长和收获。

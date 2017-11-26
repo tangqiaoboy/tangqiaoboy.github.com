@@ -4,6 +4,7 @@ title: "2011年个人总结"
 date: 2012-01-01 18:47
 comments: true
 categories: summary
+tags: anniversary
 ---
 
 2011 年的过去了，总结一下今年的成长和收获。

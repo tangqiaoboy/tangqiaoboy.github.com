@@ -4,6 +4,7 @@ title: "2015 年个人总结"
 date: 2016-01-02 19:08:13 +0800
 comments: true
 categories: summary
+tags: anniversary
 ---
 
 ## 关于创业
