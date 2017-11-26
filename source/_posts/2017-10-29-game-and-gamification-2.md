@@ -1,8 +1,8 @@
 ---
 title: 游戏和游戏化（下）
 date: 2017-10-29 13:34:43
-categories: summary
-tags:
+categories: books summary
+tags: books
 ---
 
 ## 广义的游戏
