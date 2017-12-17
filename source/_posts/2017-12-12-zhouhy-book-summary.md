@@ -1,7 +1,7 @@
 ---
 title: 不服输的周鸿祎 - 读《颠覆者：周鸿祎自传》
 date: 2017-12-12 22:48:15
-categories: book summary
+categories: books summary
 tags: books
 ---
 

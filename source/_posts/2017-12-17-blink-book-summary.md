@@ -1,7 +1,7 @@
 ---
 title: 直觉能力的培养和分析 - 读《眨眼之间》
 date: 2017-12-17 18:03:48
-categories: book summary
+categories: books summary
 tags: books
 ---
 
