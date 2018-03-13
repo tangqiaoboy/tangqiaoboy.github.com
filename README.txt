@@ -19,3 +19,10 @@ git clone git@github.com:tangqiaoboy/tangqiaoboy.github.com.git public
 mkdir themes
 cd themes
 git clone git@github.com:tangqiaoboy/jacman.git
+
+历史广告：
+
+<a target="_blank" href="https://www.boxueio.com/register/30b8aaac334ecfa97fe6937cc091aca6">
+  <img src="http://wx1.sinaimg.cn/large/65dc76a3ly1fduudtak0zj206j05kglq.jpg" width="235px" height="200px" />
+  </a>
+  <br /><br />
