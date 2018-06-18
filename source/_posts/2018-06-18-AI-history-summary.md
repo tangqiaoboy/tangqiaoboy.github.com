@@ -21,7 +21,7 @@ Ngram 表示多个词合在一起的组合。谷歌提供了一个名为 Ngram �
 
 那么问题来了，这么翻译出来的东西，机器真的能够理解吗？也许翻译本身根本就不是理解问题，翻译本身并不需要理解，翻译只是翻译，只是数据问题，而不是语义问题。
 
-除了在翻译领域，人类发现自己的经验没什么用，在围棋领域也是同样。[AlphaZero](https://deepmind.com/blog/alphago-zero-learning-scratch/) 仅仅过 40 天的自我学习，就超过了那些学习了大量人类棋手的前辈：AlphaGo Lee 和 AlphaGo Master 。这除了说明机器自我对弈的强化学习（Reinforcement Learning）的效果超强之外，也同时宣告人类的经验在有时候真的是负担。
+除了在翻译领域，人类发现自己的经验没什么用，在围棋领域也是同样。[AlphaGo Zero](https://deepmind.com/blog/alphago-zero-learning-scratch/) 仅仅过 40 天的自我学习，就超过了那些学习了大量人类棋手的前辈：AlphaGo Lee 和 AlphaGo Master 。这除了说明机器自我对弈的强化学习（Reinforcement Learning）的效果超强之外，也同时宣告人类的经验在有时候真的是负担。
 
 ![](https://storage.googleapis.com/deepmind-live-cms/documents/TrainingTime-Graph-171019-r01.gif)
 <!-- backup image: /images/TrainingTime-Graph-171019-r01.gif -->
