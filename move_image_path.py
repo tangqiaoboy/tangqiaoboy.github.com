@@ -2,33 +2,56 @@
 # coding=utf-8
 import os, sys
 
+def checkValid(line):
+    startString = "![](assets/"
+    endString1 = "jpg)"
+    endString2 = "png)"
+
+    stPos = line.find(startString)
+    edPos1 = line.find(endString1)
+    edPos2 = line.find(endString2)
+    if stPos == -1:
+        return False
+    if edPos1 == -1 and edPos2 == -1:
+        return False
+    return True
+
 def process(fileName):
     print 'start'
+
+    # open files
     infile = open(fileName, 'r')
     outfile = open(fileName+".out.txt", 'w')
-    line = infile.readline()
-
+    
     startOri = "![](assets/"
     startTarget = "{% img /images/"
     endOri = "g)"
     endTarget = "g %}"
+
+    line = infile.readline()
     while len(line) != 0:
-        pos1 = line.find(startOri)
-        pos2 = line.find(endOri, pos1 + len(startOri) + 1)
-        if pos1 != -1 and pos2 != -1:
+        if checkValid(line):
+            print "repalcing... " + line
             line = line.replace(startOri, startTarget)
             line = line.replace(endOri, endTarget)
 
         outfile.write(line)
         line = infile.readline()
-        print line
+    
+    # close files
     infile.close()
     outfile.close()
+    print "complete"
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         print "usage: move_image_path.py <filename>"
     else:
         process(sys.argv[1])
+
+    # move image
+    print "\nmoving image..."
+    os.system("mv source/_posts/assets/* source/images")
     print 'over'
+    
 
