@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
+from __future__ import print_function
 import os, sys
 
 def checkValid(line):
@@ -17,7 +18,7 @@ def checkValid(line):
     return True
 
 def process(fileName):
-    print 'start'
+    print('start')
 
     # open files
     infile = open(fileName, 'r')
@@ -31,7 +32,8 @@ def process(fileName):
     line = infile.readline()
     while len(line) != 0:
         if checkValid(line):
-            print "repalcing... " + line
+            # sys.stdout.write("repalcing... " + line)
+            print("replacing...", line, end="")
             line = line.replace(startOri, startTarget)
             line = line.replace(endOri, endTarget)
 
@@ -41,17 +43,17 @@ def process(fileName):
     # close files
     infile.close()
     outfile.close()
-    print "complete"
+    print("complete")
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        print "usage: move_image_path.py <filename>"
+        print("usage: move_image_path.py <filename>")
     else:
         process(sys.argv[1])
 
     # move image
-    print "\nmoving image..."
+    print("\nmoving image...")
     os.system("mv source/_posts/assets/* source/images")
-    print 'over'
+    print('over')
     
 
