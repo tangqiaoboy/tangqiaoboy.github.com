@@ -38,3 +38,5 @@ date: 2016-02-15 14:32
  * [写在创业两周年](/2014/10/01/startup-2nd-year-summary/)
  * [写在创业四周年](/2016/07/16/startup-4th-year-summary/)
  * [写在创业五周年](/2017/05/31/startup-5th-year-summary/)
+ * [写在创业七周年](/2019/04/22/startup-anniversary-note/)
+
