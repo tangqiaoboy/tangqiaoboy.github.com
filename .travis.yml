@@ -22,6 +22,7 @@ script:
 after_success:
   - git config --global user.name 'Tang Qiao'
   - git config --global user.email 'tangqiaoboy@gmail.com'
-  - sed -i'' - sed -i'' "s~git@github.com:tangqiaoboy/tangqiaoboy.github.com.git~https://${GITHUB_TOKEN}@github.com/tangqiaoboy/tangqiaoboy.github.com.git~" _config.yml
+  - sed -in-place -e "s/git@/https:\/\/${GITHUB_TOKEN}@/" _config.yml
+  - sed -in-place -e "s/github.com:tangqiaoboy/github.com\/tangqiaoboy/" _config.yml
   - cat _config.yml
   - hexo deploy
