@@ -1,6 +1,6 @@
 有些时候文章中出现一些奇怪字符会造成发布失败，可以用 detect_code.cpp 来检查。
 
-brew install 安装的 node 有问题，需要自己去 nodejs 官网下载 .pkg 格式的安装包安装。
+brew install 安装的 node 有问题，需要自己去 nodejs 官网(https://nodejs.org/en/)下载 .pkg 格式的安装包安装。
 
 重新安装的时候，git clone 下来，执行 npm install.
 
