@@ -22,7 +22,9 @@ npm install -g hexo-cli
 cd <blog folder>
 npm install
 
+
 ## 设置发布
+npm install hexo-deployer-git --save
 git clone git@github.com:tangqiaoboy/tangqiaoboy.github.com.git public
 
 ## 设置皮肤

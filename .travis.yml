@@ -5,13 +5,21 @@ node_js:
 cache: npm
 branches:
   only:
-    - source # build master branch only
+    - source # build source branch only
+git:
+  depth: 1
+install:
+  - npm install
+before_script:
+  - git config --global user.name '{GitUserName}'   
+  - git config --global user.email '{GitUserEMail}'  
+  - sed -i "s/__GitOAuthToken__/${GITHUB_TOKEN}/" _config.yml
 script:
   - hexo generate # generate static files
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: 4fb222e5b96b6df6138b15a5f1d473d812f8e481
+  github-token: $GH_TOKEN
   keep-history: true
   on:
     branch: master
