@@ -11,17 +11,18 @@ git:
   submodules: true
 env:
   global:
-    - __GitOAuthToken__: "${GH_TOKEN}"
+    - __GitOAuthToken__: "${GITHUB_TOKEN}"
+before_install:
+  - npm install -g hexo-cli
 install:
   - npm install
-before_script:
-  - git config --global user.name '{GitUserName}'   
-  - git config --global user.email '{GitUserEMail}'
-  - sed -e "s/__GitOAuthToken__/${GH_TOKEN}/" ./_config.yml > ./_config.yml
 script:
   - echo "$GH_TOKEN"
+  - echo "$GITHUB_TOKEN"
   - echo "${__GitOAuthToken__}"
   - hexo generate
 after_success:
+  - git config --global user.name 'Tang Qiao'
+  - git config --global user.email 'tangqiaoboy@gmail.com'
+  - sed -i'' - sed -i'' "s~git@github.com:tangqiaoboy/tangqiaoboy.github.io.git~https://${GITHUB_TOKEN}@github.com/tangqiaoboy/tangqiaoboy.github.com.git~" _config.yml
   - hexo deploy
-
