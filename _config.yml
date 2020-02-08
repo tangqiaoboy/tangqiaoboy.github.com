@@ -104,5 +104,6 @@ deploy:
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm') }}"
   repo: 
     github: https://__GitOAuthToken__@github.com:tangqiaoboy/tangqiaoboy.github.com.git
+    #github: git@github.com:tangqiaoboy/tangqiaoboy.github.com.git
   branch: master
 

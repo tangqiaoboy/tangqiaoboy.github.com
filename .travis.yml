@@ -8,19 +8,20 @@ branches:
     - source # build source branch only
 git:
   depth: 1
+  submodules: true
+env:
+  global:
+    - __GitOAuthToken__: "${GH_TOKEN}"
 install:
   - npm install
 before_script:
   - git config --global user.name '{GitUserName}'   
-  - git config --global user.email '{GitUserEMail}'  
-  - sed -i "s/__GitOAuthToken__/${GITHUB_TOKEN}/" _config.yml
+  - git config --global user.email '{GitUserEMail}'
+  - sed -e "s/__GitOAuthToken__/${GH_TOKEN}/" ./_config.yml > ./_config.yml
 script:
-  - hexo generate # generate static files
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GH_TOKEN
-  keep-history: true
-  on:
-    branch: master
-  local-dir: public
+  - echo "$GH_TOKEN"
+  - echo "${__GitOAuthToken__}"
+  - hexo generate
+after_success:
+  - hexo deploy
+
