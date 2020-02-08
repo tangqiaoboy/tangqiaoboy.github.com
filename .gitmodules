@@ -1,0 +1,3 @@
+[submodule "themes/jacman"]
+	path = themes/jacman
+	url = git@github.com:tangqiaoboy/tangqiaoboy.github.com.git
