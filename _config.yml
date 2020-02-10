@@ -6,7 +6,7 @@
 title: 唐巧的博客
 subtitle: 记录下自己学习的点滴
 description: 希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。
-keywords: iOS,唐巧,猿辅导,开发
+keywords: iOS,唐巧,猿辅导,开发,产品,网易,移动
 author: 唐巧
 language: zh-CN
 timezone: Asia/Shanghai
@@ -98,12 +98,10 @@ stylus:
   compress: true
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm') }}"
   repo: 
-    #github: https://__GitOAuthToken__@github.com:tangqiaoboy/tangqiaoboy.github.com.git
     github: git@github.com:tangqiaoboy/tangqiaoboy.github.com.git
   branch: master
 
