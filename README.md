@@ -56,4 +56,6 @@ git clone git@github.com:tangqiaoboy/tangqiaoboy.github.com.git public
 mkdir themes
 cd themes
 git clone git@github.com:tangqiaoboy/jacman.git
+
+https://github.com/fi3ework/hexo-theme-archer
 ```
