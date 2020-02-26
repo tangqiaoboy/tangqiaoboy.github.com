@@ -7,7 +7,7 @@ tags: books
 
 {% img /images/ml-book-cover.png %}
 
-最近买了 [Ray Wenderlish](https://www.raywenderlich.com/) 上面的 [《Machine_Learning_by_Tutorials》](https://store.raywenderlich.com/products/machine-learning-by-tutorials)一书看了看，对机器学习有了进一步的理解。
+最近买了 [Ray Wenderlish](https://www.raywenderlich.com/) 上面的 [《Machine Learning by Tutorials》](https://store.raywenderlich.com/products/machine-learning-by-tutorials)一书看了看，对机器学习有了进一步的理解。
 
 这本书前面几章特别适合 iOS 背景的同学，因为相关的实践都是直接在 Xcode 环境下做的。
 
@@ -23,7 +23,7 @@ tags: books
 
 深度学习其实是一项相对有些年头的研究成果了，它之所以最近 5 年才这么火，主要是因为人们发现了可以用 GPU 来加速其计算过程。原本需要算几年才能训练出来的模型，现在在 GPU 的帮助下可以在几天训练出来了。
 
-这样，一项原本理论上完美但是实际上困难的技术终于落地了。Google 旗下的 DeepMind 研究出来的围棋 AI [Alpha Zero](https://deepmind.com/blog/article/alphago-zero-starting-scratch)，就是在 40 天的训练后，超过了它的前辈们。
+这样，一项原本理论上完美但是实际上困难的技术终于落地了。Google 旗下的 DeepMind 研究出来的围棋 AI [Alpha Zero](https://deepmind.com/blog/article/alphago-zero-starting-scratch)，就是在 40 天的训练后，超过了世界围棋冠军以及它的前辈们。
 
 ![](https://lh3.googleusercontent.com/atTt6Okt1LQIjIAF225ptfDdCtndp-OD4ZNPAmxTEAESk-sRvQg0cHbULyxh4wci7QH_TD3jIMGWMraOZHPW-C9UU6ZUx9jN4yms3g=w2048-rw-v1)
 
@@ -53,7 +53,7 @@ tags: books
 
 其实任何数据，我们都可以把它看作一段输入的序列。比如一张图片，我们可以看成图片的点的序列，每个点我们又可以看成一个 RGB 值的序列，这样我们就可以把一张图片，变成一个序列。
 
-假设所有图片长宽是 NxN 的，那么它就包含 NxN 个点，每个点有 R,G,B 三个值，这样就是 3xNxN 个值。我们知道，在二维的平面，所有点都是 `[x,y]` 两个值的。在三维空间，所有点都是 `[x,y,z]` 三个值的。所以我们当前任务的图片，如果长宽都一样，那么就都是 `3xNxN` 维空间上的一个点。
+假设所有图片长宽是 NxN 的，那么它就包含 NxN 个点，每个点有 R,G,B 三个值，这样就是 `3xNxN` 个值。我们知道，在二维的平面，所有点都是 `[x,y]` 两个值的。在三维空间，所有点都是 `[x,y,z]` 三个值的。所以我们当前任务的图片，如果长宽都一样，那么就都是 `3xNxN` 维空间上的一个点。
 
 这一堆图片，其实就是 `3xNxN` 维空间上的一堆点。
 
@@ -71,7 +71,7 @@ tags: books
 
 {% img /images/ml-sample-3.png %}
 
-神经网络的厉害之处在于，它会自动进行这种变换地尝试，最终找到一种尽可能好的变换，这也就是训练模型的过程。而最常见的变换方式就是卷积（convolutions）。
+神经网络的厉害之处在于，它会自动进行这种变换尝试，最终找到一种尽可能好的变换，这也就是训练模型的过程。而最常见的变换方式就是卷积（convolutions）。
 
 卷积神经网络（CNN）也是现在最常见的处理图像类的深度学习模型。卷积运算被大量用在图像显示处理中，这也是为什么深度学习更适合使用 GPU 而不是 CPU 的原因。
 
@@ -97,7 +97,7 @@ CNN 通常要求输入数据是相同规格的，刚刚我们提到那个识别�
 
 {% img /images/create-ml-1.png %}
 
-然后，新建一个图像分类的模型，然后选择 Input，将需要训练的图片导入进入。每一种类型的图片需要放在同一个目录。导入之后可以看到 Create ML 识别出图象的种类数（class）。点击工具栏上的训练按钮即可开始训练。
+然后，新建一个图像分类的模型，然后选择 Input，将需要训练的图片导入进入。每一种类型的图片需要放在同一个目录。导入之后可以看到 Create ML 识别出图像的种类数（class）。点击工具栏上的训练按钮即可开始训练。
 
 {% img /images/create-ml-2.png %}
 
@@ -107,7 +107,7 @@ CNN 通常要求输入数据是相同规格的，刚刚我们提到那个识别�
 
 直接拖动 output 中的那个文件到 Finder 中，即可将训练好的模型导出。
 
-在代码中应用训练好的模型也非常方便，将模型文件拖入到 Xcode 工程中，就可以看到这个模型对应的类名和方法定义了。可以直接在 Xcode 中初使化这个模型，然后调用其 `prediction` 方法进行图像的分类。
+在代码中应用训练好的模型也非常方便，将模型文件拖入到 Xcode 工程中，就可以看到这个模型对应的类名和方法定义了。可以直接在 Xcode 中初始化这个模型，然后调用其 `prediction` 方法进行图像的分类。
 
 {% img /images/create-ml-4.png %}
 
