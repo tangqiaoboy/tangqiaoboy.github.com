@@ -1,7 +1,7 @@
 ---
 title: 华与华的营销方法 - 读《超级符号就是超级创意》
 date: 2018-10-28 20:34:27
-categories: books summary
+categories: summary
 tags: books
 ---
 

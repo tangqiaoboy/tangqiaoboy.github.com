@@ -1,6 +1,6 @@
 ---
 title: 永远的致胜联盟 - 读《独裁者手册》
-categories: books summary
+categories: summary
 tags: books
 date: 2016-07-07 22:24:17
 ---

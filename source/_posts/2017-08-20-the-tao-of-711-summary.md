@@ -1,7 +1,7 @@
 ---
 title: 711 的成功之道 - 读《零售的哲学》
 date: 2017-08-20 09:35:38
-categories: books summary
+categories: summary
 tags: books
 ---
 

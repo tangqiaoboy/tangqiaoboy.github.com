@@ -1,7 +1,7 @@
 ---
 title: 应该如何面对死亡 - 读《最好的告别》
 date: 2018-11-18 23:04:38
-categories: books summary
+categories: summary
 tags: books
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 4 步教你写好商业化文案 - 读《爆款文案》
 date: 2018-02-08 07:48:23
-categories: books summary
+categories: summary
 tags: books
 ---
 

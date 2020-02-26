@@ -1,7 +1,7 @@
 ---
 title: 阿里巴巴的发展史 - 读《阿里铁军》
 date: 2018-03-15 22:06:22
-categories: books summary
+categories: summary
 tags: books
 ---
 

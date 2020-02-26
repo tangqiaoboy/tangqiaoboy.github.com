@@ -1,7 +1,7 @@
 ---
 title: 奥美之父 -《一个广告人的自白》
 date: 2018-10-13 19:37:36
-categories: books summary
+categories: summary
 tags: books
 ---
 

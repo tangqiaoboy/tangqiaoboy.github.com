@@ -1,7 +1,7 @@
 ---
 title: 最好的时代 - 读《未来简史》
 date: 2018-09-25 23:19:37
-categories: books summary
+categories: summary
 tags: books
 ---
 

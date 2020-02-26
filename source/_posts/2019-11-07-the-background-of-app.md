@@ -1,7 +1,7 @@
 ---
 title: 网易云音乐的产品故事 - 读《幕后产品》
 date: 2019-11-07 21:40:18
-categories: books summary
+categories: summary
 tags: books
 ---
 

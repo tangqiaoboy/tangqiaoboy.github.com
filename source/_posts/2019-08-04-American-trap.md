@@ -1,7 +1,7 @@
 ---
 title: 美国怎么对付华为 - 读《美国陷阱》
 date: 2019-08-04 23:56:54
-categories: books summary
+categories: summary
 tags: books
 ---
 

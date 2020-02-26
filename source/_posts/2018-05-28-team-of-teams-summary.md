@@ -1,7 +1,7 @@
 ---
 title: 构建网状组织架构 - 读《赋能》
 date: 2018-05-28 00:31:38
-categories: books summary
+categories: summary
 tags: books
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 《管理的实践》读书心得
 date: 2017-02-23 22:32:26
-categories: books summary
+categories: summary
 tags: books
 ---
 

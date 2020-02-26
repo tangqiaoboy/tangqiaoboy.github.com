@@ -1,7 +1,7 @@
 ---
 title: 畅销书的套路 - 读《疯传》有感
 date: 2017-12-03 20:48:17
-categories: books summary
+categories: summary
 tags: books
 ---
 

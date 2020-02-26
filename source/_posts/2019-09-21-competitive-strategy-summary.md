@@ -1,7 +1,7 @@
 ---
 title: 如何有效地竞争 - 读《竞争战略》
 date: 2019-09-21 23:18:55
-categories: books summary
+categories: summary
 tags: books
 ---
 

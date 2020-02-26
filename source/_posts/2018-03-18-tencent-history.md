@@ -1,7 +1,7 @@
 ---
 title: 腾讯爸爸的历史 - 读《腾讯传》
 date: 2018-03-18 22:22:21
-categories: books summary
+categories: summary
 tags: books
 ---
 

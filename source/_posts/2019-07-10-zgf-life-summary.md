@@ -1,7 +1,7 @@
 ---
 title: 尚拙 - 读《曾国藩传》
 date: 2019-07-10 21:55:41
-categories: books summary
+categories: summary
 tags: books
 ---
 

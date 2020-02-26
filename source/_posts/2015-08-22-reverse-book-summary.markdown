@@ -3,7 +3,7 @@ layout: post
 title: "《逆转》读书心得"
 date: 2015-08-22 20:48:06 +0800
 comments: true
-categories: books summary
+categories: summary
 ---
 
 {% img /images/reverse-book.jpg %}

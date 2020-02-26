@@ -1,7 +1,7 @@
 ---
 title: 了解企业的数据指标 - 读《一本书读懂财报》
 date: 2017-06-26 22:24:53
-categories: books summary
+categories: summary
 tags: books
 ---
 

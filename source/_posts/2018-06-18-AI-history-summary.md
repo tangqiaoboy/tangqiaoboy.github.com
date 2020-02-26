@@ -1,7 +1,7 @@
 ---
 title: 读《人工智能简史》
 date: 2018-06-18 18:16:43
-categories: books summary
+categories: summary
 tags: books
 ---
 

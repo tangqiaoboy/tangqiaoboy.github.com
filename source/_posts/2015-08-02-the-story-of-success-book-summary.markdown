@@ -3,7 +3,7 @@ layout: post
 title: "《异类》读书心得"
 date: 2015-08-02 23:13:21 +0800
 comments: true
-categories: books summary
+categories: summary
 tags: books
 ---
 

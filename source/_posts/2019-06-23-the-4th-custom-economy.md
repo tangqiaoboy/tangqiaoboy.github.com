@@ -1,7 +1,7 @@
 ---
 title: 物欲时代的终结 -《第 4 消费时代》
 date: 2019-06-23 22:21:13
-categories: books summary
+categories: summary
 tags: books
 ---
 

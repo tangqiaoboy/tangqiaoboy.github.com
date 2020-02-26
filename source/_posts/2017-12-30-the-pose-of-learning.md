@@ -1,7 +1,7 @@
 ---
 title: 如何快速学习？教你几种学习的招式！- 读《游戏让学习成瘾》
 date: 2017-12-30 16:19:01
-categories: books summary
+categories: summary
 tags: books
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 六个维度的理论和故事 - 读《管理 3.0》
-categories: books summary
+categories: summary
 tags: books
 date: 2016-07-24 21:00:46
 ---

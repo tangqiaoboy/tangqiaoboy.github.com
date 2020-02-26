@@ -1,7 +1,7 @@
 ---
 title: 《卓有成效的管理者》读书笔记
 date: 2017-06-25 22:56:51
-categories: books summary
+categories: summary
 tags: books
 ---
 

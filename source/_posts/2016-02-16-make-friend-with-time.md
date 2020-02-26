@@ -1,7 +1,7 @@
 ---
 title: "和时间做朋友 - 读《奇特的一生》"
 date: 2016-02-16 13:04:28
-categories: books summary
+categories: summary
 tags: books
 ---
 

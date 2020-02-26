@@ -1,7 +1,7 @@
 ---
 title: 商业竞争中的战争策略 - 读《商战》
 date: 2019-05-01 19:05:02
-categories: books summary
+categories: summary
 tags: books
 ---
 

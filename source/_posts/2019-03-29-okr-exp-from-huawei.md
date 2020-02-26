@@ -1,7 +1,7 @@
 ---
 title: 华为的 OKR 实践心得 - 读《绩效使能-超越OKR》
 date: 2019-03-29 20:19:04
-categories: books summary
+categories: summary
 tags: books
 ---
 

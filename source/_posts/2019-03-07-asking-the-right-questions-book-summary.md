@@ -1,7 +1,7 @@
 ---
 title: 如何具备批判性思维？- 读《学会提问》
 date: 2019-03-07 23:46:02
-categories: books summary
+categories: summary
 tags: books
 ---
 

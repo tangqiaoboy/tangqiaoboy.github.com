@@ -1,6 +1,6 @@
 ---
 title: 我们身边的技术人生 -《技术人创业攻略》
-categories: books summary
+categories: summary
 tags: books
 date: 2016-09-01 22:02:34
 ---

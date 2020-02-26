@@ -1,7 +1,7 @@
 ---
 title: 先胜后战之道 - 读《华杉讲透孙子兵法》
 date: 2018-10-21 23:34:34
-categories: books summary
+categories: summary
 tags: books
 ---
 

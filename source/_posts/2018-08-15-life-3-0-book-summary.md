@@ -1,7 +1,7 @@
 ---
 title: 关于人工智能的畅想 - 读《生命 3.0》
 date: 2018-08-15 22:13:50
-categories: books summary
+categories: summary
 tags: books
 ---
 

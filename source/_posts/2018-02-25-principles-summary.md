@@ -1,7 +1,7 @@
 ---
 title: 把自己当作机器 - 读《原则》的收获
 date: 2018-02-25 15:50:40
-categories: books summary
+categories: summary
 tags: books
 ---
 

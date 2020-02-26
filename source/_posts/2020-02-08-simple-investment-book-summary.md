@@ -1,7 +1,7 @@
 ---
 title: 关注估值和品质 - 读《投资中最简单的事》
 date: 2020-01-27 22:12:41
-categories: books summary
+categories: summary
 tags: books
 ---
 

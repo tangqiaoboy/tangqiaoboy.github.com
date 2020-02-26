@@ -1,7 +1,7 @@
 ---
 title: 结构化的思维 - 读《金字塔原理》
 date: 2018-04-07 16:30:42
-categories: books summary
+categories: summary
 tags: books
 ---
 

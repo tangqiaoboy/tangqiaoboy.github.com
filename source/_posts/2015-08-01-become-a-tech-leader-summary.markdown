@@ -3,7 +3,7 @@ layout: post
 title: MOI 模型 - 读《成为技术领导者》
 date: 2015-08-01 12:23:32 +0800
 comments: true
-categories: books summary
+categories: summary
 tags: books
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 询问而非命令的艺术 - 读《谦逊的探询》
 date: 2019-10-06 00:22:20
-categories: books summary
+categories: summary
 tags: books
 ---
 

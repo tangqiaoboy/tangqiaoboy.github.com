@@ -1,7 +1,7 @@
 ---
 title: 分化的力量 - 读《品牌的起源》
 date: 2019-05-08 19:13:30
-categories: books summary
+categories: summary
 tags: books
 ---
 

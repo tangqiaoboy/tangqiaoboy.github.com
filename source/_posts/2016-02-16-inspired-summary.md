@@ -1,7 +1,7 @@
 ---
 title: "人员、流程和产品上的思考 - 读《启示录》总结"
 date: 2016-02-16 13:32:33
-categories: books summary
+categories: summary
 tags: books
 ---
 

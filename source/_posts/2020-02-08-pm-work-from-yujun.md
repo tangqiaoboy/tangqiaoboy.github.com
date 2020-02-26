@@ -1,7 +1,7 @@
 ---
 title: 俞军产品方法论
 date: 2020-02-03 22:07:35
-categories: books summary
+categories: summary
 tags: books
 ---
 

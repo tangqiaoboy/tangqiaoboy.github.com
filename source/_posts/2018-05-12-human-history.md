@@ -1,7 +1,7 @@
 ---
 title: 故事的力量 - 读《人类简史》
 date: 2018-05-12 17:19:46
-categories: books summary
+categories: summary
 tags: books
 ---
 

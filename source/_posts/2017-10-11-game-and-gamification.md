@@ -1,7 +1,7 @@
 ---
 title: 游戏和游戏化（上）
 date: 2017-10-11 21:55:42
-categories: books summary
+categories: summary
 tags: books
 ---
 

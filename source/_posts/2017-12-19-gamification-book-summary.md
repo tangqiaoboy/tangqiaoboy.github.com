@@ -1,7 +1,7 @@
 ---
 title: 游戏中情感的八角分析法 - 读《游戏化实战》
 date: 2017-12-19 22:30:21
-categories: books summary
+categories: summary
 tags: books
 ---
 

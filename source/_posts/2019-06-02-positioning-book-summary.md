@@ -1,7 +1,7 @@
 ---
 title: 品牌延伸的陷阱 - 读《定位》
 date: 2019-06-02 20:43:02
-categories: books summary
+categories: summary
 tags: books
 ---
 

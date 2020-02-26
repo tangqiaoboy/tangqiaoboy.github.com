@@ -1,7 +1,7 @@
 ---
 title: "通过他人完成任务的艺术 - 读《领导梯队》"
 date: 2016-02-16 13:24:31
-categories: books summary
+categories: summary
 tags: books
 ---
 

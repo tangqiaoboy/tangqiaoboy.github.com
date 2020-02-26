@@ -1,7 +1,7 @@
 ---
 title: 用游戏化的思维养孩子 - 读《儿童技能教养法》
 date: 2018-01-31 07:53:36
-categories: books summary
+categories: summary
 tags: books
 ---
 

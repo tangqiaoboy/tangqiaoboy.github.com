@@ -1,7 +1,7 @@
 ---
 title: OKR 工作法简介
 date: 2018-11-22 07:14:06
-categories: books summary
+categories: summary
 tags: books
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 《大问题-简明哲学导论》读书笔记
 date: 2018-11-03 16:49:08
-categories: books summary
+categories: summary
 tags: books
 ---
 

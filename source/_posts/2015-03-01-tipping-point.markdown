@@ -3,7 +3,7 @@ layout: post
 title: 流行的方法论 - 读《引爆点》
 date: 2015-03-01 15:32:15 +0800
 comments: true
-categories: books summary
+categories: summary
 tags: books
 ---
 

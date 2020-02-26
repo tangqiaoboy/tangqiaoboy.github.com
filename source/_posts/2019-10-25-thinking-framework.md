@@ -1,7 +1,7 @@
 ---
 title: 可复用的工作模式 - 读《解决问题的商业框架图鉴》
 date: 2019-10-25 20:49:55
-categories: books summary
+categories: summary
 tags: books
 ---
 

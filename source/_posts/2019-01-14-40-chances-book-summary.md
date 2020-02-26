@@ -1,7 +1,7 @@
 ---
 title: 巴菲特的养育之道与 40 次机会法则 - 读《40 次机遇》
 date: 2019-01-14 00:03:32
-categories: books summary
+categories: summary
 tags: books
 ---
 

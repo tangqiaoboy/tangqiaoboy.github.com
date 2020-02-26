@@ -1,6 +1,6 @@
 ---
 title: 谈谈程序员的软技能 - 读《软技能》有感
-categories: books summary
+categories: summary
 tags: books
 date: 2016-08-22 21:49:52
 ---

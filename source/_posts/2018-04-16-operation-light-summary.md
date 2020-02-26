@@ -1,7 +1,7 @@
 ---
 title: 运营启蒙 - 读《运营之光》
 date: 2018-04-16 00:03:28
-categories: books summary
+categories: summary
 tags: books
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 戴维斯双击背后的故事 - 读《戴维斯王朝》
 date: 2019-04-12 20:26:26
-categories: books summary
+categories: summary
 tags: books
 ---
 

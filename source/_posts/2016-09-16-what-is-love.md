@@ -1,6 +1,6 @@
 ---
 title: 什么是爱 - 读《少有人走的路》
-categories: books summary
+categories: summary
 tags: books
 date: 2016-09-16 23:04:36
 ---

@@ -1,7 +1,7 @@
 ---
 title: 像做产品一样做大数据 - 读《决战大数据》
 date: 2019-10-30 20:00:01
-categories: books summary
+categories: summary
 tags: books
 ---
 

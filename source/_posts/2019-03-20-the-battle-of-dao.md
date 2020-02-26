@@ -1,7 +1,7 @@
 ---
 title: 稻盛和夫的《成功的真谛》
 date: 2019-03-20 20:16:18
-categories: books summary
+categories: summary
 tags: books
 ---
 

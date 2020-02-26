@@ -1,7 +1,7 @@
 ---
 title: 揭秘企业成功之道 - 读《光环效应》
 date: 2019-04-25 00:21:26
-categories: books summary
+categories: summary
 tags: books
 ---
 

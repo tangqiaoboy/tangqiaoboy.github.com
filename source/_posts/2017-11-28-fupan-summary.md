@@ -1,7 +1,7 @@
 ---
 title: 成长的套路 - 《复盘》读书感受
 date: 2017-11-28 21:08:10
-categories: books summary
+categories: summary
 tags: books
 ---
 

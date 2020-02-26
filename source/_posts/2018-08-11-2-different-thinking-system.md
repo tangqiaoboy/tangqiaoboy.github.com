@@ -1,7 +1,7 @@
 ---
 title: 直觉的陷阱 - 读《思考快与慢》
 date: 2018-08-11 09:04:50
-categories: books summary
+categories: summary
 tags: books
 ---
 

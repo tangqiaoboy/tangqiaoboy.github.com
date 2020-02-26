@@ -3,7 +3,7 @@ layout: post
 title: "教你阅读图书的「方法论」- 评《如何阅读一本书》"
 date: 2016-01-17 09:58:18 +0800
 comments: true
-categories: books summary
+categories: summary
 tags: books
 ---
 
