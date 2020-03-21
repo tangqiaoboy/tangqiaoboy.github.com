@@ -1,5 +1,5 @@
 ---
-title: 美股期权学习笔记
+title: 美股期权学习笔记（一）
 date: 2020-02-08 21:51:06
 categories: summary
 tags:
@@ -118,4 +118,7 @@ Long Covered Call 背后的意义又很不一样。
  * 期权虽然被一部分人当作加杠杆的投机工具，但它更多的用处是为机构提供风险对冲。
  * 对于价值投资者，可以利用 Sell Naked Put 来增持股票，用 Sell Covered Call 来卖出股票。
 
-
+本系列文章汇总：
+ * [美股期权学习笔记（一）](/2020/02/08/option-learning-note/)
+ * [美股期权学习笔记（二）](/2020/03/15/option-learning-notes-1/)
+ * [美股期权学习笔记（三）](/2020/03/21/option-learning-notes-3/)
