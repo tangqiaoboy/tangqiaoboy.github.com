@@ -14,7 +14,7 @@ date: 2016-02-15 14:32
 
 本博客主要的内容包括 iOS 开发技巧、创业感悟、读书心得、产品研究笔记。
 
-欢迎关注我的微博：[@唐巧_boy](http://weibo.com/tangqiaoboy)、我的 [Github](https://github.com/tangqiaoboy)，以及我的「唐巧」微信公众号：
+欢迎关注我的微博：[@唐巧_boy](http://weibo.com/tangqiaoboy)、我的 [GitHub](https://github.com/tangqiaoboy)，以及我的「唐巧」微信公众号：
 
 <img src="/images/weixin-qr.jpg" width="200px" />
 
