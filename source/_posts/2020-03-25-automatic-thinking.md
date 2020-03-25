@@ -74,6 +74,10 @@ targetName=${fileName:0:-4}"-compressed.mp3"
 
 {% img /images/quick-action-4.jpg %}
 
+以下是最终的操作效果图(用 [EZGif](https://ezgif.com/) 生成）：
+
+{% img /images/automator-effect.gif %}
+
 ## 备份
 
 Service 是保存在本地的，我们还是要备份一下，直接复制到 Dropbox 同步盘即可： `cp -r ~/Library/Services/* ~/Dropbox/Service-backup/`
