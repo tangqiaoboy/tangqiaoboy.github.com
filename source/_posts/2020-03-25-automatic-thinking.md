@@ -80,10 +80,14 @@ targetName=${fileName:0:-4}"-compressed.mp3"
 
 ## 备份
 
-Service 是保存在本地的，我们还是要备份一下，直接复制到 Dropbox 同步盘即可： `cp -r ~/Library/Services/* ~/Dropbox/Service-backup/`
+~~Service 是保存在本地的，我们还是要备份一下，直接复制到 Dropbox 同步盘即可： cp -r ~/Library/Services/* ~/Dropbox/Service-backup/ ~~
+
+可以直接将 workflow 文件保存到 iCloud 上：
+
+{% img /images/automator-icloud.jpg %}
 
 ## 小结
 
-[Dash](hDashttps://kapeli.com/dash) 和 [Automator](https://support.apple.com/zh-cn/HT2488) 是你自动化命令的好帮手，再借助 Dropbox、iCloud 等云盘将它们同步到你所有的电脑，你就可以随时随地使用这些命令。
+[Dash](https://kapeli.com/dash) 和 [Automator](https://support.apple.com/zh-cn/HT2488) 是你自动化命令的好帮手，再借助 Dropbox、iCloud 等云盘将它们同步到你所有的电脑，你就可以随时随地使用这些命令。
 
 祝大家玩得开心~
