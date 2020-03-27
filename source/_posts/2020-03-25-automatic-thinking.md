@@ -78,6 +78,12 @@ targetName=${fileName:0:-4}"-compressed.mp3"
 
 {% img /images/automator-effect.gif %}
 
+## 运行状态
+
+像这种运行时间挺长的执令，其实可以在系统的顶部状态栏看到一个滚动的小齿轮，点击即可看到运行状态：
+
+{% img /images/automator-processing.gif %}
+
 ## 备份
 
 ~~Service 是保存在本地的，我们还是要备份一下，直接复制到 Dropbox 同步盘即可： cp -r ~/Library/Services/* ~/Dropbox/Service-backup/ ~~
