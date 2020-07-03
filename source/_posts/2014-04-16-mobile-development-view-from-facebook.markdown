@@ -10,7 +10,7 @@ categories: iOS
 
 ## 从 Facebook 谈起
 
-Facebook 最近绝对是互联网界的新闻明星。它首先是进行了大手笔的收购：2014 年 2 月，Facebook 以 160 亿美元现金加股票，以及 30 亿美元受限制股票福利的方式 [收购移动 IM 应用 WhatsApp](http://tech.ifeng.com/internet/special/fb-whatsapp/content-1/detail_2014_02/21/34032969_0.shtml)，总收购成本 190 亿美元。然后是继续发布了新产品：2014 年 2 月，Facebook 发布了一个新的移动端新闻阅读应用 [Paper](https://www.facebook.com/paper)。最后，Facebook 最近还将自己使用的大量工具开源，包括开源了 Paper 的加载效果 [Shimmer](https://github.com/facebook/Shimmer)，LLDB 的增强工具 [chisel](https://github.com/facebook/chisel)，以及 Key-Value Observing 工具 [KVOController](https://github.com/facebook/KVOController)，如果说这些开源工具让程序员如获至宝的话，那么 Facebook 将 Paper 的交互设计工具 [Origami](http://facebook.github.io/origami/) 免费开放，则是对广大设计师的福音，极大地方便了移动交互设计工作的开展。
+Facebook 最近绝对是互联网界的新闻明星。它首先是进行了大手笔的收购：2014 年 2 月，Facebook 以 160 亿美元现金加股票，以及 30 亿美元受限制股票福利的方式 [收购移动 IM 应用 WhatsApp](http://tech.ifeng.com/internet/special/fb-whatsapp/content-1/detail_2014_02/21/34032969_0.shtml)，总收购成本 190 亿美元。然后是继续发布了新产品：2014 年 2 月，Facebook 发布了一个新的移动端新闻阅读应用 Paper。最后，Facebook 最近还将自己使用的大量工具开源，包括开源了 Paper 的加载效果 [Shimmer](https://github.com/facebook/Shimmer)，LLDB 的增强工具 [chisel](https://github.com/facebook/chisel)，以及 Key-Value Observing 工具 [KVOController](https://github.com/facebook/KVOController)，如果说这些开源工具让程序员如获至宝的话，那么 Facebook 将 Paper 的交互设计工具 [Origami](http://facebook.github.io/origami/) 免费开放，则是对广大设计师的福音，极大地方便了移动交互设计工作的开展。
 
 2014 年对于 Facebook 来说也是一个值得纪念的日子。因为从 2004 年 2 月 4 日 Facebook 产品上线到现在，Facebook 刚刚走过 10 个年头。10 年前，Facebook 的创始人扎克伯格才 19 岁，是哈佛大学的一名学生。转眼间 10 年后，Facebook 已经成长为全球最大的社交网络，月活跃用户达到 12 亿，市值约 1200 亿美元。
 
