@@ -80,5 +80,5 @@ tags: books
  * [美股期权学习笔记（一）](/2020/02/08/option-learning-note/)
  * [美股期权学习笔记（二）](/2020/03/15/option-learning-notes-1/)
  * [美股期权学习笔记（三）](/2020/03/21/option-learning-notes-3/)
- * [美股期权学习笔记（四）](/2020/03/22/option-learning-notes-3/)
+ * [美股期权学习笔记（四）](/2020/03/22/option-learning-notes-4/)
 
