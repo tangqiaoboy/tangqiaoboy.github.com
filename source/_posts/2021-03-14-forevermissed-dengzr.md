@@ -5,7 +5,7 @@ categories:
 tags:
 ---
 
-{% img /images/dengzr-4.jpg %}
+<img src="/images/dengzr-4.png" width="400px" />
 
 就在几天前，我的大学同学、ACM 竞赛队友邓子睿因为癌症离开了。他今年才 35 岁，一直在硅谷的微软工作，刚刚成家立业，正是大展宏图的年纪。此时离开，让我和班上同学都感慨上天不公，造物弄人。
 
