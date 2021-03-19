@@ -46,16 +46,18 @@ npm install
 
 
 ## 设置发布
+
+默认发布通过 travis-ci 来自动进行。只需要把博客的 source 分支推送到 github 即可。
+
+本地生成和发布的办法：
 ```
 npm install hexo-deployer-git --save
 git clone git@github.com:tangqiaoboy/tangqiaoboy.github.com.git public
 ```
 
 ## 设置皮肤
-```
-mkdir themes
-cd themes
-git clone git@github.com:tangqiaoboy/jacman.git
 
-https://github.com/fi3ework/hexo-theme-archer
-```
+皮肤地址在：https://github.com/tangqiaoboy/hexo-theme-archer.git
+
+通过 gitsubmodule 来管理。
+
