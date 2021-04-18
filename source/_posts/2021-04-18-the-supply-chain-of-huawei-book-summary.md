@@ -28,7 +28,7 @@ tags: books
 
 最近华为的 [L4 级别自动驾驶的视频](https://mp.weixin.qq.com/s/bPi3GvnF7kTPOBHrXveyBg) 很火，华为在各个领域都很优秀，离不开这种鼓励犯错的文化。
 
-另外，我找到了任正非历年的讲稿，推荐给大家: <https://github.com/ttpianobirds/RenZhengfei>。
+另外，我找到了任正非历年的讲稿，推荐给大家: <https://github.com/tangqiaoboy/RenZhengfei>。
 
 ## 现金周转天数 与 库存周转天数
 
