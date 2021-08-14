@@ -17,7 +17,7 @@ before_install:
 install:
   - npm install
 script:
-  - echo "$GITHUB_TOKEN"
+  - echo # "$GITHUB_TOKEN"
   - hexo generate
 after_success:
   - git config --global user.name 'Tang Qiao'
