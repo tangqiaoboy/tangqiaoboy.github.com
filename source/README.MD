@@ -4,5 +4,5 @@
 
 博客网址：<https://blog.devtang.com>
 
-博客发布状态：[![Build Status](https://travis-ci.com/tangqiaoboy/tangqiaoboy.github.com.svg?branch=source)](https://travis-ci.com/tangqiaoboy/tangqiaoboy.github.com/branches)
+博客发布状态：[![Build Status](https://travis-ci.com/tangqiaoboy/tangqiaoboy.github.com.svg?branch=source)](https://app.travis-ci.com/github/tangqiaoboy/tangqiaoboy.github.com)
 
