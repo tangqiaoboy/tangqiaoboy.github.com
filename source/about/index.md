@@ -8,7 +8,7 @@ date: 2016-02-15 14:32
 
 ## 简介
 
-唐巧，男，80 后，程序员。作为核心员工在 [猿辅导](https://www.yuanfudao.com/) 参与创业。曾作为产品技术负责人孵化了 [小猿搜题](https://www.yuansouti.com/) 和 [小猿口算](https://xiaoyuankousuan.com/)，现在作为负责人在孵化某新业务。
+唐巧，男，80 后，程序员。作为核心员工在 [猿辅导](https://www.yuanfudao.com/) 参与创业。曾作为产品技术负责人孵化了 [小猿搜题](https://www.yuansouti.com/) 和 [小猿口算](https://xiaoyuankousuan.com/)，现在作为负责人在孵化小斑斑月龄盒业务。
 
 前端、后端、iOS端都有涉及。著有[《iOS 开发进阶》](http://item.jd.com/11598468.html) 一书。曾开发 [网易邮箱](http://mail.163.com/)、网易微博、[有道云笔记](http://note.youdao.com/)、[猿题库](https://www.yuantiku.com/)、[小猿搜题](https://www.yuansouti.com/)。
 
@@ -43,3 +43,4 @@ date: 2016-02-15 14:32
  * [写在创业五周年](/2017/05/31/startup-5th-year-summary/)
  * [写在创业七周年](/2019/04/22/startup-anniversary-note/)
  * [写在创业九周年](/2021/08/30/thinking-of-education-industry-change/)
+ * [写在创业十周年](/2022/05/22/startup-10th-year-summary/)
