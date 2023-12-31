@@ -1,6 +1,6 @@
 ---
 title: 供应链笔记(10)：采购岗位
-date: 2023-12-17 10:38:41
+date: 2023-12-18 10:38:41
 categories: summary
 tags: supply-chain
 ---
