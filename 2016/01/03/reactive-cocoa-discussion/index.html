@@ -1,0 +1,8880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="唐巧">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="唐巧">
+    
+        <meta name="keywords" content="唐巧,iOS,创业">
+    
+    <meta name="description" content="希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。">
+    <meta name="description" content="前言ReactiveCocoa（其简称为 RAC）是由 Github 开源的一个应用于 iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 Reactive Extensions 的设计和实现。 但是，相对于传统的 MVC 架构，ReactiveCocoa 的函数式编程方式的学习曲线陡峭，业界也没有丰富的图书资料，这使得大家对这种技术望而却步。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactiveCocoa 讨论会">
+<meta property="og:url" content="https://blog.devtang.com/2016/01/03/reactive-cocoa-discussion/index.html">
+<meta property="og:site_name" content="唐巧的博客">
+<meta property="og:description" content="前言ReactiveCocoa（其简称为 RAC）是由 Github 开源的一个应用于 iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 Reactive Extensions 的设计和实现。 但是，相对于传统的 MVC 架构，ReactiveCocoa 的函数式编程方式的学习曲线陡峭，业界也没有丰富的图书资料，这使得大家对这种技术望而却步。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.devtang.com/images/fpr_oop_pattern.jpg">
+<meta property="og:image" content="https://blog.devtang.com/images/rac-instrument.jpg">
+<meta property="article:published_time" content="2016-01-03T07:22:13.000Z">
+<meta property="article:modified_time" content="2024-01-06T14:52:37.925Z">
+<meta property="article:author" content="唐巧">
+<meta property="article:tag" content="iOS,唐巧,猿辅导,开发,产品,网易,移动">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.devtang.com/images/fpr_oop_pattern.jpg">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/favicon.ico">
+    
+    <title>ReactiveCocoa 讨论会 · 唐巧的博客</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- Google tag (gtag.js) -->
+    
+
+<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="唐巧的博客" type="application/atom+xml">
+</head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>唐巧的博客</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">唐巧的博客</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">ReactiveCocoa 讨论会</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+    
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                ReactiveCocoa 讨论会
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+</div>
+
+                
+                <!-- 文章字数统计 -->
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2016/01/03</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a target="_blank" rel="noopener" href="https://github.com/ReactiveCocoa/ReactiveCocoa">ReactiveCocoa</a>（其简称为 RAC）是由 <a target="_blank" rel="noopener" href="https://github.com/blog/1107-reactivecocoa-for-a-better-world">Github</a> 开源的一个应用于 iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 <a target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/data/gg577609">Reactive Extensions</a> 的设计和实现。</p>
+<p>但是，相对于传统的 MVC 架构，ReactiveCocoa 的函数式编程方式的学习曲线陡峭，业界也没有丰富的图书资料，这使得大家对这种技术望而却步。这次，我邀请了一些行业内关注和使用 ReactiveCocoa 的内行，进行了一次关于 RAC 的讨论会，会上大家主要聊了 RAC 在使用中的各种问题，我们希望这次讨论会能够让重新全面审视这个开发框架。</p>
+<h2 id="讨论成员"><a href="#讨论成员" class="headerlink" title="讨论成员"></a>讨论成员</h2><p>本次讨论会邀请到的讨论者来自美团，百度，蘑菇街等公司。讨论前为了先相互认识，我让大家自我介绍了一下，并且顺便简单介绍各自所在的团队人数以及使用 RAC 的时长，以下是大家的自我介绍：</p>
+<ul>
+<li><p>臧成威，来自美团，团队基本都在使用 RAC，从 14 年初开始使用 RAC。在美团搞过 RAC 的几期培训，有丰富的经验。</p>
+</li>
+<li><p>李忠 (limboy)，来自蘑菇街。李忠的博客（<a target="_blank" rel="noopener" href="http://limboy.me/">http://limboy.me/</a>）上有很多介绍 RAC 的高质量文章。（这次讨论会李忠当时有事没有参加，事后对相关问题留言表达了自己的看法）</p>
+</li>
+<li><p>唐晓轩 (txx)，来自礼物说，团队四个人，目前 “只有” 礼物说这一款产品。从年初开始使用 RAC，到现在正在安利 Android  团队使用 RXJava。</p>
+</li>
+<li><p>孙源 (sunnyxx)，来自百度，从 13 年年底开始接触 RAC，当时边学边用 RAC 写了一个完整的项目，那时候还没现在这么火（当时 Limboy 的文章看了好几遍），后来在项目中在一个完整模块中尝试使用过，因为大家对函数响应式编程了解程度差别很大，导致代码几乎无法维护，随后重构。现在也有时用到，但都用于某个特定的功能的便捷实现上，无 MVVM，基本不会跨类使用。</p>
+</li>
+<li><p>雷纯锋，来自广州支点网络科技股份有限公司，团队三个人使用 RAC ，从 12 年 6 月份开始使用 RAC ，公司项目一直使用的是 RAC。项目中一直也是用的 MVVM + RAC 的结构，另外我也有在维护一个 MVVM + RAC 的开源项目，叫 MVVMReactiveCocoa。</p>
+</li>
+<li><p>汤圣罡 (lexurs)，来自新味，2 个 iOS。RAC 经验两年。目前在用 Overcoat+Mantle+ReactiveCocoa 实现的网络层，某些逻辑多的页面也喜欢用 RAC 实现。因为想全部改成 Swift，正在投靠 RxSwift 和 PromiseKit 的过程中。</p>
+</li>
+<li><p>李雄略 (听榆大叔)，来自网家缘科技，分 2 个产品，每个产品 2 个 iOS 开发，从 14 年 3 月份开始使用 RAC，已在 3 个项目中使用 RAC。</p>
+</li>
+<li><p>蓝晨钰 (lancy)，来自猿题库，没有在公司项目使用过 RAC。个人喜欢 RAC，私底下写过 RAC 的小项目，读过 RAC 源码，但对 RAC 在大型项目中和团队合作中持谨慎态度，猿题库的架构是类 MVVM 架构，但没有引入 RAC。</p>
+</li>
+<li><p>唐巧（就是本文作者），来自猿题库，团队分 3 个产品，每个产品约 4 个 iOS 开发，没有在公司正式使用过 RAC，自己私下写过几百行 RAC 的代码，对于 RAC 是比较保守的一个人。</p>
+</li>
+</ul>
+<p>好了，以下就是我们具体讨论的一些问题。</p>
+<h3 id="讨论：如何在团队内推广并用「正确的姿势」使用-RAC？"><a href="#讨论：如何在团队内推广并用「正确的姿势」使用-RAC？" class="headerlink" title="讨论：如何在团队内推广并用「正确的姿势」使用 RAC？"></a>讨论：如何在团队内推广并用「正确的姿势」使用 RAC？</h3><p>大家提到在使用 RAC 的时候，出现的一些问题，例如：</p>
+<ul>
+<li>不是太精通 RAC 的同学往往写出来的非常难以维护</li>
+<li>不知道新队友的 RAC 培养路径，Functional Programming -&gt; MVVM -&gt; ….</li>
+</ul>
+<p>对于难以维护的问题，臧成威的意见是：</p>
+<blockquote>
+<p>这个美团这边的解决方案主要是 review，review 可以保证项目中所有人的范式是相同的，大家对于不同的写法都会有充分的讨论，而我们的新手主要是参考旧代码的风格写出新代码，所以并没有发生难以维护这一现象。</p>
+<p>但是前提是需要有很熟悉的人来带领，团队中熟悉 RAC 的人员基数得以保证。而且美团的 RAC 使用还是逐步放量的，从一开始的 UI 层使用，到底层逻辑层的使用，最后才到了 MVVM 的粘合层使用，这样避免了泛滥。</p>
+<p>总结来说，对于 RAC 这样厚重的库，引入的时候的 review 是必要的，否则可控性太差，最后就难以收场了。</p>
+</blockquote>
+<p>总结起来就是：1、review + 有熟练的人带；2、逐步放开使用。</p>
+<p>对于人才的培养，臧成威的意见是：</p>
+<blockquote>
+<p>RAC 的培养，从我这边三期的培训来看，课程的安排是这样的六节： 1. FRP 的思想概要 2. RAC 的 operations 介绍 3. 冷信号与热信号解惑 4. 生命周期指南 5. disposable 和多线程 6. 实战分享</p>
+<p>其中先建立 FRP 的思想，虽然看起来是最远的，但是确实是后续使用和教学的基础。</p>
+<p>一起培训大概有 30-50 人来听，课程一种持续三周，每周 2 节课、课程过后的 2 周，就可以发现代码中的 rac 使用明显提升</p>
+<p>另外补充一点，关于新手学习，最不建议的就是在不了解 FRP 原理和一些基础概念的情况下，盲目的看源代码。我见过太多的同学，花费了很多的时间通览源码，但是根本没有用途。因为从思想到源代码是经历了很多雕琢的。里面有太多的 bugfix，太多的折中。</p>
+<p>所以你看的时候，抛开了本质，一味的查看边界的处理，最后大都觉得痛苦，难用，难以掌握收场。</p>
+<p>唐巧：RAC 确实和其它的开源库性质上差别比较大，思想方面需要学习的比较多。</p>
+<p>是的，关键是思想。所以，一定要先从 “道” 上建立思想，然后从 “术” 上掌握使用，最后才是通览源码，掌握其原理。</p>
+<p>第一节是道的课程，第二节是术的课程。这两节下来就知道能干什么了。</p>
+</blockquote>
+<p>雷纯锋意见也与臧成威一致。</p>
+<p>唐晓轩介绍了一下他自己的学习过程：</p>
+<blockquote>
+<p>我是反着做的，先把 rac 当作 blocks kit 用 之后 看 racstream 的各种 operations，知道 rac 有哪些运算 其次 看 rac 的 uikit 扩展都是怎么实现的 最后才是函数式思维。</p>
+</blockquote>
+<p>我顺着臧成威的回答，问了一下通常使用 RAC 的规范是什么，臧成威回答道：</p>
+<blockquote>
+<p>大家可以参考这样的一条规范来做，首先通过 RACSignal#return RACSignal#createSignal 这类的创建一个 OOP 世界到 FRP 世界的一个转换，从而得到一个 Signal。</p>
+<p>之后 signal 在不接触 OOP 的情况下进行数据的各类变换，注意 FP 的引用透明和变量不可变特性。</p>
+<p>最后用 RAC 宏、RACSignal#subscribe、NSObject+liftSelect 这些操作把 FRP 的世界带回到 OOP 的世界里。</p>
+</blockquote>
+<p>臧成威还很体贴地画了一个示意图，非常给力：</p>
+<img src="/images/fpr_oop_pattern.jpg" class="">
+
+
+<h3 id="讨论：大公司的大型-臃肿-App-是否适合使用-RAC？"><a href="#讨论：大公司的大型-臃肿-App-是否适合使用-RAC？" class="headerlink" title="讨论：大公司的大型 (臃肿) App 是否适合使用 RAC？"></a>讨论：大公司的大型 (臃肿) App 是否适合使用 RAC？</h3><p>由于第一个话题臧成威贡献最多内容，加上美团是大家所知道的使用 RAC 最多的大型 App，所以这个话题还是由臧成威首先回答，以下是他的发言。</p>
+<blockquote>
+<p>越大型的 app，说明内部的逻辑越复杂。而 RAC 从某几方面可以简化逻辑，使得代码从书写到执行都可以较为简化的完成功能</p>
+<p>我大概总结了几个适用的场景。RAC 总结来说就是：数据随着时间而产生，所以能想到的三点比较适合用 RAC：</p>
+<p>一、UI 操作，连续的动作与动画部分，例如某些控件跟随滚动。</p>
+<p>二、网络库，因为数据是在一定时间后才返回回来，不是立刻就返回的。</p>
+<p>三、刷新的业务逻辑，当触发点是多种的时候，业务往往会变得很复杂，用 delegate、notification、observe 混用，难以统一。这时用 RAC 可以保证上层的高度一致性，从而简化逻辑上分层。</p>
+<p>只要有通知的业务逻辑，RAC 都方便有效化解。</p>
+<p>雷纯锋：概括的说，应该就是统一所有异步事件吧。</p>
+<p>不适用的场景，与时间无关的，需要积极求解的计算，例如视图的单次渲染。</p>
+</blockquote>
+<p>接着发言的是百度的孙源：</p>
+<blockquote>
+<p>我这是百度知道，体量比较小，可以随便玩。</p>
+<p>我们现在就用它做点小功能，举个例子吧，聊天页面那个键盘弹出时 input bar 跟随滚动的功能，原来写需要接通知、写回调，现在在一个函数里面用 RAC 就比较方便。</p>
+<p>像这种小功能，主要是方便开发，让 “干一个事儿的代码写在一个地方”。</p>
+</blockquote>
+<p>雷纯锋说他们的使用还是比较多：</p>
+<blockquote>
+<p>基本上异步的事件能用 RAC 的都用的 RAC。</p>
+<p>不过代理方法用 RAC 的比较少，比如 UITableView 的代理方法一般都是直接写了。</p>
+<p>用 RACSubject + RACComand 来简化和统一应用的错误处理逻辑，这个算比较经典的吧。</p>
+<p>臧成威说：UI 交互上的点确实好多，比如下拉刷新、上拉导航条变透明。</p>
+<p>实时响应用户的输入，控制按钮的可用性，这点用 RAC 来实现非常简单。</p>
+</blockquote>
+<p>李雄略说：</p>
+<blockquote>
+<p>我们主要用来处理界面上的数据显示，以及 UI 的交互操作上，不会用来写代理。</p>
+</blockquote>
+<p>对于这个话题，似乎大家的答案还是比较一致，即：大型 App 是适合使用 RAC 的。</p>
+<h3 id="讨论：都说调试-RAC-很痛苦，是否有一些调试技巧和经验分享？"><a href="#讨论：都说调试-RAC-很痛苦，是否有一些调试技巧和经验分享？" class="headerlink" title="讨论：都说调试 RAC 很痛苦，是否有一些调试技巧和经验分享？"></a>讨论：都说调试 RAC 很痛苦，是否有一些调试技巧和经验分享？</h3><p>臧成威说：</p>
+<blockquote>
+<p>的确很痛苦，跟断点有的时候计算堆栈都要等几分钟。</p>
+<p>关于调试，RAC 源码下有 instruments 的两个插件，方便大家使用。</p>
+<p>signalEvents 这个可以看到流动的信号的发出情况，对于时序的问题可以比较好的解决。</p>
+<p>diposable 可以检查信号的 disposable 是否正常</p>
+</blockquote>
+<img src="/images/rac-instrument.jpg" class="">
+
+<p>小伙伴们看了纷纷惊叹，表示以前没有用过这个神器。</p>
+<p>雷纯锋接着分享：</p>
+<blockquote>
+<p>我的理解是一般给信号一个名字，然后通过下面的打印方法来进行调试。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/// Logs all events that the receiver sends.</span><br><span class="line">- (RACSignal *)logAll;</span><br><span class="line"></span><br><span class="line">/// Logs each `next` that the receiver sends.</span><br><span class="line">- (RACSignal *)logNext;</span><br><span class="line"></span><br><span class="line">/// Logs any error that the receiver sends.</span><br><span class="line">- (RACSignal *)logError;</span><br><span class="line"></span><br><span class="line">/// Logs any `completed` event that the receiver sends.</span><br><span class="line">- (RACSignal *)logCompleted;</span><br></pre></td></tr></table></figure>
+
+<p>李雄略说：</p>
+<blockquote>
+<p>我是用 log 方法来做的：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DExecute((&#123;</span><br><span class="line">    setenv(&quot;RAC_DEBUG_SIGNAL_NAMES&quot;, &quot;RAC_DEBUG_SIGNAL_NAMES&quot;, 0);</span><br><span class="line">    [signalUserGeo setNameWithFormat:@&quot;signalUserGeo&quot;];</span><br><span class="line">    signalUserGeo = [signalUserGeo logAll];</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+
+<p>李忠的补充：</p>
+<blockquote>
+<p>调试的话，如果是性能调试，主要是经验 +Instruments，经验类似于：少用 RACCommand、RACSequence 这样的，Instruments 可以用它的 Time Profile 来看。</p>
+<p>如果是 Bug 调试，主要还是靠 Log，配合一些 Xcode 插件，比如 MCLog(可以很方便地过滤日志)，如果要还原堆栈的话，就加一个断点。</p>
+</blockquote>
+<p>接下来大家讨论起来：</p>
+<blockquote>
+<p>臧成威：其实 instruments 也差不多，只是第一，不需要提前调用 logAll 这些；第二，可以利用 instruments 的筛选功能，不会看 log 看到眼花。</p>
+<p>雷纯锋：实际调试起来好用吗？</p>
+<p>臧成威：好用的，还可以看到发出 value 的堆栈。</p>
+<p>雷纯锋：使用 instruments 来调试的频率大吗？或者说在什么情况下会去用 instruments 调试呢？</p>
+<p>臧成威：一般调查问题的时候就它来查。比如某个信号接不到输出。</p>
+<p>臧成威：或者输出的值里面有错误的，但是是经过 merge、zip 等好多操作混合出来的，不知道源头是神马。</p>
+<p>雷纯锋：也就是说一般是在有问题，然后分析不出来的时候，才使用吗？</p>
+<p>臧成威：是的，一般是调查问题的时候用的，不是开发的时候用的，因为打开是比较慢的。</p>
+<p>李雄略：为了方便，我们保证一个 RACSignal 只会给订阅者 send 一种类型的 value，所以就手动给 signal 加了部分泛型支持：</p>
+<p>@interface RACSignal&lt;__covariant ObjectType&gt; : RACStream</p>
+<p>RACSignal&lt;NSString *&gt; *signal &#x3D; …</p>
+<p>孙源：用泛型，然后 map 之后呢</p>
+<p>李雄略：map 无法支持</p>
+<p>臧成威：RAC3 里面就有不错的泛型推导，但是是基于 swift 的。</p>
+<p>臧成威：这个我也想过，但是语言不支持，基本上是搞不定的</p>
+<p>孙源：调试这块也就是 log name 了。作者 guide 里面也是这么弄，用 Instrument 已经是高级技巧。</p>
+<p>臧成威：加 log 比较不好的就是容易眼花，还有不好还原当时的堆栈。</p>
+<p>孙源：我一般遇到问题，都是看代码脑补一遍过程，函数式就好在这里，基本上看着对了结果就没错。脑回路逻辑推导。</p>
+<p>臧成威：是的，推导很有道理。我觉得 sunnyxx 说的是王道，所以培训，给大家建立思维很重要。</p>
+<p>雷纯锋：恩，分析清楚整个运算过程是很重要的</p>
+</blockquote>
+<h3 id="讨论：RAC-相比-RxSwift-和-PromiseKit-有哪些优缺点"><a href="#讨论：RAC-相比-RxSwift-和-PromiseKit-有哪些优缺点" class="headerlink" title="讨论：RAC 相比 RxSwift 和 PromiseKit 有哪些优缺点 ?"></a>讨论：RAC 相比 RxSwift 和 PromiseKit 有哪些优缺点 ?</h3><p>臧成威继续分享：</p>
+<blockquote>
+<p>RAC vs RxSwift 的情况是这样：</p>
+<p>从支持度来说，RAC 对 Cocoa 的支持更好。但是从标准性、性能来讲 RxSwift 更胜一筹。</p>
+<p>因为毕竟是 Rx 团队的亲生项目。还有，OC 只有 RAC 支持，RxSwift 搞不定。</p>
+<p>雷纯锋：需要在 Obj-C 下和 Swift 下，分别来比较吧？那 Obj-C 下，用 RAC 应该是没有疑问的了吧，那在 Swift 下呢？</p>
+<p>Swift 场景下，由于 OC 做好的 bridge，所以 RAC3swift，仍然有不错的整合性。例如 notification、observer 这些。但是 RxSwift 与框架无关，所以这些功能需要自己补了。</p>
+<p>但是 RxSwift 比较标准，和 RxJS、RxJava 所有定义统一，所以迁移过来很容易。但 RxJS 和 RxJava 的原始用户比较少，这点不大明显。</p>
+<p>这是 Rx 和 RAC 的对比。</p>
+<p>RAC3 swift 版有个特性，就是热信号传导，这点 RxSwift 没有。对于特定的场景来说，热信号传导更好。</p>
+<p>PromiseKit 是一种异步库，思想和 FRP 不一样。</p>
+<p>PromiseKit 应该和 js 的 promise 库差不多的意思吧，这个我是靠猜的。</p>
+</blockquote>
+<h3 id="讨论：RAC-在工程中使用范围的界限，往往一处-RAC-就会引起和他相关模块的-RAC-化，如何确定界限呢？"><a href="#讨论：RAC-在工程中使用范围的界限，往往一处-RAC-就会引起和他相关模块的-RAC-化，如何确定界限呢？" class="headerlink" title="讨论：RAC 在工程中使用范围的界限，往往一处 RAC 就会引起和他相关模块的 RAC 化，如何确定界限呢？"></a>讨论：RAC 在工程中使用范围的界限，往往一处 RAC 就会引起和他相关模块的 RAC 化，如何确定界限呢？</h3><p>臧成威：这个我觉得有点危言耸听了吧，对上对下是可以有效包装，逐步放量的。</p>
+<p>臧成威：默认作为一种上下模块的通信协议，也不是很危险的事，所以我觉得没有太大的风险。上层拿到一个 RACSignal 就当做一个 BlockKit 的回调方式就可以。这样可以有效控制代码。</p>
+<p>雷纯锋：这个我觉得要看模块之间用什么来通信吧。</p>
+<p>李忠：这个我觉得还是跟使用场景有关。如果只是简单的对外暴露一个 property，外部直接 KVO 即可，甚至不用关心 RAC。但如果在一些比较复杂的场景使用 RAC 的话，很难做到对上层透明，除非内部的封装做得足够彻底。</p>
+<p>李忠：比如网络请求，返回一个 <code>RACSignal</code>，然后外部 <code>subscribeNext</code> 之后，想要取消怎么办？这时只能保存一个 <code>RACDisposable</code> 变量，然后在适当的时机调用 <code>dispose</code> 方法；或者要等待 2 个请求一起完成，再做一些事情（当然可以通过 semaphore &#x2F; dispatch_group 来做，但这样就丢了 RAC 的特性）等等。</p>
+<p>李忠：所以还是要在项目初期就想清楚，如果团队成员对 RAC 都比较熟悉，那自然最好。如果其他人不太了解，甚至抵触，这时就要避免在复杂的场景下使用。</p>
+<h3 id="讨论：有什么学习-RAC-好的资料吗？"><a href="#讨论：有什么学习-RAC-好的资料吗？" class="headerlink" title="讨论：有什么学习 RAC 好的资料吗？"></a>讨论：有什么学习 RAC 好的资料吗？</h3><p>臧成威：李忠的博客不错：<a target="_blank" rel="noopener" href="http://limboy.me/">http://limboy.me/</a></p>
+<p>唐巧：之前雷纯峰特别推荐美团的几篇博客：<a target="_blank" rel="noopener" href="http://tech.meituan.com/tag/ReactiveCocoa">http://tech.meituan.com/tag/ReactiveCocoa</a></p>
+<p>李忠：coursera 上有一门课是讲 Reactive Programming 的 ( <a target="_blank" rel="noopener" href="https://www.coursera.org/course/reactive">https://www.coursera.org/course/reactive</a> ) ，也会讲到 Functional Programming。</p>
+<p>雷纯锋：我写的这篇是范围比较广一点。<a target="_blank" rel="noopener" href="http://blog.leichunfeng.com/blog/2015/12/25/reactivecocoa-v2-dot-5-yuan-ma-jie-xi-zhi-jia-gou-zong-lan/">http://blog.leichunfeng.com/blog/2015/12/25/reactivecocoa-v2-dot-5-yuan-ma-jie-xi-zhi-jia-gou-zong-lan/</a> 《ReactiveCocoa v2.5 源码解析之架构总览》</p>
+<p>另外要关于 Monad 的也有一篇，<a target="_blank" rel="noopener" href="http://blog.leichunfeng.com/blog/2015/11/08/functor-applicative-and-monad/">http://blog.leichunfeng.com/blog/2015/11/08/functor-applicative-and-monad/</a> 《Functor、Applicative 和 Monad》</p>
+<p>雷纯锋：raywenderlich 上的文章：<br><a target="_blank" rel="noopener" href="http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1">http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1</a>、<br><a target="_blank" rel="noopener" href="http://www.raywenderlich.com/62796/reactivecocoa-tutorial-pt2">http://www.raywenderlich.com/62796/reactivecocoa-tutorial-pt2</a>、<br><a target="_blank" rel="noopener" href="http://www.raywenderlich.com/74106/mvvm-tutorial-with-reactivecocoa-part-1">http://www.raywenderlich.com/74106/mvvm-tutorial-with-reactivecocoa-part-1</a>、<br><a target="_blank" rel="noopener" href="http://www.raywenderlich.com/74131/mvvm-tutorial-with-reactivecocoa-part-2">http://www.raywenderlich.com/74131/mvvm-tutorial-with-reactivecocoa-part-2</a>。</p>
+<p>唐巧：我之前看过一本 《Functional Reactive Programming on iOS》，不过还是不够深入。</p>
+<p>臧成威：话说，看懂 Haskell，理解 RAC 就不是难事了。</p>
+<p>雷纯锋：是的，所以如果要理解 RAC 的思想的话，Haskell 可以学一下。<a target="_blank" rel="noopener" href="http://learnyouahaskell.com/">http://learnyouahaskell.com/</a></p>
+<h3 id="RACSequence-的性能问题"><a href="#RACSequence-的性能问题" class="headerlink" title="RACSequence 的性能问题"></a>RACSequence 的性能问题</h3><p>讨论到最后大家还涉及到了 RACSequence 的性能问题。记录如下：</p>
+<blockquote>
+<p>臧成威：了解了概念后，看源码就很爽了，是 OC 语言的典范。</p>
+<p>臧成威：不过看了 RACSequence 的实现，性能是无法使用的。</p>
+<p>雷纯锋：无法使用？你们不用 RACSequence 吗？</p>
+<p>臧成威：是的，Sequence 的性能很差。</p>
+<p>臧成威：由于 OC 没有引用透明和尾递归优化。</p>
+<p>雷纯锋：你们没有过吗？</p>
+<p>臧成威：你试试 100 个长度的数组进行遍历排序，然后再变回来就明白了。</p>
+<p>臧成威：现在都去掉了。</p>
+<p>雷纯锋：它主要是用来实现懒计算吧。</p>
+<p>雷纯锋：方便集合的转换吧，常规的遍历也不会使用它吧？</p>
+<p>臧成威：就是说集合转换的性能太差了。</p>
+<p>雷纯锋：恩，以后留意一下</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本次分享内容的主要贡献来自美团的臧成威同学，从美团的实践中我们也能看到，在有充足经验的人指导下，RAC 不但可以应用于大型项目，也可以工作得很舒服。</p>
+<p>最后感谢参加这次讨论会的臧成威、李忠、唐晓轩、孙源、雷纯锋、汤圣罡、李雄略、蓝晨钰，希望他们的分享对大家有所帮助。</p>
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://blog.devtang.com">唐巧</a>
+            <p>原文链接：<a href="https://blog.devtang.com/2016/01/03/reactive-cocoa-discussion/">https://blog.devtang.com/2016/01/03/reactive-cocoa-discussion/</a>
+            <p>发表日期：<a href="https://blog.devtang.com/2016/01/03/reactive-cocoa-discussion/">January 3rd 2016, 3:22:13 pm</a>
+            <p>更新日期：<a href="https://blog.devtang.com/2016/01/03/reactive-cocoa-discussion/">January 6th 2024, 10:52:37 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2016/01/10/atswift-conference-summary/" title="首届 Swift 开发者大会见闻">
+                    <div class="nextTitle">首届 Swift 开发者大会见闻</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2016/01/02/2015-summary/" title="2015 年个人总结">
+                    <div class="prevTitle">2015 年个人总结</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:tangqiaoboy@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/tangqiaoboy" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <a href="https://weibo.com/tangqiaoboy" class="iconfont-archer weibo" target="_blank" title=weibo></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/images/weixin-qr.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+            
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA%E6%88%90%E5%91%98"><span class="toc-number">2.</span> <span class="toc-text">讨论成员</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA%EF%BC%9A%E5%A6%82%E4%BD%95%E5%9C%A8%E5%9B%A2%E9%98%9F%E5%86%85%E6%8E%A8%E5%B9%BF%E5%B9%B6%E7%94%A8%E3%80%8C%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%A7%BF%E5%8A%BF%E3%80%8D%E4%BD%BF%E7%94%A8-RAC%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">讨论：如何在团队内推广并用「正确的姿势」使用 RAC？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA%EF%BC%9A%E5%A4%A7%E5%85%AC%E5%8F%B8%E7%9A%84%E5%A4%A7%E5%9E%8B-%E8%87%83%E8%82%BF-App-%E6%98%AF%E5%90%A6%E9%80%82%E5%90%88%E4%BD%BF%E7%94%A8-RAC%EF%BC%9F"><span class="toc-number">2.2.</span> <span class="toc-text">讨论：大公司的大型 (臃肿) App 是否适合使用 RAC？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA%EF%BC%9A%E9%83%BD%E8%AF%B4%E8%B0%83%E8%AF%95-RAC-%E5%BE%88%E7%97%9B%E8%8B%A6%EF%BC%8C%E6%98%AF%E5%90%A6%E6%9C%89%E4%B8%80%E4%BA%9B%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E5%92%8C%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB%EF%BC%9F"><span class="toc-number">2.3.</span> <span class="toc-text">讨论：都说调试 RAC 很痛苦，是否有一些调试技巧和经验分享？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA%EF%BC%9ARAC-%E7%9B%B8%E6%AF%94-RxSwift-%E5%92%8C-PromiseKit-%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">2.4.</span> <span class="toc-text">讨论：RAC 相比 RxSwift 和 PromiseKit 有哪些优缺点 ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA%EF%BC%9ARAC-%E5%9C%A8%E5%B7%A5%E7%A8%8B%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%8C%83%E5%9B%B4%E7%9A%84%E7%95%8C%E9%99%90%EF%BC%8C%E5%BE%80%E5%BE%80%E4%B8%80%E5%A4%84-RAC-%E5%B0%B1%E4%BC%9A%E5%BC%95%E8%B5%B7%E5%92%8C%E4%BB%96%E7%9B%B8%E5%85%B3%E6%A8%A1%E5%9D%97%E7%9A%84-RAC-%E5%8C%96%EF%BC%8C%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E7%95%8C%E9%99%90%E5%91%A2%EF%BC%9F"><span class="toc-number">2.5.</span> <span class="toc-text">讨论：RAC 在工程中使用范围的界限，往往一处 RAC 就会引起和他相关模块的 RAC 化，如何确定界限呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA%EF%BC%9A%E6%9C%89%E4%BB%80%E4%B9%88%E5%AD%A6%E4%B9%A0-RAC-%E5%A5%BD%E7%9A%84%E8%B5%84%E6%96%99%E5%90%97%EF%BC%9F"><span class="toc-number">2.6.</span> <span class="toc-text">讨论：有什么学习 RAC 好的资料吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RACSequence-%E7%9A%84%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-number">2.7.</span> <span class="toc-text">RACSequence 的性能问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 384
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2024 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span>
+            <a class="archive-post-title" href="/2024/01/07/upgrade-hexo-to-v7-0/">将 Hexo 升级到 V7.0</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span>
+            <a class="archive-post-title" href="/2024/01/07/install-mac-env/">重装 M2 的 MBP</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2024/01/01/2023-summary/">2023 年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2023 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/31</span>
+            <a class="archive-post-title" href="/2023/12/31/the-age-of-country-chasing/">理解经济阶段-读《被追赶的经济体》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span>
+            <a class="archive-post-title" href="/2023/12/18/supply-chain-10/">供应链笔记(10)：采购岗位</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2023/12/17/supply-chain-9/">供应链笔记(9)：开源岗位</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2023/12/17/supply-chain-1/">供应链笔记(1)：如何挑选供应商</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2023/12/17/supply-chain-2/">供应链笔记(2)：如何降本</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2023/12/17/supply-chain-3/">供应链笔记(3)：挑选供应商的核心因素</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2023/12/17/supply-chain-4/">供应链笔记(4)：如何防止腐败</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2023/12/17/supply-chain-5/">供应链笔记(5)：注塑成本估算</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2023/12/17/supply-chain-6/">供应链笔记(6)：计划岗位</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2023/12/17/supply-chain-7/">供应链笔记(7)：什么时候自己投资建厂</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2023/12/17/supply-chain-8/">供应链笔记 (8)：印刷的环节和成本</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/22</span>
+            <a class="archive-post-title" href="/2023/10/22/value-frist-book-summary/">读《价值为纲》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/27</span>
+            <a class="archive-post-title" href="/2023/09/27/stand-up-for-programmer-from-chengde/">为承德程序员发声</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/18</span>
+            <a class="archive-post-title" href="/2023/07/18/hua-and-hua-methods-book-summary/">读《华与华方法》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/25</span>
+            <a class="archive-post-title" href="/2023/06/25/my-19-jobs/">现实的世界 - 读《我在北京送快递》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/17</span>
+            <a class="archive-post-title" href="/2023/04/17/interview-of-yanghy/">用营销来建立领先势能 - 读《详谈杨浩涌》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span>
+            <a class="archive-post-title" href="/2023/03/15/interview-of-zhang-yong/">米其林收割机 - 读《详谈张勇》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span>
+            <a class="archive-post-title" href="/2023/03/10/first-principles-summmary/">读《第一性原理》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span>
+            <a class="archive-post-title" href="/2023/03/07/interview-of-wujun-book-summary/">消费产品的从 0 到 1 - 读《详谈吴骏》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2023/01/01/2022-summary/">2022 年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2022 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2022/12/17/the-beta-of-time/">时代的 beta</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span>
+            <a class="archive-post-title" href="/2022/12/03/five-choices-on-the-road-book-summary/">中国特色社会主义如何探路而来 - 读《筚路维艰》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span>
+            <a class="archive-post-title" href="/2022/08/14/human-travel-book-summary/">一切皆有因果 - 读《人类之旅》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/27</span>
+            <a class="archive-post-title" href="/2022/07/27/politics-is-the-art-of-the-possible-book-summary/">政治治理的各种可能 - 读《可能性的艺术》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span>
+            <a class="archive-post-title" href="/2022/07/24/reverse-book-summary/">盛极而衰，过犹不及 - 读《逆转》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/19</span>
+            <a class="archive-post-title" href="/2022/06/19/toyota-tps-system-book-summary/">构建精益生产的企业 - 读《漫画丰田生产方式》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span>
+            <a class="archive-post-title" href="/2022/06/08/the-lady-tasting-tea-book-summary/">统计学的编年史-读《女士品茶》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span>
+            <a class="archive-post-title" href="/2022/05/22/startup-10th-year-summary/">我的移动开发程序人生 - 写在创业十周年</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span>
+            <a class="archive-post-title" href="/2022/05/16/the-time-of-dengxiaoping/">改革开放的总设计师 - 读《邓小平时代》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span>
+            <a class="archive-post-title" href="/2022/05/07/principles-for-dealing-with-the-changing-world-order/">经济周期与中国崛起 - 读《原则2：应对变化中的世界秩序》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/15</span>
+            <a class="archive-post-title" href="/2022/04/15/the-thinking-of-value/">价值的思考</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/27</span>
+            <a class="archive-post-title" href="/2022/03/27/invest-summary-2022/">最近的投资感悟</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span>
+            <a class="archive-post-title" href="/2022/03/20/the-right-it-book-summary/">极致 MVP - 读《做对产品》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/12</span>
+            <a class="archive-post-title" href="/2022/03/12/central-bank/">央行是干嘛的 - 读《金融的本质》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span>
+            <a class="archive-post-title" href="/2022/03/10/china-revolution-insight/">理解改革开放 - 读《置身事内》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/06</span>
+            <a class="archive-post-title" href="/2022/03/06/fast-count-ability/">学会快速地估算</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2022/01/01/2021-summary/">2021 年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2021 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/16</span>
+            <a class="archive-post-title" href="/2021/10/16/using-dropbox-as-git-remote-rep/">把 DropBox 当作私有化 Git 仓库</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/30</span>
+            <a class="archive-post-title" href="/2021/08/30/thinking-of-education-industry-change/">关于教育行业变化的思考 - 写在创业 9 周年</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/14</span>
+            <a class="archive-post-title" href="/2021/08/14/yijia-design-problem/">宜家的设计问题</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span>
+            <a class="archive-post-title" href="/2021/08/10/how-to-sell-product/">销售如何卖出产品</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/27</span>
+            <a class="archive-post-title" href="/2021/06/27/what-is-zuohui-said/">做难而正确的事 - 读《详谈左晖》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span>
+            <a class="archive-post-title" href="/2021/06/13/the-mindset-book-summary/">谈谈心智控制 - 读《终身成长》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span>
+            <a class="archive-post-title" href="/2021/04/24/operating-and-accounting-book-summary/">会计指标应该反映出经营活动 - 读《经营与会计》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span>
+            <a class="archive-post-title" href="/2021/04/18/the-supply-chain-of-huawei-book-summary/">鼓励犯错 - 读《华为供应链管理》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span>
+            <a class="archive-post-title" href="/2021/04/05/the-food-of-flf/">码农装逼菜谱 (五) - 肥牛饭</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span>
+            <a class="archive-post-title" href="/2021/04/05/the-food-of-csr/">码农装逼菜谱 (四) - 叉烧肉</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span>
+            <a class="archive-post-title" href="/2021/03/29/the-food-of-lbss/">码农装逼菜谱 (三) - 凉拌三丝</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span>
+            <a class="archive-post-title" href="/2021/03/20/the-food-of-mlxg/">码农装逼菜谱 (二) - 麻辣香锅</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span>
+            <a class="archive-post-title" href="/2021/03/20/the-food-of-tcpg/">码农装逼菜谱 (一) - 糖醋排骨</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/19</span>
+            <a class="archive-post-title" href="/2021/03/19/i-am-the-mayor-of-shenzhen/">像经营企业一样经营城市 - 读《我在深圳当市长》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span>
+            <a class="archive-post-title" href="/2021/03/14/forevermissed-dengzr/">缅怀子睿</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/24</span>
+            <a class="archive-post-title" href="/2021/02/24/talk-about-btc/">我对比特币的理解</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span>
+            <a class="archive-post-title" href="/2021/02/21/huawei-vs-apple/">华为手机 vs 苹果手机，我的一年评测对比报告</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span>
+            <a class="archive-post-title" href="/2021/01/30/us-stock-short-event/">关于做空的一些新理解</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span>
+            <a class="archive-post-title" href="/2021/01/07/the-difference-between-software-and-hardware-development/">为什么开发一款软件只要 3 个月，开发一款硬件却要一年</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span>
+            <a class="archive-post-title" href="/2021/01/03/search-tool-competition/">我所经历的拍照搜题的竞争</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2021/01/01/2020-summary/">2020 年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2020 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span>
+            <a class="archive-post-title" href="/2020/12/26/how-to-apply-international-bank-card/">如何申请境外银行卡</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span>
+            <a class="archive-post-title" href="/2020/12/18/2020-stock-trade-summary/">2020年我的股票交易总结</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/09</span>
+            <a class="archive-post-title" href="/2020/12/09/good-strategy-bad-strategy/">做连贯性活动 - 读《好战略，坏战略》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span>
+            <a class="archive-post-title" href="/2020/11/29/women-kind/">解剖学角度的女性 - 读《女人这东西》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/19</span>
+            <a class="archive-post-title" href="/2020/11/19/global-house-market-book-summary/">理解房地产 - 读《全球房地产》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/02</span>
+            <a class="archive-post-title" href="/2020/11/02/manage-work-book-summary/">埃森哲的工作法 - 《掌控工作》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/12</span>
+            <a class="archive-post-title" href="/2020/10/12/antifragile-book-summary/">从不确定性中获益 - 读《反脆弱》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/09</span>
+            <a class="archive-post-title" href="/2020/10/09/value-book-summary/">高瓴张磊的投资思考 - 读《价值》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span>
+            <a class="archive-post-title" href="/2020/09/24/how-to-interview/">面试的艺术 - 如何面试别人</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/19</span>
+            <a class="archive-post-title" href="/2020/09/19/study-of-HUA/">关于高尿酸的一些研究</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/28</span>
+            <a class="archive-post-title" href="/2020/07/28/about-user-research/">关于用研岗位的思考</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span>
+            <a class="archive-post-title" href="/2020/07/09/dodging-energy-vampires-book/">如何识别和摆脱精神控制 - 读《情感吸血鬼》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/05</span>
+            <a class="archive-post-title" href="/2020/07/05/hardware-war-book/">硬件创新的故事与逻辑 - 读《硬战》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span>
+            <a class="archive-post-title" href="/2020/04/19/crucial-conversations-book-summary/">既做正确的事情，又照顾人的情绪 - 读《关键对话》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/15</span>
+            <a class="archive-post-title" href="/2020/04/15/how-to-make-decision/">做决策的时候，你相信什么？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span>
+            <a class="archive-post-title" href="/2020/04/11/snowball-ceo-book-summary/">方三文的聊天记录 - 读《您厉害，您赚得多》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span>
+            <a class="archive-post-title" href="/2020/03/25/automatic-thinking/">利用 Automator 自动化你的工作</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span>
+            <a class="archive-post-title" href="/2020/03/22/option-learning-notes-4/">美股期权学习笔记（四）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/21</span>
+            <a class="archive-post-title" href="/2020/03/21/option-learning-notes-3/">美股期权学习笔记（三）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span>
+            <a class="archive-post-title" href="/2020/03/15/option-learning-notes-1/">美股期权学习笔记（二）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/08</span>
+            <a class="archive-post-title" href="/2020/03/08/americans-unfair-competition/">美国，你又耍流氓了！</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/26</span>
+            <a class="archive-post-title" href="/2020/02/26/machine-learning-for-ios/">写给 iOS 的机器学习入门</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/26</span>
+            <a class="archive-post-title" href="/2020/02/26/talk-about-theme-changing-feature/">App 换肤功能的思考</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/09</span>
+            <a class="archive-post-title" href="/2020/02/09/update-blog-with-travis/">用 Travis 来自动更新博客</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/08</span>
+            <a class="archive-post-title" href="/2020/02/08/option-learning-note/">美股期权学习笔记（一）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span>
+            <a class="archive-post-title" href="/2020/02/03/pm-work-from-yujun/">俞军产品方法论</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/27</span>
+            <a class="archive-post-title" href="/2020/01/27/simple-investment-book-summary/">关注估值和品质 - 读《投资中最简单的事》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2020/01/01/2019-summary/">2019 年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2019 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/09</span>
+            <a class="archive-post-title" href="/2019/12/09/cross-gap/">从早期市场到主流市场 - 读《跨越鸿沟》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span>
+            <a class="archive-post-title" href="/2019/11/07/the-background-of-app/">网易云音乐的产品故事 - 读《幕后产品》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/30</span>
+            <a class="archive-post-title" href="/2019/10/30/fight-with-big-data/">像做产品一样做大数据 - 读《决战大数据》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/25</span>
+            <a class="archive-post-title" href="/2019/10/25/thinking-framework/">可复用的工作模式 - 读《解决问题的商业框架图鉴》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/06</span>
+            <a class="archive-post-title" href="/2019/10/06/humble-inqiury-book-summary/">询问而非命令的艺术 - 读《谦逊的探询》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/21</span>
+            <a class="archive-post-title" href="/2019/09/21/competitive-strategy-summary/">如何有效地竞争 - 读《竞争战略》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/25</span>
+            <a class="archive-post-title" href="/2019/08/25/ad-101/">效果广告基础 - 兼读《计算广告》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/04</span>
+            <a class="archive-post-title" href="/2019/08/04/American-trap/">美国怎么对付华为 - 读《美国陷阱》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/10</span>
+            <a class="archive-post-title" href="/2019/07/10/zgf-life-summary/">尚拙 - 读《曾国藩传》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/23</span>
+            <a class="archive-post-title" href="/2019/06/23/the-4th-custom-economy/">物欲时代的终结 -《第 4 消费时代》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/02</span>
+            <a class="archive-post-title" href="/2019/06/02/positioning-book-summary/">品牌延伸的陷阱 - 读《定位》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span>
+            <a class="archive-post-title" href="/2019/05/08/the-origin-of-brands-book-summary/">分化的力量 - 读《品牌的起源》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/01</span>
+            <a class="archive-post-title" href="/2019/05/01/marketing-warfare-book-summary/">商业竞争中的战争策略 - 读《商战》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span>
+            <a class="archive-post-title" href="/2019/04/25/the-halo-effect-book-summary/">揭秘企业成功之道 - 读《光环效应》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span>
+            <a class="archive-post-title" href="/2019/04/22/startup-anniversary-note/">互联网人才的成长之路：写在创业 7 周年</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span>
+            <a class="archive-post-title" href="/2019/04/12/Davis-double-killing-effect/">戴维斯双击背后的故事 - 读《戴维斯王朝》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span>
+            <a class="archive-post-title" href="/2019/03/29/okr-exp-from-huawei/">华为的 OKR 实践心得 - 读《绩效使能-超越OKR》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span>
+            <a class="archive-post-title" href="/2019/03/20/the-battle-of-dao/">稻盛和夫的《成功的真谛》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span>
+            <a class="archive-post-title" href="/2019/03/07/asking-the-right-questions-book-summary/">如何具备批判性思维？- 读《学会提问》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/14</span>
+            <a class="archive-post-title" href="/2019/01/14/40-chances-book-summary/">巴菲特的养育之道与 40 次机会法则 - 读《40 次机遇》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2019/01/01/2018-summary/">2018 年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2018 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/22</span>
+            <a class="archive-post-title" href="/2018/11/22/okr-introduction/">OKR 工作法简介</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/18</span>
+            <a class="archive-post-title" href="/2018/11/18/being-mortal-book-summary/">应该如何面对死亡 - 读《最好的告别》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/03</span>
+            <a class="archive-post-title" href="/2018/11/03/the-big-questions-summary/">《大问题-简明哲学导论》读书笔记</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/28</span>
+            <a class="archive-post-title" href="/2018/10/28/super-symbol/">华与华的营销方法 - 读《超级符号就是超级创意》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/21</span>
+            <a class="archive-post-title" href="/2018/10/21/szbf-book-summary/">先胜后战之道 - 读《华杉讲透孙子兵法》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/13</span>
+            <a class="archive-post-title" href="/2018/10/13/confessions-of-an-advertising-man-book/">奥美之父 -《一个广告人的自白》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span>
+            <a class="archive-post-title" href="/2018/09/25/homo-deus-book-summary/">最好的时代 - 读《未来简史》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/15</span>
+            <a class="archive-post-title" href="/2018/08/15/life-3-0-book-summary/">关于人工智能的畅想 - 读《生命 3.0》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/11</span>
+            <a class="archive-post-title" href="/2018/08/11/2-different-thinking-system/">直觉的陷阱 - 读《思考快与慢》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/05</span>
+            <a class="archive-post-title" href="/2018/08/05/ios-interview-book/">iOS 面试之道</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span>
+            <a class="archive-post-title" href="/2018/07/19/elon-musk/">读《硅谷钢铁侠 Elon Musk 的冒险人生》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span>
+            <a class="archive-post-title" href="/2018/07/01/how-to-invest/">风投是如何进行投资判断的</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span>
+            <a class="archive-post-title" href="/2018/06/18/AI-history-summary/">读《人工智能简史》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/28</span>
+            <a class="archive-post-title" href="/2018/05/28/team-of-teams-summary/">构建网状组织架构 - 读《赋能》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/12</span>
+            <a class="archive-post-title" href="/2018/05/12/human-history/">故事的力量 - 读《人类简史》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/16</span>
+            <a class="archive-post-title" href="/2018/04/16/operation-light-summary/">运营启蒙 - 读《运营之光》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span>
+            <a class="archive-post-title" href="/2018/04/07/pyramid-principle/">结构化的思维 - 读《金字塔原理》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span>
+            <a class="archive-post-title" href="/2018/03/25/job-choices/">码农们，你一小时值多少钱？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/18</span>
+            <a class="archive-post-title" href="/2018/03/18/tencent-history/">腾讯爸爸的历史 - 读《腾讯传》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span>
+            <a class="archive-post-title" href="/2018/03/15/alibaba-history/">阿里巴巴的发展史 - 读《阿里铁军》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/25</span>
+            <a class="archive-post-title" href="/2018/02/25/principles-summary/">把自己当作机器 - 读《原则》的收获</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/08</span>
+            <a class="archive-post-title" href="/2018/02/08/write-best-selling-page/">4 步教你写好商业化文案 - 读《爆款文案》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span>
+            <a class="archive-post-title" href="/2018/01/31/gamification-for-child/">用游戏化的思维养孩子 - 读《儿童技能教养法》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2018/01/01/2017-summary/">2017 年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2017 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/30</span>
+            <a class="archive-post-title" href="/2017/12/30/the-pose-of-learning/">如何快速学习？教你几种学习的招式！- 读《游戏让学习成瘾》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span>
+            <a class="archive-post-title" href="/2017/12/19/gamification-book-summary/">游戏中情感的八角分析法 - 读《游戏化实战》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2017/12/17/blink-book-summary/">直觉能力的培养和分析 - 读《眨眼之间》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span>
+            <a class="archive-post-title" href="/2017/12/12/zhouhy-book-summary/">不服输的周鸿祎 - 读《颠覆者：周鸿祎自传》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/05</span>
+            <a class="archive-post-title" href="/2017/12/05/knowledge-business-model/">知识付费时代的来临</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span>
+            <a class="archive-post-title" href="/2017/12/03/contagious-book-summary/">畅销书的套路 - 读《疯传》有感</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/28</span>
+            <a class="archive-post-title" href="/2017/11/28/fupan-summary/">成长的套路 - 《复盘》读书感受</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/29</span>
+            <a class="archive-post-title" href="/2017/10/29/game-and-gamification-2/">游戏和游戏化（下）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/11</span>
+            <a class="archive-post-title" href="/2017/10/11/game-and-gamification/">游戏和游戏化（上）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/02</span>
+            <a class="archive-post-title" href="/2017/09/02/talk-about-ico/">我理解的 ICO</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span>
+            <a class="archive-post-title" href="/2017/08/20/the-tao-of-711-summary/">711 的成功之道 - 读《零售的哲学》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/23</span>
+            <a class="archive-post-title" href="/2017/07/23/human-resource-machine-game/">游戏化学习的典范 - 玩《Human Resource Machine》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span>
+            <a class="archive-post-title" href="/2017/07/09/how-to-get-rid-of-games/">如何戒掉王者荣耀</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/26</span>
+            <a class="archive-post-title" href="/2017/06/26/understand-financial-report-summary/">了解企业的数据指标 - 读《一本书读懂财报》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/25</span>
+            <a class="archive-post-title" href="/2017/06/25/effective-executive-book-summary/">《卓有成效的管理者》读书笔记</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/25</span>
+            <a class="archive-post-title" href="/2017/06/25/ofo-vs-mobike/">我赌 ofo 战胜摩拜</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/31</span>
+            <a class="archive-post-title" href="/2017/05/31/startup-5th-year-summary/">写在创业五周年</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span>
+            <a class="archive-post-title" href="/2017/05/24/talk-about-buying-stock/">每个人都应该买美股</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/26</span>
+            <a class="archive-post-title" href="/2017/03/26/silicon-valley-3/">硅谷之行（三）：硅谷旅行攻略</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/26</span>
+            <a class="archive-post-title" href="/2017/03/26/silicon-valley-2/">硅谷之行（二）：科技公司和景点</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/26</span>
+            <a class="archive-post-title" href="/2017/03/26/silicon-valley-1/">硅谷之行（一）：惊喜和落差</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/05</span>
+            <a class="archive-post-title" href="/2017/03/05/how-to-get-help/">如何请教别人</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span>
+            <a class="archive-post-title" href="/2017/02/23/the-practice-of-management-by-drucker/">《管理的实践》读书心得</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/19</span>
+            <a class="archive-post-title" href="/2017/02/19/the-important-of-indepentent-thinking/">独立思考的重要性</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2017/01/01/2016-summary/">2016 年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2016 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span>
+            <a class="archive-post-title" href="/2016/12/18/kuaishou-summary/">快手为什么成功？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span>
+            <a class="archive-post-title" href="/2016/12/17/flying-big-phenomenon/">搞 iOS 学算法有意义吗？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span>
+            <a class="archive-post-title" href="/2016/12/03/liulishuo-dongni-english-summary/">流利说「懂你英语」体验报告</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span>
+            <a class="archive-post-title" href="/2016/12/03/talk-about-information-explosion/">信息的迷失</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span>
+            <a class="archive-post-title" href="/2016/11/01/ios-weekly-48/">iOS 移动开发周报 - 第 48 期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/16</span>
+            <a class="archive-post-title" href="/2016/10/16/ios-weekly-47/">iOS 移动开发周报 - 第 47 期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span>
+            <a class="archive-post-title" href="/2016/10/10/ios-weekly-46/">iOS 移动开发周报 - 第 46 期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span>
+            <a class="archive-post-title" href="/2016/09/26/ios-weekly-45/">iOS移动开发周报-第45期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/16</span>
+            <a class="archive-post-title" href="/2016/09/16/what-is-love/">什么是爱 - 读《少有人走的路》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/04</span>
+            <a class="archive-post-title" href="/2016/09/04/open-your-brain/">打开你的脑洞</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/04</span>
+            <a class="archive-post-title" href="/2016/09/04/company-with-personality/">人格化的公司</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span>
+            <a class="archive-post-title" href="/2016/09/01/dev-level-up-stories/">我们身边的技术人生 -《技术人创业攻略》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/22</span>
+            <a class="archive-post-title" href="/2016/08/22/soft-skills/">谈谈程序员的软技能 - 读《软技能》有感</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/13</span>
+            <a class="archive-post-title" href="/2016/08/13/talk-about-full-stack/">谈谈 T 型人才</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/13</span>
+            <a class="archive-post-title" href="/2016/08/13/xiaoqing-and-rxswfit-course/">小青和他的 RxSwift 课程</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/06</span>
+            <a class="archive-post-title" href="/2016/08/06/revert-to-target-commit-with-git/">如何用 Git 将代码恢复到一个历史的版本</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/04</span>
+            <a class="archive-post-title" href="/2016/08/04/i-do-not-like-core-data/">我为什么不喜欢 Core Data</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/30</span>
+            <a class="archive-post-title" href="/2016/07/30/ios-memory-management/">理解 iOS 的内存管理</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span>
+            <a class="archive-post-title" href="/2016/07/24/management-30-summary/">六个维度的理论和故事 - 读《管理 3.0》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span>
+            <a class="archive-post-title" href="/2016/07/20/from-newbie-to-master/">成长为 iOS 大 V 的秘密</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span>
+            <a class="archive-post-title" href="/2016/07/20/programming-worlds-farmer-and-god/">软件开发中的上帝模式与农民模式</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span>
+            <a class="archive-post-title" href="/2016/07/16/startup-4th-year-summary/">写在创业四周年</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/16</span>
+            <a class="archive-post-title" href="/2016/07/16/hack-way-through-apple/">被中国黑客玩坏的苹果</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/09</span>
+            <a class="archive-post-title" href="/2016/07/09/lead-by-tech-companys-trap/">技术主导型公司的困境</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/07</span>
+            <a class="archive-post-title" href="/2016/07/07/the-dictators-handbook-summary/">永远的致胜联盟 - 读《独裁者手册》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/26</span>
+            <a class="archive-post-title" href="/2016/06/26/why-meituan-is-removed-from-appstore/">美团到底为什么从 AppStore 下架</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/26</span>
+            <a class="archive-post-title" href="/2016/06/26/my-story-about-infoq/">我与 InfoQ 的故事</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/19</span>
+            <a class="archive-post-title" href="/2016/06/19/appstore-accident/">为什么提交 AppStore 总有事故发生</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/14</span>
+            <a class="archive-post-title" href="/2016/06/14/wwdc-2016-notes/">WWDC 2016 随想</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/06</span>
+            <a class="archive-post-title" href="/2016/06/06/high-output-management-summary/">写给程序员的管理入门课程 -《格鲁夫给经理人的第一课》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span>
+            <a class="archive-post-title" href="/2016/06/05/tech-talk-notes/">技术演讲中最容易被忽视的问题</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/26</span>
+            <a class="archive-post-title" href="/2016/05/26/mentor-guide/">如何指导新人 - Mentor 指导手册</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span>
+            <a class="archive-post-title" href="/2016/05/24/migrate-from-oc-to-swift/">猿题库从 Objective-C 到 Swift 的迁移</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span>
+            <a class="archive-post-title" href="/2016/05/22/swift-gym-6-type-infer/">Swift 烧脑体操（六）- 类型推断</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span>
+            <a class="archive-post-title" href="/2016/05/08/jeju-island-tour/">济州岛旅游见闻</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span>
+            <a class="archive-post-title" href="/2016/05/07/swiftcon-2016-chat-notes/">SwiftCon 期间的面基和八卦</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span>
+            <a class="archive-post-title" href="/2016/04/25/swiftcon-2016-notes/">SwiftCon 2016 参会感想</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span>
+            <a class="archive-post-title" href="/2016/04/19/talk-about-wwdc-2016/">聊聊 WWDC 的八卦</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span>
+            <a class="archive-post-title" href="/2016/04/19/control-yourself/">《把时间当做朋友》：一本关于心智的启蒙书</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span>
+            <a class="archive-post-title" href="/2016/04/12/tomato-time-management/">「番茄工作法」- 简单的时间管理方法</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span>
+            <a class="archive-post-title" href="/2016/04/07/my-password-management-way/">应该如何管理密码 - 我的密码管理心得</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/05</span>
+            <a class="archive-post-title" href="/2016/04/05/swift-gym-5-monad/">Swift 烧脑体操（五）- Monad</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span>
+            <a class="archive-post-title" href="/2016/03/20/text-animation-guide/">如何实现自己没实现过的需求之文本动画</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/13</span>
+            <a class="archive-post-title" href="/2016/03/13/iOS-transition-guide/">iOS 视图控制器转场详解</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/05</span>
+            <a class="archive-post-title" href="/2016/03/05/swift-gym-4-map-and-flatmap/">Swift 烧脑体操（四） - map 和 flatMap</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span>
+            <a class="archive-post-title" href="/2016/02/27/swift-gym-1-nested-optional/">Swift 烧脑体操（一） - Optional 的嵌套</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span>
+            <a class="archive-post-title" href="/2016/02/27/swift-gym-2-function-argument/">Swift 烧脑体操（二） - 函数的参数</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span>
+            <a class="archive-post-title" href="/2016/02/27/swift-gym-3-higher-order-function/">Swift 烧脑体操（三） - 高阶函数</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/16</span>
+            <a class="archive-post-title" href="/2016/02/16/from-octopress-to-hexo/">从 Octopress 迁移到 Hexo</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/16</span>
+            <a class="archive-post-title" href="/2016/02/16/inspired-summary/">人员、流程和产品上的思考 - 读《启示录》总结</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/16</span>
+            <a class="archive-post-title" href="/2016/02/16/make-friend-with-time/">和时间做朋友 - 读《奇特的一生》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/16</span>
+            <a class="archive-post-title" href="/2016/02/16/the-leadership-pipeline-summary/">通过他人完成任务的艺术 - 读《领导梯队》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/17</span>
+            <a class="archive-post-title" href="/2016/01/17/how-to-read-a-book-summary/">教你阅读图书的「方法论」- 评《如何阅读一本书》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/12</span>
+            <a class="archive-post-title" href="/2016/01/12/saul-introdution/">MagicalRecord 作者 Saul Mora 的故事</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span>
+            <a class="archive-post-title" href="/2016/01/10/atswift-conference-summary/">首届 Swift 开发者大会见闻</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/03</span>
+            <a class="archive-post-title" href="/2016/01/03/reactive-cocoa-discussion/">ReactiveCocoa 讨论会</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span>
+            <a class="archive-post-title" href="/2016/01/02/2015-summary/">2015 年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2015 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span>
+            <a class="archive-post-title" href="/2015/12/24/resume-cheat-story/">培训机构出来的 iOS 学员怎么了？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span>
+            <a class="archive-post-title" href="/2015/12/18/from-dev-to-manager/">涅槃重生:我的技术转管理之路</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span>
+            <a class="archive-post-title" href="/2015/11/26/yykit-auther-interview/">专访 YYKit 作者 ibireme: 开源大牛是怎样炼成的</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/21</span>
+            <a class="archive-post-title" href="/2015/11/21/apps-damaged-bug/">Mac 应用出现「已损坏」问题，苹果到底犯了什么傻逼错误？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/14</span>
+            <a class="archive-post-title" href="/2015/11/14/charles-introduction/">Charles 从入门到精通</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/02</span>
+            <a class="archive-post-title" href="/2015/11/02/mvc-and-mvvm/">被误解的 MVC 和被神化的 MVVM</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/25</span>
+            <a class="archive-post-title" href="/2015/10/25/one-on-one-summary/">浅析一对一沟通</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/22</span>
+            <a class="archive-post-title" href="/2015/10/22/talk-with-zm-about-ios-security/">iOS 比 Android 还不安全? - 记一次和阿里资深安全工程师蒸米的交流</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span>
+            <a class="archive-post-title" href="/2015/10/07/why-fresh-wants-to-do-server-dev/">写给那些傻傻的，想做服务器开发的应届生</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/03</span>
+            <a class="archive-post-title" href="/2015/09/03/how-to-monitor-data/">数据的秘密（下）- 如何分析数据</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/02</span>
+            <a class="archive-post-title" href="/2015/09/02/why-we-need-monitor-data/">数据的秘密（上）- 为什么要关注数据</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/15</span>
+            <a class="archive-post-title" href="/2015/08/15/talk-about-execution/">我所理解的执行力</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/02</span>
+            <a class="archive-post-title" href="/2015/08/02/the-story-of-success-book-summary/">《异类》读书心得</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/01</span>
+            <a class="archive-post-title" href="/2015/08/01/become-a-tech-leader-summary/">MOI 模型 - 读《成为技术领导者》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/11</span>
+            <a class="archive-post-title" href="/2015/07/11/ios-security-book-recommendation/">让我们再谈谈 iOS 安全</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/28</span>
+            <a class="archive-post-title" href="/2015/06/28/apple-watch-usage-exp/">Apple Watch 使用体验</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/27</span>
+            <a class="archive-post-title" href="/2015/06/27/using-coretext-1/">基于 CoreText 的排版引擎：基础</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/27</span>
+            <a class="archive-post-title" href="/2015/06/27/using-coretext-2/">基于 CoreText 的排版引擎：进阶</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/16</span>
+            <a class="archive-post-title" href="/2015/06/16/talk-about-swift-open-source/">谈谈苹果开源 Swift</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/16</span>
+            <a class="archive-post-title" href="/2015/06/16/talk-about-tech-interview/">你会翻转二叉树吗？--谈程序员的招聘</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/31</span>
+            <a class="archive-post-title" href="/2015/05/31/the-end-of-ios-weekly/">结束撰写 iOS 开发周报</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span>
+            <a class="archive-post-title" href="/2015/05/25/can-we-buy-time/">Reveal 中国特惠活动</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span>
+            <a class="archive-post-title" href="/2015/05/23/build-ios-content-ecosystem/">打造 iOS 原创内容的生态圈</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/06</span>
+            <a class="archive-post-title" href="/2015/05/06/ios-weekly-44/">iOS移动开发周报-第44期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/01</span>
+            <a class="archive-post-title" href="/2015/05/01/apple-release-analytics-beta/">苹果推出了官方的分析工具</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span>
+            <a class="archive-post-title" href="/2015/04/24/qcon-2015-note/">QCon 参会笔记</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span>
+            <a class="archive-post-title" href="/2015/04/24/ios-weekly-43/">iOS移动开发周报-第43期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/09</span>
+            <a class="archive-post-title" href="/2015/04/09/ios-weekly-42/">iOS移动开发周报-第42期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/04</span>
+            <a class="archive-post-title" href="/2015/04/04/from-0-to-1-book-summary/">《从 0 到 1 》读书笔记</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/24</span>
+            <a class="archive-post-title" href="/2015/03/24/ios-weekly-41/">iOS移动开发周报-第41期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/22</span>
+            <a class="archive-post-title" href="/2015/03/22/ios-dev-controversy-2/">iOS 开发中的争议（二）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span>
+            <a class="archive-post-title" href="/2015/03/15/ios-dev-controversy-1/">iOS 开发中的争议（一）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span>
+            <a class="archive-post-title" href="/2015/03/10/ios-weekly-40/">iOS移动开发周报-第40期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span>
+            <a class="archive-post-title" href="/2015/03/01/tipping-point/">流行的方法论 - 读《引爆点》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span>
+            <a class="archive-post-title" href="/2015/03/01/ios-weekly-39/">iOS移动开发周报-第39期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/05</span>
+            <a class="archive-post-title" href="/2015/02/05/ios-weekly-38/">iOS移动开发周报-第38期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span>
+            <a class="archive-post-title" href="/2015/02/01/talk-about-react-native/">谈谈 React Native</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span>
+            <a class="archive-post-title" href="/2015/01/31/write-sdk-tips/">写iOS SDK注意事项</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span>
+            <a class="archive-post-title" href="/2015/01/31/ios-weekly-37/">iOS移动开发周报-第37期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/22</span>
+            <a class="archive-post-title" href="/2015/01/22/pgy-usage-guide/">使用蒲公英来做iOS测试应用的分发</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span>
+            <a class="archive-post-title" href="/2015/01/18/explain-ios-pro-book/">对《iOS开发进阶》一书的解释</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span>
+            <a class="archive-post-title" href="/2015/01/18/ios-weekly-36/">iOS移动开发周报-第36期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/11</span>
+            <a class="archive-post-title" href="/2015/01/11/how-to-finish-ios-pro-book/">我是如何完成《iOS开发进阶》的编写的？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/07</span>
+            <a class="archive-post-title" href="/2015/01/07/ios-2014-summary/">解读2014之iOS篇：拥抱变化</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2015/01/01/2014-summary/">2014年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2014 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/31</span>
+            <a class="archive-post-title" href="/2014/12/31/ios-weekly-35/">iOS移动开发周报-第35期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span>
+            <a class="archive-post-title" href="/2014/12/21/ios-weekly-34/">iOS移动开发周报-第34期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/07</span>
+            <a class="archive-post-title" href="/2014/12/07/about-ios-pro-book/">《iOS开发进阶》即将出版</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span>
+            <a class="archive-post-title" href="/2014/12/01/ios-weekly-33/">iOS移动开发周报-第33期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/24</span>
+            <a class="archive-post-title" href="/2014/11/24/ios-weekly-32/">iOS移动开发周报-第32期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/19</span>
+            <a class="archive-post-title" href="/2014/11/19/ios-weekly-31/">iOS移动开发周报-第31期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/15</span>
+            <a class="archive-post-title" href="/2014/11/15/ios-weekly-30/">iOS移动开发周报-第30期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/30</span>
+            <a class="archive-post-title" href="/2014/10/30/ios-weekly-29/">iOS移动开发周报-第29期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/22</span>
+            <a class="archive-post-title" href="/2014/10/22/ios-weekly-28/">iOS移动开发周报-第28期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/12</span>
+            <a class="archive-post-title" href="/2014/10/12/ios-weekly-27/">iOS移动开发周报-第27期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span>
+            <a class="archive-post-title" href="/2014/10/03/opensouce-a-key-value-storage-tool/">开源一个Key-Value存储工具类</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span>
+            <a class="archive-post-title" href="/2014/10/01/startup-2nd-year-summary/">写在创业两周年</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span>
+            <a class="archive-post-title" href="/2014/09/24/ios-weekly-26/">iOS移动开发周报-第26期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/14</span>
+            <a class="archive-post-title" href="/2014/09/14/ios-weekly-25/">iOS移动开发周报-第25期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2014/09/13/scrum-introduction/">适合码农工作时玩的游戏：Scrum</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span>
+            <a class="archive-post-title" href="/2014/09/09/ios-weekly-24/">iOS移动开发周报-第24期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span>
+            <a class="archive-post-title" href="/2014/09/01/ios-weekly-23/">iOS移动开发周报-第23期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span>
+            <a class="archive-post-title" href="/2014/08/24/ios-weekly-22/">iOS移动开发周报-第22期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/18</span>
+            <a class="archive-post-title" href="/2014/08/18/ios-weekly-21/">iOS移动开发周报-第21期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/12</span>
+            <a class="archive-post-title" href="/2014/08/12/ios-weekly-20/">iOS移动开发周报-第20期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/30</span>
+            <a class="archive-post-title" href="/2014/07/30/ios-weekly-19/">iOS移动开发周报-第19期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/27</span>
+            <a class="archive-post-title" href="/2014/07/27/ios-levelup-tips/">iOS开发如何提高</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/22</span>
+            <a class="archive-post-title" href="/2014/07/22/ios-weekly-18/">iOS移动开发周报-第18期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/11</span>
+            <a class="archive-post-title" href="/2014/07/11/ios-weekly-17/">iOS移动开发周报-第17期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/03</span>
+            <a class="archive-post-title" href="/2014/07/03/ios-weekly-16/">iOS移动开发周报-第16期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/02</span>
+            <a class="archive-post-title" href="/2014/07/02/talk-about-wwdc2014/">WWDC2014，苹果的“软件”发布会</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/29</span>
+            <a class="archive-post-title" href="/2014/06/29/ios-dev-tools/">那些好用的iOS开发工具</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/24</span>
+            <a class="archive-post-title" href="/2014/06/24/ios-weekly-15/">iOS移动开发周报-第15期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span>
+            <a class="archive-post-title" href="/2014/06/10/ios-weekly-14/">iOS移动开发周报-第14期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/02</span>
+            <a class="archive-post-title" href="/2014/06/02/use-gitcafe-to-host-blog/">将博客从GitHub迁移到GitCafe</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/01</span>
+            <a class="archive-post-title" href="/2014/06/01/ios-weekly-13/">iOS移动开发周报-第13期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/01</span>
+            <a class="archive-post-title" href="/2014/06/01/interview-on-miqun/">专访《iOS测试指南》作者羋峮</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/30</span>
+            <a class="archive-post-title" href="/2014/05/30/understand-tagged-pointer/">深入理解Tagged Pointer</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/25</span>
+            <a class="archive-post-title" href="/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/">用CocoaPods做iOS程序的依赖管理</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span>
+            <a class="archive-post-title" href="/2014/05/24/how-to-persist-writing/">技术人员如何坚持写作</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span>
+            <a class="archive-post-title" href="/2014/05/24/ios-weekly-12/">iOS移动开发周报-第12期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/16</span>
+            <a class="archive-post-title" href="/2014/05/16/ios-weekly-11/">iOS移动开发周报-第11期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span>
+            <a class="archive-post-title" href="/2014/05/08/ios-security-dev-overview/">iOS应用安全开发概述</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/06</span>
+            <a class="archive-post-title" href="/2014/05/06/ios-weekly-10/">iOS移动开发周报-第10期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span>
+            <a class="archive-post-title" href="/2014/04/25/ios-weekly-9/">iOS移动开发周报-第9期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/19</span>
+            <a class="archive-post-title" href="/2014/04/19/ios-jailbreak-trojan/">专门针对越狱iOS设备的盗号木马出现</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/18</span>
+            <a class="archive-post-title" href="/2014/04/18/ios-weekly-8/">iOS移动开发周报-第8期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/16</span>
+            <a class="archive-post-title" href="/2014/04/16/mobile-development-view-from-facebook/">从 Facebook 看移动开发的发展</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span>
+            <a class="archive-post-title" href="/2014/04/12/install-mavericks-note/">Mac重装记录</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span>
+            <a class="archive-post-title" href="/2014/04/10/ios-weekly-7/">iOS移动开发周报-第7期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/03</span>
+            <a class="archive-post-title" href="/2014/04/03/ios-weekly-6/">iOS移动开发周报-第6期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/28</span>
+            <a class="archive-post-title" href="/2014/03/28/ios-weekly-5/">iOS移动开发周报-第5期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/21</span>
+            <a class="archive-post-title" href="/2014/03/21/weak_object_lifecycle_and_tagged_pointer/">NSNumber对象缓存以及Tagged Pointer</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/21</span>
+            <a class="archive-post-title" href="/2014/03/21/ios-weekly-4/">iOS移动开发周报-第4期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span>
+            <a class="archive-post-title" href="/2014/03/14/ios-weekly-3/">iOS移动开发周报-第3期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span>
+            <a class="archive-post-title" href="/2014/03/07/ios-weekly-2/">iOS移动开发周报-第2期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/05</span>
+            <a class="archive-post-title" href="/2014/03/05/use-alcatraz-to-manage-xcode-plugins/">使用Alcatraz来管理Xcode插件</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span>
+            <a class="archive-post-title" href="/2014/02/27/ios-weekly-1/">iOS移动开发周报-第1期</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/26</span>
+            <a class="archive-post-title" href="/2014/02/26/the-introduction-of-homebrew-and-brewcask/">使用brew cask来安装Mac应用</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/11</span>
+            <a class="archive-post-title" href="/2014/02/11/reactivecocoa-introduction/">ReactiveCocoa - iOS开发的新框架</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/26</span>
+            <a class="archive-post-title" href="/2014/01/26/add-ssd-to-old-imac/">自己动手给iMac换SSD</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/23</span>
+            <a class="archive-post-title" href="/2014/01/23/the-issue-of-non-breaking-space-in-coretext/">非换行空格在CoreText排版上的问题</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/08</span>
+            <a class="archive-post-title" href="/2014/01/08/why-we-need-write/">作为码农，我们为什么要写作</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2014/01/01/2013-summary/">2013年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2013 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span>
+            <a class="archive-post-title" href="/2013/12/22/how-to-write-resume-for-it-company/">如何写面向互联网公司的求职简历</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span>
+            <a class="archive-post-title" href="/2013/12/22/the-secret-of-xcode-debugger-icon/">Xcode Debugger中的Icon符号的意义</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/11</span>
+            <a class="archive-post-title" href="/2013/12/11/network-tool-charles-intr/">iOS开发工具-网络封包分析工具Charles</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/14</span>
+            <a class="archive-post-title" href="/2013/11/14/use-flurry-to-analyse-data/">使用Flurry来统计和分析用户行为</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/21</span>
+            <a class="archive-post-title" href="/2013/10/21/the-tech-detail-of-ape-client-3/">猿题库iOS客户端的技术细节（三）：基于CoreText的排版引擎</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/19</span>
+            <a class="archive-post-title" href="/2013/10/19/the-tech-detail-of-ape-client-2/">猿题库iOS客户端的技术细节（二）：答题卡扫描算法</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/17</span>
+            <a class="archive-post-title" href="/2013/10/17/the-tech-detail-of-ape-client-1/">猿题库iOS客户端的技术细节（一）：使用多target来构建大量相似App</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span>
+            <a class="archive-post-title" href="/2013/10/15/objective-c-object-model/">Objective-C对象模型及应用</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/11</span>
+            <a class="archive-post-title" href="/2013/08/11/ios-asian-font-download-introduction/">动态下载苹果提供的多种中文字体</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/28</span>
+            <a class="archive-post-title" href="/2013/07/28/a-look-inside-blocks/">谈Objective-C block的实现</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span>
+            <a class="archive-post-title" href="/2013/07/24/use-crashlytics/">使用Crashlytics来保存应用崩溃信息</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/23</span>
+            <a class="archive-post-title" href="/2013/06/23/alipay-plugin-mechanism/">分析支付宝客户端的插件机制</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/17</span>
+            <a class="archive-post-title" href="/2013/06/17/startup-anniversary-note/">写在创业一周年</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/16</span>
+            <a class="archive-post-title" href="/2013/06/16/ios-dev-tool-app-store-tool/">iOS开发工具篇-AppStore统计工具</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/18</span>
+            <a class="archive-post-title" href="/2013/05/18/goodbye-viewdidunload/">再见，viewDidUnload方法</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/08</span>
+            <a class="archive-post-title" href="/2013/05/08/git-submodule-issues/">Git submodule的坑</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/30</span>
+            <a class="archive-post-title" href="/2013/04/30/the-history-of-wwdc/">历史上的WWDC门票售空图片</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/29</span>
+            <a class="archive-post-title" href="/2013/04/29/the-missing-objc-keywords/">那些被遗漏的Objective-C保留字</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/07</span>
+            <a class="archive-post-title" href="/2013/04/07/tricks-in-iap/">iOS应用内支付(IAP)的那些坑</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/27</span>
+            <a class="archive-post-title" href="/2013/03/27/should-we-use-arc/">是否应该使用ARC?</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span>
+            <a class="archive-post-title" href="/2013/02/21/introduction-of-weixin-public-account/">分享iOS开发技巧的微信公共账号</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/23</span>
+            <a class="archive-post-title" href="/2013/01/23/set-ios-system-ui-language/">设置应用内的系统控件语言</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/13</span>
+            <a class="archive-post-title" href="/2013/01/13/two-stage-creation-on-cocoa/">谈ObjC对象的两段构造模式</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2013/01/01/2012-summary/">2012年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2012 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/23</span>
+            <a class="archive-post-title" href="/2012/12/23/use-zxing-library/">在iOS中使用ZXing库</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span>
+            <a class="archive-post-title" href="/2012/12/15/do-not-use-storyboard/">StoryBoard--看上去很美</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/09</span>
+            <a class="archive-post-title" href="/2012/12/09/iap-crack-issue/">关于IAP的破解</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/09</span>
+            <a class="archive-post-title" href="/2012/12/09/in-app-purchase-check-list/">iOS应用内付费(IAP)开发步骤列表</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span>
+            <a class="archive-post-title" href="/2012/12/08/use-privoxy/">使用Privoxy做智能代理切换</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span>
+            <a class="archive-post-title" href="/2012/11/16/drop-ios4-enbrace-ios5/">放弃iOS4，拥抱iOS5</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/14</span>
+            <a class="archive-post-title" href="/2012/11/14/make-stack-trace-more-readable/">让Xcode的 stack trace信息可读</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/10</span>
+            <a class="archive-post-title" href="/2012/11/10/how-to-design-upgrade-notice/">改进iOS客户端的升级提醒功能</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span>
+            <a class="archive-post-title" href="/2012/10/27/use-opencv-in-ios/">在MacOS和iOS系统中使用OpenCV</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span>
+            <a class="archive-post-title" href="/2012/10/15/scrum-and-architecture-in-fenbi/">粉笔网的架构和项目管理</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/09</span>
+            <a class="archive-post-title" href="/2012/10/09/3rd-libs-used-in-fenbi-app/">粉笔网iPhone端使用的第三方开源库</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/05</span>
+            <a class="archive-post-title" href="/2012/10/05/upgrade-your-app-to-support-iphone5/">让你的APP支持iPhone5</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/15</span>
+            <a class="archive-post-title" href="/2012/09/15/talk-about-my-startup-exp/">谈谈我的创业感受</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/26</span>
+            <a class="archive-post-title" href="/2012/08/26/use-script-to-power-up-ui-work/">用脚本来简化iOS美术同学的工作</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/05</span>
+            <a class="archive-post-title" href="/2012/08/05/use-modern-objective-c/">Objective-C的新特性</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/24</span>
+            <a class="archive-post-title" href="/2012/06/24/enhance-uiactionsheet/">封装同步的UIActionSheet</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/05</span>
+            <a class="archive-post-title" href="/2012/05/05/do-not-use-sbjson/">不要使用SBJSON(json-framework)</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span>
+            <a class="archive-post-title" href="/2012/04/22/use-fmdb/">在iOS开发中使用FMDB</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span>
+            <a class="archive-post-title" href="/2012/04/06/about-100-devices-limit/">关于iOS测试机个数上限的详细规则</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/24</span>
+            <a class="archive-post-title" href="/2012/03/24/talk-about-uiwebview-and-phonegap/">关于UIWebView的总结</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span>
+            <a class="archive-post-title" href="/2012/03/15/10-most-common-questions-on-stackoverflow-201203/">iPhone开发常问的十个问题(2012年3月版)</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span>
+            <a class="archive-post-title" href="/2012/03/10/xcode4-tips/">Xcode4 使用技巧</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/29</span>
+            <a class="archive-post-title" href="/2012/02/29/collaboration-with-git/">用Git进行协同开发</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/22</span>
+            <a class="archive-post-title" href="/2012/02/22/use-gcd/">使用GCD</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/16</span>
+            <a class="archive-post-title" href="/2012/02/16/apply-daily-build-in-ios-project/">给iOS工程增加Daily Build</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/14</span>
+            <a class="archive-post-title" href="/2012/02/14/nsstring-java-like-wrapper/">给NSString增加Java风格的方法</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/10</span>
+            <a class="archive-post-title" href="/2012/02/10/setup-blog-based-on-github/">象写程序一样写博客：搭建基于github的博客</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/06</span>
+            <a class="archive-post-title" href="/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/">iOS5中UIViewController的新方法</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/05</span>
+            <a class="archive-post-title" href="/2012/02/05/mvc-in-ios-develop/">斯坦福大学 iOS 开发公开课总结</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/04</span>
+            <a class="archive-post-title" href="/2012/02/04/use-git-to-manage-code-snippets/">使用 Git 来管理 Xcode 中的代码片段</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span>
+            <a class="archive-post-title" href="/2012/02/03/talk-about-svn-and-git/">Git 的使用感受</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span>
+            <a class="archive-post-title" href="/2012/02/01/use-appledoc-to-generate-xcode-doc/">使用Objective-C的文档生成工具:appledoc</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/23</span>
+            <a class="archive-post-title" href="/2012/01/23/use-javascript-to-import-pictures/">用javascript协助导入图片</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/20</span>
+            <a class="archive-post-title" href="/2012/01/20/we-must-self-learning/">我们必须自学</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2012/01/01/2011-summary/">2011年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
+            <div class="archive-year"> 2011 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/27</span>
+            <a class="archive-post-title" href="/2011/12/27/mac-top/">mac 下的 top 命令</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/10</span>
+            <a class="archive-post-title" href="/2011/12/10/remove-tail-blankspace-in-xcode/">去掉Xcode源码末尾的空格</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span>
+            <a class="archive-post-title" href="/2011/11/20/set-uilabel-text-align-top/">让UILabel的文字顶部对齐</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/25</span>
+            <a class="archive-post-title" href="/2011/08/25/use-rbtool-to-post-review-request/">使用RBTool自动提交code review请求</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/10</span>
+            <a class="archive-post-title" href="/2011/08/10/do-not-use-accessor-in-init-and-dealloc-method/">不要在init和dealloc函数中使用accessor</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="anniversary">
+                <span class="iconfont-archer">&#xe606;</span>
+                anniversary
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Git">
+                <span class="iconfont-archer">&#xe606;</span>
+                Git
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="startup">
+                <span class="iconfont-archer">&#xe606;</span>
+                startup
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="writing">
+                <span class="iconfont-archer">&#xe606;</span>
+                writing
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Interview">
+                <span class="iconfont-archer">&#xe606;</span>
+                Interview
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="books">
+                <span class="iconfont-archer">&#xe606;</span>
+                books
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Swift">
+                <span class="iconfont-archer">&#xe606;</span>
+                Swift
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="blog">
+                <span class="iconfont-archer">&#xe606;</span>
+                blog
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="投稿">
+                <span class="iconfont-archer">&#xe606;</span>
+                投稿
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="PM">
+                <span class="iconfont-archer">&#xe606;</span>
+                PM
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="cooking">
+                <span class="iconfont-archer">&#xe606;</span>
+                cooking
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="supply-chain">
+                <span class="iconfont-archer">&#xe606;</span>
+                supply-chain
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="iOS">
+            <span class="iconfont-archer">&#xe60a;</span>
+            iOS
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="shell">
+            <span class="iconfont-archer">&#xe60a;</span>
+            shell
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="mac">
+            <span class="iconfont-archer">&#xe60a;</span>
+            mac
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="summary">
+            <span class="iconfont-archer">&#xe60a;</span>
+            summary
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="iOS weekly">
+            <span class="iconfont-archer">&#xe60a;</span>
+            iOS weekly
+        </span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://blog.devtang.com",
+        root: siteMetaRoot,
+        author: "唐巧"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>

@@ -6,7 +6,7 @@
   <link href="https://blog.devtang.com/atom.xml" rel="self"/>
   
   <link href="https://blog.devtang.com/"/>
-  <updated>2024-01-07T15:07:07.302Z</updated>
+  <updated>2024-01-07T15:31:34.394Z</updated>
   <id>https://blog.devtang.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://blog.devtang.com/2024/01/07/upgrade-hexo-to-v7-0/"/>
     <id>https://blog.devtang.com/2024/01/07/upgrade-hexo-to-v7-0/</id>
     <published>2024-01-07T13:56:08.000Z</published>
-    <updated>2024-01-07T15:07:07.302Z</updated>
+    <updated>2024-01-07T15:31:34.394Z</updated>
     
-    <content type="html"><![CDATA[<p>这次重装 M2 的电脑，Hexo 在设置的时候报很多警报，一些依赖库因为太旧有安全风险，查了一下 Hexo 有最新发布的 <a href="https://hexo.io/news/2023/11/03/hexo-7-0-0-released/">7.0 版本</a>，于是打算整体迁移一下。</p><h2 id="安装-Hexo-7-0"><a href="#安装-Hexo-7-0" class="headerlink" title="安装 Hexo 7.0"></a>安装 Hexo 7.0</h2><p>首先 Hexo 的安装可以用 brew 了。使用 <code>brew install hexo</code>安装，安装好之后 Hexo 在 <code>/opt/homebrew/Cellar/hexo/7.0.0</code> 下。</p><p>使用 Hexo 的如下指令完成建站</p><blockquote><p>hexo init blog<br>cd blog<br>npm install</p></blockquote><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>建完站之后，把之前的文章都复制进去，在 themes 目录下同样把 <a href="https://github.com/fi3ework/hexo-theme-archer">archer</a> clone 下来：</p><blockquote><p>git clone <a href="https://github.com/fi3ework/hexo-theme-archer">https://github.com/fi3ework/hexo-theme-archer</a> archer</p></blockquote><p>然后需要在 blog 根目录下安装以下插件：</p><blockquote><p>npm install hexo-deployer-git –save<br>npm install hexo-generator-json-content<br>npm install hexo-generator-feed –save</p></blockquote><p>除此之外还需要一些配置，修改 <code>_config.yml</code>，增加如下内容：</p><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">jsonContent<span class="punctuation">:</span></span><br><span class="line">  meta<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  pages<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">  posts<span class="punctuation">:</span></span><br><span class="line">    title<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    date<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    path<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    text<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    raw<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    content<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    slug<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    updated<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    comments<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    link<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    permalink<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    excerpt<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    categories<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    tags<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br></pre></td></tr></table></figure><p>并且将 <code>_config.yml</code> 的主题为 Archer：</p><blockquote><p>theme: archer</p></blockquote><p>最后，复制 Archer 主题目录下的 <code>_config.yml</code> 到 Hexo 根目录，并命名为 <code>_config.archer.yml</code>。删除 Archer 主题目录下的 <code>_config.yml</code> 文件，或将它重命名为 <code>_config.yml.template</code>，避免配置合并或冲突。</p><p>详见：<a href="https://github.com/fi3ework/hexo-theme-archer">https://github.com/fi3ework/hexo-theme-archer</a></p>]]></content>
+    <content type="html"><![CDATA[<p>这次重装 M2 的电脑，Hexo 在设置的时候报很多警报，一些依赖库因为太旧有安全风险，查了一下 Hexo 有最新发布的 <a href="https://hexo.io/news/2023/11/03/hexo-7-0-0-released/">7.0 版本</a>，于是打算整体迁移一下。</p><h2 id="安装-Hexo-7-0"><a href="#安装-Hexo-7-0" class="headerlink" title="安装 Hexo 7.0"></a>安装 Hexo 7.0</h2><p>首先 Hexo 的安装可以用 brew 了。使用 <code>brew install hexo</code>安装，安装好之后 Hexo 在 <code>/opt/homebrew/Cellar/hexo/7.0.0</code> 下。</p><p>使用 Hexo 的如下指令完成建站</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>建完站之后，把之前的文章都复制进去，在 themes 目录下同样把 <a href="https://github.com/fi3ework/hexo-theme-archer">archer</a> clone 下来：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/fi3ework/hexo-theme-archer archer</span><br></pre></td></tr></table></figure><p>然后需要在 blog 根目录下安装以下插件：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-generator-json-content</span><br><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure><p>除此之外还需要一些配置，修改 <code>_config.yml</code>，增加如下内容：</p><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">jsonContent<span class="punctuation">:</span></span><br><span class="line">  meta<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  pages<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">  posts<span class="punctuation">:</span></span><br><span class="line">    title<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    date<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    path<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    text<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    raw<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    content<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    slug<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    updated<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    comments<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    link<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    permalink<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    excerpt<span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">    categories<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    tags<span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br></pre></td></tr></table></figure><p>并且将 <code>_config.yml</code> 的主题为 Archer：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: archer</span><br></pre></td></tr></table></figure><p>最后，复制 Archer 主题目录下的 <code>_config.yml</code> 到 Hexo 根目录，并命名为 <code>_config.archer.yml</code>。删除 Archer 主题目录下的 <code>_config.yml</code> 文件，或将它重命名为 <code>_config.yml.template</code>，避免配置合并或冲突。</p><p>详见：<a href="https://github.com/fi3ework/hexo-theme-archer">https://github.com/fi3ework/hexo-theme-archer</a></p>]]></content>
     
     
       
@@ -38,8 +38,8 @@
   
   <entry>
     <title>重装 M2 的 MBP</title>
-    <link href="https://blog.devtang.com/2024/01/07/2024-01-07-install-mac-env/"/>
-    <id>https://blog.devtang.com/2024/01/07/2024-01-07-install-mac-env/</id>
+    <link href="https://blog.devtang.com/2024/01/07/install-mac-env/"/>
+    <id>https://blog.devtang.com/2024/01/07/install-mac-env/</id>
     <published>2024-01-06T16:04:25.000Z</published>
     <updated>2024-01-07T13:55:01.198Z</updated>
     
@@ -61,8 +61,8 @@
   
   <entry>
     <title>2023 年个人总结</title>
-    <link href="https://blog.devtang.com/2024/01/01/2024-01-01-2023-summary/"/>
-    <id>https://blog.devtang.com/2024/01/01/2024-01-01-2023-summary/</id>
+    <link href="https://blog.devtang.com/2024/01/01/2023-summary/"/>
+    <id>https://blog.devtang.com/2024/01/01/2023-summary/</id>
     <published>2024-01-01T02:09:04.000Z</published>
     <updated>2024-01-06T14:52:37.943Z</updated>
     
@@ -85,8 +85,8 @@
   
   <entry>
     <title>理解经济阶段-读《被追赶的经济体》</title>
-    <link href="https://blog.devtang.com/2023/12/31/2023-12-31-the-age-of-country-chasing/"/>
-    <id>https://blog.devtang.com/2023/12/31/2023-12-31-the-age-of-country-chasing/</id>
+    <link href="https://blog.devtang.com/2023/12/31/the-age-of-country-chasing/"/>
+    <id>https://blog.devtang.com/2023/12/31/the-age-of-country-chasing/</id>
     <published>2023-12-31T12:54:29.000Z</published>
     <updated>2024-01-06T14:52:37.943Z</updated>
     
@@ -111,8 +111,8 @@
   
   <entry>
     <title>供应链笔记(10)：采购岗位</title>
-    <link href="https://blog.devtang.com/2023/12/18/2023-12-17-supply-chain-10/"/>
-    <id>https://blog.devtang.com/2023/12/18/2023-12-17-supply-chain-10/</id>
+    <link href="https://blog.devtang.com/2023/12/18/supply-chain-10/"/>
+    <id>https://blog.devtang.com/2023/12/18/supply-chain-10/</id>
     <published>2023-12-18T02:38:41.000Z</published>
     <updated>2024-01-06T14:52:37.942Z</updated>
     
@@ -135,8 +135,8 @@
   
   <entry>
     <title>供应链笔记(9)：开源岗位</title>
-    <link href="https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-9/"/>
-    <id>https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-9/</id>
+    <link href="https://blog.devtang.com/2023/12/17/supply-chain-9/"/>
+    <id>https://blog.devtang.com/2023/12/17/supply-chain-9/</id>
     <published>2023-12-17T02:34:12.000Z</published>
     <updated>2024-01-06T14:52:37.943Z</updated>
     
@@ -161,8 +161,8 @@
   
   <entry>
     <title>供应链笔记 (8)：印刷的环节和成本</title>
-    <link href="https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-8/"/>
-    <id>https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-8/</id>
+    <link href="https://blog.devtang.com/2023/12/17/supply-chain-8/"/>
+    <id>https://blog.devtang.com/2023/12/17/supply-chain-8/</id>
     <published>2023-12-17T01:38:16.000Z</published>
     <updated>2024-01-06T14:52:37.943Z</updated>
     
@@ -185,8 +185,8 @@
   
   <entry>
     <title>供应链笔记(7)：什么时候自己投资建厂</title>
-    <link href="https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-7/"/>
-    <id>https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-7/</id>
+    <link href="https://blog.devtang.com/2023/12/17/supply-chain-7/"/>
+    <id>https://blog.devtang.com/2023/12/17/supply-chain-7/</id>
     <published>2023-12-17T01:36:55.000Z</published>
     <updated>2024-01-06T14:52:37.943Z</updated>
     
@@ -211,8 +211,8 @@
   
   <entry>
     <title>供应链笔记(6)：计划岗位</title>
-    <link href="https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-6/"/>
-    <id>https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-6/</id>
+    <link href="https://blog.devtang.com/2023/12/17/supply-chain-6/"/>
+    <id>https://blog.devtang.com/2023/12/17/supply-chain-6/</id>
     <published>2023-12-17T01:34:56.000Z</published>
     <updated>2024-01-06T14:52:37.943Z</updated>
     
@@ -236,8 +236,8 @@
   
   <entry>
     <title>供应链笔记(5)：注塑成本估算</title>
-    <link href="https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-5/"/>
-    <id>https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-5/</id>
+    <link href="https://blog.devtang.com/2023/12/17/supply-chain-5/"/>
+    <id>https://blog.devtang.com/2023/12/17/supply-chain-5/</id>
     <published>2023-12-17T01:31:57.000Z</published>
     <updated>2024-01-06T14:52:37.943Z</updated>
     
@@ -262,8 +262,8 @@
   
   <entry>
     <title>供应链笔记(4)：如何防止腐败</title>
-    <link href="https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-4/"/>
-    <id>https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-4/</id>
+    <link href="https://blog.devtang.com/2023/12/17/supply-chain-4/"/>
+    <id>https://blog.devtang.com/2023/12/17/supply-chain-4/</id>
     <published>2023-12-17T01:28:31.000Z</published>
     <updated>2024-01-06T14:52:37.943Z</updated>
     
@@ -287,8 +287,8 @@
   
   <entry>
     <title>供应链笔记(3)：挑选供应商的核心因素</title>
-    <link href="https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-3/"/>
-    <id>https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-3/</id>
+    <link href="https://blog.devtang.com/2023/12/17/supply-chain-3/"/>
+    <id>https://blog.devtang.com/2023/12/17/supply-chain-3/</id>
     <published>2023-12-17T01:26:22.000Z</published>
     <updated>2024-01-06T14:52:37.942Z</updated>
     
@@ -313,8 +313,8 @@
   
   <entry>
     <title>供应链笔记(2)：如何降本</title>
-    <link href="https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-2/"/>
-    <id>https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-2/</id>
+    <link href="https://blog.devtang.com/2023/12/17/supply-chain-2/"/>
+    <id>https://blog.devtang.com/2023/12/17/supply-chain-2/</id>
     <published>2023-12-17T01:22:40.000Z</published>
     <updated>2024-01-06T14:52:37.942Z</updated>
     
@@ -338,8 +338,8 @@
   
   <entry>
     <title>供应链笔记(1)：如何挑选供应商</title>
-    <link href="https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-1/"/>
-    <id>https://blog.devtang.com/2023/12/17/2023-12-17-supply-chain-1/</id>
+    <link href="https://blog.devtang.com/2023/12/17/supply-chain-1/"/>
+    <id>https://blog.devtang.com/2023/12/17/supply-chain-1/</id>
     <published>2023-12-17T01:20:34.000Z</published>
     <updated>2024-01-06T14:52:37.942Z</updated>
     
@@ -364,8 +364,8 @@
   
   <entry>
     <title>读《价值为纲》</title>
-    <link href="https://blog.devtang.com/2023/10/22/2023-10-22-value-frist-book-summary/"/>
-    <id>https://blog.devtang.com/2023/10/22/2023-10-22-value-frist-book-summary/</id>
+    <link href="https://blog.devtang.com/2023/10/22/value-frist-book-summary/"/>
+    <id>https://blog.devtang.com/2023/10/22/value-frist-book-summary/</id>
     <published>2023-10-22T00:52:25.000Z</published>
     <updated>2024-01-06T14:52:37.942Z</updated>
     
@@ -390,8 +390,8 @@
   
   <entry>
     <title>为承德程序员发声</title>
-    <link href="https://blog.devtang.com/2023/09/27/2023-09-27-stand-up-for-programmer-from-chengde/"/>
-    <id>https://blog.devtang.com/2023/09/27/2023-09-27-stand-up-for-programmer-from-chengde/</id>
+    <link href="https://blog.devtang.com/2023/09/27/stand-up-for-programmer-from-chengde/"/>
+    <id>https://blog.devtang.com/2023/09/27/stand-up-for-programmer-from-chengde/</id>
     <published>2023-09-27T01:00:32.000Z</published>
     <updated>2024-01-06T14:52:37.942Z</updated>
     
@@ -410,8 +410,8 @@
   
   <entry>
     <title>读《华与华方法》</title>
-    <link href="https://blog.devtang.com/2023/07/18/2023-07-18-hua-and-hua-methods-book-summary/"/>
-    <id>https://blog.devtang.com/2023/07/18/2023-07-18-hua-and-hua-methods-book-summary/</id>
+    <link href="https://blog.devtang.com/2023/07/18/hua-and-hua-methods-book-summary/"/>
+    <id>https://blog.devtang.com/2023/07/18/hua-and-hua-methods-book-summary/</id>
     <published>2023-07-18T00:56:18.000Z</published>
     <updated>2024-01-06T14:52:37.942Z</updated>
     
@@ -434,8 +434,8 @@
   
   <entry>
     <title>现实的世界 - 读《我在北京送快递》</title>
-    <link href="https://blog.devtang.com/2023/06/25/2023-06-25-my-19-jobs/"/>
-    <id>https://blog.devtang.com/2023/06/25/2023-06-25-my-19-jobs/</id>
+    <link href="https://blog.devtang.com/2023/06/25/my-19-jobs/"/>
+    <id>https://blog.devtang.com/2023/06/25/my-19-jobs/</id>
     <published>2023-06-25T02:35:03.000Z</published>
     <updated>2024-01-06T14:52:37.942Z</updated>
     
@@ -459,8 +459,8 @@
   
   <entry>
     <title>用营销来建立领先势能 - 读《详谈杨浩涌》</title>
-    <link href="https://blog.devtang.com/2023/04/17/2023-04-17-interview-of-yanghy/"/>
-    <id>https://blog.devtang.com/2023/04/17/2023-04-17-interview-of-yanghy/</id>
+    <link href="https://blog.devtang.com/2023/04/17/interview-of-yanghy/"/>
+    <id>https://blog.devtang.com/2023/04/17/interview-of-yanghy/</id>
     <published>2023-04-17T12:07:40.000Z</published>
     <updated>2024-01-06T14:52:37.942Z</updated>
     
@@ -485,8 +485,8 @@
   
   <entry>
     <title>米其林收割机 - 读《详谈张勇》</title>
-    <link href="https://blog.devtang.com/2023/03/15/2023-03-15-interview-of-zhang-yong/"/>
-    <id>https://blog.devtang.com/2023/03/15/2023-03-15-interview-of-zhang-yong/</id>
+    <link href="https://blog.devtang.com/2023/03/15/interview-of-zhang-yong/"/>
+    <id>https://blog.devtang.com/2023/03/15/interview-of-zhang-yong/</id>
     <published>2023-03-15T11:58:39.000Z</published>
     <updated>2024-01-06T14:52:37.942Z</updated>
     
