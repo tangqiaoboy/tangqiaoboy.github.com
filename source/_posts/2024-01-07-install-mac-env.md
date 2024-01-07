@@ -11,16 +11,34 @@ tags:
 
 整个安装下来最麻烦的就是开发者环境，基本上无法正常连上外网下载各种开源软件，最后我灵机一动搜了一下，才发现清华大学上有不少开源软件的镜像。这样大大加快了我安装软件的速度。
 
-这几个镜像的地址是：
- - Home Brew: <https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>
- - Oh My Zsh：<https://mirrors.tuna.tsinghua.edu.cn/help/ohmyzsh.git/>
- - npm： `npm config set registry http://mirrors.cloud.tencent.com/npm/`
-
 整理了一下自己的生产力工具，现在做业务之后，基本不写代码了，所以偶尔写博客或者查资料有这些软件就够用了：
 
 ### iTerm2
 
 拥有一个更好的 Terminal 操作界面： <https://iterm2.com/>
+
+### Home Brew
+
+用镜像安装Home Brew: <https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>
+
+有了 [Home Brew](https://brew.sh/) 之后就可以装我需要的一些环境：
+
+```bash
+brew install node
+brew install hexo
+```
+
+npm 的资源比较慢，安好 node 之后也把镜像设置一下：
+
+npm： `npm config set registry http://mirrors.cloud.tencent.com/npm/`
+
+### Oh My Zsh
+
+Oh My Zsh 可以利用镜像安装：<https://mirrors.tuna.tsinghua.edu.cn/help/ohmyzsh.git/>
+
+安装完可以设置一下 [autojump](https://github.com/wting/autojump#installation) 插件
+
+再把 [macos 插件](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos)打开。
 
 ### Sublime Text 
 
@@ -28,29 +46,9 @@ tags:
 
 配合下面的设置可以方便在命令行中调用 Sublime Text。
 
-{% blockquote %}
-
+```
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
-
-{% endblockquote %}
-
-### Home Brew
-
-有了 [Home Brew](https://brew.sh/) 之后就可以装我需要的一些环境：
-
-{% blockquote %}
-
-brew install node
-
-{% endblockquote %}
-
-有了 node 之后就可以装我的 hexo 博客环境了。
-
-{% blockquote %}
-
-npm install -g hexo-cl
-
-{% endblockquote %}
+```
 
 ### Alfred
 
