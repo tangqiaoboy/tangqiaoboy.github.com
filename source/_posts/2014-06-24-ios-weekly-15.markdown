@@ -1,0 +1,46 @@
+---
+layout: post
+title: "iOS移动开发周报-第15期"
+date: 2014-06-24 12:58:31 +0800
+comments: true
+categories: iOS weekly
+---
+
+## 版权说明
+
+本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2014/06/ios8-osx10.10-extension)。如需转载，请与 InfoQ 中文站联系。
+
+### 前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期iOS移动开发周报带来如下内容：Swift 和 C# 的语法比较，一个CoreText排版性能问题，谈谈 iOS 8 和 OS X 10.10 的 Extension等。
+
+## 教程
+
+ 1. [《Swift 和 C# 的语法比较》](http://swift.sh/topic/125/swift-c/)：适合有C#开发经验的朋友快速了解Swift语言。
+
+ 1. [《Swift 和 Scala 的语法比较》](https://leverich.github.io/swiftislikescala/)：适合有 Scala 开发经验的朋友快速了解Swift语言。
+ 
+ 1. [《AutoLayout 相关概念介绍和动画demo》](http://studentdeng.github.io/blog/2014/06/13/auto-layout/)：文章从传统布局的问题入手，介绍了AutoLayout 相关概念，最后提供了一个示例的Demo程序。
+
+ 1. [《一个CoreText排版性能问题》](http://blog.cnbang.net/tech/2268/)：伊书的阅读器是用CoreText排版的，在中文字体的选择上，自带的字体中只有黑体，后来发现日文字体Hiragino也是可以用于中文，而且显示效果比黑体好很多，于是选用了这个字体。但在CoreText排版中遇到个问题，用Hiragino字体排版速度非常慢，几乎是默认黑体的100倍。作者分享了整个问题查找和最后解决的过程。
+ 
+ 1. [《谈谈 iOS 8 和 OS X 10.10 的 Extension》](http://imtx.me/archives/1898.html)：作者介绍了 WWDC 14 的视频之《Creating Extensions for iOS and OS X》中介绍的Extensions技术，解释了为何 Extensions 这么重要。
+
+ 1. [《objc第13期：架构》](http://objccn.io/issue-13/)：本期objc.io的中文翻译带来了5篇高质量的关于iOS程序架构方面的文章，分别是：[《MVVM 介绍》](http://objccn.io/issue-13-1/)、[《避免滥用单例》](http://objccn.io/issue-13-2/)、 [《iOS 中的行为》](http://objccn.io/issue-13-3/)、[《子类》](http://objccn.io/issue-13-4/)、 [《使用 VIPER 构建 iOS 应用》](http://objccn.io/issue-13-5/)。
+
+ 1. [《用 Quartz Composer 和 Origami 制作一个简单的按钮动画》](https://github.com/nixzhu/dev-blog/blob/master/2014-06-22-quartz-composer-and-origami-tutorial-button-animation.md): 文章由 [@nixzhu](http://weibo.com/nixzhu) 翻译。阅读本文，然后照着做一遍。只需20分钟，你就能了解 QC 和 Origami 是什么，能做什么，以及怎么做。
+
+ 1. [《Reactive Cocoa详解》](http://blog.sunnyxx.com/2014/03/06/rac_1_macros/)：Reactive Cocoa是一个函数响应式编程思想在Objective-C语言下的实现。本文将从几个方面详细介绍Reactive Cocoa。
+
+ 1. [《Cocoa​Pods》](http://nshipster.cn/cocoapods/)：在Objective-C的情况下，CocoaPods提供了一个绝佳的整合合作开发的工具，并且在快速发展的开发社区中起到了一个集结点的作用。在本文中，我们将通过讨论CocoaPods的过去，现在以及将来，一起庆祝0.33版本（具有里程碑意义）的发布。
+  
+ 1. [《Facebook Pop 使用指南》](http://geeklu.com/2014/05/facebook-pop-usage/)：Facebook Pop其实是基于CADisplayLink(Mac平台上使用的CVDisplayLink)实现的独立于Core Animation之外的动画方案。作者在文章中主要介绍了Facebook Pop的使用。
+
+## 工具
+
+ 1. [WWDC2014字幕下载工具](https://github.com/iosxtools/WWDC2014)：一个 OSX App，方便下载WWDC2014的视频。
+
+ 1. [《如何导出iBooks中的笔记》](http://octavianlogigan.com/1360/how-to-export-notes-from-ibooks/)：文章介绍了从iBook导出笔记的技巧。
+ 

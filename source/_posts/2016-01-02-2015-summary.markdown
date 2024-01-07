@@ -1,0 +1,200 @@
+---
+layout: post
+title: "2015 年个人总结"
+date: 2016-01-02 19:08:13 +0800
+comments: true
+categories: summary
+tags: anniversary
+---
+
+## 关于创业
+
+今年猿题库顺利拿到了 D 轮 6000 万美元的 [融资](http://36kr.com/p/531286.html)，估值 3.6 亿美元。而我负责的 [小猿搜题](http://www.yuansouti.com/)，也从年初的几十万用户，增长到了 5000 多万用户。
+
+今年是小猿搜题的风光年，我们上了「天天向上」，在各种黄金档节目中打电视广告，整体用户数据增长惊人。研究组、市场运营、内容部门各种给力，使得产品技术工作进展得非常顺利。
+
+下图是小猿搜题登上 AppStore 教育榜榜首的截图。
+
+{% img /images/xyst_appstore_1.jpg %}
+
+## 我的工作
+
+对于我自己来说，2015 年的工作主要分成上半年和下半年两个阶段。
+
+上半年，我一边负责小猿搜题的 iOS 开发工作，一边负责小猿搜题技术团队的组建和协调工作。小猿搜题当前大部分同事都是在上半年入职到这个团队的。
+
+下半年，团队成员磨合得差不多了，团队里面 iOS 同事也成长起来了，我自己能够从 iOS 具体的开发工作中脱身，使得我更多地关注产品和团队了。
+
+下半年自己的工作主要聚焦到了管理业务和管理团队上，每天组织协调和沟通的事情很多，除了 Scrum 的定期会议外，我还得参加产品的 Scrum 会议和产品过稿，还有美术的过稿。另外，我时不时也需要和运营的同事沟通协调。
+
+有时候忙完一整天不知道时间是如何过去的，然后又看着自己 iOS 开发技能慢慢变弱，有一种焦虑感。于是我首先开始多读书，接着就是总结，试图调整自己。
+
+数据分析的工作让我知道任何的改进都是应该基于数据的，这样更加理性。所以，我拿了一个小本子，记录自己每天的详细时间花费情况。于是就有了下图这样的一页一页的记录。
+
+{% img /images/evernotes.jpg %}
+
+这样大概记录了一周多，我基本上知道了自己的时间是如何花掉的了。然后，我开始归类自己的时间花费，看看主要花在了哪些地方。对于一些优先级不高的事情，我会注意调整它，不要让它把重要的事情给耽误了。
+
+我也开始总结一个产品技术负责人的工作。在想得差不多了之后，我利用每周一早上和 CTO 的沟通机会进行讨论，最终，我完成了文章：[《涅槃重生:我的技术转管理之路》](/2015/12/18/from-dev-to-manager/)，并且在北京架构师峰会上做了相应的技术转管理分享。
+
+现在我不那么焦虑了，不过觉得自己还是需要多学习和提高。
+
+## 图书出版
+
+[《iOS 开发进阶》](http://item.jd.com/11598468.html) 在 2015 年 1 月份顺利出版，然后首印 3000 册迅速卖掉了，出版社加印了 2000 册，然后过一周又卖光了，然后他们加印了 5000 册。之后又陆续有加印，最终到年底的时候，《iOS 开发进阶》销售了 17000 册，我听出版社老师说，这个成绩在技术图书里面是算相当好的。
+
+{% img /images/ios_pro_17000.jpg %}
+
+虽然称不上完美无缺，我个人对这本书的自评是问心无愧的。我用 Scrum 的管理方式来管理这本书的写作过程，我想在互联网时代，按时发布产品比什么都重要，所以，虽然有很多想继续完善的地方，我还是把它付印了。我也把写这本书的过程总结下来，完成了 [《我是如何完成《iOS 开发进阶》的编写的》](/2015/01/11/how-to-finish-ios-pro-book/)，希望能给想出书的同行一些帮助。
+
+由于我从一线 iOS 开发工作中脱离，《iOS 开发进阶》很可能不会再更新出第二版了，17000 册这个成绩，对于当时 30 岁的我来说，还算是一个不错的里程碑。这次写作让我感受到了出版的乐趣，其实我自己还在蕴量一些写作素材，或许以后会给大家一些新的分享。
+
+## 写作
+
+今年在博客上完成了 45 篇原创博客文章，差不多一周一篇的节奏。因为 iOS 开发做得少了，所以我的文章中涉及 iOS 开发技术细节的内容少了很多。
+
+我仔细分析了一下今年的博客文章，内容涉及面很广。包括一些 iOS 开发方面的文章，如：
+
+ * [写 iOS SDK 注意事项](/2015/01/31/write-sdk-tips/)
+ * [iOS 开发中的争议（一）](/2015/03/15/ios-dev-controversy-1/)
+ * [iOS 开发中的争议（二）](/2015/03/22/ios-dev-controversy-2/)
+ * [被误解的 MVC 和被神化的 MVVM](/2015/11/02/mvc-and-mvvm/)
+
+另外，我也向「娱乐记者」转变，采访了一些国内新出现的 iOS 大牛，以及报道一些行业新闻，比如
+
+ * [谈谈苹果开源 Swift](/2015/06/16/talk-about-swift-open-source/)
+ * [专访 YYKit 作者 ibireme: 开源大牛是怎样炼成的](/2015/11/26/yykit-auther-interview/)
+
+我更不务正业地写起了硬件的评测：
+
+ * [Apple Watch 使用体验](/2015/06/28/apple-watch-usage-exp/)
+
+当然，最离谱的就是我开始卖软件了，我和荔枝数码合作先后卖了 Reveal 和 Charles 两款 iOS 开发中需要的效率工具软件，也为此写了一些文章：
+
+ * [Reveal 中国特惠活动](/2015/05/25/can-we-buy-time/)
+ * [Charles 从入门到精通 (中国 5 折特惠)](/2015/11/14/charles-introduction/)
+
+因为工作关系，我也开始总结自己的技术转管理收获，完成了：
+
+ * [浅析一对一沟通](/2015/10/25/one-on-one-summary/)
+ * [涅槃重生:我的技术转管理之路](/2015/12/18/from-dev-to-manager/)
+
+在产品工作上面，总结了：
+
+ * [数据的秘密（上）- 为什么要关注数据](/2015/09/02/why-we-need-monitor-data/)
+ * [数据的秘密（下）- 如何分析数据](/2015/09/03/how-to-monitor-data/)
+
+## 读书
+
+另外，今年开始认真写读书笔记，完成了：
+
+ * [《引爆点》读书心得](/2015/03/01/tipping-point/)
+ * [《从 0 到 1 》读书笔记](/2015/04/04/from-0-to-1-book-summary/)
+ * [《成为技术领导者》读书心得](/2015/08/01/become-a-tech-leader-summary/)
+ * [《异类》读书心得](/2015/08/02/the-story-of-success-book-summary/)
+ * [《逆转》读书心得](/2015/08/22/reverse-book-summary/)
+
+其实还看了一些别的书，包括《格鲁夫给经理人的第一课》、《增长黑客》、《领导梯队》等，但是都没有完成笔记，之后打算补上。
+
+iOS 技术图书也看了不少，要说推荐，还是王巍的 [《Swifter》](https://selfstore.io/products/171) 和 Kevin 的 [《Producter》](https://selfstore.io/products/367) 。《Swifter》适合给新手入门用，《Producter》是一本跨界的书，适合 iOS 开发者用来开拓自己的眼界。
+
+## 好奇心
+
+2015 年我特别提醒自己要有好奇心，于是就做了很多有趣的事情。
+
+比如，因为搬家和装修，我自己学习了换门锁、换马桶盖子、换马桶的上水管、组装板材家俱、在墙上钻孔这些技能，感觉还挺有意思的，有些时候就感觉在摆弄大号的积木玩具一样。
+
+比如，因为对社群经济感兴趣，交了 1024 元加入了池建强和李笑来老师建的付费群。
+
+比如，因为对 [「在行」](http://www.zaih.com/mentor/84802679/topic/29864843/) 这个 App 感兴趣，在上面接单，约见了五位朋友。
+
+好奇心给我带来了极大的收获，比如池老师的那个付费群，我最终不但收获了不少有意思的分享，而且学习了当前社群的运作模式。在「在行」上接单不但收到了一些咨询费，更多的是认识了很多有趣的人，比如说罗飞。
+
+如果要说好奇心给我带来的最大收获，那可能就是「iOS 开发」微信公众号的运营了。
+
+从时间上看，我的「iOS 开发」微信公众号已经运营 3 年多了：
+
+ * 2013 年 2 月 21 日，我开始在微信公众号里发表 iOS 开发相关内容。
+ * 2013 年 12 月累积发表了 140 条信息，累积了 5600 名粉丝。
+ * 2014 年 12 月累积了 1 万名粉丝。
+ * 2015 年 12 月累积了 3 万名粉丝。
+
+最主要的是，我原本没指望做这个事情有什么收获，但是从 2015 年起，开始有各种互联网企业找我投放广告。在这里感谢我的主要广告主：
+
+ * [UPYUN](https://www.upyun.com/zh/index.html)：UPYUN 是国内领先的云服务提供商，专注于为开发者提供静态文件的云存储、云处理和 CDN 加速服务。
+ * [100Offer](http://100offer.com/)：用「拍卖」的方式来提供高端互联网人才招聘的网站。
+ * [拉勾网](http://www.lagou.com/)：最专业的互联网招聘平台，我自己就从上面招到了不少同事。
+ * [InfoQ](http://www.infoq.com/cn)：InfoQ 了提供中国最高质量的技术会议和技术文章，我自己也是 InfoQ 的社区编辑。现在 InfoQ 创始人 Kevin 把业务做得更广，成立了 [极客邦科技](http://www.geekbang.org/)，在极客邦科技之下，除了 InfoQ 之外，另外组建了高端技术人员社交网络 EGO、IT 职业学习平台 StuQ 和 企业培训服务 GIT。
+
+再次感谢你们，是你们让我这个自媒体有肉吃。
+
+同时，我也要感谢我的读者，谢谢你们忍受偶尔出现的广告。我仔细算了一下，现在广告的频率是每月 2-3 次。你们放心，我会努力控制广告频率，如果控制不住，我就会涨价的！
+
+## 未来的计划
+
+2016年，希望自己：
+ 
+ * 每月至少完成一篇读书笔记。
+ * 每周坚持发至少一篇微信公众号文章。
+
+## 个人 Milestone
+
+ * 小猿搜题团队组建成功，并且获得 5000 万用户量。
+ * 「iOS 开发」微信公众号获得了 3 万粉丝，并开始有广告收入。
+
+<!--
+
+22 次
+
+100 offer
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=444425913&idx=1&sn=edae69f061b7e963b626ff0564e0d55c#rd
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=210036524&idx=1&sn=6ac23a8a4a518dac51bbf875da788df2#rd
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=209774617&idx=1&sn=f36182036013a89567bb150be29440d2#rd
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=209555090&idx=1&sn=64986a94516329f65be25166f7f05f39#rd
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=204693407&idx=1&sn=53f7e05318aaad91e09ab8ff7043459b#rd
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=204526037&idx=1&sn=f86643463659011430cd6bbf3538ca13#rd
+
+lagou:
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=443546076&idx=1&sn=2fee1e70380a8c04e0b346a3fb36b3d9#rd
+
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=440158123&idx=1&sn=9b0452fba8ab687b902cb3110846dbe4#rd
+
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=400074920&idx=1&sn=cbfcdca750798cc16e92ff7997ed61fb#rd
+
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=209664745&idx=1&sn=eedfa5d8c5f7183997a22d06a4c3904e#rd
+
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=208301774&idx=1&sn=adffaef537aff67f01db3992be796c89#rd
+
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=206695843&idx=1&sn=2617a5966f347a98d6b9ef490f0292b4#rd
+
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=205584984&idx=1&sn=584e2913718833020cfd990465e3afe5#rd
+
+
+
+infoQ:
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=421410076&idx=1&sn=8a6671aa72abfadb03cfb8f224523838#rd
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=405922788&idx=1&sn=e1f2a1e5b4ccddd2f0b31eefdafd56ae#wechat_redirect
+
+pgyer:
+
+http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=420641198&idx=1&sn=f43c61cb451db72d4145fbaad089b8ba#rd 
+
+BugTags:
+
+http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=209938150&idx=1&sn=4ff4715b21d88a384c747e098fa9c1aa#rd
+
+UPYUN:
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=209728624&idx=1&sn=1ab063924d3d8863c7c66a9f820e34c7#rd
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=208075893&idx=1&sn=09164a9954092d12ba2a5eb341cb857b#rd
+
+丰厚资本:
+
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=209397391&idx=1&sn=8e9ff6100379bd289a901c4aec400e8e#rd
+
+借贷宝:
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=209067756&idx=1&sn=396d17ec6f2aefc6547ae488719ff669#rd
+
+理财工场:
+ * http://mp.weixin.qq.com/s?__biz=MjM5NTIyNTUyMQ==&mid=208847424&idx=2&sn=d26831cf3d4f41639c8fbf37ba662c55#rd
+
+-->

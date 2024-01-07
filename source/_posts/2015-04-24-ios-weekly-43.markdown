@@ -1,0 +1,53 @@
+---
+layout: post
+title: "iOS移动开发周报-第43期"
+date: 2015-04-24 20:59:43 +0800
+comments: true
+categories: iOS weekly
+---
+
+## 版权说明
+
+本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2015/04/ios-weekly-wwdc)。如需转载，请与 InfoQ 中文站联系。
+
+### 前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期 iOS 移动开发周报带来如下内容：WWDC 2015 将于 6 月 8 日在旧金山开幕、react-native 之布局篇、iOS 应用架构谈、iOS 证书及 ipa 包重签名探究、开源项目Kingfisher和samurai-native等。
+
+## 新闻
+
+ 1. [《WWDC 2015 将于 6 月 8 日在旧金山开幕》](http://tech.sina.com.cn/it/2015-04-14/doc-iavxeafs5472422.shtml)：苹果于 4 月 14 日宣布，将于 6 月 8 日至 6 月 12 日在旧金山召开第 26 届年度全球开发者大会 (WWDC)。预计大会上将会发布 iOS 9 新版移动系统及用于 Mac 电脑的新版 OS X 系统。鉴于 Apple Watch 的重要性，这次也许苹果会将更多精力放在自己的智能手表生态建设上。苹果每次邀请函设计或多或少都有隐藏含义，本次方圆融合也许就体现了手表的特点。
+
+ 1. [《iOS 8.3 阻止了 iFunBox, iExplorer 等软件》](http://www.macrumors.com/2015/04/13/ios-8-3-ifunbox-itools-sandbox-app-access/)：苹果对 iOS 8.3 加强了安全性，阻止了 iFunBox, iExplorer 等软件来连接到 iOS 设备进行相应的管理操作。
+
+## 教程
+
+ 1. [《react-native 之布局篇》](https://github.com/tmallfe/tmallfe.github.io/issues/19)：来自天猫的 @sysu_ 学家 同学实践并整理了一篇关于 React Native 的文章，详细丰富的介绍了 React Native 布局的知识。
+
+ 1. [《iOS 应用架构谈：开篇》](http://casatwy.com/iosying-yong-jia-gou-tan-kai-pian.html)：对于 iOS 客户端应用的架构来说，复杂度不亚于服务端，但侧重点和入手点却跟服务端不太一样。本系列文章作者会主要专注在 iOS 应用架构方面，很多方案也是基于 iOS 技术栈的特点而建立的。本文是该系列第一篇。
+
+ 1. [《我是怎么慢慢变懒的 : Jenkins + 蒲公英》](http://answerhuang.duapp.com/index.php/2015/04/19/jenkins/)：任何工具出现的最初目的都是为了提高生产效率，很庆幸在 iOS 开发的这个圈子中有一大批的先驱者，他们创造并开源了很多优秀的工具，为这个环境奠定了一个良好的基础。本文作者 [@answer-huang](http://weibo.com/u/1623064627?s=6cm7D0) 介绍了使用 Jenkins 和蒲公英来完成自动打包和分发测试包的工作。
+
+ 1. [《iOS 证书及 ipa 包重签名探究》](http://www.olinone.com/?p=198)：本文重点在于介绍 ios8.1.3 系统 ipa 包重签名 (如企业证书) 无法安装的问题。苹果在 iOS8.1.3 系统以后加强了对 ipa 安装包签名的验证，主要区别在于 ipa 唯一标识在原有 Bundle Identifier 的基础上增加了证书 ID，也就说安装包和手机上已安装 APP 的 Bundle Identifier 即使一致，如果两者签名的证书 ID 不相同，那么安装包也无法正常安装。
+
+ 1. [《iPhone 目标分析及使用 UDID 实施入侵》](http://blog.knownsec.com/2015/04/iphone-target-analysis-and-exploitation-with-apple(udid)/)：iPhone 有一些强大而实用的功能，例如定位追踪和远程数据擦除。这其实都得益于它的唯一设备识别符 UDID（Unique Device Identifier）。本文描述了发掘 iPhone 目标终端设备、利用量子计划（QUANTUM）直接植入目标的标准分析技术，说明 iPhone 唯一设备识别符（Unique Device Identifier，简称 UDID）可以用于追踪目标或与终端设备及目标电话相关联，强调该入侵技术目前可以实现并实施进一步定位的 CNE 过程。
+
+ 1. [《录屏技巧》](http://apple.stackexchange.com/questions/176555/how-do-i-make-multiple-screen-recordings-with-the-exact-same-portion-of-the-scre/176595#176595)：本文介绍了用 Swift 打开 QuickTime Player 录制指定区域的奇技淫巧。
+
+## 工具
+
+ 1. [XcodeSwiftSnippets](https://github.com/burczyk/XcodeSwiftSnippets)：XcodeSwiftSnippets 提供了很多可在 Xcode 上使用的 Swift 语言的代码片段 , 通过自动补全的方式，可以极大的提高开发效率。
+
+## 开源项目
+
+ 1. [Kingfisher](https://github.com/onevcat/Kingfisher)：Kingfisher 是一个用于图片缓存的开源库，类似  SDWebImage，但是完全基于 Swift 语言开发。
+
+ 1. [samurai-native](https://github.com/hackers-painters/samurai-native)：samurai-native 是 [@ 老郭为人民服务](http://weibo.com/u/1641892107?topnav=1&wvr=6&topsug=1) 开源的一套新的构建 App 框架，可以使用 HTML 和 CSS 来生成原生的应用界面。
+
+ 1. [BCMagicTransition](https://github.com/boycechang/BCMagicTransition)：BCMagicTransition 是一个动效框架，用于自定义 UINavigationController 的切换动画，效果类似 Keynote 软件中 Magic Move 切换。它可以用于任意两个 UIViewController 之间，只需指定两个 VC 中的相同元素即可。
+
+ 1. [Refresh Plugins After Xcode Upgrading](https://github.com/cikelengfeng/RPAXU)：每当 Xcode 升级之后，都会导致原有的 Xcode 插件不能使用，这是因为每个插件的 Info.plist 中记录了该插件兼容的 Xcode 版本的 DVTPlugInCompatibilityUUID，而每个版本的 Xcode 的 DVTPlugInCompatibilityUUID 都是不同的。如果想让原来的插件继续工作，我们就得将新版 Xcode 的 DVTPlugInCompatibilityUUID 加入到每一个插件的 Info 文件中，手动添加的话比较费时间还可能出错，所以作者写了一个脚本来做这件事。
+
+ 1. [ResearchKit](https://github.com/ResearchKit/ResearchKit)：ResearchKit 是苹果开源的方便科研机构创建 App 的框架。

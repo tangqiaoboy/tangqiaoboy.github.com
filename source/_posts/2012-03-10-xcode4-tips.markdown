@@ -1,0 +1,101 @@
+---
+layout: post
+title: "Xcode4 使用技巧"
+date: 2012-03-10 20:42
+comments: true
+categories: iOS
+---
+
+使用 xcode4 也有一段时间了，今天整理了一下 xcode4 的一些使用技巧，在这里分享给大家。
+
+<!-- more -->
+
+### 设置作者
+这里所指的作者就是每个源文件头部注释中的 “Created by xxx" 中的作者名。
+我很长一段时间不知道应该在哪里设置它。后来终于找到了。
+
+原来这个作者名是来自 `地址薄` 这个程序中 `我` 的姓名。在 sportlight 中输入” 地 “即可找到这个程序。如下图所示：
+
+{% img /images/xcode-set-author-name.jpg %}
+
+### 设置公司（组织）
+
+这里所指的公司也是指源文件头部注释中的”Copyright (c) xxx" 中的公司名字。这个相对好找一些。
+点击工程，在右边的工具栏中就可以找到 "Organization" 这一项。
+
+### 模拟器
+
+iOS 模拟器也算是 xcode 的一部分。在刚开始使用时，不知道如何把照片导入到模拟器中。后来在网上搜到了方法：
+将照片拖到 iOS 模拟器中，iOS 模拟器会用 safari 打开该图片，然后在 safari 中长按该图，就会弹出菜单，选择 “保存到相册” 即可。
+
+另外，模拟器也有一些快捷键，我常用的是 cmd + 左 / 右 来调整 Orientation。另外，如果是 iPad 模拟器，可以按 cmd + 1 使其变成 100% 的大小。还有 cmd + s 可以将模拟器截图。
+
+### 获得模拟器中的程序数据
+
+其实模拟器中的程序存储在：`/yourHome/Library/Application Support/iPhone Simulator/5.0/Applications` 目录下，你可以直接进去找。
+
+另外，如果要删除所安装的程序，也可以直接将 Applications 目录下的文件夹删掉，这比在模拟器中删更方便。
+
+### 安装旧版本的模拟器
+在 xcode 中，只会带最新版的模拟器，虽然有些模拟器可以在设置里面下载，但是更老的版本就无法在 xcode 的设置页下载了。
+
+这个问题的解决办法是把以前的 xcode 和对应的模拟器装上，然后将模拟器复制或链接到最新的 xcode 目录下，代码如下：
+
+``` bash
+cd /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs
+sudo ln -s /Developer-3.2.5/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk .
+sudo ln -s /Developer-3.2.5/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk .
+```
+
+以前的 xcode 可以从 [以下地址](http://tangqiaoboy.blog.163.com/blog/static/116114258201191323919494/) 下载到 (需要开发者账号), 建议大家每次安装新 xcode 的时候，把模拟器都备份一下，安装完再恢复回来，这样就不用这么每次折腾了。
+
+### Behaviors
+Behaviors 是设置页面里的一栏，通过 cmd + 逗号可以调出设置页面看到。
+在 Behaviors 里可以设置各种行为发生时，界面应该做何改变。
+
+例如，如果我们要每次运行结束后，就关闭 Console 界面，可以在 Behaviors 下面的 "Run completes" 一栏的右边，选中 "Hide debugger" 一项即可（如下图红色标识所示)。
+
+另外，我们也可以点击左下角的 “+” 来增加一些自定义的行为，例如我就增加了 2 个行为，分别用于把导航栏和工具栏同时隐藏和显示（如下图蓝色标识所示）。Behavior 的扩展性很强，你甚至可以定义执行一些脚本，所以可以做的事情很多。
+
+{% img /images/xcode-behaviors.jpg %}
+
+### 快捷键
+如果能慢慢熟悉一些快捷键，对于提高工作效率是有很大帮助的。虽然设置页面有所有的快键键列表，但是估计没人能全部记住并且用上，我个人总结出来常用的快键键如下：
+
+```
+cmd + 1              切换成 Project Navigator (cmd + 2~7 也可以做相应切换，不过不常用）
+cmd + ctrl + 上     在 .h 和 .m 文件之间切换
+cmd + enter          切换成 standard editor
+cmd + opt + enter    切换成 assistant editor
+cmd + shift + y      切换 Console View 的显示或隐藏
+cmd + 0              隐藏左边的导航 (Navigator) 区
+cmd + opt + 0        隐藏右边的工具 (Utility) 区
+ctrl  + 6            列出当前文件中所有的方法，可以输入关键词来过滤。这个相当赞，可以快速定位到想编辑的方法。
+                     我直接把这个快键盘改成了 ctrl+o，这样按起来更顺手。
+cmd + ctrl + 左 / 右   到上 / 下一次编辑的位置，在 2 个编辑位置跳转的时候很方便。
+cmd + opt + j        跳转到文件过滤区
+cmd + shift + f      在工程中查找
+cmd + r              运行，如果选上直接 kill 掉上次进程的话，每次直接一按就可以重新运行了
+cmd + b              编译工程
+cmd + shift + k      清空编译好的文件
+cmd + .              结束本次调试
+ESC                  调出代码补全
+cmd + 单击           查看该方法的实现
+opt + 单击           查看该方法的文档
+cmd + t              新建一个 tab 栏
+cmd + shift + [      在 tab 栏之间切换
+```
+
+### Snippets
+代码片段 (Snippets) 是 xcode4 新增的功能。用于管理一些常用的代码段，在需要时通过代码补全自动生成出来，可以提高工作效率。
+
+关于这个，可以参见我的另一篇文章：</2012/02/04/use-git-to-manage-code-snippets/>
+
+### 下载 xcode
+从 Xcode4.3 开始，苹果将 Xcode 的下载放到了 Lion 的 mac app store 中。郁闷的是，中国区连接 app store 下载的速度相当慢，在试了一些方法（例如设置 hosts, 设置 dns）之后，我发现最好的办法如下：
+
+用开发者账号登陆：<https://developer.apple.com/downloads/index.action>，然后点击下载获得下载地址，然后将地址复制到 mac 版迅雷中，用迅雷下载，速度可以达到 200K 左右。
+
+希望这些技巧能提高你的工作效率，祝玩得开心:)
+
+

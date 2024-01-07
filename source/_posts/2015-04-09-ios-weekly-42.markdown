@@ -1,0 +1,52 @@
+---
+layout: post
+title: "iOS移动开发周报-第42期"
+date: 2015-04-09 22:15:52 +0800
+comments: true
+categories: iOS weekly
+---
+
+## 版权说明
+
+本文为 InfoQ 中文站特供稿件，首发地址为：[文章链接](http://www.infoq.com/cn/news/2015/04/facebook-react-native)。如需转载，请与 InfoQ 中文站联系。
+
+### 前言
+
+欢迎国内的iOS同行或技术作者向我提交周报线索，线索可以是新闻、教程、开发工具或开源项目，将相关文章的简介和链接在微博上发布并 [@唐巧_boy](http://weibo.com/tangqiaoboy) 即可。
+
+【摘要】：本期 iOS 移动开发周报带来如下内容：Facebook 正式开源 React Native、React 入门实例教程、React Native 通信机制详解等。
+
+## 新闻
+
+ 1. [用 JavaScript 开发移动原生应用，Facebook 正式开源 React Native](http://www.csdn.net/article/2015-03-27/2824323-facebook-open-sources-react-native)：Facebook 正式开源了 [React Native](https://github.com/facebook/react-native)，不过目前，只有 iOS 版，Android 版还需再等一段时间，这是最新的用 JavaScript 语言开发原生 App 的尝试。Facebook 同时还为 React Native 开发了一款基于 Atom 的 IDE：Nuclide，也已开源。
+
+ 1. [谷歌发现用于中间人攻击的证书](http://weibo.com/p/1001603823955516487761)：根据谷歌官方安全博客报道，谷歌发现 CNNIC 颁发了多个针对谷歌域名的用于中间人攻击的证书。该证书冒充成受信任的谷歌的域名，被用于部署到网络防火墙中，用于劫持所有处于该防火墙后的 HTTPS 网络通信，而绕过浏览器警告。
+
+## 教程
+
+ 1. [《轻松学习 Objective-C 消息转发》](http://www.jianshu.com/p/1bde36ad9938)：作者在文章中通过一个小例子来讲解什么是消息转发，以及如何消息转发，希望看完这篇文章时大家会彻底的明白 OC 的消息转发机制。
+
+ 1. [《React 入门实例教程》](http://www.ruanyifeng.com/blog/2015/03/react.html)：React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。本文是阮一峰原创的入门教程。
+
+ 1. [《React Native 通信机制详解》](http://blog.cnbang.net/tech/2698/)：React Native 是 facebook 刚开源的框架，可以用 javascript 直接开发原生 APP，先不说这个框架后续是否能得到大众认可，单从源码来说，这个框架源码里有非常多的设计思想和实现方式值得学习，本文介绍了它最基础的 JavaScript-ObjectC 通信机制。
+
+ 1. [《跨平台开发时代的 (再次) 到来？》](http://onevcat.com/2015/03/cross-platform/)：这篇文章主要想谈谈最近又刮起的移动开发跨平台之风，并着重介绍和对比一下像是 Xamarin，NativeScript 和 React Native 之类的东西。
+
+ 1. [《iOS 开发中的争议（二）》](/2015/03/22/ios-dev-controversy-2/)：本文作者分享了 iOS 中的一个争议话题：对于 UI 界面的编写工作，到底应该用 xib/storyboard 完成，还是用手写代码来完成？
+
+ 1. [《正确使用 Block 避免 Cycle Retain 和 Crash》](http://tanqisen.github.io/blog/2013/04/19/gcd-block-cycle-retain/)：Block 作为 C 语言的扩展，并不是高新技术，和其他语言的闭包或 lambda 表达式是一回事。需要注意的是由于 Objective-C 在 iOS 中不支持 GC 机制，使用 Block 必须自己管理内存，而内存管理正是使用 Block 坑最多的地方，错误的内存管理 要么导致 return cycle 内存泄漏要么内存被提前释放导致 crash。本文介绍了从 Block 实现原理切入，介绍了使用 Block 需要注意的地方。
+
+ 1. [《为 GCD 队列绑定 NSObject 类型上下文数据-利用 __bridge_retained(transfer) 转移内存管理权》](http://tutuge.me/2015/03/29/bind-data-to-gcd-queue/)：本文介绍了如何合理运用 `__bridge_retained(transfer)` 关键字转换对象的内存管理权，让我们自己控制对象的生命周期。
+
+ 1. [《Don't React》](http://staltz.com/dont-react/#/)：本文作者从多方面分享了他对于 React 框架的负面看法。通过此文，大家可以更加客观地了解 React 这个框架。
+
+## 开源项目
+
+ 1. [Lister](https://developer.apple.com/library/ios/samplecode/Lister/Introduction/Intro.html)：Lister 是苹果提供的官方 Demo。包含了 iOS、Mac 和 Apple Watch 版本，并且为这个 demo 分别用 Objective-C 和 Swift 实现了一遍，最后还包括了 30 页的文档。
+
+ 1. [HackerNews-React-Native](https://github.com/iSimar/HackerNews-React-Native)：HackerNews-React-Native 是用 React Native 完成的 HackerNews 客户端。
+
+ 1. [RMPZoomTransitionAnimator](https://github.com/recruit-mp/RMPZoomTransitionAnimator)：RMPZoomTransitionAnimator 是一个放大缩小的动效开源库，可以实现图片的放大缩小效果。
+
+ 1. [MMTweenAnimation](https://github.com/adad184/MMTweenAnimation)：MMTweenAnimation 是一个基于 POP 的扩展，提供了 10 种自定义的动效。
+ 
