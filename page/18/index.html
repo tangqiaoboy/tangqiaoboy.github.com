@@ -16,7 +16,7 @@
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="唐巧">
     
-        <meta name="keywords" content="唐巧,iOS,创业">
+        <meta name="keywords" content="唐巧,iOS,创业,猿辅导,斑马">
     
     <meta name="description" content="希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。">
     <meta name="description" content="希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。">
@@ -446,128 +446,29 @@
         
         
             
-            
         
         <article class="index-post">
-            <a class="abstract-title" href="/2013/02/21/introduction-of-weixin-public-account/">
+            <a class="abstract-title" href="/2016/09/01/dev-level-up-stories/">
                 
-                <span class="abstract-title-text">分享iOS开发技巧的微信公共账号</span>
+                <span class="abstract-title-text">我们身边的技术人生 -《技术人创业攻略》</span>
             </a>
             <div class="abstract-content">
-                <img src="/images/weixin-why.jpg" width="300px" />
-
-<p>记得我以前刚学 iOS 开发的时候，常常会遇到各种问题，身边没有人交流，遇到问题只能上网搜。虽然 stackoverflow 能解决大部分问题，但是还是很渴望和身边的一些同行进行讨论和交流。</p>
-<p>后来，我组建了一个 QQ 群，尽力把自己通过各种渠道认识的 iOS 同行聚集到群里面，希望形成一个讨论环境。现在群里面加入了包括网易，腾讯，百度，新浪，搜狐，美团，豆瓣等公司的 iOS 程序员以及一些自由职业者。因为大家都是比较有经验的开发者，所以每天大家的讨论不太多，但是都很有价值。</p>
+                在这个信息爆炸的移动互联网时代，我们身边总会有一些技术圈的大牛出现，介绍他们的文章大多是以技术角度，描述他们的作品多么牛逼，而我们往往除了膜拜也无从知晓这些技术人的成长经历。
+带着写一些「有趣」...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/02/21</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2013/01/23/set-ios-system-ui-language/">
-                
-                <span class="abstract-title-text">设置应用内的系统控件语言</span>
-            </a>
-            <div class="abstract-content">
-                <img src="/images/bdj-rank.jpg" class="">
-
-<p>在iOS应用中，有时候会需要调用系统的一些UI控件，例如：</p>
-<ol>
-<li>在UIWebView中长按会弹出系统的上下文菜单</li>
-<li>在UIImagePickerController中会使用系统的照相机界面</li>
-<li>在编译状态下的UITableViewCell，处于待删除时，会有一个系统的删除按钮。</li>
-</ol>
-<p>以上这些UI控件中，其显示的语言并不是和你当前手机的系统语言一致的。而是根据你的App内部的语言设置来显示。结果就是，如果你没有设置恰当的话，你的中文App可能会出现一些英文的控件文字。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/01/23</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2013/01/13/two-stage-creation-on-cocoa/">
-                
-                <span class="abstract-title-text">谈ObjC对象的两段构造模式</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Objective-c 语言在申请对象的时，需要使用两段构造 (<a target="_blank" rel="noopener" href="http://volonbolon.net/post/634999801/two-stage-creation-in-cocoa">Two Stage Creation</a>) 的模式。一个对象的创建，需要先调用 alloc 方法或 allocWithZone 方法，再调用 init 方法或 initWithSomething 方法。如下是一个 NSString 对象的创建示例：</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * str = [[<span class="built_in">NSString</span> alloc] initWithString:<span class="string">@&quot;http://blog.devtang.com&quot;</span>];</span><br></pre></td></tr></table></figure>
-
-<p>由于该语言的对象创建方法和大多数其它语言（如 C、C++、Java、JavaScript）都不一样，所以引起了我的好奇。是什么原因促使 Objective-C 做了这种设计，而又是什么原因促使大多数其它语言都采用 “new” 方法来一次性创建对象呢？</p>
-<p>在看了 <a target="_blank" rel="noopener" href="http://www.amazon.com/Cocoa-Design-Patterns-Erik-Buck/dp/0321535022">《Cocoa Design Patterns》</a> 一书（顺便吐槽一下该书中文版翻译质量不高，建议看英文版），并且做了一些调研之后，我将总结分享给大家，欢迎大家讨论。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/01/13</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2013/01/01/2012-summary/">
-                
-                <span class="abstract-title-text">2012年个人总结</span>
-            </a>
-            <div class="abstract-content">
-                <p>和 <a href="/2012/01/01/2011-summary/">去年</a> 一样，记录一下今年的成长和收获。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/01/01</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/09/01</span>
                 </div>
                 <!-- tags -->
                 
                     <div class= abstract-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="anniversary">anniversary</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="books">books</a>
     
 </div>
 
@@ -581,25 +482,57 @@
         
         
             
-            
         
         <article class="index-post">
-            <a class="abstract-title" href="/2012/12/23/use-zxing-library/">
+            <a class="abstract-title" href="/2016/08/22/soft-skills/">
                 
-                <span class="abstract-title-text">在iOS中使用ZXing库</span>
+                <span class="abstract-title-text">谈谈程序员的软技能 - 读《软技能》有感</span>
             </a>
             <div class="abstract-content">
-                <img src="/images/zxing-icon.png" class="">
+                最近读到一本有意思的书，叫：《软技能：代码之外的生存指南》，这是一本相当跨界的书，内容除了介绍了技术人的职业发展之外，还涉及了自我的营销、学习方法、生产力、健身、甚至还包括理财。应该说，每一个章...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/08/22</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="books">books</a>
+    
+</div>
 
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a target="_blank" rel="noopener" href="https://code.google.com/p/zxing/">ZXing</a>(<a target="_blank" rel="noopener" href="https://github.com/zxing/zxing">Github镜像地址</a>)是一个开源的条码生成和扫描库（开源协议为<a target="_blank" rel="noopener" href="http://www.apache.org/licenses/LICENSE-2.0">Apache2.0</a>)。它不但支持众多的条码格式，而且有各种语言的实现版本，它支持的语言包括：Java, C++, C#, Objective-C, ActionScript和Ruby。</p>
-<p>我上周在iOS项目开发中使用了ZXing的扫描二维码功能。在此总结一下如何将ZXing集成到已有的iOS工程中，分享给大家。</p>
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/08/13/xiaoqing-and-rxswfit-course/">
+                
+                <span class="abstract-title-text">小青和他的 RxSwift 课程</span>
+            </a>
+            <div class="abstract-content">
+                
+第一次认识小青（@靛青K），是在他与梁杰一起创办的 T 沙龙聚会上。当时小青邀请到了代码家，给大家介绍了函数式编程的一些内容。T 沙龙的模式很有意思，它强调纯线下的、小范围的、免费的交流。这与...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/12/23</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/08/13</span>
                 </div>
                 <!-- tags -->
                 
@@ -612,115 +545,31 @@
         
         
             
-            
         
         <article class="index-post">
-            <a class="abstract-title" href="/2012/12/15/do-not-use-storyboard/">
+            <a class="abstract-title" href="/2016/08/13/talk-about-full-stack/">
                 
-                <span class="abstract-title-text">StoryBoard--看上去很美</span>
+                <span class="abstract-title-text">谈谈 T 型人才</span>
             </a>
             <div class="abstract-content">
-                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>StoryBoard 是苹果在 2011 年的 WWDC Session 309《Introducing Interface Builder Storyboarding》中介绍的 Interface Builder 的新功能。其基本想法是将原本的 xib 进行升级，引入一个容器用于管理多个 xib 文件，并且这个容器可以通过拖拽设置 xib 之间的界面跳转。而这个容器就是被苹果称做的 StoryBoard。下图是一个 Storyboard 的截图。</p>
-<img src="/images/enbrace-ios5-1.png" class="">
+                「全栈」工程师前一段时间，「全栈」工程师的概念很火，不过大多数时候，「全栈」工程师指的是一个人同时写 Web 前端和后端，顶多加上一些运维工作。通常情况下，我很少见到一个人能够同时写 Web 前...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/12/15</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/08/13</span>
                 </div>
                 <!-- tags -->
                 
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
+                    <div class= abstract-tags >
     
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/12/09/iap-crack-issue/">
-                
-                <span class="abstract-title-text">关于IAP的破解</span>
-            </a>
-            <div class="abstract-content">
-                <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>大概在今年7月份，有俄罗斯黑客<a target="_blank" rel="noopener" href="http://www.in-appstore.com/">破解</a>了苹果的应用内付费（In-App Purchases），设备在不越狱的情况下就可以免费获得来自苹果官网App Store里应用的收费道具。受影响的产品众多，包括著名的Angry Birds，切水果，Mega Jump, Pandora等。<a target="_blank" rel="noopener" href="https://docs.google.com/spreadsheet/ccc?key=0AvSXyNTiqEXMdGRKZlN1Snl5S3h1Z1NsTTFYTlJPTUE#gid=0">这里</a>有一份受影响的著名的游戏应用列表。</p>
-<p>正常的越狱行为还是比较复杂的，需要下载破解软件，并且操作进入DFU模式，所以大部分人并不能够方便地越狱。但该方案不需要越狱就可以破解应用内付费，给用户实施该行为提供了方便。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/12/09</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
     
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/12/09/in-app-purchase-check-list/">
-                
-                <span class="abstract-title-text">iOS应用内付费(IAP)开发步骤列表</span>
-            </a>
-            <div class="abstract-content">
-                <p>前两天和服务端同事一起，完成了应用内付费（以下简称IAP, In app purchase）的开发工作。步骤繁多，在此把开发步骤列表整理如下。因为只是步骤列表，所以并不含详细的说明教程，需要看教程的新手，可以看我附在最后的一些参考链接。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/12/09</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
+        <a class="post-tag" href="javascript:void(0);" data-tags="startup">startup</a>
     
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/12/08/use-privoxy/">
-                
-                <span class="abstract-title-text">使用Privoxy做智能代理切换</span>
-            </a>
-            <div class="abstract-content">
-                <blockquote><p>You take the blue pill, the story ends, you wake up in your bed, and believe whatever you want to believe. </p>
-<p>You take the red pill, you stay in Wonderland, and I show you just how deep the rabbit hole goes.</p>
-<p>– 《黑客帝国》</p>
-</blockquote>
+</div>
 
-<p>如果你不知道什么是“墙”，那么应该祝福你继续活在美丽的Matrix里。但如果你选择服用红色药丸，那么在享受了墙外的信息流畅之后，你就再也无法忍受墙内的世界了。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/12/08</span>
-                </div>
-                <!-- tags -->
                 
             </div>
         </article>
@@ -731,27 +580,32 @@
         
         
             
-            
         
         <article class="index-post">
-            <a class="abstract-title" href="/2012/11/16/drop-ios4-enbrace-ios5/">
+            <a class="abstract-title" href="/2016/08/06/revert-to-target-commit-with-git/">
                 
-                <span class="abstract-title-text">放弃iOS4，拥抱iOS5</span>
+                <span class="abstract-title-text">如何用 Git 将代码恢复到一个历史的版本</span>
             </a>
             <div class="abstract-content">
-                <img src="/images/ios5.jpg" class="">
+                需求有些时候，在一些特殊情况下，我们需要将代码恢复到一个历史的提交版本上。而这个历史提交版本，离最新的提交已经比较久远了。
+比如，我希望将如下的仓库的提交，恢复到上上上上次提交。当然，我可以一次...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/08/06</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Git">Git</a>
+    
+</div>
 
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>苹果在2011年的WWDC大会上发布了iOS5，不过考虑到要支持iOS4.x的系统，大多数App都无法使用iOS5的新特性。现在将近1年半过去了，从我们自己的App后台的统计数据、一些第三方的统计数据和一些业界的朋友告知我的数据都显示，iOS4.x的系统所占比例已经小于5%了，并且还在持续下降。所以，我们有必要放弃对iOS4.x的支持，全面拥抱iOS5。</p>
-<p>只支持iOS5.0以上版本使得我们可以使用iOS5带来的诸多新特性，有些新特性可以极大地方便我们的开发，我将这些新特性列举如下。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/11/16</span>
-                </div>
-                <!-- tags -->
                 
             </div>
         </article>
@@ -762,89 +616,25 @@
         
         
             
-            
         
         <article class="index-post">
-            <a class="abstract-title" href="/2012/11/14/make-stack-trace-more-readable/">
+            <a class="abstract-title" href="/2016/08/04/i-do-not-like-core-data/">
                 
-                <span class="abstract-title-text">让Xcode的 stack trace信息可读</span>
+                <span class="abstract-title-text">我为什么不喜欢 Core Data</span>
             </a>
             <div class="abstract-content">
-                <p>昨天在写 iOS 代码的时候，调试的时候模拟器崩溃了。异常停在了如下整个 main 函数的入口处：</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> main(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        <span class="comment">// 异常停在了下面这行，毫无提示作用</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">UIApplicationMain</span>(argc, argv, <span class="literal">nil</span>, <span class="built_in">NSStringFromClass</span>([MyClass <span class="keyword">class</span>]));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/11/14</span>
-                </div>
-                <!-- tags -->
                 
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/11/10/how-to-design-upgrade-notice/">
-                
-                <span class="abstract-title-text">改进iOS客户端的升级提醒功能</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="功能设计"><a href="#功能设计" class="headerlink" title="功能设计"></a>功能设计</h2><p>先申明一下，我是码农，不是一个产品经理，但我觉得现有市面上的很多 App，设计的 “升级提示功能” 都不太友好。在此分享一下我的想法，欢迎大家讨论。</p>
-<p>这些 App 包括：新浪微博、网易微博、网易新闻客户端以及大部分带有升级提示功能的 App，所以我觉得这个问题还是挺普遍的。对于该问题，一句话描述起来就是：“这些 App 都会在用户刚刚使用它的时候，提示有新版本，让用户去 AppStore 上下载最新的版本”。下面是某个应用的升级提示截图：</p>
-<img src="/images/app-upgrade-1.jpg" class="">
 
-<p>为什么我认为这是一个糟糕的设计呢？因为用户刚刚打开你的 App，明显就是想使用你的功能。例如刚刚打开新浪微博，可能就是想看一下最新的消息或回复。刚刚打开网易新闻客户端，可能就是想看看最新的新闻。这个时候，你告诉用户有新版本，是想让用户暂时放弃使用该 App 吗？我不知道有多少用户会去点 “升级” 这个按钮，反正我每次看到这个提示都很郁闷，因为我如果点了，我就暂时不能使用该应用了（升级时原版本的 App 是无法使用的）。所以我在想，这个提示升级的时间能不能做得更友好一些？</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/11/10</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/10/27/use-opencv-in-ios/">
-                
-                <span class="abstract-title-text">在MacOS和iOS系统中使用OpenCV</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><img src="/images/opencv.png" class="">
 
-<p><a target="_blank" rel="noopener" href="http://opencv.org/about.html">OpenCV</a> 是一个开源的跨平台计算机视觉库，实现了图像处理和计算机视觉方面的很多通用算法。</p>
-<p>最近试着在 MacOS 和 iOS 上使用 OpenCV，发现网上关于在 MacOS 和 iOS 上搭建 OpenCV 的资料很少。好不容易搜到些资料，却发现由于 OpenCV 和 Xcode 的版本更新，变得不再有用了。有些问题费了我很多时间，在此总结分享给大家，希望后来人少走些弯路。</p>
-<p>可以预见到，随着 Xcode 和 OpenCV 的版本更新，本文可能不再有效了。</p>
-<p>所以特此注明，文本介绍的搭建方法仅针对于 Xcode4.5.1 和 OpenCV 2.4.2 版本。</p>
-<p>（2013-6-22）更新: 我在 Xcode4.6.2 和 OpenCV 2.4.5 版本的时候重新进行了一次环境搭建，以下内容做了相应调整，应该也是有效的。</p>
+我一直不喜欢 Core Data，以前不太敢明目张胆地这么表达，现在收集到越来越多相关的信息，所以给大家分享一下，我为什么不喜欢 Core Data。
+Core Data 太复杂在今年刚刚...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/10/27</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/08/04</span>
                 </div>
                 <!-- tags -->
                 
@@ -859,20 +649,19 @@
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2012/10/15/scrum-and-architecture-in-fenbi/">
+            <a class="abstract-title" href="/2016/07/30/ios-memory-management/">
                 
-                <span class="abstract-title-text">粉笔网的架构和项目管理</span>
+                <span class="abstract-title-text">理解 iOS 的内存管理</span>
             </a>
             <div class="abstract-content">
-                10 月 10 日，在 CMDN 炫姐姐 的邀请下，我们粉笔网团队通过 CSDN 的 CMDN Club, 对外进行了第一次 技术分享。分享的内容主要包括 2 部分:
-第一部分是关于粉笔网使用 ...
+                远古时代的故事那些经历过手工管理内存（MRC）时代的人们，一定对 iOS 开发中的内存管理记忆犹新。那个时候大约是 2010 年，国内 iOS 开发刚刚兴起，tinyfool 大叔的大名已经如雷...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/10/15</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/07/30</span>
                 </div>
                 <!-- tags -->
                 
@@ -885,168 +674,89 @@
         
         
             
-            
         
         <article class="index-post">
-            <a class="abstract-title" href="/2012/10/09/3rd-libs-used-in-fenbi-app/">
+            <a class="abstract-title" href="/2016/07/24/management-30-summary/">
                 
-                <span class="abstract-title-text">粉笔网iPhone端使用的第三方开源库</span>
+                <span class="abstract-title-text">六个维度的理论和故事 - 读《管理 3.0》</span>
             </a>
             <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近有朋友问我粉笔网 iPhone 端使用了哪些第三方的开源库。我在这儿整理了一下，分享给大家。</p>
-<img src="/images/fenbi_libs.png" class="">
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/10/09</span>
-                </div>
-                <!-- tags -->
                 
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/10/05/upgrade-your-app-to-support-iphone5/">
-                
-                <span class="abstract-title-text">让你的APP支持iPhone5</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>国庆节前，为了支持 iPhone5 的屏幕分辨率 (640 象素 x 1136 象素)，我尝试着升级粉笔网 <a target="_blank" rel="noopener" href="http://itunes.apple.com/cn/app/fen-bi-wang/id551540593">iPhone 客户端</a>。整个过程花了大概一天的时间，我把这个过程总结下来，希望对大家有帮助。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/10/05</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/09/15/talk-about-my-startup-exp/">
-                
-                <span class="abstract-title-text">谈谈我的创业感受</span>
-            </a>
-            <div class="abstract-content">
-                <p>5 个程序员，3 个多月时间，30 多万行代码，1000 个 bug，只为打造卓越产品。</p>
-<h2 id="开发历程"><a href="#开发历程" class="headerlink" title="开发历程"></a>开发历程</h2><p>先简单介绍一下产品。我们的产品叫 “<a target="_blank" rel="noopener" href="http://fenbi.com/">粉笔网</a>”，这是一个新颖的学习社区。我们公司的创始人是前网易高管 <a target="_blank" rel="noopener" href="http://baike.baidu.com/view/2264197.htm">李勇</a>。我们团队从 4 月份开始筹备，5 月份开始工作，整个开发历经 3 个多月，其中网站于 8 月 28 号顺利上线，<a target="_blank" rel="noopener" href="http://itunes.apple.com/cn/app/fen-bi-wang/id551540593">iPhone 客户端</a> 和 <a target="_blank" rel="noopener" href="http://cdn.fen.bi/sc/app/fenbi.apk">Android 客户端</a> 于 9 月 8 日顺利通过审核上线。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/09/15</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/08/26/use-script-to-power-up-ui-work/">
-                
-                <span class="abstract-title-text">用脚本来简化iOS美术同学的工作</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我们知道，在 iOS 开发中，为了使我们的 app 能够同时支持 iPhone 的 Retina 屏幕和普通屏幕，美术同学需要对 UI 设计稿中的每个元素进行 2 次切图。苹果要求对图片元素的命名分别为 name.png 和 <a href="mailto:&#x6e;&#x61;&#109;&#101;&#64;&#x32;&#x78;&#x2e;&#x70;&#110;&#x67;">&#x6e;&#x61;&#109;&#101;&#64;&#x32;&#x78;&#x2e;&#x70;&#110;&#x67;</a>，带 @2x 的表示是 Retina 屏幕的贴图，不带 @2x 的同名文件为普通屏幕的贴图。</p>
-<p>我在开发的时候发现很难要求美术同学按照开发的要求来对图片命名。她们通常对于切图的命名是例如 * 登录按钮大 .png* ，* 登录按钮小 .png*, * 登录按钮按下大 .png* * 登录按钮按下小 .png* 这样的形式。于是，对这些文件按照苹果的要求进行重命名就成了我这个码农的一个体力活。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/08/26</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/08/05/use-modern-objective-c/">
-                
-                <span class="abstract-title-text">Objective-C的新特性</span>
-            </a>
-            <div class="abstract-content">
-                <p>苹果在今年的 WWDC2012 大会上介绍了大量 Objective-C 的新特性，能够帮助 iOS 程序员更加高效地编写代码。在不久前更新的 Xcode4.4 版本中，这些新特性已经可以使用了。让我们看看这些新特性有哪些：</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/08/05</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/06/24/enhance-uiactionsheet/">
-                
-                <span class="abstract-title-text">封装同步的UIActionSheet</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>做 iOS 开发的同学想必都用过 UIActionSheet。UIActionSheet 可以弹出一个选择列表，让用户选择列表中的某一项操作。使用 UIActionSheet 非常简单，以下是一个简单的示例代码：</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="type">void</span>)someButtonClicked &#123;</span><br><span class="line">    <span class="built_in">UIActionSheet</span> * sheet = [[<span class="built_in">UIActionSheet</span> alloc] initWithTitle:<span class="literal">nil</span> delegate:<span class="keyword">self</span> cancelButtonTitle:<span class="string">@&quot;ddd&quot;</span> destructiveButtonTitle:<span class="string">@&quot;aaa&quot;</span> otherButtonTitles:<span class="string">@&quot;bbb&quot;</span>, <span class="string">@&quot;ccc&quot;</span>, <span class="string">@&quot;ddd&quot;</span>, <span class="literal">nil</span>];</span><br><span class="line">    sheet.destructiveButtonIndex = <span class="number">1</span>;</span><br><span class="line">    [sheet showInView:<span class="keyword">self</span>.view];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)actionSheet:(<span class="built_in">UIActionSheet</span> *)actionSheet clickedButtonAtIndex:(<span class="built_in">NSInteger</span>)buttonIndex &#123;</span><br><span class="line">    <span class="type">int</span> result = buttonIndex;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;result = %d&quot;</span>, result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>但我个人在使用时，感觉 UIActionSheet 有以下 2 个问题：</p>
+前言最近读完了段念推荐的《管理 3.0：培养和提升敏捷领导力》，本书是一本结构规整的书，全书将管理理论用六个维度来阐述，然后每个维度下，先讲理论，再讲实践中的故事。
+在作者 Jurgen A...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/06/24</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/07/24</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="books">books</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/07/20/programming-worlds-farmer-and-god/">
+                
+                <span class="abstract-title-text">软件开发中的上帝模式与农民模式</span>
+            </a>
+            <div class="abstract-content">
+                
+
+我在做 iOS 开发的时候，发现自己在写程序的时候，常常处于两种状态的切换，我把这两种状态称为软件开发的上帝模式与农民模式。我先给大家介绍一下这两种模式的特点。
+上帝模式处于上帝模式时，我需...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/07/20</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/07/20/from-newbie-to-master/">
+                
+                <span class="abstract-title-text">成长为 iOS 大 V 的秘密</span>
+            </a>
+            <div class="abstract-content">
+                前言毫不谦虚地说，我是国内 iOS 开发的大 V。我从 2011 年底开始自学 iOS 开发，经过 3 年时间，到 2014 年底，我不但写作了上百篇 iOS 相关的原创博客文章，完成《iOS ...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/07/20</span>
                 </div>
                 <!-- tags -->
                 
@@ -1057,7 +767,7 @@
     <!-- paginator  -->
     
         <nav class="page-nav">
-            <a class="extend prev" rel="prev" href="/page/17/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/19/">NEXT &gt;</a>
+            <a class="extend prev" rel="prev" href="/page/17/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="extend next" rel="next" href="/page/19/">NEXT &gt;</a>
         </nav>
     
 </main>

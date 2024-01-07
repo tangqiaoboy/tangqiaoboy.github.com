@@ -16,20 +16,20 @@
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="唐巧">
     
-        <meta name="keywords" content="唐巧,iOS,创业">
+        <meta name="keywords" content="唐巧,iOS,创业,猿辅导,斑马">
     
     <meta name="description" content="希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。">
-    <meta name="description" content="因为工作的电脑使用满 4 年，所以周末领到了一台新的 M2 的 MBP。考虑到新电脑 CPU 不太一样，所以我没有使用迁移助手，尝试重装了一遍电脑。 整个安装下来最麻烦的就是开发者环境，基本上无法正常连上外网下载各种开源软件，最后我灵机一动搜了一下，才发现清华大学上有不少开源软件的镜像。这样大大加快了我安装软件的速度。 这几个镜像的地址是：  Home Brew: https:&#x2F;&#x2F;mirror">
+    <meta name="description" content="因为工作的电脑使用满 4 年，所以周末领到了一台新的 M2 的 MBP。考虑到新电脑 CPU 不太一样，所以我没有使用迁移助手，尝试重装了一遍电脑。 整个安装下来最麻烦的就是开发者环境，基本上无法正常连上外网下载各种开源软件，最后我灵机一动搜了一下，才发现清华大学上有不少开源软件的镜像。这样大大加快了我安装软件的速度。 整理了一下自己的生产力工具，现在做业务之后，基本不写代码了，所以偶尔写博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重装 M2 的 MBP">
 <meta property="og:url" content="https://blog.devtang.com/2024/01/07/install-mac-env/index.html">
 <meta property="og:site_name" content="唐巧的博客">
-<meta property="og:description" content="因为工作的电脑使用满 4 年，所以周末领到了一台新的 M2 的 MBP。考虑到新电脑 CPU 不太一样，所以我没有使用迁移助手，尝试重装了一遍电脑。 整个安装下来最麻烦的就是开发者环境，基本上无法正常连上外网下载各种开源软件，最后我灵机一动搜了一下，才发现清华大学上有不少开源软件的镜像。这样大大加快了我安装软件的速度。 这几个镜像的地址是：  Home Brew: https:&#x2F;&#x2F;mirror">
+<meta property="og:description" content="因为工作的电脑使用满 4 年，所以周末领到了一台新的 M2 的 MBP。考虑到新电脑 CPU 不太一样，所以我没有使用迁移助手，尝试重装了一遍电脑。 整个安装下来最麻烦的就是开发者环境，基本上无法正常连上外网下载各种开源软件，最后我灵机一动搜了一下，才发现清华大学上有不少开源软件的镜像。这样大大加快了我安装软件的速度。 整理了一下自己的生产力工具，现在做业务之后，基本不写代码了，所以偶尔写博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.devtang.com/images/macbook-m2.jpg">
 <meta property="og:image" content="https://blog.devtang.com/images/imageoptim.png">
 <meta property="article:published_time" content="2024-01-06T16:04:25.000Z">
-<meta property="article:modified_time" content="2024-01-07T13:55:01.198Z">
+<meta property="article:modified_time" content="2024-01-07T16:49:08.351Z">
 <meta property="article:author" content="唐巧">
 <meta property="article:tag" content="iOS,唐巧,猿辅导,开发,产品,网易,移动">
 <meta name="twitter:card" content="summary">
@@ -337,7 +337,7 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">527</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">547</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -502,26 +502,20 @@
 
 <p>因为工作的电脑使用满 4 年，所以周末领到了一台新的 M2 的 MBP。考虑到新电脑 CPU 不太一样，所以我没有使用迁移助手，尝试重装了一遍电脑。</p>
 <p>整个安装下来最麻烦的就是开发者环境，基本上无法正常连上外网下载各种开源软件，最后我灵机一动搜了一下，才发现清华大学上有不少开源软件的镜像。这样大大加快了我安装软件的速度。</p>
-<p>这几个镜像的地址是：</p>
-<ul>
-<li>Home Brew: <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/</a></li>
-<li>Oh My Zsh：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ohmyzsh.git/">https://mirrors.tuna.tsinghua.edu.cn/help/ohmyzsh.git/</a></li>
-<li>npm： <code>npm config set registry http://mirrors.cloud.tencent.com/npm/</code></li>
-</ul>
 <p>整理了一下自己的生产力工具，现在做业务之后，基本不写代码了，所以偶尔写博客或者查资料有这些软件就够用了：</p>
 <h3 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h3><p>拥有一个更好的 Terminal 操作界面： <a target="_blank" rel="noopener" href="https://iterm2.com/">https://iterm2.com/</a></p>
+<h3 id="Home-Brew"><a href="#Home-Brew" class="headerlink" title="Home Brew"></a>Home Brew</h3><p>用镜像安装Home Brew: <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/</a></p>
+<p>有了 <a target="_blank" rel="noopener" href="https://brew.sh/">Home Brew</a> 之后就可以装我需要的一些环境：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install node</span><br><span class="line">brew install hexo</span><br></pre></td></tr></table></figure>
+
+<p>npm 的资源比较慢，安好 node 之后也把镜像设置一下：</p>
+<p>npm： <code>npm config set registry http://mirrors.cloud.tencent.com/npm/</code></p>
+<h3 id="Oh-My-Zsh"><a href="#Oh-My-Zsh" class="headerlink" title="Oh My Zsh"></a>Oh My Zsh</h3><p>Oh My Zsh 可以利用镜像安装：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ohmyzsh.git/">https://mirrors.tuna.tsinghua.edu.cn/help/ohmyzsh.git/</a></p>
+<p>安装完可以设置一下 <a target="_blank" rel="noopener" href="https://github.com/wting/autojump#installation">autojump</a> 插件</p>
+<p>再把 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos">macos 插件</a>打开。</p>
 <h3 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h3><p>我主要用 <a target="_blank" rel="noopener" href="https://www.sublimetext.com/">Sublime Text</a> 来写博客。</p>
 <p>配合下面的设置可以方便在命令行中调用 Sublime Text。</p>
-<blockquote><p>export PATH&#x3D;”&#x2F;Applications&#x2F;Sublime Text.app&#x2F;Contents&#x2F;SharedSupport&#x2F;bin:$PATH”</p>
-</blockquote>
-
-<h3 id="Home-Brew"><a href="#Home-Brew" class="headerlink" title="Home Brew"></a>Home Brew</h3><p>有了 <a target="_blank" rel="noopener" href="https://brew.sh/">Home Brew</a> 之后就可以装我需要的一些环境：</p>
-<blockquote><p>brew install node</p>
-</blockquote>
-
-<p>有了 node 之后就可以装我的 hexo 博客环境了。</p>
-<blockquote><p>npm install -g hexo-cl</p>
-</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export PATH=&quot;/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH&quot;</span><br></pre></td></tr></table></figure>
 
 <h3 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h3><p>在安装软件的时候，我顺便花 30 美元把我的 Alfred 升级到了 5.0，试了一下它的 Power Pack 提供的 <a target="_blank" rel="noopener" href="https://www.alfredapp.com/extras/snippets/">Snippets</a> 功能，比 <a target="_blank" rel="noopener" href="https://kapeli.com/dash">Dash</a> 还强大很多，于是果断把 Dash 换掉了。麻烦的是我自己原本整理的 Snippets 无法方便迁移，只能一个一个复制，不过也当再次整理了，因为很多 Snippets 没用了。</p>
 <p>Alfred 的 Snippets 也支持利用 <a target="_blank" rel="noopener" href="https://www.alfredapp.com/help/advanced/sync/">Dropbox 同步</a>。</p>
@@ -539,7 +533,7 @@
             <p>原文作者：<a href="https://blog.devtang.com">唐巧</a>
             <p>原文链接：<a href="https://blog.devtang.com/2024/01/07/install-mac-env/">https://blog.devtang.com/2024/01/07/install-mac-env/</a>
             <p>发表日期：<a href="https://blog.devtang.com/2024/01/07/install-mac-env/">January 7th 2024, 12:04:25 am</a>
-            <p>更新日期：<a href="https://blog.devtang.com/2024/01/07/install-mac-env/">January 7th 2024, 9:55:01 pm</a>
+            <p>更新日期：<a href="https://blog.devtang.com/2024/01/07/install-mac-env/">January 8th 2024, 12:49:08 am</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -705,7 +699,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#iTerm2"><span class="toc-number">1.</span> <span class="toc-text">iTerm2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sublime-Text"><span class="toc-number">2.</span> <span class="toc-text">Sublime Text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Home-Brew"><span class="toc-number">3.</span> <span class="toc-text">Home Brew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alfred"><span class="toc-number">4.</span> <span class="toc-text">Alfred</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1Password-6"><span class="toc-number">5.</span> <span class="toc-text">1Password 6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dropbox"><span class="toc-number">6.</span> <span class="toc-text">Dropbox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Surge"><span class="toc-number">7.</span> <span class="toc-text">Surge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageOptim"><span class="toc-number">8.</span> <span class="toc-text">ImageOptim</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#iTerm2"><span class="toc-number">1.</span> <span class="toc-text">iTerm2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Home-Brew"><span class="toc-number">2.</span> <span class="toc-text">Home Brew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Oh-My-Zsh"><span class="toc-number">3.</span> <span class="toc-text">Oh My Zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sublime-Text"><span class="toc-number">4.</span> <span class="toc-text">Sublime Text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Alfred"><span class="toc-number">5.</span> <span class="toc-text">Alfred</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1Password-6"><span class="toc-number">6.</span> <span class="toc-text">1Password 6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dropbox"><span class="toc-number">7.</span> <span class="toc-text">Dropbox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Surge"><span class="toc-number">8.</span> <span class="toc-text">Surge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ImageOptim"><span class="toc-number">9.</span> <span class="toc-text">ImageOptim</span></a></li></ol>
             </div>
         
         <!-- sidebar -->

@@ -16,7 +16,7 @@
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="唐巧">
     
-        <meta name="keywords" content="唐巧,iOS,创业">
+        <meta name="keywords" content="唐巧,iOS,创业,猿辅导,斑马">
     
     <meta name="description" content="希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。">
     <meta name="description" content="希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。">
@@ -446,583 +446,28 @@
         
         
             
-            
         
         <article class="index-post">
-            <a class="abstract-title" href="/2012/05/05/do-not-use-sbjson/">
+            <a class="abstract-title" href="/2016/07/16/startup-4th-year-summary/">
                 
-                <span class="abstract-title-text">不要使用SBJSON(json-framework)</span>
+                <span class="abstract-title-text">写在创业四周年</span>
             </a>
             <div class="abstract-content">
-                <p>不知道为什么，在iOS开发中，有很多人使用 <a target="_blank" rel="noopener" href="https://github.com/stig/json-framework">SBJSON</a> （又被称作json-framework)来做JSON解析库。我想这是因为SBJSON是最早在iOS上出现的JSON解析库。但是随着iOS开发的流行，越来越多优秀的JSON解析库也涌现出来, SBJSON和它们相比，性能上有很大的差距。</p>
+                序一转眼，创业四周年了。我从来没有想到过，我的职业生涯中，待得最久的是猿题库这家创业公司。2016 年 5 月 31 日，我们宣布了获得腾讯的 4000 万美元投资，这是腾讯在 K12 在线教育...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/05/05</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/04/22/use-fmdb/">
-                
-                <span class="abstract-title-text">在iOS开发中使用FMDB</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>SQLite (<a target="_blank" rel="noopener" href="http://www.sqlite.org/docs.html">http://www.sqlite.org/docs.html</a>) 是一个轻量级的关系数据库。iOS SDK 很早就支持了 SQLite，在使用时，只需要加入 libsqlite3.dylib 依赖以及引入 sqlite3.h 头文件即可。但是，原生的 SQLite API 在使用上相当不友好，在使用时，非常不便。于是，开源社区中就出现了一系列将 SQLite API 进行封装的库，而 FMDB (<a target="_blank" rel="noopener" href="https://github.com/ccgus/fmdb">https://github.com/ccgus/fmdb</a>) 则是开源社区中的优秀者。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/04/22</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/04/06/about-100-devices-limit/">
-                
-                <span class="abstract-title-text">关于iOS测试机个数上限的详细规则</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="2016-02-16-更新"><a href="#2016-02-16-更新" class="headerlink" title="2016.02.16 更新"></a>2016.02.16 更新</h2><p>关于测试机上限的规则苹果有变更，本文中的内容有一些陈旧。</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>公司的iOS测试机快达到苹果规定的100个上限了，而因为the new iPad新出，我们需要新的quota来测试新iPad，所以就仔细研究了一下苹果关于100个测试设备上限的规则。在这里分享给大家。规则的详细内容主要来自 <a target="_blank" rel="noopener" href="https://developer.apple.com/support/ios/program-renewals.html">苹果的官网文档</a>。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/04/06</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/03/24/talk-about-uiwebview-and-phonegap/">
-                
-                <span class="abstract-title-text">关于UIWebView的总结</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天参加了 Adobe 和 CSDN 组织的一个关于 <a target="_blank" rel="noopener" href="http://hui.csdn.net/MeetingInfo.aspx?mid=99">PhoneGap 的开发讲座</a> ，而 PhoneGap 在 iOS 设备上的实现就是通过 UIWebView 控件来展示 html 内容，并且与 native 代码进行交互的。</p>
-<p>正好我们在做有道云笔记的 iPad 版，因为我们也是使用 UIWebView 来展示笔记内容，所以也需要做 js 与 native 代码相互调用的事情。所以在这儿顺便总结一下 UIWebView 在使用上的细节，以及谈谈我对 PhoneGap 的看法。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/03/24</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/03/15/10-most-common-questions-on-stackoverflow-201203/">
-                
-                <span class="abstract-title-text">iPhone开发常问的十个问题(2012年3月版)</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天去stackoverflow.com上看了一下iPhone标签下排名最高的10个问题，将它们整理出来，希望这些常见问题能帮到一些iPhone开发的初学者。本来想把答案也翻译过来的，后来发现答案资料通常都比较复杂，翻译起来太麻烦。所以大家还是看英文的答案吧，我只顺带用中文总结一下答案。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/03/15</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/03/10/xcode4-tips/">
-                
-                <span class="abstract-title-text">Xcode4 使用技巧</span>
-            </a>
-            <div class="abstract-content">
-                <p>使用 xcode4 也有一段时间了，今天整理了一下 xcode4 的一些使用技巧，在这里分享给大家。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/03/10</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/29/collaboration-with-git/">
-                
-                <span class="abstract-title-text">用Git进行协同开发</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="问题场景描述"><a href="#问题场景描述" class="headerlink" title="问题场景描述"></a>问题场景描述</h2><p>常常会遇到这样的协同场景：后台的同事和前端的同事需要共同开发一个新功能，而他们的代码相互依赖，所以需要不停地更新各自的代码进行联调。</p>
-<p>对于这种场景，最简单的方式就是，这 2 个同事坐到一起，然后把 svn 当作一个共享代码的中转站来共享开发中的代码。</p>
-<p>在这种方式下，大家各自写自己的代码，提交到 svn 上，然后用 svn up 获得对方的代码。在调试问题的时候，大家可能不停地更新代码，然后让对方用 svn up 来更新。最终，虽然开发能够顺利进行，但是 svn 上会积累大量调试中的代码历史。所以，这样把 svn 当作代码中转站是一个很山寨的行为。</p>
-<p>在开发 <a target="_blank" rel="noopener" href="http://note.youdao.com/">有道云笔记</a> 新的 <a target="_blank" rel="noopener" href="http://itunes.apple.com/cn/app/id483995181">iPad 版</a> 时，我和前端同事 zyc 尝试用 git 进行了协同开发。在这里把具体方案分享给大家，欢迎大家讨论。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/29</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/07/16</span>
                 </div>
                 <!-- tags -->
                 
                     <div class= abstract-tags >
     
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Git">Git</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/22/use-gcd/">
-                
-                <span class="abstract-title-text">使用GCD</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="什么是-GCD"><a href="#什么是-GCD" class="headerlink" title="什么是 GCD"></a>什么是 GCD</h2><p>Grand Central Dispatch (GCD) 是 Apple 开发的一个多核编程的解决方法。该方法在 Mac OS X 10.6 雪豹中首次推出，并随后被引入到了 iOS4.0 中。GCD 是一个替代诸如 NSThread, NSOperationQueue, NSInvocationOperation 等技术的很高效和强大的技术。</p>
-<p>GCD 和 block 的配合使用，可以方便地进行多线程编程。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/22</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/16/apply-daily-build-in-ios-project/">
-                
-                <span class="abstract-title-text">给iOS工程增加Daily Build</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Daily Build 是一件非常有意义的事情，也是敏捷开发中关于 “持续集成” 的一个实践。Daily Build 对于开发来说有如下好处：</p>
-<ul>
-<li>保证了每次 check in 的代码可用，不会造成整个工程编译失败。</li>
-<li>进度跟进。产品经理可以每天看到最新的开发进度，并且试用产品，调整一些细节。很多时候，一个新功能，你真正用了一下才能有体会好或不好，所以 daily build 也给产品经理更多时间来调理他的设计。</li>
-<li>需求确认。产品经理可以确认开发的功能细节是他的预期。因为我们的开发比较紧凑，所以都没有传统的需求说明文档，所以 daily build 也给产品经理用于尽早确认开发的功能细节是他的预期，我就遇到一次产品经理发现开发出的一个功能细节和他的预期不一致，但是因为有 daily build，使得我可以尽早做修改，把修改的代价减小了。</li>
-<li>测试跟进。如果功能点是独立的话，测试同事完全可以根据 daily build 来进行一些早期的测试。越早的 Bug 反馈可以使得修改 bug 所需的时间越短。</li>
-</ul>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/16</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/14/nsstring-java-like-wrapper/">
-                
-                <span class="abstract-title-text">给NSString增加Java风格的方法</span>
-            </a>
-            <div class="abstract-content">
-                <p>我实在受不了 NSString 冗长的方法调用了，每次写之前都要查文档。特别是那个去掉前后多余的空格的方法，长得离谱。与之对应的别的语言，拿 java 来说，对应的方法名叫 trim。拿 python 来说，对应的方法名叫 strip。但是 Objective-C 呢？是下面这段：</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[<span class="keyword">self</span> stringByTrimmingCharactersInSet:[<span class="built_in">NSCharacterSet</span> whitespaceAndNewlineCharacterSet]];</span><br></pre></td></tr></table></figure>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/14</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/10/setup-blog-based-on-github/">
-                
-                <span class="abstract-title-text">象写程序一样写博客：搭建基于github的博客</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="2016-02-16-更新说明"><a href="#2016-02-16-更新说明" class="headerlink" title="2016.02.16 更新说明"></a>2016.02.16 更新说明</h2><p>本博客已经由 octopress 迁移到了 hexo，本文章的内容稍显陈旧。</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>github 真是无所不能。其 <a target="_blank" rel="noopener" href="http://pages.github.com/">Pages 功能</a> 支持上传 html，并且在页面中显示。于是有好事者做了一个基于 github 的博客管理工具：<a target="_blank" rel="noopener" href="http://octopress.org/">octopress</a>，基本原理是用 git 来管理你的文章，然后最终发布到 github 上成为一个独立博客站点。由于 github 支持 CNAME 域名指向，所以如果有独立域名的话，可以基于这些做出一个专业的博客站点出来。</p>
-<p>本博客就是完全基于此搭建起来的，在使用了 2 个月之后，我将原系统根据中国人的需求做了一些配置，去掉了 GFW 会挡住的 google font api，以及替换掉了速度超慢的国外的评论系统，也加上了分享到国内的微博的功能。现在把这些都总结出来，希望大家都可以方便地搭建基于 github 的博客来。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/10</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Git">Git</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/">
-                
-                <span class="abstract-title-text">iOS5中UIViewController的新方法</span>
-            </a>
-            <div class="abstract-content">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在苹果的 WWDC2011 大会视频的<br><a target="_blank" rel="noopener" href="https://developer.apple.com/videos/wwdc/2011/?id=101">《Session 101 - What’s New in Cocoa》</a> 和<br><a target="_blank" rel="noopener" href="https://developer.apple.com/videos/wwdc/2011/?id=102">《Session 102 - Implementing UIViewController Containment》</a> 中介绍了苹果在 iOS5 中给 UIViewController 新增加的 5 方法以及一个属性:</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法</span></span><br><span class="line">addChildViewController: </span><br><span class="line">removeFromParentViewController:</span><br><span class="line">transitionFromViewController:toViewController:duration:options:animations:completion: </span><br><span class="line">willMoveToParentViewController: </span><br><span class="line">didMoveToParentViewController:</span><br><span class="line"><span class="comment">// 属性</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSArray</span> *childViewControllers</span><br></pre></td></tr></table></figure>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/06</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/05/mvc-in-ios-develop/">
-                
-                <span class="abstract-title-text">斯坦福大学 iOS 开发公开课总结</span>
-            </a>
-            <div class="abstract-content">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone 开发相关的教程中最有名的，当数斯坦福大学发布的 “iPhone 开发公开课 “ 了。此公开课在以前叫做《iPhone 开发教程》，今年由于平板电脑的流行，所以也加入了 ipad 开发相关的课程。在 <a target="_blank" rel="noopener" href="http://v.163.com/special/opencourse/iPhonekaifa.html">网易公开课</a> 上，有 <a target="_blank" rel="noopener" href="http://v.163.com/special/opencourse/iPhonekaifa.html">该教程</a> 的 2010 年录象，并且前面 15 集带中文字幕文件，非常适合初学者学习。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/05</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/04/use-git-to-manage-code-snippets/">
-                
-                <span class="abstract-title-text">使用 Git 来管理 Xcode 中的代码片段</span>
-            </a>
-            <div class="abstract-content">
-                <h3 id="代码片段介绍"><a href="#代码片段介绍" class="headerlink" title="代码片段介绍"></a>代码片段介绍</h3><p>xcode4 引入了一个新 feature: code snippets，在整个界面的右下角，可以通过快捷键：cmd + ctrl + opt + 2 调出来。code snippets 是一些代码的模版，对于一些常见的编程模式，xcode 都将这些代码抽象成模版放到 code snippet 中，使用的时候，只需要键入快捷键，就可以把模版的内容填到代码中。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/04</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Git">Git</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/03/talk-about-svn-and-git/">
-                
-                <span class="abstract-title-text">Git 的使用感受</span>
-            </a>
-            <div class="abstract-content">
-                <p>从开始工作到现在，在公司里面一直用 svn 来做版本管理。大约半年前听说了 Git，因为 Git 的光辉相当耀眼，作者是 Linus Torvalds，被大量的开源软件采用，如 jQuery, Perl, Qt, ROR, YUI, GNOME 等，所以决定学一学。<br>比较庆幸的是，国内有一本较好的介绍 Git 的书：<a target="_blank" rel="noopener" href="http://www.amazon.cn/Git%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97-%E8%92%8B%E9%91%AB/dp/B0058FLC40/ref=sr_1_1?ie=UTF8&qid=1328277616&sr=8-1">《Git 权威指南》</a>。<br>我大概花了一个月的周末时间来学习它。在这里总结一下使用 Git 的感受，主要是和 SVN 来做一些比较，以便突出 Git 的特点。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/03</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Git">Git</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/01/use-appledoc-to-generate-xcode-doc/">
-                
-                <span class="abstract-title-text">使用Objective-C的文档生成工具:appledoc</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>做项目的人多了，就需要文档了。今天开始尝试写一些项目文档。但是就源代码来说，文档最好和源码在一起，这样更新起来更加方便和顺手。象 Java 语言本身就自带 javadoc 命令，可以从源码中抽取文档。今天抽空调研了一下 objective-c 语言的类似工具。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/01</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/01/23/use-javascript-to-import-pictures/">
-                
-                <span class="abstract-title-text">用javascript协助导入图片</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>先说说需求。春节回家见爸妈，老爸迷上了摄影。他把平时的照片都上传到了 <a target="_blank" rel="noopener" href="http://photo.chengdu.cn/">成都图片网</a>, 这个成都图片网专门有一个 “快拍成都” 的版块，用于大家将随手拍的生活中的图片分享上去。每天编辑还会选出一张最有特色的图片，刊登到《成都商报》上。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/01/23</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/01/20/we-must-self-learning/">
-                
-                <span class="abstract-title-text">我们必须自学</span>
-            </a>
-            <div class="abstract-content">
-                <p>前两天看到一个文章，题名为 <a target="_blank" rel="noopener" href="http://www.aqee.net/all-programmers-are-self-taught/">《所有的程序员都是自学成才》</a>。当时没有什么特别的想法，只是觉得自己也确实是基本上靠自学来掌握新的知识的。但是今天在公车上没事好好想了一想，想明白了，原来对于程序员来说，只能自学才能成才。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/01/20</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/01/01/2011-summary/">
-                
-                <span class="abstract-title-text">2011年个人总结</span>
-            </a>
-            <div class="abstract-content">
-                <p>2011 年的过去了，总结一下今年的成长和收获。</p>
-<h3 id="流水账"><a href="#流水账" class="headerlink" title="流水账"></a>流水账</h3><p>2011 年是我完整工作的一年。不过这一年的工作也变动频繁。</p>
-<p>首先是从 1 月份专门搞 uvs，把 uvs 升级成 ouvs。升级后增加了对于时间段搜索的支持。另一方面，周末在家做的 topcoder component 终于拿到了一次第一。这是一个做 IBM Symphony 插件的项目，因为之前在 IBM 实习一直做相关的东西，所以能够很快的做出来，那个东西 tricky 的东西很多，所以基本上没有人做。不过除我之外还有一个会做的，竞争就只是我和他之间了，不过最终我比他得分稍高一点，拿到了 800$ 的第一名奖金，另外 digital run 的排名还多拿了 100 多 $。一月份的时候把这个钱通过 wireless<br>transfer 转到了我的工商银行账号，然后马上换成了人民币。第一次尝到拿美元，还是很开心的。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/01/01</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="anniversary">anniversary</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="startup">startup</a>
     
 </div>
 
@@ -1038,24 +483,276 @@
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2011/12/27/mac-top/">
+            <a class="abstract-title" href="/2016/07/16/hack-way-through-apple/">
                 
-                <span class="abstract-title-text">mac 下的 top 命令</span>
+                <span class="abstract-title-text">被中国黑客玩坏的苹果</span>
             </a>
             <div class="abstract-content">
-                以前只是在 linux 机器上使用 top 命令。常用的快键键是:
+                最近从几个做 iOS 开发的小伙伴那儿听说了几个发垃圾邮件的黑科技，利用的都是苹果的一些小「漏洞」，实在是让人觉得中国人的「创新」能力太强，分享给大家。
+方法一
 
-p 键 - 按 cpu 使用率排序
-m 键 - 按内存使用量排序
-
-这 2 个快捷键在 mac 上都不一样。对应的是，先输入...
+详细的办法在上面的这个截图中解...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2011/12/27</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/07/16</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/07/09/lead-by-tech-companys-trap/">
+                
+                <span class="abstract-title-text">技术主导型公司的困境</span>
+            </a>
+            <div class="abstract-content">
+                Google 公司给了全世界的程序员一个理想公司的范例：招最聪明的人、工程师驱动项目、宽松的工作气氛、鼓励创新、20% 的自由时间⋯⋯我早年以为这样的公司一定会成功，但是工作到现在我却发现，那些...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/07/09</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/07/07/the-dictators-handbook-summary/">
+                
+                <span class="abstract-title-text">永远的致胜联盟 - 读《独裁者手册》</span>
+            </a>
+            <div class="abstract-content">
+                
+
+读书心得我们古代有句名言「水能载舟，亦能覆舟」，意思是一国之君应该尊重民意，执政为民，这样才能造就国家的富强。但是本书通过大量现代社会中的独裁国家的例子来告诉我们，其实独裁者的政治安全与人民...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/07/07</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="books">books</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/06/26/why-meituan-is-removed-from-appstore/">
+                
+                <span class="abstract-title-text">美团到底为什么从 AppStore 下架</span>
+            </a>
+            <div class="abstract-content">
+                
+
+
+故事背景6 月 23 日（上周四）晚上，美团公司旗下的所有 App（包括美团团购、美团外卖、猫眼电影等 13 款）被苹果下架。一时间谣言四起，网上传得最多的原因是美团没有支付牌照，被实名举...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/06/26</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/06/26/my-story-about-infoq/">
+                
+                <span class="abstract-title-text">我与 InfoQ 的故事</span>
+            </a>
+            <div class="abstract-content">
+                如果你也喜欢写作，这个真实的故事或许能够帮助你继续坚持下去。
+我最早听说 InfoQ ，是因为在上面发现了很多关于敏捷开发的文章。可以说，InfoQ 是最早推广敏捷软件开发的社区。之后 Info...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/06/26</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="writing">writing</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/06/19/appstore-accident/">
+                
+                <span class="abstract-title-text">为什么提交 AppStore 总有事故发生</span>
+            </a>
+            <div class="abstract-content">
+                6 月 18 日上午，百度云 iOS 版出现了线上事故，他们在提交 AppStore 审核的时候，把名字给弄错了。用户更新 App 之后，看到的 App 名字是 netdisk_iPhone，如...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/06/19</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/06/14/wwdc-2016-notes/">
+                
+                <span class="abstract-title-text">WWDC 2016 随想</span>
+            </a>
+            <div class="abstract-content">
+                
+
+今天凌晨 1 点钟，熬夜看了今年的 WWDC，一些随想分享给大家。
+花絮我为了半夜起来看 WWDC，特意提前 10 点钟就睡觉了。我睡觉前特意带上 Apple watch，并且设置好震动闹钟...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/06/14</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/06/06/high-output-management-summary/">
+                
+                <span class="abstract-title-text">写给程序员的管理入门课程 -《格鲁夫给经理人的第一课》</span>
+            </a>
+            <div class="abstract-content">
+                序
+
+《格鲁夫给经理人的第一课》 最早出版于 2007 年，书原名为《High Output Management》。本书的作者格鲁夫是 Intel 的前 CEO，领导了 Intel 从一家濒临...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/07">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/06/06</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="books">books</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2016/06/05/tech-talk-notes/">
+                
+                <span class="abstract-title-text">技术演讲中最容易被忽视的问题</span>
+            </a>
+            <div class="abstract-content">
+                
+
+
+我在国内的大大小小技术会议（比如 QCon, ArchSummit，MDCC，SwiftCon 等）中做过不少演讲，也听过很多别人的演讲。作为一个一路走过来的技术演讲者，我见过很多优秀的演...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/06/05</span>
                 </div>
                 <!-- tags -->
                 
@@ -1066,7 +763,7 @@ m 键 - 按内存使用量排序
     <!-- paginator  -->
     
         <nav class="page-nav">
-            <a class="extend prev" rel="prev" href="/page/18/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/20/">NEXT &gt;</a>
+            <a class="extend prev" rel="prev" href="/page/18/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="extend next" rel="next" href="/page/20/">NEXT &gt;</a>
         </nav>
     
 </main>
