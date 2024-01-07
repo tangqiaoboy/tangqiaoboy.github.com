@@ -21,7 +21,7 @@ npm install
 
 ## 安装插件
 
-建完站之后，把之前的文章都复制进去，在 themes 目录下同样把 [archer](https://github.com/fi3ework/hexo-theme-archer) clone 下来：
+建完站之后，把之前的文章都复制进去，在 themes 目录下同样把 [Archer](https://github.com/fi3ework/hexo-theme-archer) clone 下来：
 
 ```bash
 git clone https://github.com/fi3ework/hexo-theme-archer archer
@@ -33,6 +33,7 @@ git clone https://github.com/fi3ework/hexo-theme-archer archer
 npm install hexo-deployer-git --save
 npm install hexo-generator-json-content
 npm install hexo-generator-feed --save
+npm install hexo-wordcount
 ```
 
 除此之外还需要一些配置，修改 `_config.yml`，增加如下内容：
@@ -66,5 +67,38 @@ theme: archer
 
 最后，复制 Archer 主题目录下的 `_config.yml` 到 Hexo 根目录，并命名为 `_config.archer.yml`。删除 Archer 主题目录下的 `_config.yml` 文件，或将它重命名为 `_config.yml.template`，避免配置合并或冲突。
 
-详见：<https://github.com/fi3ework/hexo-theme-archer>
+这次 Archer 也更新了很多，所以看起来升级是必要的。详见：<https://github.com/fi3ework/hexo-theme-archer>
+
+## 发布
+
+因为我在 `config.yml` 中配置好了deploy信息：
+```
+# Deployment
+deploy:
+  type: git
+  message: "Site updated: {{ now('YYYY-MM-DD HH:mm') }}"
+  repo: 
+    github: git@github.com:tangqiaoboy/tangqiaoboy.github.com.git
+  branch: master
+```
+
+日常操作主要是以下几个：
+
+```
+#发布新文章
+hexo new 文件名
+
+#预览
+hexo s
+
+#生成文件到 public 目录
+hexo g
+
+#发布到 Github Pages
+hexo d
+```
+需要注意，如果改了文件发布的话，要先 `hexo g`，然后再 `hexo d`。
+
+以上。
+
 
