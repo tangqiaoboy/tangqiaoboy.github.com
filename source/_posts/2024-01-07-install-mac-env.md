@@ -11,10 +11,10 @@ tags:
 
 整个安装下来最麻烦的就是开发者环境，基本上无法正常连上外网下载各种开源软件，最后我灵机一动搜了一下，才发现清华大学上有不少开源软件的镜像。这样大大加快了我安装软件的速度。
 
-这两个镜像的地址是：
+这几个镜像的地址是：
  - Home Brew: <https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>
  - Oh My Zsh：<https://mirrors.tuna.tsinghua.edu.cn/help/ohmyzsh.git/>
-
+ - npm： `npm config set registry http://mirrors.cloud.tencent.com/npm/`
 
 整理了一下自己的生产力工具，现在做业务之后，基本不写代码了，所以偶尔写博客或者查资料有这些软件就够用了：
 
