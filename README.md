@@ -13,46 +13,31 @@
 首先，去 [Nodejs 官网](https://nodejs.org/en/) 下载安装 node。
 
 ``` bash
+brew install hexo
 git clone git@github.com:tangqiaoboy/tangqiaoboy.github.com.git
 git checkout source
 git submodule init
 git submodule update
-npm install -g hexo-cli
 npm install
+```
+
+安装插件：
+
+```
+npm install hexo-deployer-git --save
+npm install hexo-generator-json-content
+npm install hexo-generator-feed --save
 ```
 
 ## 一些 Note
 
 有些时候文章中出现一些奇怪字符会造成发布失败，可以用 detect_code.cpp 来检查。
 
-brew install 安装的 node 有问题，需要自己去 [Nodejs 官网](https://nodejs.org/en/)下载 .pkg 格式的安装包安装。
-
-重新安装的时候，git clone 下来，执行 npm install.
-
-如果要修改 archive 的每页文章条数：
-/Users/tangqiao/work/git/hexo/node_modules/hexo-generator-archive/index.js:
-/Users/tangqiao/work/git/hexo/node_modules/hexo-generator-category/index.js
-/Users/tangqiao/work/git/hexo/node_modules/hexo-generator-tag/index.js
-
-广告位修改文章：
-`themes/jacman/layout/_widget/sponsor.ejs`
-
 ## 初使化
 ```
 npm install -g hexo-cli
 cd <blog folder>
 npm install
-```
-
-
-## 设置发布
-
-默认发布通过 travis-ci 来自动进行。只需要把博客的 source 分支推送到 github 即可。
-
-本地生成和发布的办法：
-```
-npm install hexo-deployer-git --save
-git clone git@github.com:tangqiaoboy/tangqiaoboy.github.com.git public
 ```
 
 ## 设置皮肤

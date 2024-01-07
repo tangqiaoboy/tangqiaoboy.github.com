@@ -13,13 +13,11 @@ tags:
 
 使用 Hexo 的如下指令完成建站
 
-{% blockquote %}
-
+```
 hexo init blog
 cd blog
 npm install
-
-{% endblockquote %}
+```
 
 ## 安装插件
 
@@ -62,11 +60,9 @@ jsonContent:
 
 并且将 `_config.yml` 的主题为 Archer：
 
-{% blockquote %}
-
+```
 theme: archer
-
-{% endblockquote %}
+```
 
 最后，复制 Archer 主题目录下的 `_config.yml` 到 Hexo 根目录，并命名为 `_config.archer.yml`。删除 Archer 主题目录下的 `_config.yml` 文件，或将它重命名为 `_config.yml.template`，避免配置合并或冲突。
 
