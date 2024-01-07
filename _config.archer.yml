@@ -29,7 +29,7 @@ social:
   linkedin: 
   steam: 
   others: 
-  rss: 
+  rss: /atom.xml
 # friends
 friends:
   # friendA: //www.baidu.com

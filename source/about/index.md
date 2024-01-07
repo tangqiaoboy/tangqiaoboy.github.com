@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: about
 title: "关于博主"
 date: 2016-02-15 14:32
 ---
