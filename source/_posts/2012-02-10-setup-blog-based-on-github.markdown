@@ -9,7 +9,9 @@ tags: Git
 
 ## 2016.02.16 更新说明
 
-本博客已经由 octopress 迁移到了 hexo，本文章的内容稍显陈旧。
+本博客已经由 octopress 迁移到了 Hexo，本文章的内容稍显陈旧。
+
+对 Hexo 感兴趣的可以参见：[《从 Octopress 迁移到 Hexo》](/2016/02/16/from-octopress-to-hexo/)。
 
 ## 前言
 
@@ -80,7 +82,7 @@ rake install
 
 * 主要是修改文件：_config.yml ，这个配置文件都有相应的注释。主要就是改一些博客头，作者名之类的东西。
 注意最好把里面的 twitter 相关的信息全部删掉，否则由于 GFW 的原因，将会造成页面 load 很慢。
-* 修改定制文件 /source/_includes/custom/head.html 把 google 的自定义字体去掉，原因同上。
+* 修改定制文件 `/source/_includes/custom/head.html` 把 google 的自定义字体去掉，原因同上。
 
 
 ## 设置 github 账号
