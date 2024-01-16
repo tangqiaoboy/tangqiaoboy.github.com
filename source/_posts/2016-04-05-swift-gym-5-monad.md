@@ -6,7 +6,7 @@ date: 2016-04-05 22:56:07
 ---
 
 
-![](http://ww2.sinaimg.cn/mw690/65dc76a3gw1f08hrkcyydj20i40cigv2.jpg)
+{% img /images/swift-gym-5-1.png %}
 
 ## 索引
 
@@ -26,7 +26,7 @@ Swift 相关的学习资料已经很多，我想从另外一个角度来介绍�
 
 这是本体操的第五节，练习前请做好准备运动，保持头脑清醒。
 
-![](http://ww4.sinaimg.cn/mw690/65dc76a3gw1f0sz15ou0fj20cx07d0u3.jpg)
+{% img /images/swift-gym-5-2.png %}
 
 ## Why Monad?
 

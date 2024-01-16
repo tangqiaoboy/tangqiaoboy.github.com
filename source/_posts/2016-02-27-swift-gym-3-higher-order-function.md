@@ -5,7 +5,7 @@ categories: iOS
 tags: Swift
 ---
 
-![](http://ww2.sinaimg.cn/mw690/65dc76a3gw1f08hrkcyydj20i40cigv2.jpg)
+{% img /images/swift-gym-5-1.png %}
 
 ## 索引
 
@@ -27,7 +27,8 @@ Swift 相关的学习资料已经很多，我想从另外一个角度来介绍�
 
 ## 准备运动：基础知识
 
-![](http://ww1.sinaimg.cn/mw690/65dc76a3gw1f0sz14hv65j20er08t0tz.jpg)
+{% img /images/swift-gym-3-2.png %}
+
 
 在上一节里面，我们其实已经涉及到了高阶函数了。在 [Wikipedia](https://en.wikipedia.org/wiki/Higher-order_function) 中，是这么定义高阶函数（higher-order function）的，如果一个函数：
 

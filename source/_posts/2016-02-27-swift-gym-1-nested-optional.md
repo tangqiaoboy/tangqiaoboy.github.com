@@ -5,7 +5,7 @@ categories: iOS
 tags: Swift
 ---
 
-![](http://ww2.sinaimg.cn/mw690/65dc76a3gw1f08hrkcyydj20i40cigv2.jpg)
+{% img /images/swift-gym-5-1.png %}
 
 ## 索引
 
@@ -27,7 +27,7 @@ Swift 相关的学习资料已经很多，我想从另外一个角度来介绍�
 
 ## 准备运动：Optional 的介绍
 
-![](http://ww3.sinaimg.cn/mw690/65dc76a3gw1f0sz13edhpj209s061mxt.jpg)
+{% img /images/swift-gym-1-2.png %}
 
 王巍的《Swifter》(<http://swifter.tips/buy>)一书中，介绍了一个有用的命令：在 LLDB 中输入 `fr v -R foo`，可以查看 `foo` 这个变量的内存构成。我们稍后的分析将用到这个命令。
 
@@ -87,7 +87,7 @@ let c: Int??? = b
 
 从这个示例代码中，我们能看出来多层嵌套的 Optional 的具体内存结构。这个内存结构其实是一个类似二叉树一样的形状，如下图所示：
 
-![](http://ww3.sinaimg.cn/mw690/65dc76a3gw1f08i00trqpj20ji0ch3ze.jpg)
+{% img /images/swift-gym-1-3.png %}
 
  * 第一层二叉树有两个可选的值，一个值是 .None，另一个值类型是 `Optional<Optional<Int>>`。
  * 第二层二叉树有两个可选的值，一个值是 .None，另一个值类型是 `Optional<Int>`。
@@ -208,7 +208,7 @@ dict
 
 以下是代码执行结果：
 
-![](http://ww2.sinaimg.cn/mw690/65dc76a3gw1f08hcnaidnj20vq06ugni.jpg)
+{% img /images/swift-gym-1-4.png %}
 
 我们可以看到，我们想通过给这个 Dictionary 设置一个 nil，来删除掉这个 key-value 对。但是从 playground 的执行结果上看，key 并没有被删掉。
 
@@ -247,7 +247,7 @@ dict
 
 执行结果如下：
 
-![](http://ww2.sinaimg.cn/mw690/65dc76a3gw1f08hcj57k0j20vk0lqjxf.jpg)
+{% img /images/swift-gym-1-5.png %}
 
 我们可以看到，以下三种方式可以成功删除 key-value 键值对：
 

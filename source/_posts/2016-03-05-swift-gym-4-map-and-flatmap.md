@@ -27,7 +27,7 @@ Swift 相关的学习资料已经很多，我想从另外一个角度来介绍�
 
 ## 准备运动：基础知识
 
-![](http://ww4.sinaimg.cn/mw690/65dc76a3gw1f0sz177142j20dk07bjsd.jpg)
+{% img /images/swift-gym-4-1.png %}
 
 ### 数组中的 `map` 和 `flatMap`
 
@@ -181,7 +181,7 @@ let v = s.flatMap { (a: String) -> Int? in
 
 ## `map` 和 `flatMap` 的源码
 
-![](https://quotesaga.s3.amazonaws.com/quote/QS_be152af2851e4e4e8d5049b0d5cbaed9.jpg)
+{% img /images/swift-gym-4-2.png %}
 
 >Talk is cheap. Show me the code.
 >

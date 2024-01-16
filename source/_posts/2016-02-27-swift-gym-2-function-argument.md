@@ -5,7 +5,7 @@ categories: iOS
 tags: Swift
 ---
 
-![](http://ww2.sinaimg.cn/mw690/65dc76a3gw1f08hrkcyydj20i40cigv2.jpg)
+{% img /images/swift-gym-5-1.png %}
 
 ## 索引
 
@@ -27,7 +27,6 @@ Swift 相关的学习资料已经很多，我想从另外一个角度来介绍�
 
 ## 准备运动：基础知识
 
-![](http://ww3.sinaimg.cn/mw690/65dc76a3gw1f0sz14p1u4j206w0a33zb.jpg)
 
 ### 面向对象语言的世界观
 
