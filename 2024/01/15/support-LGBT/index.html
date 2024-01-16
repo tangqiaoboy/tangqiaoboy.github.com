@@ -19,15 +19,15 @@
         <meta name="keywords" content="唐巧,iOS,创业,猿辅导,斑马">
     
     <meta name="description" content="希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。">
-    <meta name="description" content="前言在苹果的 WWDC2011 大会视频的《Session 101 - What’s New in Cocoa》 和《Session 102 - Implementing UIViewController Containment》 中介绍了苹果在 iOS5 中给 UIViewController 新增加的 5 方法以及一个属性: &#x2F;&#x2F; 方法addChildViewController: remov">
+    <meta name="description" content="最近看到一个新闻，OpenAI 的 CEO Sam Altman 结婚了，对象是另一个男人。 我想借此机会谈谈我的看法：我明确支持 LGBT。 现代的相关研究其实已经了解到，同性恋其实是一种基因上的特点，大概世界上有 1% 左右的人会因为基因的原因喜欢上同性。就像命中注定一样，他们看到同性会像我们看到某些异性那样：被吸引，有感觉。 如果这是天生的，同时对社会并没有带来伤害，那么我们就应该尊重他们的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS5中UIViewController的新方法">
-<meta property="og:url" content="https://blog.devtang.com/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/index.html">
+<meta property="og:title" content="支持 LGBT">
+<meta property="og:url" content="https://blog.devtang.com/2024/01/15/support-LGBT/index.html">
 <meta property="og:site_name" content="唐巧的博客">
-<meta property="og:description" content="前言在苹果的 WWDC2011 大会视频的《Session 101 - What’s New in Cocoa》 和《Session 102 - Implementing UIViewController Containment》 中介绍了苹果在 iOS5 中给 UIViewController 新增加的 5 方法以及一个属性: &#x2F;&#x2F; 方法addChildViewController: remov">
+<meta property="og:description" content="最近看到一个新闻，OpenAI 的 CEO Sam Altman 结婚了，对象是另一个男人。 我想借此机会谈谈我的看法：我明确支持 LGBT。 现代的相关研究其实已经了解到，同性恋其实是一种基因上的特点，大概世界上有 1% 左右的人会因为基因的原因喜欢上同性。就像命中注定一样，他们看到同性会像我们看到某些异性那样：被吸引，有感觉。 如果这是天生的，同时对社会并没有带来伤害，那么我们就应该尊重他们的">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2012-02-06T13:19:00.000Z">
-<meta property="article:modified_time" content="2024-01-06T14:52:37.911Z">
+<meta property="article:published_time" content="2024-01-15T06:24:19.000Z">
+<meta property="article:modified_time" content="2024-01-15T06:40:05.111Z">
 <meta property="article:author" content="唐巧">
 <meta property="article:tag" content="iOS,唐巧,猿辅导,开发,产品,网易,移动">
 <meta name="twitter:card" content="summary">
@@ -35,7 +35,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-    <title>iOS5中UIViewController的新方法 · 唐巧的博客</title>
+    <title>支持 LGBT · 唐巧的博客</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -262,7 +262,7 @@
                 <a href="/">唐巧的博客</a>
             </div>
             <div class="post-title header-element">
-                <a href="#" class="post-name">iOS5中UIViewController的新方法</a>
+                <a href="#" class="post-name">支持 LGBT</a>
             </div>
         </div>
     
@@ -308,7 +308,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                iOS5中UIViewController的新方法
+                支持 LGBT
             <!-- 404 -->
             
         </h1>
@@ -334,13 +334,13 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">690</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">282</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2012/02/06</span>
+                    <span class="post-intro-time">2024/01/15</span>
                     <!-- busuanzi -->
                     
                         <span id="busuanzi_container_page_pv" class="busuanzi-pv">
@@ -495,36 +495,21 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在苹果的 WWDC2011 大会视频的<br><a target="_blank" rel="noopener" href="https://developer.apple.com/videos/wwdc/2011/?id=101">《Session 101 - What’s New in Cocoa》</a> 和<br><a target="_blank" rel="noopener" href="https://developer.apple.com/videos/wwdc/2011/?id=102">《Session 102 - Implementing UIViewController Containment》</a> 中介绍了苹果在 iOS5 中给 UIViewController 新增加的 5 方法以及一个属性:</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法</span></span><br><span class="line">addChildViewController: </span><br><span class="line">removeFromParentViewController:</span><br><span class="line">transitionFromViewController:toViewController:duration:options:animations:completion: </span><br><span class="line">willMoveToParentViewController: </span><br><span class="line">didMoveToParentViewController:</span><br><span class="line"><span class="comment">// 属性</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSArray</span> *childViewControllers</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h3 id="原来的问题"><a href="#原来的问题" class="headerlink" title="原来的问题"></a>原来的问题</h3><p>这些新增的方法和属性用于改进我们的编程方式。那么让我们先看看以前的对于 UIViewController 的使用有什么潜在的问题，认清问题，我们才能理解苹果改变的意义。</p>
-<p>在以前，一个 UIViewController 的 View 可能有很多小的子 view。这些子 view 很多时候被盖在最后，我们在最外层 ViewController 的 viewDidLoad 方法中，用 addSubview 增加了大量的子 view。这些子 view 大多数不会一直处于界面上，只是在某些情况下才会出现，例如登陆失败的提示 view，上传附件成功的提示 view，网络失败的提示 view 等。但是虽然这些 view 很少出现，但是我们却常常一直把它们放在内存中。另外，当收到内存警告时，我们只能自己手工把这些 view 从 super view 中去掉。</p>
-<h3 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h3><p>苹果新的 API 增加了 addChildViewController 方法，并且希望我们在使用 addSubview 时，同时调用 [self addChildViewController:child] 方法将 sub view 对应的 viewController 也加到当前 ViewController 的管理中。对于那些当前暂时不需要显示的 subview，只通过 addChildViewController 把 subViewController 加进去。需要显示时再调用 transitionFromViewController:toViewController:duration:options:animations:completion 方法。</p>
-<p>另外，当收到系统的 Memory Warning 的时候，系统也会自动把当前没有显示的 subview unload 掉，以节省内存。</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>关于这个，<a target="_blank" rel="noopener" href="http://wangjun.easymorse.com/?p=1630">这儿</a> 有一篇不错的文章介绍了一段 sample 代码用于演示新 API 的使用 .</p>
-<p>我也将其代码稍加修改，增加了 view load, unload, appear, disappear 的事件 Log，以及收到 Memory Warning 时的 Log。代码放在了 github 上，地址是 <a target="_blank" rel="noopener" href="https://github.com/tangqiaoboy/iOS5ViewCtrlerSample">这里</a>，感兴趣的同学可以自己下载下来看看源码。</p>
-<p>可以看到，这些 view 在没有使用时，是不会被 load 的，并且当有 Memory Warning 时，当前没有显示的 view 自动被 unload 掉了。所以新的方法确实能有效地节省内存，也能方便地处理内存不足时的资源回收。运行 Log 如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[7397:f803] -[FirstViewController willMoveToParentViewController:]</span><br><span class="line">[7397:f803] -[SecondViewController willMoveToParentViewController:]</span><br><span class="line">[7397:f803] -[ThirdViewController willMoveToParentViewController:]</span><br><span class="line">[7397:f803] -[ThirdViewController viewDidLoad]</span><br><span class="line">[7397:f803] -[ThirdViewController viewWillAppear:]</span><br><span class="line">[7397:f803] -[ThirdViewController viewDidAppear:]</span><br><span class="line">[7397:f803] 生日提醒</span><br><span class="line">[7397:f803] -[SecondViewController viewDidLoad]</span><br><span class="line">[7397:f803] -[ThirdViewController viewWillDisappear:]</span><br><span class="line">[7397:f803] -[SecondViewController viewWillAppear:]</span><br><span class="line">[7397:f803] -[SecondViewController viewDidAppear:]</span><br><span class="line">[7397:f803] -[ThirdViewController viewDidDisappear:]</span><br><span class="line">[7397:f803] 留言及回复</span><br><span class="line">[7397:f803] -[FirstViewController viewDidLoad]</span><br><span class="line">[7397:f803] -[SecondViewController viewWillDisappear:]</span><br><span class="line">[7397:f803] -[FirstViewController viewWillAppear:]</span><br><span class="line">[7397:f803] -[FirstViewController viewDidAppear:]</span><br><span class="line">[7397:f803] -[SecondViewController viewDidDisappear:]</span><br><span class="line">[7397:f803] Received memory warning.</span><br><span class="line">[7397:f803] -[SecondViewController viewDidUnload]</span><br><span class="line">[7397:f803] -[ThirdViewController viewDidUnload]</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
+        <p>最近看到一个新闻，OpenAI 的 CEO Sam Altman 结婚了，对象是另一个男人。</p>
+<p>我想借此机会谈谈我的看法：我明确支持 LGBT。</p>
+<p>现代的相关研究其实已经了解到，同性恋其实是一种基因上的特点，大概世界上有 1% 左右的人会因为基因的原因喜欢上同性。就像命中注定一样，他们看到同性会像我们看到某些异性那样：被吸引，有感觉。</p>
+<p>如果这是天生的，同时对社会并没有带来伤害，那么我们就应该尊重他们的基因。就像我们尊重各种因为基因不同而在肤色、性格、外表上产生不同表现的其他人类一样。</p>
+<p>相关的法律其实应该为 LGBT 人群开绿灯，保证他们在生活和就业上不被歧视，也应该在婚姻上给予他们相关的法律支持，让他们能够正常组建自己的家庭，通过领养等方式抚养自己的孩子。</p>
+<p>这样的社会，才足够和谐。</p>
 
     </article>
     <!-- license -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://blog.devtang.com">唐巧</a>
-            <p>原文链接：<a href="https://blog.devtang.com/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/">https://blog.devtang.com/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/</a>
-            <p>发表日期：<a href="https://blog.devtang.com/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/">二月 6日 2012, 9:19:00 晚上</a>
-            <p>更新日期：<a href="https://blog.devtang.com/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/">January 6th 2024, 10:52:37 pm</a>
+            <p>原文链接：<a href="https://blog.devtang.com/2024/01/15/support-LGBT/">https://blog.devtang.com/2024/01/15/support-LGBT/</a>
+            <p>发表日期：<a href="https://blog.devtang.com/2024/01/15/support-LGBT/">January 15th 2024, 2:24:19 pm</a>
+            <p>更新日期：<a href="https://blog.devtang.com/2024/01/15/support-LGBT/">January 15th 2024, 2:40:05 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -532,17 +517,12 @@
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2012/02/10/setup-blog-based-on-github/" title="象写程序一样写博客：搭建基于github的博客">
-                    <div class="nextTitle">象写程序一样写博客：搭建基于github的博客</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2012/02/05/mvc-in-ios-develop/" title="斯坦福大学 iOS 开发公开课总结">
-                    <div class="prevTitle">斯坦福大学 iOS 开发公开课总结</div>
+                <a href="/2024/01/07/upgrade-hexo-to-v7-0/" title="将 Hexo 升级到 V7.0">
+                    <div class="prevTitle">将 Hexo 升级到 V7.0</div>
                 </a>
             
         </li>
@@ -690,7 +670,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">原来的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9%E5%8F%98"><span class="toc-number">3.</span> <span class="toc-text">改变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                
             </div>
         
         <!-- sidebar -->
@@ -5151,30 +5131,6 @@
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     
     
     
@@ -5195,6 +5151,12 @@
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/15</span>
+            <a class="archive-post-title" href="/2024/01/15/support-LGBT/">支持 LGBT</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">01/07</span>
@@ -7131,12 +7093,6 @@
         <li class="archive-post-item">
             <span class="archive-post-date">02/10</span>
             <a class="archive-post-title" href="/2012/02/10/setup-blog-based-on-github/">象写程序一样写博客：搭建基于github的博客</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/06</span>
-            <a class="archive-post-title" href="/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/">iOS5中UIViewController的新方法</a>
         </li>
     
         

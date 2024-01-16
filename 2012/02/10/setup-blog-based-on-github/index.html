@@ -19,15 +19,15 @@
         <meta name="keywords" content="唐巧,iOS,创业,猿辅导,斑马">
     
     <meta name="description" content="希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。">
-    <meta name="description" content="2016.02.16 更新说明本博客已经由 octopress 迁移到了 hexo，本文章的内容稍显陈旧。 前言github 真是无所不能。其 Pages 功能 支持上传 html，并且在页面中显示。于是有好事者做了一个基于 github 的博客管理工具：octopress，基本原理是用 git 来管理你的文章，然后最终发布到 github 上成为一个独立博客站点。由于 github 支持 CNA">
+    <meta name="description" content="2016.02.16 更新说明本博客已经由 octopress 迁移到了 Hexo，本文章的内容稍显陈旧。 对 Hexo 感兴趣的可以参见：《从 Octopress 迁移到 Hexo》。 前言github 真是无所不能。其 Pages 功能 支持上传 html，并且在页面中显示。于是有好事者做了一个基于 github 的博客管理工具：octopress，基本原理是用 git 来管理你的文章，然后最">
 <meta property="og:type" content="article">
 <meta property="og:title" content="象写程序一样写博客：搭建基于github的博客">
 <meta property="og:url" content="https://blog.devtang.com/2012/02/10/setup-blog-based-on-github/index.html">
 <meta property="og:site_name" content="唐巧的博客">
-<meta property="og:description" content="2016.02.16 更新说明本博客已经由 octopress 迁移到了 hexo，本文章的内容稍显陈旧。 前言github 真是无所不能。其 Pages 功能 支持上传 html，并且在页面中显示。于是有好事者做了一个基于 github 的博客管理工具：octopress，基本原理是用 git 来管理你的文章，然后最终发布到 github 上成为一个独立博客站点。由于 github 支持 CNA">
+<meta property="og:description" content="2016.02.16 更新说明本博客已经由 octopress 迁移到了 Hexo，本文章的内容稍显陈旧。 对 Hexo 感兴趣的可以参见：《从 Octopress 迁移到 Hexo》。 前言github 真是无所不能。其 Pages 功能 支持上传 html，并且在页面中显示。于是有好事者做了一个基于 github 的博客管理工具：octopress，基本原理是用 git 来管理你的文章，然后最">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2012-02-10T11:55:00.000Z">
-<meta property="article:modified_time" content="2024-01-06T14:52:37.911Z">
+<meta property="article:modified_time" content="2024-01-15T05:59:05.442Z">
 <meta property="article:author" content="唐巧">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -497,7 +497,8 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <h2 id="2016-02-16-更新说明"><a href="#2016-02-16-更新说明" class="headerlink" title="2016.02.16 更新说明"></a>2016.02.16 更新说明</h2><p>本博客已经由 octopress 迁移到了 hexo，本文章的内容稍显陈旧。</p>
+        <h2 id="2016-02-16-更新说明"><a href="#2016-02-16-更新说明" class="headerlink" title="2016.02.16 更新说明"></a>2016.02.16 更新说明</h2><p>本博客已经由 octopress 迁移到了 Hexo，本文章的内容稍显陈旧。</p>
+<p>对 Hexo 感兴趣的可以参见：<a href="/2016/02/16/from-octopress-to-hexo/">《从 Octopress 迁移到 Hexo》</a>。</p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>github 真是无所不能。其 <a target="_blank" rel="noopener" href="http://pages.github.com/">Pages 功能</a> 支持上传 html，并且在页面中显示。于是有好事者做了一个基于 github 的博客管理工具：<a target="_blank" rel="noopener" href="http://octopress.org/">octopress</a>，基本原理是用 git 来管理你的文章，然后最终发布到 github 上成为一个独立博客站点。由于 github 支持 CNAME 域名指向，所以如果有独立域名的话，可以基于这些做出一个专业的博客站点出来。</p>
 <p>本博客就是完全基于此搭建起来的，在使用了 2 个月之后，我将原系统根据中国人的需求做了一些配置，去掉了 GFW 会挡住的 google font api，以及替换掉了速度超慢的国外的评论系统，也加上了分享到国内的微博的功能。现在把这些都总结出来，希望大家都可以方便地搭建基于 github 的博客来。</p>
 <span id="more"></span>
@@ -524,7 +525,7 @@
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>安装好之后可以简单配置一下：</p>
 <ul>
 <li>主要是修改文件：_config.yml ，这个配置文件都有相应的注释。主要就是改一些博客头，作者名之类的东西。<br>注意最好把里面的 twitter 相关的信息全部删掉，否则由于 GFW 的原因，将会造成页面 load 很慢。</li>
-<li>修改定制文件 &#x2F;source&#x2F;_includes&#x2F;custom&#x2F;head.html 把 google 的自定义字体去掉，原因同上。</li>
+<li>修改定制文件 <code>/source/_includes/custom/head.html</code> 把 google 的自定义字体去掉，原因同上。</li>
 </ul>
 <h2 id="设置-github-账号"><a href="#设置-github-账号" class="headerlink" title="设置 github 账号"></a>设置 github 账号</h2><p>基于 github 的博客当然需要先注册 github 账号，Github 的账号注册地址是：<a target="_blank" rel="noopener" href="https://github.com/signup/free">https://github.com/signup/free</a> 。申请好 github 账号后，建一个名为 username.github.io 的代码仓库。这里注意 username 必须是和你的账号名一致。</p>
 <h2 id="写博客方法"><a href="#写博客方法" class="headerlink" title="写博客方法"></a>写博客方法</h2><p>然后就可以写博客啦～ 写博客主要是用以下几个命令，<a target="_blank" rel="noopener" href="http://octopress.org/docs/blogging/">这里</a> 有详细介绍：</p>
@@ -571,8 +572,8 @@
         <div class="license-wrapper">
             <p>原文作者：<a href="https://blog.devtang.com">唐巧</a>
             <p>原文链接：<a href="https://blog.devtang.com/2012/02/10/setup-blog-based-on-github/">https://blog.devtang.com/2012/02/10/setup-blog-based-on-github/</a>
-            <p>发表日期：<a href="https://blog.devtang.com/2012/02/10/setup-blog-based-on-github/">二月 10日 2012, 7:55:00 晚上</a>
-            <p>更新日期：<a href="https://blog.devtang.com/2012/02/10/setup-blog-based-on-github/">January 6th 2024, 10:52:37 pm</a>
+            <p>发表日期：<a href="https://blog.devtang.com/2012/02/10/setup-blog-based-on-github/">February 10th 2012, 7:55:00 pm</a>
+            <p>更新日期：<a href="https://blog.devtang.com/2012/02/10/setup-blog-based-on-github/">January 15th 2024, 1:59:05 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -589,8 +590,8 @@
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/" title="iOS5中UIViewController的新方法">
-                    <div class="prevTitle">iOS5中UIViewController的新方法</div>
+                <a href="/2012/02/05/mvc-in-ios-develop/" title="斯坦福大学 iOS 开发公开课总结">
+                    <div class="prevTitle">斯坦福大学 iOS 开发公开课总结</div>
                 </a>
             
         </li>
@@ -5199,30 +5200,6 @@
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     
     
     
@@ -5243,6 +5220,12 @@
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/15</span>
+            <a class="archive-post-title" href="/2024/01/15/support-LGBT/">支持 LGBT</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">01/07</span>
@@ -7179,12 +7162,6 @@
         <li class="archive-post-item">
             <span class="archive-post-date">02/10</span>
             <a class="archive-post-title" href="/2012/02/10/setup-blog-based-on-github/">象写程序一样写博客：搭建基于github的博客</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/06</span>
-            <a class="archive-post-title" href="/2012/02/06/new-methods-in-uiviewcontroller-of-ios5/">iOS5中UIViewController的新方法</a>
         </li>
     
         
