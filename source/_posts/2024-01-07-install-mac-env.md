@@ -19,7 +19,11 @@ tags:
 
 ### Home Brew
 
-用镜像安装Home Brew: <https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>
+用镜像安装 Home Brew:
+ * 清华镜像：<https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/>
+ * 阿里云镜像：<https://developer.aliyun.com/mirror/homebrew/>
+
+安装好后，可以用 `brew doctor` 检测一下。
 
 有了 [Home Brew](https://brew.sh/) 之后就可以装我需要的一些环境：
 
@@ -30,7 +34,9 @@ brew install hexo
 
 npm 的资源比较慢，安好 node 之后也把镜像设置一下：
 
-npm： `npm config set registry http://mirrors.cloud.tencent.com/npm/`
+```bash
+npm config set registry http://mirrors.cloud.tencent.com/npm/
+```
 
 ### Oh My Zsh
 
