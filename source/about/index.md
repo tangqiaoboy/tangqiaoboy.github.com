@@ -15,7 +15,7 @@ date: 2016-02-15 14:32
 
 -->
 
-唐巧，男，80 后。作为核心员工在 [猿辅导](https://www.yuanfudao.com/) 参与创业。曾作为产品技术负责人孵化了 [小猿搜题](https://www.yuansouti.com/) 和 [小猿口算](https://xiaoyuankousuan.com/)。曾作为业务负责人，孵化了小斑斑月龄盒。
+唐巧，男，80 后。作为核心员工在 [看云控股(原猿辅导)](https://www.kanyun.com/) 参与创业。曾作为产品技术负责人孵化了 [小猿搜题](https://www.yuansouti.com/) 和 [小猿口算](https://xiaoyuankousuan.com/)。曾作为业务负责人，孵化了小斑斑月龄盒。
 
 现在是斑马智能硬件业务负责人，带领团队研发的产品累计出货量超过 400 万台。
 
@@ -29,7 +29,7 @@ date: 2016-02-15 14:32
 
 ## 更多信息
 
-如果你想了解我的经历，可以看我的：[读书心得](/categories/books-summary/)，以及 [年终总结](/tags/anniversary/)：
+如果你想了解我的经历，可以看我的：[读书心得](/tags/books/)，以及 [年终总结](/tags/anniversary/)：
 
  * [2011 年个人总结](/2012/01/01/2011-summary/)
  * [2012 年个人总结](/2013/01/01/2012-summary/)
