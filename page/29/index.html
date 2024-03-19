@@ -449,6 +449,37 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2013/10/15/objective-c-object-model/">
+                
+                <span class="abstract-title-text">Objective-C对象模型及应用</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>原创文章，转载请注明出自 <a href="http://blog.devtang.com/">唐巧的技术博客</a>。</p>
+<p>本文主要介绍 Objective-C 对象模型的实现细节，以及 Objective-C 语言对象模型中对<code>isa swizzling</code>和<code>method swizzling</code>的支持。希望本文能加深你对 Objective-C 对象的理解。</p>
+<h2 id="ISA-指针"><a href="#ISA-指针" class="headerlink" title="ISA 指针"></a>ISA 指针</h2><p>Objective-C 是一门面向对象的编程语言。每一个对象都是一个类的实例。在 Objective-C 语言的内部，每一个对象都有一个名为 isa 的指针，指向该对象的类。每一个类描述了一系列它的实例的特点，包括成员变量的列表，成员函数的列表等。每一个对象都可以接受消息，而对象能够接收的消息列表是保存在它所对应的类中。</p>
+<p>在 XCode 中按<code>Shift + Command + O</code>, 然后输入 NSObject.h 和 objc.h，可以打开 NSObject 的定义头文件，通过头文件我们可以看到，NSObject 就是一个包含 isa 指针的结构体，如下图所示：</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/10/15</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2013/08/11/ios-asian-font-download-introduction/">
                 
                 <span class="abstract-title-text">动态下载苹果提供的多种中文字体</span>
@@ -763,36 +794,6 @@
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/04/07</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2013/03/27/should-we-use-arc/">
-                
-                <span class="abstract-title-text">是否应该使用ARC?</span>
-            </a>
-            <div class="abstract-content">
-                <img src="/images/arc-logo.jpg" class="">
-
-<p>我和身边做 iOS 开发的同事组建了一个 QQ 群，每隔一段时间，大家就会讨论是否应该使用 ARC。所以我觉得有必要将这些讨论分享出来，让大家消除对于 ARC 的疑虑。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/03/27</span>
                 </div>
                 <!-- tags -->
                 
@@ -2618,7 +2619,24 @@
         
         
         
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -5631,7 +5649,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 322
+        Total : 323
         </div>
         <!-- search  -->
         
@@ -5645,6 +5663,12 @@
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/19</span>
+            <a class="archive-post-title" href="/2024/03/19/talk-about-nongfu-spring/">替农夫山泉说句话</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/08</span>
