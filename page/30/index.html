@@ -449,6 +449,126 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2013/05/08/git-submodule-issues/">
+                
+                <span class="abstract-title-text">Git submodule的坑</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着近几年的发展，Git 已经成为开源界的标准的版本控制工具。开源界的重量级项目，如 Linux, Android, Eclipse, Gnome, KDE, Qt, ROR, Debian，无一例外的都是使用 git 来进行版本控制。如果你还不会 Git，那么恕我直言，你已经 out 了，赶紧抽空充充电吧。本文并不打算做 Git 入门级介绍，想学习 git 的同学，推荐国内作者蒋鑫写的 <a target="_blank" rel="noopener" href="http://book.douban.com/subject/6526452/">《Git 权威指南》</a>。</p>
+<p>对于一些比较大的工程，为了便于复用，常常需要抽取子项目。例如我开发的猿题库客户端现在包括 3 门考试，客户端涉及的公共 UI、公共底层逻辑、公共的第三方库、以及公共的答题卡扫描算法就被我分别抽取成了子项目。这些子项目都以 git submodule 的形式，增加到工程中。</p>
+<p>在使用了 git submodule 一段时间后，我发现了一些 submodule 的问题，在此分享给大家。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/05/08</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Git">Git</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2013/04/30/the-history-of-wwdc/">
+                
+                <span class="abstract-title-text">历史上的WWDC门票售空图片</span>
+            </a>
+            <div class="abstract-content">
+                2008年62天售空。介绍了iPhone 3G。
+
+
+2009年33天售空。介绍了iPhone 3GS。
+
+
+2010年8天售空。介绍了iPhone 4。
+
+
+2011年12小时售空。介绍了iO...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/04/30</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2013/04/29/the-missing-objc-keywords/">
+                
+                <span class="abstract-title-text">那些被遗漏的Objective-C保留字</span>
+            </a>
+            <div class="abstract-content">
+                <img src="/images/forget.jpeg" class="">
+
+<p>今天翻到很久以前自己在网易博客上写的 <a target="_blank" rel="noopener" href="http://tangqiaoboy.blog.163.com/blog/static/116114258201110133108545/">这篇文章</a>，惊奇地发现自己都忘记了里面的一些内容。所以我又重新学习了一下，然后改了改内容，挪到这里。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a target="_blank" rel="noopener" href="http://www.amazon.cn/s?ie=UTF8&search-alias=books&field-author=Steffen%20Itterheim">Steffen Itterheim</a> 是 <a target="_blank" rel="noopener" href="http://www.amazon.cn/Learn-Iphone-and-Ipad-Cocos2d-Game-Development-The-Leading-Framework-for-Building-2D-Graphical-and-Interactive-Applications-Itterheim-Steffen/dp/1430233036/ref=sr_1_1?ie=UTF8&qid=1321168092&sr=8-1">《Learn Iphone and Ipad Cocos2d Game Development》</a> 作者。cocos2d 和 cocos2d-x 现在已成为著名的游戏开发引擎。在 AppStore 上有超过 100 个游戏是基于 Cocos2D。</p>
+<p>Steffen Itterheim 在 <a target="_blank" rel="noopener" href="http://www.learn-cocos2d.com/2011/10/complete-list-objectivec-20-compiler-directives">他的博客</a> 中总结了 Objective-C 2.0 所有的编译器保留字，并且对这些保留字做了介绍和使用示例。这些保留字如下：</p>
+<pre>
+@class
+@defs
+@protocol @required @optional @end
+@interface @public @package @protected @private @property @end
+@implementation @synthesize @dynamic @end
+@throw @try @catch @finally
+@synchronized @autoreleasepool
+@selector @encode
+@compatibility_alias
+@”string”
+</pre>
+
+<p>我把这些保留字过了一遍，发现很少用到的有 @dynamic @defs @encode @compatibility_alis，所以就给大家介绍一下这几个关键字吧。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/04/29</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2013/04/07/tricks-in-iap/">
                 
                 <span class="abstract-title-text">iOS应用内支付(IAP)的那些坑</span>
@@ -658,95 +778,6 @@
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/12/09</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/12/09/in-app-purchase-check-list/">
-                
-                <span class="abstract-title-text">iOS应用内付费(IAP)开发步骤列表</span>
-            </a>
-            <div class="abstract-content">
-                <p>前两天和服务端同事一起，完成了应用内付费（以下简称IAP, In app purchase）的开发工作。步骤繁多，在此把开发步骤列表整理如下。因为只是步骤列表，所以并不含详细的说明教程，需要看教程的新手，可以看我附在最后的一些参考链接。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/12/09</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/11/14/make-stack-trace-more-readable/">
-                
-                <span class="abstract-title-text">让Xcode的 stack trace信息可读</span>
-            </a>
-            <div class="abstract-content">
-                <p>昨天在写 iOS 代码的时候，调试的时候模拟器崩溃了。异常停在了如下整个 main 函数的入口处：</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> main(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        <span class="comment">// 异常停在了下面这行，毫无提示作用</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">UIApplicationMain</span>(argc, argv, <span class="literal">nil</span>, <span class="built_in">NSStringFromClass</span>([MyClass <span class="keyword">class</span>]));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/11/14</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/11/10/how-to-design-upgrade-notice/">
-                
-                <span class="abstract-title-text">改进iOS客户端的升级提醒功能</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="功能设计"><a href="#功能设计" class="headerlink" title="功能设计"></a>功能设计</h2><p>先申明一下，我是码农，不是一个产品经理，但我觉得现有市面上的很多 App，设计的 “升级提示功能” 都不太友好。在此分享一下我的想法，欢迎大家讨论。</p>
-<p>这些 App 包括：新浪微博、网易微博、网易新闻客户端以及大部分带有升级提示功能的 App，所以我觉得这个问题还是挺普遍的。对于该问题，一句话描述起来就是：“这些 App 都会在用户刚刚使用它的时候，提示有新版本，让用户去 AppStore 上下载最新的版本”。下面是某个应用的升级提示截图：</p>
-<img src="/images/app-upgrade-1.jpg" class="">
-
-<p>为什么我认为这是一个糟糕的设计呢？因为用户刚刚打开你的 App，明显就是想使用你的功能。例如刚刚打开新浪微博，可能就是想看一下最新的消息或回复。刚刚打开网易新闻客户端，可能就是想看看最新的新闻。这个时候，你告诉用户有新版本，是想让用户暂时放弃使用该 App 吗？我不知道有多少用户会去点 “升级” 这个按钮，反正我每次看到这个提示都很郁闷，因为我如果点了，我就暂时不能使用该应用了（升级时原版本的 App 是无法使用的）。所以我在想，这个提示升级的时间能不能做得更友好一些？</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/11/10</span>
                 </div>
                 <!-- tags -->
                 
@@ -2582,7 +2613,58 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -5619,7 +5701,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 324
+        Total : 327
         </div>
         <!-- search  -->
         
@@ -5633,6 +5715,24 @@
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span>
+            <a class="archive-post-title" href="/2024/09/01/living-selling-101/">如何在抖音直播卖货</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/23</span>
+            <a class="archive-post-title" href="/2024/06/23/pricing-strategy/">要利润的定价 - 读《定价制胜》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span>
+            <a class="archive-post-title" href="/2024/05/15/ever-living-fire/">人单合一 - 读《永恒的活火》</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/26</span>

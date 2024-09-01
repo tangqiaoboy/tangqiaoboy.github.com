@@ -449,6 +449,102 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2012/03/24/talk-about-uiwebview-and-phonegap/">
+                
+                <span class="abstract-title-text">关于UIWebView的总结</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天参加了 Adobe 和 CSDN 组织的一个关于 <a target="_blank" rel="noopener" href="http://hui.csdn.net/MeetingInfo.aspx?mid=99">PhoneGap 的开发讲座</a> ，而 PhoneGap 在 iOS 设备上的实现就是通过 UIWebView 控件来展示 html 内容，并且与 native 代码进行交互的。</p>
+<p>正好我们在做有道云笔记的 iPad 版，因为我们也是使用 UIWebView 来展示笔记内容，所以也需要做 js 与 native 代码相互调用的事情。所以在这儿顺便总结一下 UIWebView 在使用上的细节，以及谈谈我对 PhoneGap 的看法。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/03/24</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2012/03/10/xcode4-tips/">
+                
+                <span class="abstract-title-text">Xcode4 使用技巧</span>
+            </a>
+            <div class="abstract-content">
+                <p>使用 xcode4 也有一段时间了，今天整理了一下 xcode4 的一些使用技巧，在这里分享给大家。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/03/10</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2012/02/29/collaboration-with-git/">
+                
+                <span class="abstract-title-text">用Git进行协同开发</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="问题场景描述"><a href="#问题场景描述" class="headerlink" title="问题场景描述"></a>问题场景描述</h2><p>常常会遇到这样的协同场景：后台的同事和前端的同事需要共同开发一个新功能，而他们的代码相互依赖，所以需要不停地更新各自的代码进行联调。</p>
+<p>对于这种场景，最简单的方式就是，这 2 个同事坐到一起，然后把 svn 当作一个共享代码的中转站来共享开发中的代码。</p>
+<p>在这种方式下，大家各自写自己的代码，提交到 svn 上，然后用 svn up 获得对方的代码。在调试问题的时候，大家可能不停地更新代码，然后让对方用 svn up 来更新。最终，虽然开发能够顺利进行，但是 svn 上会积累大量调试中的代码历史。所以，这样把 svn 当作代码中转站是一个很山寨的行为。</p>
+<p>在开发 <a target="_blank" rel="noopener" href="http://note.youdao.com/">有道云笔记</a> 新的 <a target="_blank" rel="noopener" href="http://itunes.apple.com/cn/app/id483995181">iPad 版</a> 时，我和前端同事 zyc 尝试用 git 进行了协同开发。在这里把具体方案分享给大家，欢迎大家讨论。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/29</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Git">Git</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2012/02/22/use-gcd/">
                 
                 <span class="abstract-title-text">使用GCD</span>
@@ -667,90 +763,6 @@
     
 </div>
 
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/01/use-appledoc-to-generate-xcode-doc/">
-                
-                <span class="abstract-title-text">使用Objective-C的文档生成工具:appledoc</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>做项目的人多了，就需要文档了。今天开始尝试写一些项目文档。但是就源代码来说，文档最好和源码在一起，这样更新起来更加方便和顺手。象 Java 语言本身就自带 javadoc 命令，可以从源码中抽取文档。今天抽空调研了一下 objective-c 语言的类似工具。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/01</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/01/23/use-javascript-to-import-pictures/">
-                
-                <span class="abstract-title-text">用javascript协助导入图片</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>先说说需求。春节回家见爸妈，老爸迷上了摄影。他把平时的照片都上传到了 <a target="_blank" rel="noopener" href="http://photo.chengdu.cn/">成都图片网</a>, 这个成都图片网专门有一个 “快拍成都” 的版块，用于大家将随手拍的生活中的图片分享上去。每天编辑还会选出一张最有特色的图片，刊登到《成都商报》上。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/01/23</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/01/20/we-must-self-learning/">
-                
-                <span class="abstract-title-text">我们必须自学</span>
-            </a>
-            <div class="abstract-content">
-                <p>前两天看到一个文章，题名为 <a target="_blank" rel="noopener" href="http://www.aqee.net/all-programmers-are-self-taught/">《所有的程序员都是自学成才》</a>。当时没有什么特别的想法，只是觉得自己也确实是基本上靠自学来掌握新的知识的。但是今天在公车上没事好好想了一想，想明白了，原来对于程序员来说，只能自学才能成才。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/01/20</span>
-                </div>
-                <!-- tags -->
                 
             </div>
         </article>
@@ -2584,7 +2596,58 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -5621,7 +5684,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 324
+        Total : 327
         </div>
         <!-- search  -->
         
@@ -5635,6 +5698,24 @@
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span>
+            <a class="archive-post-title" href="/2024/09/01/living-selling-101/">如何在抖音直播卖货</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/23</span>
+            <a class="archive-post-title" href="/2024/06/23/pricing-strategy/">要利润的定价 - 读《定价制胜》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span>
+            <a class="archive-post-title" href="/2024/05/15/ever-living-fire/">人单合一 - 读《永恒的活火》</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/26</span>
