@@ -6,7 +6,7 @@
   <link href="https://blog.devtang.com/atom.xml" rel="self"/>
   
   <link href="https://blog.devtang.com/"/>
-  <updated>2024-09-17T10:38:33.529Z</updated>
+  <updated>2024-09-17T15:38:31.718Z</updated>
   <id>https://blog.devtang.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10 分钟弄懂 CSP-J</title>
+    <link href="https://blog.devtang.com/2024/09/17/cspj-introduction/"/>
+    <id>https://blog.devtang.com/2024/09/17/cspj-introduction/</id>
+    <published>2024-09-17T13:51:36.000Z</published>
+    <updated>2024-09-17T15:38:31.718Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是-CSP-J"><a href="#什么是-CSP-J" class="headerlink" title="什么是 CSP-J"></a>什么是 CSP-J</h2><p>CSP（Certified Software Professional）全称是中国计算机学会（CCF）主办的“软件能力认证”，它是中国计算机学会为了提高计算机软件人才的专业水平而设立的一项专业技能认证。CSP 认证分为两个级别：CSP-J（Junior，入门级）和CSP-S（Senior，提高级）。</p><p>因为该认证主要用于选拔 NOIP 选手，所以认证的报名通道仅向各中小学的计算机老师开放。</p><p>比赛在每年的 9 月开学之后进行，比赛分为两轮。第一轮为笔试，第二轮为上机。第一轮通过之后，才能参加第二轮。2023 年 CSP-J 第一轮的通过分数线为 63 分。</p><p>比赛报名的官方网站为 <a href="https://www.noi.cn/">https://www.noi.cn/</a>，<a href="https://www.noi.cn/xw/2024-07-16/827939.shtml">这里</a>有官方关于 CSP-J 的更多介绍。</p><h2 id="信息学相关比赛的分类"><a href="#信息学相关比赛的分类" class="headerlink" title="信息学相关比赛的分类"></a>信息学相关比赛的分类</h2><p>参加信息学比赛，按打怪升级的过程，可以是从 GESP 考级开始。GESP 每 3 个月就有一次考级，可以及时检验学习成果。平均 3 个月就可以完成一个级别的知识学习，所以学习初期，正反馈的频率还比较高。</p><p>以下是各个比赛面向的人群和获奖难度。</p><table><thead><tr><th>比赛名</th><th>面向人群</th><th>获奖难度</th></tr></thead><tbody><tr><td>GESP</td><td>小学生+初中生</td><td>共 8 级。GESP 7 级 80 分或 8 级 60 分，可<a href="https://gesp.ccf.org.cn/101/1002/10144.html">跳过 CSP 第一轮</a></td></tr><tr><td>CSP-J</td><td>小学生+初中生</td><td>各省约前 20% 可拿省一等奖</td></tr><tr><td>CSP-S</td><td>高中生</td><td>各省约前 20% 可拿省一等奖</td></tr><tr><td>NOIP</td><td>高中生</td><td>各省约前 20% 可拿省一等奖</td></tr><tr><td>NOI</td><td>高中生</td><td>2024 年总获奖率为85%，前 50 可获金奖</td></tr><tr><td>IOI</td><td>高中生</td><td>代表中国参加全球的比赛</td></tr></tbody></table><p>大部分小学生和初中生的目标是 CSP-J，获得一等奖可以被各大重点高中点招。</p><p>大部分高中孩子的目标可能在 NOIP 的一等奖，因为有了这个奖项，就可以被保送或者自主招生降分录取，高考的压力会小很多。我当年就是有 NOIP 的奖项，获得了北师大的自主招生参考资格（当时全国只有 50 个资格），然后考试通过了北师大的自主招生。</p><h2 id="CSP-J-的获奖难度"><a href="#CSP-J-的获奖难度" class="headerlink" title="CSP-J 的获奖难度"></a>CSP-J 的获奖难度</h2><p>我做了一个《北京 CSP-J 近五年比赛情况》表，如下：</p><img src="/images/cspj-1.jpg" class=""><p>从中可以看到：</p><ul><li>初赛报名人数逐年增长，每年增长都在 10% 以上。22 年和 23 年分别增长了62% 和39%</li><li>第一轮初赛的通过率逐年下降，每年最少下降 2pp，23 年通过率为 24%</li><li>复赛获奖率非常高，即便是最低的 2023 年，也有71% 的孩子在复赛中获奖</li></ul><p>虽然报名人数在增加，但好消息是：复赛中一等奖的获奖人数是基本按照复赛人数来计算的，得奖比例约为 20%，所以参赛人数越多，一等奖的名额就越多。</p><h2 id="几年级可以拿到-CSP-J-一等奖"><a href="#几年级可以拿到-CSP-J-一等奖" class="headerlink" title="几年级可以拿到 CSP-J 一等奖"></a>几年级可以拿到 CSP-J 一等奖</h2><p>获得 CSP-J 一等奖的年级分布如下，绝大多数（74%）的孩子都是在初二或者初三，才能获得 CSP-J 一等奖。</p><img src="/images/cspj-2.jpg" class=""><p>但是，也有少量的优秀小学生（约6%），可以在小学阶段就拿到 CSP-J 一等奖，这样的学生在 2022 年有 146 人。</p><img src="/images/cspj-3.jpg" class=""><h2 id="CSP-J-的备赛准备"><a href="#CSP-J-的备赛准备" class="headerlink" title="CSP-J 的备赛准备"></a>CSP-J 的备赛准备</h2><p>CSP-J 的最佳备赛年龄是 4 年级的上学期。因为，CSP-J 的比赛在每年的 9 月份，如果从 4 年级上学期开始备赛，那么就可以有整整两年来准备。但如果从 5 年级开始备赛，那么备赛时间就只有 1 年了。</p><p>是 4 年级不是 3 年级或更早的原因是：孩子在 4 年级的智力水平发育程度相对比较容易接受 C++ 这种比较抽象的编程语言。更早的年龄还是以兴趣培养为主较好，编程语言也可以选择 Scratch 或者 Python。</p><p>因为 C++ 语言是官方比赛语言，所以准备的时候应该直接从 C++开始，否则后期还涉及语言的切换，会浪费更多的备赛时间。</p><p>CSP-J 的备赛分为如下 3 个阶段，总共约 600 小时（240 小时上课，360 小时练习）：</p><ul><li>C++ 语言学习。约 24 课时。</li><li>数据结构。约 24 课时。</li><li>算法。约 192 课时。</li></ul><p>总课时约 240 小时，再加 360 小时以上的练习。</p><p>一般孩子如果从 4 年级开始，每周上 2 小时的课，完成作业 3 小时，那么就需要 120 周，差不多两年的时间还差一点。如果暑假再补一些时间进去，就刚刚够学习时长。</p><p>以上是冲着全国只有 146 人达成的“小学生阶段拿一等奖”为目标的训练方式。如果目标不那么激进，按大部分学生的学习进度，在初二获奖一等奖。那么准备时间就多了 1 倍，有 6 年级和初一整整两年。而且中间可以多次参赛，积累比赛经验。这样获奖的可能性就大大增加了。</p><p>所以，理性一点的目标是：</p><ul><li>小学 4 年级开始准备</li><li>小学 6 年级能够进入复赛</li><li>初中 1 年级保二等奖，争一等奖</li><li>初中 2 年级争一等奖</li><li>初中 3 年级参加 CSP-S</li><li>高中 1 年级争 CSP-S 和 NOIP 二等奖</li><li>高中 2 年级争 CSP-S 和 NOIP 一等奖</li></ul><h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>我也在指导一个北京的五年级孩子学习编程，准备 CSP-J，现在学习 40 完课时，已经通过了 GESP 2 级。欢迎同行和家长联系我一起交流，我的微信：tangqiaoboy 。</p><img src="/images/cspj-4.jpg" class=""><p>以上。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;什么是-CSP-J&quot;&gt;&lt;a href=&quot;#什么是-CSP-J&quot; class=&quot;headerlink&quot; title=&quot;什么是 CSP-J&quot;&gt;&lt;/a&gt;什么是 CSP-J&lt;/h2&gt;&lt;p&gt;CSP（Certified Software Professional）全称是中国计</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>西贝创始人贾国龙的成与败 - 读《折腾不止》</title>
@@ -462,32 +482,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;一、采购的岗位职责&quot;&gt;&lt;a href=&quot;#一、采购的岗位职责&quot; class=&quot;headerlink&quot; title=&quot;一、采购的岗位职责&quot;&gt;&lt;/a&gt;一、采购的岗位职责&lt;/h2&gt;&lt;p&gt;采购岗位在供应链交付过程中至关重要。因为涉及采购款项的谈判和支付，通常采购是对供应商</summary>
-      
-    
-    
-    
-    <category term="summary" scheme="https://blog.devtang.com/categories/summary/"/>
-    
-    
-    <category term="supply-chain" scheme="https://blog.devtang.com/tags/supply-chain/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>供应链笔记(9)：开源岗位</title>
-    <link href="https://blog.devtang.com/2023/12/17/supply-chain-9/"/>
-    <id>https://blog.devtang.com/2023/12/17/supply-chain-9/</id>
-    <published>2023-12-17T02:34:12.000Z</published>
-    <updated>2024-01-06T14:52:37.943Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、开源的工作定义"><a href="#一、开源的工作定义" class="headerlink" title="一、开源的工作定义"></a>一、开源的工作定义</h2><p>开源的工作主要包括：</p><ul><li>为业务寻找合格的物料供应商</li><li>为物料的初始价格进行商务谈判，保证价格在合理范围内</li><li>为新供应商的顺利引入努力，包括核对相关的资质，对接打样，生产周期</li><li>供应商成功引入后，将供应商顺利交接给采购</li></ul><h2 id="二、开源的工作挑战"><a href="#二、开源的工作挑战" class="headerlink" title="二、开源的工作挑战"></a>二、开源的工作挑战</h2><h3 id="2-1-开源的工作挑战一：寻找到足够多的合格供应商"><a href="#2-1-开源的工作挑战一：寻找到足够多的合格供应商" class="headerlink" title="2.1 开源的工作挑战一：寻找到足够多的合格供应商"></a>2.1 开源的工作挑战一：寻找到足够多的合格供应商</h3><p>供应链的价格合理，供应安全都建立在足够的合格供应商库中，如果合格供应商不足（例如只有单一供应商），那么就可能会出现：</p><ul><li>价格不合理。供应商如果找个借口坐地起价，为了保证供应安全，你很多时候在没有合适替代品的下，在权衡利弊之后，也可能忍痛短时间接受涨价。</li><li>标准打折扣。供应商生产的商品有轻微瑕疵。为了保证供应安全，你只能被迫允收。</li><li>交付延期。供应商可能延期交货，对此你无法有效监管和惩罚。</li></ul><p>对于一个采购品，如果我们有多个合格供应商，那么我们即便对这个采购品的价格分析不够深入，我们也可以靠简单地多方竞争报价的方式，让供应商的价格回归到一个正常的合理水平。</p><h3 id="2-2-开源的工作挑战二：保证合格供应商来源的丰富性"><a href="#2-2-开源的工作挑战二：保证合格供应商来源的丰富性" class="headerlink" title="2.2 开源的工作挑战二：保证合格供应商来源的丰富性"></a>2.2 开源的工作挑战二：保证合格供应商来源的丰富性</h3><p>多个合格供应商如果背后串通，那么在价格上就会产生围标行为，这对供应链来说是灾难性的。所以开源需要定期从不同的源头来寻找新的合格供应商，以保证合格供应商池的丰富度和新鲜度。</p><p>只有在源头上保证供应商的不断引入，才能有效减少围标行为的产生。为此，斑马供应链要求对于年采购额大于 1000 万的品，每年都要争取开新的供应商源，用小批量的试产和议价，保证价格的合理性和供应的安全性。</p><h3 id="2-3-开源的工作挑战三：保持廉洁"><a href="#2-3-开源的工作挑战三：保持廉洁" class="headerlink" title="2.3 开源的工作挑战三：保持廉洁"></a>2.3 开源的工作挑战三：保持廉洁</h3><p>开源岗位很大程度上决定了引入哪些供应商，如果和供应商串通，对供应链影响极大。</p><p>除了在制度上要求开源来源的丰富性、引入供应商管理复核、多个开源岗位相互轮岗外，我们也要在各种环节引入内审的监督机制，定期督查供应商引入的细节，维持廉洁管理的压力。</p><h2 id="三、开源岗位的要求"><a href="#三、开源岗位的要求" class="headerlink" title="三、开源岗位的要求"></a>三、开源岗位的要求</h2><p>从事开源岗位需要具备如下素质：</p><ul><li>廉洁。能够抵挡住诱惑。</li><li>积极主动。主动解决问题。</li><li>优秀的沟通技巧。能够促成双赢的合作。</li><li>专业的领域知识。能够有效评价供应商的能力。</li></ul><p>以上。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;一、开源的工作定义&quot;&gt;&lt;a href=&quot;#一、开源的工作定义&quot; class=&quot;headerlink&quot; title=&quot;一、开源的工作定义&quot;&gt;&lt;/a&gt;一、开源的工作定义&lt;/h2&gt;&lt;p&gt;开源的工作主要包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;为业务寻找合格的物料供应商&lt;/li&gt;</summary>
       
     
     
