@@ -5,6 +5,8 @@ categories: summary
 tags: books
 ---
 
+{% img /images/talk-with-xibei-book-cover.jpg %}
+
 最近读完了李翔写的《折腾不止 - 西贝创始人贾国龙的成败与蓝图》，有一些感悟，记录一下。
 
 ## 市场规模
