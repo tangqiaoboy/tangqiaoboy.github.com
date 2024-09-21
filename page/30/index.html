@@ -449,6 +449,45 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2013/07/28/a-look-inside-blocks/">
+                
+                <span class="abstract-title-text">谈Objective-C block的实现</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a target="_blank" rel="noopener" href="http://blog.parse.com/2013/02/05/objective-c-blocks-quiz/">这里</a> 有关于 block 的 5 道测试题，建议你阅读本文之前先做一下测试。</p>
+<p>先介绍一下什么是闭包。在 wikipedia 上，<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Closure_(computer_science)">闭包的定义</a> 是:</p>
+<blockquote><p>In programming languages, a closure is a function or reference to a function together with a referencing environment—a table storing a reference to each of the non-local variables (also called free variables or upvalues) of that function.</p>
+</blockquote>
+<p>翻译过来，闭包是一个函数（或指向函数的指针），再加上该函数执行的外部的上下文变量（有时候也称作自由变量）。</p>
+<p>block 实际上就是 Objective-C 语言对于闭包的实现。<br>block 配合上 dispatch_queue，可以方便地实现简单的多线程编程和异步编程，关于这个，我之前写过一篇文章介绍：<a href="/2012/02/22/use-gcd/">《使用 GCD》</a>。</p>
+<p>本文主要介绍 Objective-C 语言的 block 在编译器中的实现方式。主要包括：</p>
+<ol>
+<li>block 的内部实现数据结构介绍</li>
+<li>block 的三种类型及其相关的内存管理方式</li>
+<li>block 如何通过 capture 变量来达到访问函数外的变量</li>
+</ol>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/07/28</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2013/06/23/alipay-plugin-mechanism/">
                 
                 <span class="abstract-title-text">分析支付宝客户端的插件机制</span>
@@ -763,42 +802,10 @@
         </article>
         <div class="index-post-divider"></div>
     
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2013/01/13/two-stage-creation-on-cocoa/">
-                
-                <span class="abstract-title-text">谈ObjC对象的两段构造模式</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Objective-c 语言在申请对象的时，需要使用两段构造 (<a target="_blank" rel="noopener" href="http://volonbolon.net/post/634999801/two-stage-creation-in-cocoa">Two Stage Creation</a>) 的模式。一个对象的创建，需要先调用 alloc 方法或 allocWithZone 方法，再调用 init 方法或 initWithSomething 方法。如下是一个 NSString 对象的创建示例：</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * str = [[<span class="built_in">NSString</span> alloc] initWithString:<span class="string">@&quot;http://blog.devtang.com&quot;</span>];</span><br></pre></td></tr></table></figure>
-
-<p>由于该语言的对象创建方法和大多数其它语言（如 C、C++、Java、JavaScript）都不一样，所以引起了我的好奇。是什么原因促使 Objective-C 做了这种设计，而又是什么原因促使大多数其它语言都采用 “new” 方法来一次性创建对象呢？</p>
-<p>在看了 <a target="_blank" rel="noopener" href="http://www.amazon.com/Cocoa-Design-Patterns-Erik-Buck/dp/0321535022">《Cocoa Design Patterns》</a> 一书（顺便吐槽一下该书中文版翻译质量不高，建议看英文版），并且做了一些调研之后，我将总结分享给大家，欢迎大家讨论。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/01/13</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
     <!-- paginator  -->
     
         <nav class="page-nav">
-            <a class="extend prev" rel="prev" href="/page/29/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/31/">NEXT &gt;</a>
+            <a class="extend prev" rel="prev" href="/page/29/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/31/">NEXT &gt;</a>
         </nav>
     
 </main>
@@ -2653,7 +2660,24 @@
         
         
         
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -5848,7 +5872,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 330
+        Total : 331
         </div>
         <!-- search  -->
         
@@ -5864,8 +5888,14 @@
             
         
         <li class="archive-post-item">
+            <span class="archive-post-date">09/19</span>
+            <a class="archive-post-title" href="/2024/09/19/thinking-pattens/">第一性原理思考：解决问题的通用框架(续)</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
             <span class="archive-post-date">09/17</span>
-            <a class="archive-post-title" href="/2024/09/17/cspj-introduction/">10 分钟弄懂 CSP-J</a>
+            <a class="archive-post-title" href="/2024/09/17/cspj-introduction/">五分钟弄懂 CSP-J</a>
         </li>
     
         
