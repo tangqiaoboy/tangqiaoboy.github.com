@@ -449,6 +449,69 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2012/02/16/apply-daily-build-in-ios-project/">
+                
+                <span class="abstract-title-text">给iOS工程增加Daily Build</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Daily Build 是一件非常有意义的事情，也是敏捷开发中关于 “持续集成” 的一个实践。Daily Build 对于开发来说有如下好处：</p>
+<ul>
+<li>保证了每次 check in 的代码可用，不会造成整个工程编译失败。</li>
+<li>进度跟进。产品经理可以每天看到最新的开发进度，并且试用产品，调整一些细节。很多时候，一个新功能，你真正用了一下才能有体会好或不好，所以 daily build 也给产品经理更多时间来调理他的设计。</li>
+<li>需求确认。产品经理可以确认开发的功能细节是他的预期。因为我们的开发比较紧凑，所以都没有传统的需求说明文档，所以 daily build 也给产品经理用于尽早确认开发的功能细节是他的预期，我就遇到一次产品经理发现开发出的一个功能细节和他的预期不一致，但是因为有 daily build，使得我可以尽早做修改，把修改的代价减小了。</li>
+<li>测试跟进。如果功能点是独立的话，测试同事完全可以根据 daily build 来进行一些早期的测试。越早的 Bug 反馈可以使得修改 bug 所需的时间越短。</li>
+</ul>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/16</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2012/02/14/nsstring-java-like-wrapper/">
+                
+                <span class="abstract-title-text">给NSString增加Java风格的方法</span>
+            </a>
+            <div class="abstract-content">
+                <p>我实在受不了 NSString 冗长的方法调用了，每次写之前都要查文档。特别是那个去掉前后多余的空格的方法，长得离谱。与之对应的别的语言，拿 java 来说，对应的方法名叫 trim。拿 python 来说，对应的方法名叫 strip。但是 Objective-C 呢？是下面这段：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">[<span class="keyword">self</span> stringByTrimmingCharactersInSet:[<span class="built_in">NSCharacterSet</span> whitespaceAndNewlineCharacterSet]];</span><br></pre></td></tr></table></figure>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/14</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2012/02/10/setup-blog-based-on-github/">
                 
                 <span class="abstract-title-text">象写程序一样写博客：搭建基于github的博客</span>
@@ -697,64 +760,6 @@
     
 </div>
 
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2011/12/10/remove-tail-blankspace-in-xcode/">
-                
-                <span class="abstract-title-text">去掉Xcode源码末尾的空格</span>
-            </a>
-            <div class="abstract-content">
-                在用 Xcode 开发的时候，很容易就在行末增加一些空格了。这些空格在上传到 review board 上后 , 就会被特别的颜色显示出来。因为一种好的编程风格是说 , 不应该在行末增加不必要的...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2011/12/10</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2011/11/20/set-uilabel-text-align-top/">
-                
-                <span class="abstract-title-text">让UILabel的文字顶部对齐</span>
-            </a>
-            <div class="abstract-content">
-                默认UILabel是垂直居中对齐的，如果你的UILabel高度有多行，当内容少的时候，会自动垂直居中。
-如下图所示（图片来自stackoverflow)：
-
-
-比较郁闷的是，UILabel并不提...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2011/11/20</span>
-                </div>
-                <!-- tags -->
                 
             </div>
         </article>
@@ -2623,7 +2628,41 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -5830,7 +5869,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 331
+        Total : 333
         </div>
         <!-- search  -->
         
@@ -5844,6 +5883,18 @@
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span>
+            <a class="archive-post-title" href="/2024/10/27/notes-from-duan-yong-ping/">本份 - 读《段永平投资回答录》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/27</span>
+            <a class="archive-post-title" href="/2024/09/27/use-cin-in-vscode/">在 VS Code 中使用 cin 输入数据</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">09/19</span>
