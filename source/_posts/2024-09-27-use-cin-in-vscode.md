@@ -1,7 +1,7 @@
 ---
 title: 在 VS Code 中使用 cin 输入数据
 date: 2024-09-27 22:18:03
-tags: 
+tags: cspj
 ---
 
 ## 问题
