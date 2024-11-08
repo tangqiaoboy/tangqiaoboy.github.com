@@ -449,6 +449,52 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2013/04/29/the-missing-objc-keywords/">
+                
+                <span class="abstract-title-text">那些被遗漏的Objective-C保留字</span>
+            </a>
+            <div class="abstract-content">
+                <img src="/images/forget.jpeg" class="">
+
+<p>今天翻到很久以前自己在网易博客上写的 <a target="_blank" rel="noopener" href="http://tangqiaoboy.blog.163.com/blog/static/116114258201110133108545/">这篇文章</a>，惊奇地发现自己都忘记了里面的一些内容。所以我又重新学习了一下，然后改了改内容，挪到这里。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a target="_blank" rel="noopener" href="http://www.amazon.cn/s?ie=UTF8&search-alias=books&field-author=Steffen%20Itterheim">Steffen Itterheim</a> 是 <a target="_blank" rel="noopener" href="http://www.amazon.cn/Learn-Iphone-and-Ipad-Cocos2d-Game-Development-The-Leading-Framework-for-Building-2D-Graphical-and-Interactive-Applications-Itterheim-Steffen/dp/1430233036/ref=sr_1_1?ie=UTF8&qid=1321168092&sr=8-1">《Learn Iphone and Ipad Cocos2d Game Development》</a> 作者。cocos2d 和 cocos2d-x 现在已成为著名的游戏开发引擎。在 AppStore 上有超过 100 个游戏是基于 Cocos2D。</p>
+<p>Steffen Itterheim 在 <a target="_blank" rel="noopener" href="http://www.learn-cocos2d.com/2011/10/complete-list-objectivec-20-compiler-directives">他的博客</a> 中总结了 Objective-C 2.0 所有的编译器保留字，并且对这些保留字做了介绍和使用示例。这些保留字如下：</p>
+<pre>
+@class
+@defs
+@protocol @required @optional @end
+@interface @public @package @protected @private @property @end
+@implementation @synthesize @dynamic @end
+@throw @try @catch @finally
+@synchronized @autoreleasepool
+@selector @encode
+@compatibility_alias
+@”string”
+</pre>
+
+<p>我把这些保留字过了一遍，发现很少用到的有 @dynamic @defs @encode @compatibility_alis，所以就给大家介绍一下这几个关键字吧。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/04/29</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2013/04/07/tricks-in-iap/">
                 
                 <span class="abstract-title-text">iOS应用内支付(IAP)的那些坑</span>
@@ -715,38 +761,6 @@
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/11/14</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/11/10/how-to-design-upgrade-notice/">
-                
-                <span class="abstract-title-text">改进iOS客户端的升级提醒功能</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="功能设计"><a href="#功能设计" class="headerlink" title="功能设计"></a>功能设计</h2><p>先申明一下，我是码农，不是一个产品经理，但我觉得现有市面上的很多 App，设计的 “升级提示功能” 都不太友好。在此分享一下我的想法，欢迎大家讨论。</p>
-<p>这些 App 包括：新浪微博、网易微博、网易新闻客户端以及大部分带有升级提示功能的 App，所以我觉得这个问题还是挺普遍的。对于该问题，一句话描述起来就是：“这些 App 都会在用户刚刚使用它的时候，提示有新版本，让用户去 AppStore 上下载最新的版本”。下面是某个应用的升级提示截图：</p>
-<img src="/images/app-upgrade-1.jpg" class="">
-
-<p>为什么我认为这是一个糟糕的设计呢？因为用户刚刚打开你的 App，明显就是想使用你的功能。例如刚刚打开新浪微博，可能就是想看一下最新的消息或回复。刚刚打开网易新闻客户端，可能就是想看看最新的新闻。这个时候，你告诉用户有新版本，是想让用户暂时放弃使用该 App 吗？我不知道有多少用户会去点 “升级” 这个按钮，反正我每次看到这个提示都很郁闷，因为我如果点了，我就暂时不能使用该应用了（升级时原版本的 App 是无法使用的）。所以我在想，这个提示升级的时间能不能做得更友好一些？</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/11/10</span>
                 </div>
                 <!-- tags -->
                 
@@ -2632,7 +2646,24 @@
         
         
         
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -5875,7 +5906,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 334
+        Total : 335
         </div>
         <!-- search  -->
         
@@ -5889,6 +5920,12 @@
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span>
+            <a class="archive-post-title" href="/2024/11/08/time-control-of-cspj-learning/">如何控制孩子的电脑使用</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">11/07</span>
