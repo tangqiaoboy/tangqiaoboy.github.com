@@ -27,7 +27,7 @@
 <meta property="og:description" content="背景和问题小学生在学习编程的时候，像变量，赋值，输入，输出，分支这些逻辑相对容易理解。因为这与人类真实世界的很多行为相似，所以学生会很容易吸收。具体来说：  变量其实就是我们平时取的“名字”或者“外号”，用于指代一种特定物品。 赋值相当于为这种特定物品指定一种属性值，像是苹果的重量，价格一样。 输入和输出在很多电子产品中都有接触，孩子现在很小就接触手机，非常容易理解键盘就是一种输入，屏幕显示就是一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-07T01:13:43.000Z">
-<meta property="article:modified_time" content="2024-11-08T01:08:32.931Z">
+<meta property="article:modified_time" content="2024-11-08T01:52:25.187Z">
 <meta property="article:author" content="唐巧">
 <meta property="article:tag" content="cspj">
 <meta name="twitter:card" content="summary">
@@ -336,7 +336,7 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">2.1k</span>阅读时长: <span class="post-count reading-time">8 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">2.2k</span>阅读时长: <span class="post-count reading-time">8 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -510,14 +510,17 @@
 <p>因为每一步的难度提升梯度很小，所以学生虽然找不到现实世界类比，但终于还是比较容易理解整个渐进变化的过程。</p>
 <p>这就类似于我们学立体几何前先学平面几何，学平面几何前先学点线面一样。从微小的简单事物开始，我们最终可以创造整个世界。</p>
 <p>以下是我对 for 循环的具体教学拆解。</p>
-<h2 id="教学拆解"><a href="#教学拆解" class="headerlink" title="教学拆解"></a>教学拆解</h2><h3 id="1、用-for-循环输出数列"><a href="#1、用-for-循环输出数列" class="headerlink" title="1、用 for 循环输出数列"></a>1、用 for 循环输出数列</h3><p>从 1-N 的等差数列是最最基础形式，我们先用这个引入，让孩子先初步了解 for 循环的三段形式。示例代码：</p>
+<h2 id="教学拆解"><a href="#教学拆解" class="headerlink" title="教学拆解"></a>教学拆解</h2><h3 id="1、用-for-循环输出数列"><a href="#1、用-for-循环输出数列" class="headerlink" title="1、用 for 循环输出数列"></a>1、用 for 循环输出数列</h3><p>输出从 1-N 的等差数列是使用 for 循环最基础形式。我们先用这个引入，让孩子先初步了解 for 循环的三段形式。</p>
+<p>for 循环的三段式其实对初学者来说还是有点绕，借此环节把 for 的基本格式熟悉。</p>
+<p>示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cin &gt;&gt; n;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">	cout &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2、用-for-循环输出-1-N-的和"><a href="#2、用-for-循环输出-1-N-的和" class="headerlink" title="2、用 for 循环输出 1-N 的和"></a>2、用 for 循环输出 1-N 的和</h3><p>累加器的写法对于初学者来说是一个小障碍，但是累加器与 for 循环的结合使用在之后的变化很常见，所以我们在这个阶段把累加器引入，帮助孩子建立累加器的使用习惯。示例代码：</p>
+<h3 id="2、用-for-循环输出-1-N-的和"><a href="#2、用-for-循环输出-1-N-的和" class="headerlink" title="2、用 for 循环输出 1-N 的和"></a>2、用 for 循环输出 1-N 的和</h3><p>累加器的写法对于初学者来说是一个小障碍，但是累加器与 for 循环的结合使用在之后的变化很常见，所以我们在这个阶段把累加器引入，帮助孩子建立累加器的使用习惯。</p>
+<p>示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">cin &gt;&gt; n;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">	sum += i;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; sum &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
 
 <p>注：对于不习惯 +&#x3D; 的学生，也可以刚开始用 <code>sum = sum + i</code>来教学，减少学生的陌生感。</p>
-<p>此题也可以进一步变化为，分别求奇数和、偶数和。让学生学会在 for 里面嵌入 if 表达式。</p>
+<p>此题也可以进一步变化为：分别求奇数和、偶数和。让学生学会在 for 里面嵌入 if 表达式。</p>
 <h3 id="3、用-for-循环输出-1-N-的和的平均值"><a href="#3、用-for-循环输出-1-N-的和的平均值" class="headerlink" title="3、用 for 循环输出 1-N 的和的平均值"></a>3、用 for 循环输出 1-N 的和的平均值</h3><p>平均值的计算涉及整除的概念，需要在除之前将被除数转化为小数，同时需要用 iomanip 头文件中的函数来控制输出格式，这一编程技巧正好在这一步引入，让学生逐步熟悉对输出的控制。</p>
 <p>示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="comment">// 此处省略若干行</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">cin &gt;&gt; n;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">	sum += i;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; <span class="built_in">double</span>(sum)/n &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
@@ -584,7 +587,7 @@
             <p>原文作者：<a href="https://blog.devtang.com">唐巧</a>
             <p>原文链接：<a href="https://blog.devtang.com/2024/11/07/teach-notes-of-for-loop/">https://blog.devtang.com/2024/11/07/teach-notes-of-for-loop/</a>
             <p>发表日期：<a href="https://blog.devtang.com/2024/11/07/teach-notes-of-for-loop/">November 7th 2024, 9:13:43 am</a>
-            <p>更新日期：<a href="https://blog.devtang.com/2024/11/07/teach-notes-of-for-loop/">November 8th 2024, 9:08:32 am</a>
+            <p>更新日期：<a href="https://blog.devtang.com/2024/11/07/teach-notes-of-for-loop/">November 8th 2024, 9:52:25 am</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
