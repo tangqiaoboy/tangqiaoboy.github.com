@@ -61,7 +61,11 @@ cout << sum << endl;
 
 注：对于不习惯 += 的学生，也可以刚开始用 `sum = sum + i`来教学，减少学生的陌生感。
 
+此题对应的线上练习是：[《2016：【例4.1】for循环求和》](https://ybt.ssoier.cn/problem_show.php?pid=2016)
+
 此题也可以进一步变化为：分别求奇数和、偶数和。让学生学会在 for 里面嵌入 if 表达式。
+ - 奇偶数之和线上练习：[《2018：【例4.3】输出奇偶数之和》](https://ybt.ssoier.cn/problem_show.php?pid=2018)
+ - 奇数求和的线上练习：[《1065：奇数求和》](https://ybt.ssoier.cn/problem_show.php?pid=1065)
 
 ### 3、用 for 循环输出 1-N 的和的平均值
 
@@ -81,6 +85,8 @@ for (int i = 1; i <= n; ++i) {
 cout << fixed << setprecision(6) << double(sum)/n << endl;
 ```
 
+此题对应的线上练习是：[《1060：均值》](https://ybt.ssoier.cn/problem_show.php?pid=1060)
+
 ### 4、输入 N，接着输入 N 个数求和
 
 大部分学生以为 for 循环是 for 循环，输入是输入，却不知道for 循环里面也可以写输入。通过此题，学生可以更多了解 for 循环的用处：用来批量输入。
@@ -96,6 +102,10 @@ for (int i = 1; i <= n; ++i) {
 }
 cout << sum << endl;
 ```
+
+相关练习：
+ - [《1060：均值》](https://ybt.ssoier.cn/problem_show.php?pid=1060)
+ - [《1061：求整数的和与均值》](https://ybt.ssoier.cn/problem_show.php?pid=1061)
 
 ### 5、输入 N 个数，求能整除 4 的个数
 
@@ -133,6 +143,11 @@ for (int i = 1; i <= n; ++i) {
 }
 cout << cnt1 << " " << cnt5 << endl;
 ```
+
+相关练习：
+ - [《1067：整数的个数》](https://ybt.ssoier.cn/problem_show.php?pid=1067)
+ - [《1068：与指定数字相同的数的个数》](https://ybt.ssoier.cn/problem_show.php?pid=1068)
+
 ### 7、输入 N 个数，求 N 个数的乘积
 
 我们学会了在 for 循环中累加，计数，那更多的变化就是求乘积了。在求乘积的时候，这个累积的变量值要从 1 开始。
@@ -148,9 +163,12 @@ for (int i = 1; i <= n; ++i) {
 }
 cout << mul << endl;
 ```
+
+此题对应的线上练习是：[《2019：【例4.4】求阶乘》](https://ybt.ssoier.cn/problem_show.php?pid=2019)
+
 ### 8、输入 N 和 M，求 M 的 N 次方
 
-次方是乘积的另一种变化。
+次方是乘积的另一种变化。线上的练习题是：[《1069：乘方计算》](https://ybt.ssoier.cn/problem_show.php?pid=1069)
 
 示例代码：
 
@@ -248,6 +266,8 @@ int main() {
 ```
 借此让学生锻炼模拟的能力。
 
+此题对应的线上练习是：[《2027：【例4.13】三角形》](https://ybt.ssoier.cn/problem_show.php?pid=2027)
+
 ### 12、for 的嵌套：矩形
 
 输入矩形的宽高，输出下面的形状。借此更一步强化学生模拟的能力。
@@ -257,6 +277,8 @@ int main() {
 *   *
 *****
 ```
+
+此题对应的线上练习是：[《1097：画矩形》](https://ybt.ssoier.cn/problem_show.php?pid=1097)
 
 ## 教学实操
 
