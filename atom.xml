@@ -6,7 +6,7 @@
   <link href="https://blog.devtang.com/atom.xml" rel="self"/>
   
   <link href="https://blog.devtang.com/"/>
-  <updated>2024-11-08T01:35:43.616Z</updated>
+  <updated>2024-12-01T03:48:08.803Z</updated>
   <id>https://blog.devtang.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将 stdc++.h 加到 Macbook M1/M2/M3 编译环境中</title>
+    <link href="https://blog.devtang.com/2024/12/01/add-stdc-to-macbook-m1/"/>
+    <id>https://blog.devtang.com/2024/12/01/add-stdc-to-macbook-m1/</id>
+    <published>2024-12-01T03:29:19.000Z</published>
+    <updated>2024-12-01T03:48:08.803Z</updated>
+    
+    <content type="html"><![CDATA[<p>查了好多资料，大多是不能 work 的。感谢这个视频教程：<a href="https://www.youtube.com/watch?v=LmR8sRcqbq0">https://www.youtube.com/watch?v=LmR8sRcqbq0</a>，最终帮我完成了需求。</p><p>以下是步骤概述：</p><p>1、在命令行执行：<code>echo | g++ -v -x c++ -E -</code>，我的运行结果如下：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; echo | g++ -v -x c++ -E -</span><br><span class="line">Apple clang version 16.0.0 (clang-1600.0.26.3)</span><br><span class="line">Target: arm64-apple-darwin23.6.0</span><br><span class="line">Thread model: posix</span><br><span class="line">// 此处省略若干行</span><br><span class="line">#include &quot;...&quot; search starts here:</span><br><span class="line">#include &lt;...&gt; search starts here:</span><br><span class="line"> /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1</span><br><span class="line"> /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/include</span><br><span class="line"> /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include</span><br><span class="line"> /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include</span><br><span class="line"> /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)</span><br><span class="line">End of search list.</span><br><span class="line"># 1 &quot;&lt;stdin&gt;&quot;</span><br><span class="line"># 1 &quot;&lt;built-in&gt;&quot; 1</span><br><span class="line"># 1 &quot;&lt;built-in&gt;&quot; 3</span><br><span class="line"># 439 &quot;&lt;built-in&gt;&quot; 3</span><br><span class="line"># 1 &quot;&lt;command line&gt;&quot; 1</span><br><span class="line"># 1 &quot;&lt;built-in&gt;&quot; 2</span><br><span class="line"># 1 &quot;&lt;stdin&gt;&quot; 2</span><br></pre></td></tr></table></figure><p>2、在上一步的结果中，寻找 <code>include &lt;...&gt; search starts here</code> 那一行，在那一行后面有提供 5 个路径，找到中间那个路径，按住 cmd 点击，可以用鼠标打开那个路径。如下图：</p><img src="/images/command_echo.jpg" class=""><p>3、找开之后，在那个路径新建名为 <code>bits</code> 的文件夹。</p><p>4、进入 <code>bits</code>文件夹，随便粘贴一个头文件进去，然后改名为 <code>stdc++.h</code>，修改文件内容如下：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// C++ includes used for precompiling -*- C++ -*-</span><br><span class="line"></span><br><span class="line">// Copyright (C) 2003-2014 Free Software Foundation, Inc.</span><br><span class="line">//</span><br><span class="line">// This file is part of the GNU ISO C++ Library.  This library is free</span><br><span class="line">// software; you can redistribute it and/or modify it under the</span><br><span class="line">// terms of the GNU General Public License as published by the</span><br><span class="line">// Free Software Foundation; either version 3, or (at your option)</span><br><span class="line">// any later version.</span><br><span class="line"></span><br><span class="line">// This library is distributed in the hope that it will be useful,</span><br><span class="line">// but WITHOUT ANY WARRANTY; without even the implied warranty of</span><br><span class="line">// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span><br><span class="line">// GNU General Public License for more details.</span><br><span class="line"></span><br><span class="line">// Under Section 7 of GPL version 3, you are granted additional</span><br><span class="line">// permissions described in the GCC Runtime Library Exception, version</span><br><span class="line">// 3.1, as published by the Free Software Foundation.</span><br><span class="line"></span><br><span class="line">// You should have received a copy of the GNU General Public License and</span><br><span class="line">// a copy of the GCC Runtime Library Exception along with this program;</span><br><span class="line">// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</span><br><span class="line">// &lt;http://www.gnu.org/licenses/&gt;.</span><br><span class="line"></span><br><span class="line">/** @file stdc++.h</span><br><span class="line"> *  This is an implementation file for a precompiled header.</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// 17.4.1.2 Headers</span><br><span class="line"></span><br><span class="line">// C</span><br><span class="line">#ifndef _GLIBCXX_NO_ASSERT</span><br><span class="line">#include &lt;cassert&gt;</span><br><span class="line">#endif</span><br><span class="line">#include &lt;cctype&gt;</span><br><span class="line">#include &lt;cerrno&gt;</span><br><span class="line">#include &lt;cfloat&gt;</span><br><span class="line">#include &lt;ciso646&gt;</span><br><span class="line">#include &lt;climits&gt;</span><br><span class="line">#include &lt;clocale&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;csetjmp&gt;</span><br><span class="line">#include &lt;csignal&gt;</span><br><span class="line">#include &lt;cstdarg&gt;</span><br><span class="line">#include &lt;cstddef&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cstdlib&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;ctime&gt;</span><br><span class="line"></span><br><span class="line">#if __cplusplus &gt;= 201103L</span><br><span class="line">#include &lt;ccomplex&gt;</span><br><span class="line">#include &lt;cfenv&gt;</span><br><span class="line">#include &lt;cinttypes&gt;</span><br><span class="line">#include &lt;cstdbool&gt;</span><br><span class="line">#include &lt;cstdint&gt;</span><br><span class="line">#include &lt;ctgmath&gt;</span><br><span class="line">#include &lt;cwchar&gt;</span><br><span class="line">#include &lt;cwctype&gt;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">// C++</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;bitset&gt;</span><br><span class="line">#include &lt;complex&gt;</span><br><span class="line">#include &lt;deque&gt;</span><br><span class="line">#include &lt;exception&gt;</span><br><span class="line">#include &lt;fstream&gt;</span><br><span class="line">#include &lt;functional&gt;</span><br><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">#include &lt;ios&gt;</span><br><span class="line">#include &lt;iosfwd&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;istream&gt;</span><br><span class="line">#include &lt;iterator&gt;</span><br><span class="line">#include &lt;limits&gt;</span><br><span class="line">#include &lt;list&gt;</span><br><span class="line">#include &lt;locale&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;memory&gt;</span><br><span class="line">#include &lt;new&gt;</span><br><span class="line">#include &lt;numeric&gt;</span><br><span class="line">#include &lt;ostream&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">#include &lt;sstream&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">#include &lt;stdexcept&gt;</span><br><span class="line">#include &lt;streambuf&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;typeinfo&gt;</span><br><span class="line">#include &lt;utility&gt;</span><br><span class="line">#include &lt;valarray&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">#if __cplusplus &gt;= 201103L</span><br><span class="line">#include &lt;array&gt;</span><br><span class="line">#include &lt;atomic&gt;</span><br><span class="line">#include &lt;chrono&gt;</span><br><span class="line">#include &lt;condition_variable&gt;</span><br><span class="line">#include &lt;forward_list&gt;</span><br><span class="line">#include &lt;future&gt;</span><br><span class="line">#include &lt;initializer_list&gt;</span><br><span class="line">#include &lt;mutex&gt;</span><br><span class="line">#include &lt;random&gt;</span><br><span class="line">#include &lt;ratio&gt;</span><br><span class="line">#include &lt;regex&gt;</span><br><span class="line">#include &lt;scoped_allocator&gt;</span><br><span class="line">#include &lt;system_error&gt;</span><br><span class="line">#include &lt;thread&gt;</span><br><span class="line">#include &lt;tuple&gt;</span><br><span class="line">#include &lt;typeindex&gt;</span><br><span class="line">#include &lt;type_traits&gt;</span><br><span class="line">#include &lt;unordered_map&gt;</span><br><span class="line">#include &lt;unordered_set&gt;</span><br><span class="line">#endif</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>完成以上步骤，搞定！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;查了好多资料，大多是不能 work 的。感谢这个视频教程：&lt;a href=&quot;https://www.youtube.com/watch?v=LmR8sRcqbq0&quot;&gt;https://www.youtube.com/watch?v=LmR8sRcqbq0&lt;/a&gt;，最终帮我完成</summary>
+      
+    
+    
+    
+    
+    <category term="cspj" scheme="https://blog.devtang.com/tags/cspj/"/>
+    
+  </entry>
   
   <entry>
     <title>如何控制孩子的电脑使用</title>
@@ -467,27 +489,6 @@
     <summary type="html">&lt;p&gt;最近看到一个新闻，OpenAI 的 CEO Sam Altman 结婚了，对象是另一个男人。&lt;/p&gt;
 &lt;p&gt;我想借此机会谈谈我的看法：我明确支持 LGBT。&lt;/p&gt;
 &lt;p&gt;现代的相关研究其实已经了解到，同性恋其实是一种基因上的特点，大概世界上有 1% 左右的人会因为基因的原</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>跑夜车的滴滴司机</title>
-    <link href="https://blog.devtang.com/2024/01/09/didi-driver-who-work-at-midnight/"/>
-    <id>https://blog.devtang.com/2024/01/09/didi-driver-who-work-at-midnight/</id>
-    <published>2024-01-09T09:50:20.000Z</published>
-    <updated>2024-01-25T09:57:11.615Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近出差较多，1 月 4 日回北京，当时到机场的时候已经是晚上 12 点了。我用滴滴试着打车回家，立刻叫到了车，正好我在飞机上睡了一路，不太困，就和司机攀谈起来。</p><h2 id="作息"><a href="#作息" class="headerlink" title="作息"></a>作息</h2><p>司机师傅是专门跑夜车的司机。他的作息是这样的：</p><ul><li>早上 10 点-下午 5 点，睡觉。</li><li>下午 5 点起床，吃晚饭，然后跑晚高峰。</li><li>下午 10 点以后，专门跑机场单。</li><li>半夜 11-1 点，看准跑车间隙合适的时候，吃第二顿饭。</li><li>凌晨 2-5 点。在车上小睡一觉。</li><li>早上 5 点-10 点，跑早高峰。跑完早高峰吃第三顿饭。吃完饭后睡觉。</li></ul><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我问了一些问题：</p><ul><li><p>问：车上睡觉冷怎么办？</p></li><li><p>答：全程开空调，但是要把车窗留个缝，防止一氧化碳中毒。</p></li><li><p>问：半夜找得到吃的吗？</p></li><li><p>答：有专门的馆子，跑车的师傅都知道。我们跑车的有微信群，可以交流这些信息。</p></li><li><p>问：为什么专门跑夜车？</p></li><li><p>答：因为晚上里程费高而且不堵车，跑习惯了比白天挣得多。</p></li></ul><h2 id="收入"><a href="#收入" class="headerlink" title="收入"></a>收入</h2><p>问了一下他的收入情况，他说到手大概 1 万左右。主要是需要跑早晚高峰来挣积分，积分高的司机在接单的时候才可以优先派单。<br>所以他跑早晚高峰其实不挣钱，因为堵车，主要是为了积分。因为积分是按单算的，所以他早晚高峰喜欢接小单，这样积分赚的快。</p><h2 id="家庭"><a href="#家庭" class="headerlink" title="家庭"></a>家庭</h2><p>家里有两个娃，大娃读大四，小娃在读高中。老婆没工作在家带娃，钱挣来基本上都给家里寄回去了，供老婆孩子生活和上学。<br>大娃在山东上学，毕业了想留在当地，大娃觉得北京的生活成本太高，北京租房一个一居室得 5000 左右一个月。山东那边租房一个月几百块钱，没啥生活压力。</p><h2 id="竞争"><a href="#竞争" class="headerlink" title="竞争"></a>竞争</h2><p>现在滴滴司机竞争很大，以前在机场都不用等，现在平均要等 1 小时左右才能接到客，钱都给机场交停车费了。<br>据他介绍，疫情之前北京滴滴司机有 22 万，疫情之后增加到 55 万。很多做小生意的、打工的因为疫情公司倒闭做不下去了，转而开滴滴挣钱，造成现在接单困难。</p><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>我们现在处在一个变化的时代，出口和基建的红利慢慢褪去，普通人生活的压力越来越大。<br>每一个人都不容易，愿国家的经济慢慢好起来。</p><p>以上。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;最近出差较多，1 月 4 日回北京，当时到机场的时候已经是晚上 12 点了。我用滴滴试着打车回家，立刻叫到了车，正好我在飞机上睡了一路，不太困，就和司机攀谈起来。&lt;/p&gt;
-&lt;h2 id=&quot;作息&quot;&gt;&lt;a href=&quot;#作息&quot; class=&quot;headerlink&quot; title=</summary>
       
     
     
