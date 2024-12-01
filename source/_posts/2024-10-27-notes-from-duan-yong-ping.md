@@ -1,5 +1,5 @@
 ---
-title: 本份 - 读《段永平投资回答录》
+title: 本分 - 读《段永平投资回答录》
 date: 2024-10-27 11:50:04
 categories: summary
 tags: books
