@@ -59,9 +59,12 @@ void bfs() {
 | [P1141 01迷宫](https://www.luogu.com.cn/problem/P1141) | 数据量很大，需要提前保存查询结果 |
 | [Takahashi is Slime 2](https://atcoder.jp/contests/abc384/tasks/abc384_e) | 变种的 BFS，需要用优先队列 |
 
-以下是详细的说明。
 
-## 迷宫寻路
+# 4、例题代码
+
+以下是详细的例题代码说明。
+
+## B3625 迷宫寻路
 
 [B3625 迷宫寻路](https://www.luogu.com.cn/problem/B3625) 是一道非常基础的宽度优先搜索，只需要输出 YES 或者 NO，对输出的要求也较小，适合拿来入门教学。
 
@@ -123,7 +126,7 @@ int main() {
 	return 0;
 }
 ```
-## 迷宫寻路 加强
+## 迷宫寻路加强：求步数
 
 有了上面的代码，我们可以在题目上做变动，比如把输出的要求改为：
 **如果能到达，则输出到达终点的最短步数** ，引导学生思考，现有的代码要做怎样的改造，才能实现新的要求。
@@ -188,7 +191,107 @@ int main() {
 }
 
 ```
-## 马的遍历
+
+## 迷宫寻路加强：求路径
+
+当我们需要输出路径的时候，我们需要做两件事情：
+
+1、把 BFS 经过的数据全部保存下来。这个时候我们就不能用队列了，只能用 vector，然后另外用一个变量 idx 来记录处理过的元素下标。于是，判断是否处理完的条件变成了如下的形式：
+
+```c++
+while (idx != q.size())
+```
+
+2、我们需要对每个元素中增加一个 `parent` 变量，记录它是来自哪一个下标。这样就可以把整个路径串起来。如下的形式：
+
+```c++
+struct Node {
+	int x, y, step, parent;
+	Node(int _x, int _y, int _step, int _parent) {
+		x = _x; y = _y; step = _step; parent=_parent;
+	}
+};
+```
+
+最终，整体的代码如下：
+
+```c++
+/**
+ * B3625 迷宫寻路，宽度优先搜索。
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m, ans;
+int movex[]={-1,1,0,0};
+int movey[]={0,0,-1,1};
+char tu[110][110];
+bool flag[110][110] = {false};
+
+struct Node {
+	int x, y, step, parent;
+	Node(int _x, int _y, int _step, int _parent) {
+		x = _x; y = _y; step = _step; parent=_parent;
+	}
+};
+
+void bfs(int x, int y) {
+	bool result = false;
+	int tox, toy, step;
+	vector<Node> q;
+	int idx = 0;
+	q.push_back(Node(x, y, 1, -1));
+	flag[x][y] = true;
+	while (idx != q.size()) {
+		Node node = q[idx];
+		if (node.x == n-1 && node.y == m-1) {
+			result = true;
+			// output
+			stack<Node> s;
+			s.push(node);
+			while (node.parent != -1) {
+				node = q[node.parent];
+				s.push(node);
+			}
+			while (!s.empty()) {
+				node = s.top(); s.pop();
+				printf("(%d, %d) ->\n", node.x+1, node.y+1);
+			}
+			break;
+		}
+		for (int i = 0; i < 4; ++i) {
+			tox = node.x + movex[i];
+			toy = node.y + movey[i];
+			if (tox >= 0 && tox <n && toy >=0 && toy<m
+				&& tu[tox][toy] == '.' 
+				&& flag[tox][toy]== false) {
+				flag[tox][toy] = true;
+				q.push_back(Node(tox, toy, step+1, idx));
+			}
+		}
+		idx++;
+	}
+	if (!result) printf("No\n");
+}
+
+int main() {
+	cin >> n >> m;
+	for (int i = 0; i < n; ++i) {
+		cin >> tu[i];
+	}
+	bfs(0, 0);
+	return 0;
+}
+/*
+3 5
+.##.#
+.#...
+...#.
+*/
+
+```
+
+## P1443 马的遍历
 
 有了迷宫寻路的变种练习基础，我们就可以正式练习用 BFS 来求最近的步数一类的题目了。这其中比较适合的题目是： [P1443 马的遍历](https://www.luogu.com.cn/problem/P1443)。
 
@@ -207,6 +310,7 @@ int main() {
 int movex[]={-2,-2,-1,-1,1,1,2,2};
 int movey[]={-1,1,2,-2,2,-2,1,-1};
 ```
+
 完整的《马的遍历》的代码如下：
 
 ``` c++
@@ -262,4 +366,375 @@ int main() {
 ```
 本题还有一个小的教学点，就是用 memset 来初始化值为 -1。可以顺便教学 memset 可以初使化的值，告诉学生不是每种值都可以用 memset 来初始化。
 
+## P1135 奇怪的电梯
 
+[P1135 奇怪的电梯](https://www.luogu.com.cn/problem/P1135) 一题的意义在于，用非地图的形式来教学 BFS，让学生知道 BFS 不仅仅可以是在地图上。
+
+但从实现来说，此题的难度相对较小。此题的参考代码如下：
+
+```c++
+/**
+ * P1135 奇怪的电梯
+ * 
+ * 宽度优先搜索
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int N, A, B;
+int jump[210];
+char flag[210]={0};
+int ans = -1;
+
+struct Node {
+	int v;
+	int step;
+};
+
+void bfs() {
+	Node node, up, down;
+	queue<Node> q;
+
+	if (A == B) {
+		ans = 0;
+		return ;
+	}
+	node.v = A;
+	node.step = 0;
+	q.push(node);
+	flag[node.v] = 1;
+	while (!q.empty()) {
+		up = down = node = q.front(); q.pop();
+		
+		up.v += jump[node.v];
+		down.v -= jump[node.v];
+		up.step = down.step = node.step + 1;
+		if (up.v <= N && flag[up.v] == 0) {
+			q.push(up);
+			flag[up.v] = 1;
+		} 
+		if (down.v >=1 && flag[down.v] ==0 ) {
+			q.push( down );
+			flag[down.v] = 1;
+		} 
+		if (up.v == B || down.v == B) {
+			ans = node.step + 1;
+			break;
+		}
+	}
+}
+
+
+int main() {
+	scanf("%d%d%d", &N, &A, &B);
+	for (int i = 0; i < N; ++i) {
+		scanf("%d", jump+i+1);
+	}
+	bfs();
+	printf("%d\n", ans);
+	return 0;
+}
+
+```
+
+## P1162 填涂颜色
+
+[P1162 填涂颜色](https://www.luogu.com.cn/problem/P1162) 可以用来学习地图标记的一个技巧：将地图往外扩一圈 0 ，减少标记难度。实际在写的时候，只需要从下标 1 开始读数据即可。
+
+此题的参考代码如下，代码的最后用注释带了一个测试用例。
+
+```c++
+/**
+ * P1162 填涂颜色
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n;
+int tu[40][40] = {0};
+bool flag[40][40] = {false};
+int movex[]={-1,1,0,0};
+int movey[]={0,0,-1,1};
+
+void bfs(int x, int y) {
+	queue<int> q;
+	q.push(x);
+	q.push(y);
+	flag[x][y] = true;
+	
+	while (!q.empty()) {
+		x = q.front(); q.pop();
+		y = q.front(); q.pop();
+		for (int i = 0; i < 4; ++i) {
+			int tox = x+movex[i];
+			int toy = y+movey[i];
+			if (tox>=0 && tox<=n+1 && toy >=0 && toy<=n+1
+				&& tu[tox][toy] == 0 && flag[tox][toy]==false) {
+				q.push(tox);
+				q.push(toy);
+				flag[tox][toy] = true;
+			}
+		} 
+	}
+}
+
+int main() {
+	scanf("%d", &n);
+	for (int i = 1; i <= n; ++i) {
+		for (int j = 1; j <=n; ++j) {
+			scanf("%d", &tu[i][j]);
+		}
+	}
+
+	bfs(0, 0);
+
+	for (int i = 1; i <= n; ++i) {
+		for (int j = 1; j <=n; ++j) {
+			if (tu[i][j] == 0 && flag[i][j] == false) {
+				printf("%d ", 2);
+			} else {
+				printf("%d ", tu[i][j]);
+			}
+		}
+		printf("\n");
+	}
+
+	return 0;
+}
+
+/*
+
+6
+0 0 0 0 0 0
+0 0 1 1 1 1
+0 1 1 0 1 0
+1 1 0 0 1 1
+0 1 0 0 1 1
+1 1 1 1 1 0
+*/
+
+```
+
+## P1825 Corn Maze S
+
+[P1825 Corn Maze S](https://www.luogu.com.cn/problem/P1825) 增加了“地图传送”这种新的玩法，使得 BFS 代码写起来会更加复杂一点。
+
+像这种更复杂的 BFS，我们就可以引入结构体，来让代码更整洁一点。结构体定义如下：
+
+``` c++
+struct Node {
+	int x, y;
+	Node() {x=y=0;}
+	Node(int _x, int _y) {x = _x; y=_y;}
+};
+```
+
+因为在 BFS 的过程中，我们还需要记录步数，所以我们用 STL 的 pair 来存储队列元素。借此题，我们完成了 pair 的教学。
+
+pair 的关键用法如下：
+
+```c++
+// 定义
+queue<pair<Node, int> > q;
+// 入队
+q.push(make_pair(a, 0));
+// 出队
+pair<Node, int> one = q.front(); q.pop();
+// 使用
+Node a = one.first;
+int step = one.second;
+```
+
+完整的代码如下：
+```c++
+/**
+ * P1825 [USACO11OPEN] Corn Maze S
+ * 宽度优先搜索
+ * 
+ * 遇到传送的时候，把位置更新到另一个传送点。
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int N,M;
+char tu[310][310]={0};
+bool flag[310][310]={0};
+struct Node {
+	int x, y;
+	Node() {x=y=0;}
+	Node(int _x, int _y) {x = _x; y=_y;}
+};
+Node st;
+int movex[]={-1,1,0,0};
+int movey[]={0,0,-1,1};
+
+bool operator==(Node a, Node b) {
+	return a.x == b.x && a.y == b.y;
+}
+
+Node getNode(char ch) {
+	for (int i = 0; i < N; ++i) {
+		for (int j = 0; j < M; ++j) {
+			if (tu[i][j] == ch) {
+				return Node(i,j);
+			}
+		}
+	}
+	return Node(0, 0);
+}
+
+Node getOtherNode(char ch, int x, int y) {
+	for (int i = 0; i < N; ++i) {
+		for (int j = 0; j < M; ++j) {
+			if (x == i && y == j) continue;
+			if (tu[i][j] == ch) {
+				return Node(i,j);
+			}
+		}
+	}
+	return Node(0, 0);
+}
+
+int bfs(Node a) {
+	queue<pair<Node, int> > q;
+	q.push(make_pair(a, 0));
+	flag[a.x][a.y] = true;
+	while (!q.empty()) {
+		pair<Node, int> one = q.front(); q.pop();
+		a = one.first;
+		int step = one.second;
+		char ch = tu[a.x][a.y];
+		if (ch >= 'A' && ch <='Z') {
+			a = getOtherNode(ch, a.x, a.y);
+		} else if (ch == '=') {
+			return step;
+		}
+		for (int i = 0; i < 4; ++i) {
+			int tox = a.x + movex[i];
+			int toy = a.y + movey[i];
+			if (tox>=0 && tox<N && toy>=0 && toy<M &&
+				tu[tox][toy] != '#' && !flag[tox][toy]) {
+				q.push(make_pair(Node(tox, toy), step+1));
+				flag[tox][toy] = true;
+			}
+		}
+	}
+	return 0;
+}
+
+int main() {
+	scanf("%d%d", &N, &M);
+	for (int i = 0; i < N; ++i) {
+		scanf("%s", tu[i]);
+	}
+	Node st = getNode('@');
+	printf("%d\n", bfs(st));
+	return 0;
+}
+
+```
+
+## P1331 海战
+
+[P1331 海战](https://www.luogu.com.cn/problem/P1331) 一题的标记矩形的形式比较难想到，我个人用的是另外一个判断方法：看看所填充的坐标最小和最大值计算出来的矩形面积与标记的数量是否刚好匹配。
+
+参考代码如下：
+
+```c++
+/**
+ * 宽度优先搜索。
+ * 
+ * 先用 floodfill 把每组船支标记。标记的时候，记录：
+ *  - 最小 minx, miny 和最大 maxx, maxy
+ * 然后判断是否标记的船只数量是否是正方形：
+ *  - cnt == (maxx-minx+1)*(maxy-miny+1)
+ * 
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int R, C;
+char tu[1100][1100] = {0};
+bool flag[1100][1100] = {false};
+int shipCnt = 0;
+int movex[]={-1,1,0,0};
+int movey[]={0,0,-1,1};
+bool debug = false;
+
+bool mark(int x, int y) {
+	int ans = 0;
+	int minx, miny, maxx, maxy;
+	queue<int> q;
+
+	q.push(x);
+	q.push(y);
+	minx = maxx = x;
+	miny = maxy = y;
+	flag[x][y] = true;
+	
+	while (!q.empty()) {
+		x = q.front(); q.pop();
+		y = q.front(); q.pop();
+		ans++;
+		minx = min(minx, x);
+		miny = min(miny, y);
+		maxx = max(maxx, x);
+		maxy = max(maxy, y);
+		for (int i = 0; i < 4; ++i) {
+			int tox = x + movex[i];
+			int toy = y + movey[i];
+			if (tox >=0 && tox < R && toy>=0 && toy<C
+				&& tu[tox][toy] == '#' && !flag[tox][toy]) {
+				q.push(tox);
+				q.push(toy);
+				flag[tox][toy] = true;
+			}
+		}
+	}
+	int cnt = (maxx-minx+1)*(maxy-miny+1);
+	if (ans == cnt) {
+		shipCnt++;
+		return true;
+	} else {
+		return false;
+	}
+}
+
+void init() {
+	scanf("%d%d", &R, &C);
+	for (int i = 0; i < R; ++i) {
+		scanf("%s", tu[i]);
+	}
+}
+
+void process() {
+	for (int i = 0; i < R; ++i) {
+		for (int j = 0; j < C; ++j) {
+			if (tu[i][j] == '#' && flag[i][j] == false) {
+				if (!mark(i, j)) {
+					shipCnt = -1;
+					return;
+				}
+			}
+		}
+	}
+}
+
+int main() {
+	init();
+	process();
+	if (shipCnt == -1) printf("Bad placement.\n");
+	else printf("There are %d ships.\n", shipCnt);
+	return 0;
+}
+/*
+6 8
+.....#.#
+##.....#
+##.....#
+.......#
+##.....#
+#..#...#
+*/
+
+```
