@@ -49,7 +49,8 @@ void bfs() {
 | [P1135 奇怪的电梯](https://www.luogu.com.cn/problem/P1135) | 让学生知道，BFS 不仅仅可以是在地图上，也可以是另外的搜索形式 |
 | [P1162 填涂颜色](https://www.luogu.com.cn/problem/P1162)  | 此题可以用来学习地图标记的一个技巧：将地图往外扩一圈 0 ，减少标记难度 |
 | [P1825 Corn Maze S](https://www.luogu.com.cn/problem/P1825)| 变种的地图，可以传送 |
-| [P1331 海战](https://www.luogu.com.cn/problem/P1331) | 此题在多次 BFS 标记的同时，还增加了一个思考点：如何判断标记物是矩行|
+| [P1451 求细胞数量](https://www.luogu.com.cn/problem/P1451) | 多块的 BFS 标记 |
+| [P1331 海战](https://www.luogu.com.cn/problem/P1331) | 此题比在[P1451 求细胞数量](https://www.luogu.com.cn/problem/P1451) 更难一点。多次 BFS 标记的同时，还增加了一个思考点：如何判断标记物是矩行|
 
 
 以下题目难度高很多，可以作为强化训练之用。
@@ -633,6 +634,67 @@ int main() {
 }
 
 ```
+## P1451 求细胞数量
+
+[P1451 求细胞数量](https://www.luogu.com.cn/problem/P1451) 是一道非常基础的 BFS 题目。此题需要多次调用 BFS，参考代码如下：
+
+```c++
+/**
+ * P1451 求细胞数量
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m, ans = 0;
+char tu[110][110]={0};
+bool flag[110][110]={false};
+int movex[]={-1,1,0,0};
+int movey[]={0,0,-1,1};
+	
+void bfs(int x, int y) {
+	queue<int> q;
+
+	q.push(x);
+	q.push(y);
+	flag[x][y] = true;
+	
+	while (!q.empty()) {
+		x = q.front(); q.pop();
+		y = q.front(); q.pop();
+
+		for (int i = 0; i < 4; ++i) {
+			int tox = x + movex[i];
+			int toy = y + movey[i];
+			if (tox >= 0 && tox < n &&
+				toy >= 0 && toy < m && 
+				tu[tox][toy]!='0' &&
+				flag[tox][toy]==false) {
+				flag[tox][toy] = true;
+				q.push(tox);
+				q.push(toy);
+			}
+		}
+	}
+}
+
+int main() {
+	scanf("%d%d", &n, &m);
+	for (int i = 0; i < n; ++i) {
+		scanf("%s", tu[i]);
+	}
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < m; ++j) {
+			if (tu[i][j] != '0' && flag[i][j] == false) {
+				bfs(i, j);
+				ans++;
+			}
+		}
+	}
+	printf("%d\n", ans);
+	return 0;
+}
+
+```
 
 ## P1331 海战
 
@@ -738,3 +800,94 @@ int main() {
 */
 
 ```
+
+## P1141 01迷宫
+
+[P1141 01迷宫](https://www.luogu.com.cn/problem/P1141) 这道题的难度在于，我们需要 BFS  之后，把结果全部保存下来，之后每次查询的时候把答案直接输出就可以了。
+
+参考代码：
+
+```c++
+/**
+ * 此题 m 的量很大，所以要提前算出答案。
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m;
+char tu[1100][1100];
+int flag[1100][1100];
+vector<int> ans;
+int movex[]={1,-1,0,0};
+int movey[]={0,0,-1,1};
+bool debug=true;
+
+char convert(char ch) {
+	if (ch == '0') return '1';
+	else return '0';
+}
+
+int mark(int x, int y, int v) {
+	int cnt = 0;
+	queue<pair<int,int> > q;
+	q.push(make_pair(x, y));
+	cnt++;
+	flag[x][y] = v;
+	while (!q.empty()) {
+		pair<int, int> a = q.front(); q.pop();
+		x = a.first;
+		y = a.second;
+		char ch = convert(tu[x][y]);
+		for (int i = 0; i < 4; ++i) {
+			int tox = x + movex[i];
+			int toy = y + movey[i];
+			if (tox >=0 && toy >=0 && tox <n && toy<n 
+				&&tu[tox][toy]==ch
+				&&flag[tox][toy]==-1) {
+				q.push(make_pair(tox, toy));
+				cnt++;
+				flag[tox][toy] = v;
+			}
+		}
+	}
+	return cnt;
+}
+
+void process() {
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j){
+			flag[i][j] = -1;
+		}
+	}
+	int idx = 0;
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j) {
+			if (flag[i][j] == -1) {
+				// 标记 idx 
+				int cnt = mark(i, j, idx);
+				// 把标为 idx 的个数放到 ans 数组中
+				ans.push_back(cnt);
+				idx++;
+			}
+		}
+	}
+}
+
+int main() {
+	scanf("%d%d", &n, &m);
+	for (int i = 0; i < n; ++i) {
+		scanf("%s", tu[i]);
+	}
+	process();
+	for (int i = 0; i < m; ++i) {
+		int x, y;
+		scanf("%d%d", &x, &y);
+		int idx = flag[x-1][y-1];
+		printf("%d\n", ans[idx]);
+	}
+	return 0;
+}
+
+```
+
+
