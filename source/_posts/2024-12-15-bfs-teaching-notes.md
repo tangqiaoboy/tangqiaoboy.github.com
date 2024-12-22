@@ -46,18 +46,27 @@ void bfs() {
 | ----------- | ----------- |
 | [B3625 迷宫寻路](https://www.luogu.com.cn/problem/B3625)      | 新手入门，没有陷阱，学习方向数组写法       |
 | [P1443 马的遍历](https://www.luogu.com.cn/problem/P1443)   | 需要求步数，需要写 8 个方向        |
-| [P1135 奇怪的电梯](https://www.luogu.com.cn/problem/P1135) | 让学生知道，BFS 不仅仅可以是在地图上，也可以是另外的搜索形式 |
-| [P1162 填涂颜色](https://www.luogu.com.cn/problem/P1162)  | 此题可以用来学习地图标记的一个技巧：将地图往外扩一圈 0 ，减少标记难度 |
+| [P1135 奇怪的电梯](https://www.luogu.com.cn/problem/P1135) | BFS 不仅仅可以是在地图上，也可以是另外的搜索形式 |
+| [P1162 填涂颜色](https://www.luogu.com.cn/problem/P1162)  | 学习标记技巧：将地图往外扩一圈 0 ，减少标记难度 |
 | [P1825 Corn Maze S](https://www.luogu.com.cn/problem/P1825)| 变种的地图，可以传送 |
-| [P1451 求细胞数量](https://www.luogu.com.cn/problem/P1451) | 多块的 BFS 标记 |
-| [P1331 海战](https://www.luogu.com.cn/problem/P1331) | 此题比在[P1451 求细胞数量](https://www.luogu.com.cn/problem/P1451) 更难一点。多次 BFS 标记的同时，还增加了一个思考点：如何判断标记物是矩行|
+| [P1451 求细胞数量](https://www.luogu.com.cn/problem/P1451) | 多次的 BFS 标记 |
 
 
-以下题目难度高很多，可以作为强化训练之用。
+推荐更多练习的题目如下，可作为**基础训练**之用：
+
+| 题目名      | 说明 |
+| ----------- | ----------- |
+| [P1746 离开中山路](https://www.luogu.com.cn/problem/P1746) | 比较标准的练习，无坑 |
+|[P1506 拯救oibh总部](https://www.luogu.com.cn/problem/P1506) | 强化[P1162 填涂颜色](https://www.luogu.com.cn/problem/P1162) 中学到的标记技巧|
+| [P1331 海战](https://www.luogu.com.cn/problem/P1331) | 多次 BFS 标记的同时，如何判断标记物是矩行|
+
+以下题目难度更高一些，可以作为**强化训练**之用：
 
 | 题目名   | 说明 |
 | ----------- | ----------- |
 | [P1141 01迷宫](https://www.luogu.com.cn/problem/P1141) | 数据量很大，需要提前保存查询结果 |
+| [P2802 回家](https://www.luogu.com.cn/problem/P2802) | 状态变为走过时的血量有没有变高 |
+| [P8604 危险系数](https://www.luogu.com.cn/problem/P8604)| [蓝桥杯 2013 国 C]题目，用 BFS 暴力尝试 |
 | [Takahashi is Slime 2](https://atcoder.jp/contests/abc384/tasks/abc384_e) | 变种的 BFS，需要用优先队列 |
 
 
@@ -516,6 +525,79 @@ int main() {
 
 ```
 
+## P1506 拯救oibh总部
+
+[P1506 拯救oibh总部](https://www.luogu.com.cn/problem/P1506) 强化上一题学到的技巧。
+
+同时我们此题学习用 memset 将 char 数组统一设置成字符'0'：
+
+```c++
+memset(tu, '0', sizeof(tu));
+```
+
+参考代码：
+
+```c++
+/**
+ * P1506 拯救oibh总部
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n,m;
+char tu[510][510]={0};
+bool flag[510][510]={false};
+int movex[]={-1,1,0,0};
+int movey[]={0,0,-1,1};
+
+void bfs(int x, int y) {
+	queue<int> q;
+	q.push(x);
+	q.push(y);
+	flag[x][y] = 1;
+	while (!q.empty()) {
+		x = q.front(); q.pop();
+		y = q.front(); q.pop();
+		for (int i = 0; i < 4; ++i) {
+			int tox = x + movex[i];
+			int toy = y + movey[i];
+			if (tox>=0 && tox <=n+1 &&
+				toy>=0 && toy <=m+1 &&
+				tu[tox][toy] == '0' && 
+				flag[tox][toy] == false) {
+				flag[tox][toy] = true;
+				q.push(tox);
+				q.push(toy);
+			}
+		}
+	}
+}
+
+int main() {
+	memset(tu, '0', sizeof(tu));
+	scanf("%d%d", &n, &m);
+	for (int i = 1; i <= n; ++i) {
+		char ss[510];
+		scanf("%s", ss);
+		for (int j = 1; j <= m; ++j) {
+			tu[i][j] = ss[j-1];
+		}
+	}
+	bfs(0, 0);
+
+	int ans = 0;
+	for (int i = 1; i <= n; ++i) {
+		for (int j = 1; j <=m; ++j) {
+			if (tu[i][j] == '0' && flag[i][j]==false) 
+				ans++;
+		}
+	}
+	printf("%d\n", ans);
+
+	return 0;
+}
+```
+
 ## P1825 Corn Maze S
 
 [P1825 Corn Maze S](https://www.luogu.com.cn/problem/P1825) 增加了“地图传送”这种新的玩法，使得 BFS 代码写起来会更加复杂一点。
@@ -888,6 +970,136 @@ int main() {
 	return 0;
 }
 
+```
+
+## P1746 离开中山路
+
+[P1746 离开中山路](https://www.luogu.com.cn/problem/P1746)参考代码如下：
+
+```c++
+/**
+ * P1746 离开中山路
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n;
+char tu[1100][1100]={0};
+char flag[1100][1100]={0};
+int movex[]={-1,1,0,0};
+int movey[]={0,0,-1,1};
+int fx, fy, tx, ty;
+
+int bfs(int x, int y, int step) {
+	queue<int> q;
+	q.push(x); q.push(y); q.push(step);
+	flag[x][y] = 1;
+	while (!q.empty()) {
+		x = q.front(); q.pop();
+		y = q.front(); q.pop();
+		step = q.front(); q.pop();
+		if (x == tx-1 && y == ty-1) return step;
+		for (int i = 0; i < 4; ++i) {
+			int tox = x+movex[i];
+			int toy = y+movey[i];
+			if (tox >= 0 && tox <n &&
+				toy >= 0 && toy <n &&
+				tu[tox][toy]=='0' &&
+				flag[tox][toy]==0) {
+				flag[tox][toy] = 1;
+				q.push(tox); q.push(toy); q.push(step+1);
+			}
+		}
+	}
+	return -1;
+}
+
+int main() {
+	scanf("%d", &n);
+	for (int i = 0; i < n; ++i) {
+		scanf("%s", tu[i]);
+	}
+	scanf("%d%d%d%d", &fx, &fy, &tx, &ty);
+	int ans = bfs(fx-1, fy-1, 0);
+	printf("%d\n", ans);
+	return 0;
+}
+
+```
+
+## P2802 回家
+
+[P2802 回家](https://www.luogu.com.cn/problem/P2802)一题的解题技巧是：将 flag 数组用于保存走上去时的最大血量。如果走上去最大血量可以更高，也是可以再次走的。
+
+另外，当只剩 1 格血时，下一步不管走到哪儿都是死，所以就不用扩展了。
+
+参考代码如下：
+
+```c++
+/**
+ * P2802 回家
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n,m;
+int tu[15][15];
+char flag[15][15]={0};
+int sx, sy, tx, ty;
+int movex[]={-1,1,0,0};
+int movey[]={0,0,-1,1};
+
+struct Node {
+	int x, y, s, t;
+	Node(int _x, int _y, int _s, int _t) {
+		x = _x; y=_y; s=_s; t=_t;
+	}
+};
+
+int bfs(int x, int y) {
+	queue<Node> q;
+	q.push(Node(x, y, 0, 6));
+	flag[x][y] = 6;
+	while (!q.empty()) {
+		Node node = q.front(); q.pop();
+		if (node.x == tx && node.y == ty) {
+			return node.s;
+		}
+		// 如果没到终点，只剩 1 点血，怎么都死
+		if (node.t == 1) continue;
+		for (int i = 0; i < 4; ++i) {
+			int tox = node.x + movex[i];
+			int toy = node.y + movey[i];
+			if (tox >= 0 && tox < n &&
+				toy >= 0 && toy < m && 
+				tu[tox][toy] != 0 &&
+				flag[tox][toy] < node.t - 1) {
+				flag[tox][toy] = node.t -1;
+				int life = node.t - 1;
+				if (tu[tox][toy] == 4) {
+					life = 6;
+				}
+				q.push(Node(tox, toy, node.s+1, life));
+			}
+		}
+	}
+	return -1;
+}
+
+int main() {
+	scanf("%d%d", &n, &m);
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < m; ++j) {
+			scanf("%d", &tu[i][j]);
+			if (tu[i][j] == 2) { sx = i; sy = j; }
+			if (tu[i][j] == 3) { tx = i; ty = j; }
+		}
+	}
+	int ans = bfs(sx, sy);
+	printf("%d\n", ans);
+
+	return 0;
+}
 ```
 
 
