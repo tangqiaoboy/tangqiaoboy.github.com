@@ -44,6 +44,7 @@ date: 2016-02-15 14:32
  * [2021 年个人总结](/2022/01/01/2021-summary/)
  * [2022 年个人总结](/2023/01/01/2022-summary/)
  * [2023 年个人总结](/2024/01/01/2023-summary/)
+ * [2024 年个人总结](/2025/01/01/2024-summary/)
 
 以及我的创业感悟：
 
@@ -55,6 +56,12 @@ date: 2016-02-15 14:32
  * [写在创业七周年](/2019/04/22/startup-anniversary-note/)
  * [写在创业九周年](/2021/08/30/thinking-of-education-industry-change/)
  * [写在创业十周年](/2022/05/22/startup-10th-year-summary/)
+
+以及我的 CSPJ 教学笔记：
+
+ - [五分钟弄懂 CSP-J](/2024/09/17/cspj-introduction/)
+ - [CSPJ 教学思考：for 循环](/2024/11/07/teach-notes-of-for-loop/)
+ - [CSPJ 教学思考：宽度优先搜索](/2024/12/15/bfs-teaching-notes/) 
 
 以及我的供应链学习笔记：
 
