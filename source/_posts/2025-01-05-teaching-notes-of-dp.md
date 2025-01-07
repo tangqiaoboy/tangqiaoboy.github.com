@@ -36,7 +36,7 @@ tags: cspj
 |[P2834 纸币问题 3](https://www.luogu.com.cn/problem/P2834)|基础 DP，有多处可优化的点 |
 |[P1048 采药](https://www.luogu.com.cn/problem/P1048) | NOIP2005 普及组第三题。01 背包问题。 |
 |[P2196 挖地雷](https://www.luogu.com.cn/problem/P2196) |NOIP1996 提高组第三题。涉及输出路径技巧。 |
-| | |
+|[P1434 滑雪](https://www.luogu.com.cn/problem/P1434) | 上海市省队选拔 2002 |
 | | |
 
 # 例题代码
@@ -528,4 +528,122 @@ int main() {
 }
 ```
 
+## P1434 滑雪
 
+这道题的麻烦点是如何定义状态转移的阶段，因为没有明显的阶段。
+
+可以考虑的办法是：将点按高度排序，这样从高度低的点开始，往高的点做状态转移。
+
+所以：
+ - 定义：dp[i][j] 表示从 (i,j) 这个位置开始滑的最长坡。
+ - 转移方程：
+	- `dp[x][y] = max(dp[x'][y'])+1`
+	- `dp[x'][y']` 为上下左右相邻并且高度更低的点
+ - 初始化：无
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int r, c;
+int tu[110][110];
+int dp[110][110];
+int movex[]={-1,1,0,0};
+int movey[]={0,0,-1,1};
+bool debug = false;
+
+struct Node {
+	int x, y, h;
+	Node(int _x, int _y, int _h) {
+		x = _x; y = _y; h = _h;
+	}
+};
+bool operator<(Node a, Node b) {
+	return a.h < b.h;
+}
+vector<Node> v;
+
+int main() {
+	scanf("%d%d", &r, &c);
+	v.reserve(r*c);
+	for (int i = 0; i < r; ++i) {
+		for (int j = 0; j < c; ++j) {
+			scanf("%d", &tu[i][j]);
+			v.push_back(Node(i, j, tu[i][j]));
+		}
+	}
+	sort(v.begin(), v.end());
+	memset(dp, 0, sizeof(dp));
+	int ans = 0;
+	for (int i = 0; i < r*c; ++i) {
+		Node node = v[i];
+		int x = node.x;
+		int y = node.y;
+	    for (int j = 0; j < 4; ++j) {
+	    	int tox = x + movex[j];
+	    	int toy = y + movey[j];
+	    	if (tox >=0 && tox <r && toy >=0 && toy<c &&
+	    		node.h > tu[tox][toy]) {
+	    		dp[x][y] = max(dp[x][y], dp[tox][toy]);
+	    	}
+	    }
+	    dp[x][y] += 1;
+	    ans = max(ans, dp[x][y]);
+	    if (debug) {
+	    	printf("dp[%d][%d]=%d\n", x, y, dp[x][y]);
+	    }
+	}
+	printf("%d\n", ans);
+	return 0;
+}
+```
+
+此题更容易想到的写法还是记忆化搜索：对每一个点作为开始点进行一次 DFS，同时在进行递归调用的时候，如果当前点处理过，则返回上次的结果。
+
+参考代码如下：
+
+```c++
+/**
+ * DFS, 记忆化
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int r, c;
+int tu[110][110];
+int rem[110][110];
+
+int movex[]={-1,1,0,0};
+int movey[]={0,0,-1,1};
+
+int dfs(int x, int y) {
+	if (rem[x][y] != 0) return rem[x][y];
+	int mm = 0;
+	for (int i = 0; i < 4; ++i) {
+		int tox = x + movex[i];
+		int toy = y + movey[i];
+		if (tox >=0 && tox <r && toy >=0 && toy<c &&
+	    		tu[x][y] > tu[tox][toy]) {
+			mm = max(mm, dfs(tox, toy));
+		}
+	}
+	return (rem[x][y] = mm + 1);
+}
+
+int main() {
+	scanf("%d%d", &r, &c);
+	for (int i = 0; i < r; ++i) {
+		for (int j = 0; j < c; ++j) {
+			scanf("%d", &tu[i][j]);
+		}
+	}
+	int ans = 0;
+	for (int i = 0; i < r; ++i) {
+		for (int j = 0; j < c; ++j) {
+			ans = max(ans, dfs(i, j));
+		}
+	}
+	printf("%d\n", ans);
+	return 0;
+}
+```
