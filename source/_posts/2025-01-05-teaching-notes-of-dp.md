@@ -14,6 +14,16 @@ tags: cspj
 
 所以，我打算写 100 道动态规划方程的题解，希望有志攻破此难关的学生和家长一起加油！
 
+# 动态规划解题的核心问题
+
+虽然动态规划没有模版可以套，但是动态规划有三个核心问题：
+
+ - 状态的定义
+ - 状态转移方程
+ - 初始状态的设置
+
+一般思考动态规划就是思考以上三个问题，这三个问题解决了，动态规划的程序也可以写出来了。
+
 # 教学题目 
 
 推荐的教学题目如下：
@@ -33,7 +43,90 @@ tags: cspj
 
 ## P2842 纸币问题 1
 
-状态转移方程为：`dp[i] = min( dp[i-v[j]] )  + 1 `
+此题可以带着孩子一步步推导和演进。具体步骤如下。
+
+先引导孩子用最暴力的 DFS 的方式来做此题，建立基础的解题框架，虽然会超时，但是也帮助我们后面引导孩子学会记忆化搜索。代码如下：
+
+```c++
+/**
+ * DFS，超时
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, w;
+int v[1100];
+
+int dfs(int pt) {
+	if (pt == 0) return 0;
+	int ret = 1e9;
+	for (int i = 0; i < n; ++i) {
+		if (pt>=v[i]) {
+			ret = min(ret, dfs(pt-v[i]) + 1);
+		}
+	}
+	return ret;
+}
+
+int main() {
+	scanf("%d%d", &n, &w);
+	for (int i = 0; i < n; ++i) {
+		scanf("%d", v+i);
+	}
+	int ans = dfs(w);
+	printf("%d\n", ans);
+	return 0;
+}
+```
+
+有了上面的代码，通过分析，发现大部分的超时是因为有重复的计算过程。以下是一个以 10,5,1 为例的示意：
+
+{% img /images/dp-1.jpg %}
+
+所以，我们可以将重复计算的过程保存下来，以后再次需要计算的时候，直接读取保存的结果即可。在此思想下，我们只需要在上面改动三行，即可将超时的程序改为通过。具体代码如下：
+
+```c++
+/**
+ * DFS，记忆化搜索
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, w;
+int v[1100];
+int r[10010]; // 改动 1
+
+int dfs(int pt) {
+	if (pt == 0) return 0;
+	if (r[pt] != 0) return r[pt]; // 改动 2
+
+	int ret = 1e9;
+	for (int i = 0; i < n; ++i) {
+		if (pt>=v[i]) {
+			ret = min(ret, dfs(pt-v[i]) + 1);
+		}
+	}
+	return (r[pt]=ret); // 改动 3
+}
+
+int main() {
+	scanf("%d%d", &n, &w);
+	for (int i = 0; i < n; ++i) {
+		scanf("%d", v+i);
+	}
+	int ans = dfs(w);
+	printf("%d\n", ans);
+	return 0;
+}
+```
+
+有了以上两段代码的尝试，我们能够发现：
+ - dfs(pt) 只与 dfs( 0 ~ pt-1) 有关,与 dfs(pt+1~w)无关。
+ - 如果我们知道了 dfs(0~pt)，就可以推出 dfs(pt+1)
+
+那么，我们就可以思考，如果我们用 dp[i] 来表示钱币总额为 i 的结果数。那么，dp[i] 的计算过程（即：状态转移方程）为：`dp[i] = min( dp[i-v[j]] )+1`，其中`j=0~N`。
+
+这样，我们就可以引导学生写出第一个动态规划程序。
 
 ```c++
 /**
@@ -66,7 +159,50 @@ int main() {
 
 ## P1216 数字三角形
 
-状态转移方程为：`dp[i][j] = v[i][j] + max(dp[i+1][j], dp[i+1][j+1])`
+[P1216 数字三角形](https://www.luogu.com.cn/problem/P1216)同样可以用记忆化搜索引入。先写记忆化搜索的代码有助于我们理解动态规划的状态转移方程。
+
+搜索的代码为：
+
+```c++
+/**
+ * DFS，记忆化
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n;
+int v[1010][1010];
+int r[1010][1010];
+
+int dfs(int x, int y) {
+	if (r[x][y] != -1) return r[x][y];
+	if (x == n-1) return 
+		r[x][y] = v[x][y];
+	else return 
+		r[x][y] = v[x][y]+max(dfs(x+1,y), dfs(x+1,y+1));
+}
+
+int main() {
+	scanf("%d", &n);
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j <= i; ++j) {
+			scanf("%d", &v[i][j]);
+		}
+	}
+	memset(r, -1, sizeof(r));
+	printf("%d\n", dfs(0, 0));
+	return 0;
+}
+```
+
+由搜索代码可知，每一个位置的最价结果由它下面两个结点的最价结果构成。于是，我们可以构造出状态转移方程：`dp[i][j] = v[i][j] + max(dp[i+1][j], dp[i+1][j+1])`
+
+另外，我们可以引导学生：上层的依赖于下层的数据，那应该怎么推导呢？让学生想到用倒着 for 循环的方式来从下往上推导。
+
+最后，我们再引导学生构建一下初始值。由此，我们建立起动态规划解题的三个核心问题：
+ - 状态的定义
+ - 状态转移方程
+ - 初始状态的设置
 
 ```c++
 /**
