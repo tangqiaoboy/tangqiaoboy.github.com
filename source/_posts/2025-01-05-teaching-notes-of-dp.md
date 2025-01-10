@@ -31,13 +31,22 @@ tags: cspj
 | 题目名      | 说明 |
 | ----------- | ----------- |
 | [P2842 纸币问题 1](https://www.luogu.com.cn/problem/P2842)| 基础 DP，记忆化搜索 |
-| [P1216 数字三角形](https://www.luogu.com.cn/problem/P1216)| 基础 DP，记忆化搜索|
+| [P1216 数字三角形](https://www.luogu.com.cn/problem/P1216)| 基础 DP，记忆化搜索 【经典 DP】 |
 |[P2840 纸币问题 2](https://www.luogu.com.cn/problem/P2840) |基础 DP |
 |[P2834 纸币问题 3](https://www.luogu.com.cn/problem/P2834)|基础 DP，有多处可优化的点 |
-|[P1048 采药](https://www.luogu.com.cn/problem/P1048) | NOIP2005 普及组第三题。01 背包问题。 |
+|[P1048 采药](https://www.luogu.com.cn/problem/P1048) | NOIP2005 普及组第三题。01 背包问题。【经典 DP】 |
+|[P1616 疯狂的采药](https://www.luogu.com.cn/problem/P1616) |完全背包问题。【经典 DP】 |
 |[P2196 挖地雷](https://www.luogu.com.cn/problem/P2196) |NOIP1996 提高组第三题。涉及输出路径技巧。 |
 |[P1434 滑雪](https://www.luogu.com.cn/problem/P1434) | 上海市省队选拔 2002 |
+|[P1115 最大子段和](https://www.luogu.com.cn/problem/P1115) | 最大子段和。【经典 DP】|
 | | |
+| | |
+
+适合的作业：
+
+| 题目名      | 说明 |
+| ----------- | ----------- |
+|[P4017 最大食物链计数](https://www.luogu.com.cn/problem/P4017)| 记忆化搜索|
 
 # 例题代码
 
@@ -383,7 +392,7 @@ int main() {
 			if (j-v[i]>=0) {
 				dp[j] = (dp[j]+dp[j-v[i]]) % MOD;	
 			} else {
-				dp[j] = dp[j];
+				dp[j] = dp[j]; //此行可以删除，但为了教学示意保留
 			}
 		}
 	}
@@ -647,3 +656,105 @@ int main() {
 	return 0;
 }
 ```
+
+## P1115 最大子段和
+
+[P1115 最大子段和](https://www.luogu.com.cn/problem/P1115) 是最经典的一类动态规划问题。思路如下：
+
+ - dp[i] 表示包含 i 这个数，并且以 i 结尾的最大子段和。
+ - 状态转移方程：
+   - 如果 dp[i-1] 为负数，那么 `dp[i] = v[i]`
+   - 如果 dp[i-1] 为正数，那么 `dp[i] = dp[i-1]+v[i]`
+
+因为 dp[i] 在转移方程上只与 dp[i-1]相关，所以它最终结构上被可以被化简成类似贪心的策略，即：
+ - 用一个变量记录当前的累加值，如果当前累加值为负数，则重新计算。
+ - 在累加过程中随时判断，记录最大的累加值为最终答案。
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int n;
+int v[200100];
+
+int main() {
+	scanf("%d", &n);
+	for (int i = 0; i < n; ++i) {
+		scanf("%d", v+i);
+	}
+	int cnt = 0;
+	int ans = -1e9;
+	for (int i = 0; i < n; ++i) {
+		cnt += v[i];
+		ans = max(ans, cnt);
+		if (cnt < 0) cnt = 0;
+	}
+	printf("%d\n", ans);
+	return 0;
+}
+```
+
+
+
+# 作业代码
+
+## P4017 最大食物链计数
+
+[P4017 最大食物链计数](https://www.luogu.com.cn/problem/P4017)最佳的做法是做记忆化的搜索。
+
+记录下出度为 0 的结点，从这些结点开始去寻找，把各种可能的路径加总。同时在 DFS 的时候，记录下搜索的结果。
+
+参考代码如下：
+
+```c++
+/**
+ * 记忆化搜索
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+#define MOD 80112002
+
+int n, m;
+vector<vector<int> > v;
+int r[5010], out[5010];
+
+int dfs(int a) {
+	if (r[a] != -1) return r[a];
+	// 如果是头部，算一种情况
+	if (v[a].size() == 0) return (r[a]=1);
+	// 如果不是头部，则求和
+	int cnt = 0;
+	for (int i = 0; i < v[a].size(); ++i) {
+		cnt = (cnt + dfs(v[a][i])) % MOD;
+	}
+	return r[a] = cnt;
+}
+
+int main() {
+	memset(r, -1, sizeof(r));
+	scanf("%d%d", &n, &m);
+	v.resize(n+1);
+	for (int i = 0; i < m; ++i) {
+		int a, b;
+		scanf("%d%d", &a, &b);
+		v[a].push_back(b); // a 被 b 吃
+		out[b]++; // b 的出度+1
+	}
+	int ans = 0;
+	for (int i = 1; i <=n ; ++i) {
+		// 如果 i 出度为 0，就表示只能被吃，为底部
+		if (out[i] == 0) { 
+			ans += dfs(i);
+			ans %= MOD;
+		}
+	}
+	printf("%d\n", ans);
+	return 0;
+}
+```
+
+
+
+
+
