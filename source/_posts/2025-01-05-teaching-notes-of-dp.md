@@ -40,13 +40,17 @@ tags: cspj
 |[P1434 滑雪](https://www.luogu.com.cn/problem/P1434) | 上海市省队选拔 2002 |
 |[P1115 最大子段和](https://www.luogu.com.cn/problem/P1115) | 最大子段和。【经典 DP】|
 | | |
-| | |
 
 适合的作业：
 
 | 题目名      | 说明 |
 | ----------- | ----------- |
 |[P4017 最大食物链计数](https://www.luogu.com.cn/problem/P4017)| 记忆化搜索|
+|[P1802 5 倍经验日](https://www.luogu.com.cn/problem/P1802) | 01 背包|
+|[P1002 过河卒](https://www.luogu.com.cn/problem/P1002) | NOIP2002 普及组，记忆化搜索 |
+|[P1049 装箱问题](https://www.luogu.com.cn/problem/P1049) |NOIP2001 普及组，01 背包 |
+| [P1064 金明的预算方案](https://www.luogu.com.cn/problem/P1064)| 01 背包变型，NOIP2006 提高组第二题 |
+
 
 # 例题代码
 
@@ -754,7 +758,174 @@ int main() {
 }
 ```
 
+## P1802 5 倍经验日
 
+经典的 01 背包问题：
+ - dp[i] 表示 i 容量可以获得的最大的经验值增量。
+ - w[i] 表示第 i 个药的数量。
+ - t[i] 表示第 i 个药贡献的经验值增量。
 
+状态转移方程：`dp[j] = max(dp[j], dp[j-w[i]]+t[i])`。
 
+需要注意答案最大超过了 int，需要用 long long。
 
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[1010], w[1010], t[1010];
+int base = 0, n, x;
+
+int main() {
+	scanf("%d%d", &n, &x);
+	for (int i = 0; i < n; ++i) {
+		int a, b, c;
+		scanf("%d%d%d", &a, &b, &c);
+		base += a;
+		t[i] = b-a;
+		w[i] = c;
+	}
+	for (int i=0; i<n; ++i) {
+		for (int j=x; j>=0; --j) {
+			if (j-w[i]>=0) {
+				dp[j] = max(dp[j], dp[j-w[i]]+t[i]);
+			}
+		}
+	}
+	//最大结果为 5*1e9，需要用 long long
+	printf("%lld\n", 5LL*(dp[x] + base));
+	return 0;
+}
+```
+
+## P1002 过河卒
+
+[P1002 过河卒](https://www.luogu.com.cn/problem/P1002)此题是标准的记忆化搜索。有两个陷阱：
+ - 马所在的位置也不能走。
+ - long long。
+
+相关代码：
+```c++
+/**
+ * 记忆化搜索。
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int bx, by, hx, hy;
+long long r[22][22];
+
+bool block(int x, int y) {
+	int v = abs(x-hx)*abs(y-hy);
+	return (v == 2 || x==hx && y == hy);
+}
+
+long long dfs(int x, int y) {
+	if (x>bx || y>by) return 0;
+	if (x == bx && y == by) return 1;
+	if (r[x][y]!=-1) return r[x][y];
+	if (block(x,y)) return r[x][y] = 0;
+	long long ans = dfs(x+1,y) + dfs(x,y+1);
+	return r[x][y] = ans;
+}
+
+int main() {
+	memset(r, -1, sizeof(r));
+	cin >> bx >> by >> hx >> hy;
+	printf("%lld\n",dfs(0, 0));
+	return 0;
+}
+```
+
+## P1064 金明的预算方案
+
+[P1064 金明的预算方案](https://www.luogu.com.cn/problem/P1064) 是一道 01 背包的变型题。题目增加了附件的概念，初看起来没法下手，但是题目增加了一个限制条件：附件最多只有 2 个。
+
+所以，我们可以将 01 背包的“选或不选”两种情况扩充成以下 5 种情况：
+ - 不选
+ - 选主件，不选附件
+ - 选主件 + 附件 1
+ - 选主件 + 附件 2
+ - 选主件 + 附件 1 + 附件 2
+
+然后就可以用 01 背包来实现该动态规划了。我们把每种物品的费用当作背包的体积，把每种物品的`价格*权重`当作价值。
+
+转移方程是：`dp[i]=max(dp[i], 5 种物品选择情况)`，每种选择情况下，`dp[i]=max(dp[i], dp[i-该选择下的花费]+该选择下的收益) `。
+
+另外，需要注意，输入数据的编号可能不按顺序提供，有以下这种情况：
+
+```
+100 3
+1000 5 3
+10 5 3
+50 2 0
+```
+
+以下是参考程序：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node {
+	int m;
+	int w;
+	int t;
+};
+
+int n, m;
+vector<Node> va;
+vector<vector<Node> > vb;
+int dp[40000];
+
+void updateDP(int i, int m, int w) {
+	if (i-m >= 0) {
+		dp[i] = max(dp[i], dp[i-m] + w);
+	}
+}
+
+int main() {
+	scanf("%d%d", &n, &m);
+	va.resize(m);
+	vb.resize(m);
+	for (int i = 0; i < m; ++i) {
+		Node node;
+		scanf("%d%d%d", &node.m, &node.w, &node.t);
+		node.w = node.w*node.m; 
+		va[i] = node;
+		if (node.t != 0) {
+			vb[node.t - 1].push_back(node);
+		}
+	}
+	memset(dp, 0, sizeof(dp));
+	for (int i = 0; i < m; ++i) {
+		// 只处理主件，附件与主体一并处理
+		if (va[i].t == 0) {
+			for (int j = n; j > 0; j--) {
+				// 选主件，不选附件
+				updateDP(j, va[i].m,va[i].w);
+				// 选主件+附件 1
+				if (vb[i].size() > 0) {
+					int money = va[i].m + vb[i][0].m;
+					int weight = va[i].w + vb[i][0].w;
+					updateDP(j, money, weight);
+				}
+				// 选主件+附件 2
+				if (vb[i].size() == 2) {
+					int money = va[i].m + vb[i][1].m;
+					int weight = va[i].w + vb[i][1].w;
+					updateDP(j , money, weight);
+				}
+				// 选主件+附件 1+附件 2
+				if (vb[i].size() == 2) {
+					int money = va[i].m + vb[i][0].m + vb[i][1].m;
+					int weight = va[i].w + vb[i][0].w + vb[i][1].w;
+					updateDP(j, money, weight);
+				}
+			}	
+		}
+	}
+	cout << dp[n] << endl;
+	return 0;
+}
+```
