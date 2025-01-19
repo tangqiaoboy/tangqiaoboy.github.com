@@ -50,6 +50,7 @@ tags: cspj
 |[P1002 过河卒](https://www.luogu.com.cn/problem/P1002) | NOIP2002 普及组，记忆化搜索 |
 |[P1049 装箱问题](https://www.luogu.com.cn/problem/P1049) |NOIP2001 普及组，01 背包 |
 | [P1064 金明的预算方案](https://www.luogu.com.cn/problem/P1064)| 01 背包变型，NOIP2006 提高组第二题 |
+|[P1077 摆花](https://www.luogu.com.cn/problem/P1077) | NOIP2012 普及组|
 
 
 # 例题代码
@@ -929,3 +930,52 @@ int main() {
 	return 0;
 }
 ```
+
+## P1077 摆花
+
+[P1077 摆花](https://www.luogu.com.cn/problem/P1077) 一题是 NOIP2012 普及组的第三题。
+
+ - `dp[i][j]` 表示前 i 种花，摆在前 j 个位置上的种数。
+
+状态转移方程：
+```
+ dp[i][j] = dp[i-1][j] 不放第 i 种花
+          + dp[i-1][j-1] 放 1 个第 i 种花
+          + dp[i-1][j-2] 放 2 个第 i 种花
+          ...
+```
+这道题的难点：没有想到 `dp[0][0]=1`。因为后面推导的时候，
+`dp[i-1][j-k]` 中 `j==k` 的时候，也是一种可能的情况，要统计进来。
+
+参考代码：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m;
+int a[110];
+int dp[110][110];
+
+int main() {
+	scanf("%d%d", &n, &m);
+	for (int i = 1; i <= n; ++i) {
+		scanf("%d", a+i);
+	}
+	memset(dp, 0, sizeof(dp));
+	dp[0][0] = 1;
+	for (int i = 1; i <= n; ++i) {
+		for (int j = 0; j <= m; ++j) {
+			for (int k = 0; k <= a[i]; ++k) {
+				if (j - k >= 0) {
+					dp[i][j] += dp[i-1][j-k];
+					dp[i][j] %= 1000007;	
+				}
+			}
+		}
+	}
+	printf("%d\n", dp[n][m]);
+	return 0;
+}
+```
+
