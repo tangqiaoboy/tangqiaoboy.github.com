@@ -51,6 +51,7 @@ tags: cspj
 |[P1049 装箱问题](https://www.luogu.com.cn/problem/P1049) |NOIP2001 普及组，01 背包 |
 | [P1064 金明的预算方案](https://www.luogu.com.cn/problem/P1064)| 01 背包变型，NOIP2006 提高组第二题 |
 |[P1077 摆花](https://www.luogu.com.cn/problem/P1077) | NOIP2012 普及组|
+|[P1164 小A点菜](https://www.luogu.com.cn/problem/P1164) |与摆花一题类似 |
 
 
 # 例题代码
@@ -975,6 +976,49 @@ int main() {
 		}
 	}
 	printf("%d\n", dp[n][m]);
+	return 0;
+}
+```
+
+## P1164 小A点菜
+
+[P1164 小A点菜](https://www.luogu.com.cn/problem/P1164)一题阶段比较明显。每一道菜点不点是一个明显阶段。所以：
+
+ - `dp[i][j]`表示前 i 道菜，用 j 的价格，能够点的方案数
+
+对于每道菜，有点或不点两种方案，所以：
+ - 转移方程：`dp[i][j] = dp[i-1][j]+dp[i-1][j-a[i]]`
+
+由于 i 阶段只与 i-1 阶段相关，所以可以把阶段压缩掉，只留一维。最后压缩后的方案是：
+ - `dp[j]` 表示用 j 的价格可以点到的点的种数
+ - 初始条件 `dp[0] = 1`，因为这样才可以把后面的结果递推出来
+ - `dp[j] = dp[j] + dp[j-a[i]]`
+
+因为和 01 背包类似的原因，压缩后需要倒着用 for 循环，否则每道菜就用了不止一次了。
+
+参考代码：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m;
+int a[110];
+int dp[10010];
+
+int main() {
+	scanf("%d%d", &n, &m);
+	for (int i = 1; i <= n; ++i) {
+		scanf("%d", a+i);
+	}
+	memset(dp, 0, sizeof(dp));
+	dp[0] = 1;
+	for (int i = 1; i <= n; ++i) {
+		for (int j = m; j>=a[i]; --j) {
+			dp[j] += dp[j-a[i]];
+		}
+	}
+	printf("%d\n", dp[m]);
 	return 0;
 }
 ```
