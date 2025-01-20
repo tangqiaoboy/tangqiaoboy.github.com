@@ -46,6 +46,7 @@ tags: cspj
 | 题目名      | 说明 |
 | ----------- | ----------- |
 |[P4017 最大食物链计数](https://www.luogu.com.cn/problem/P4017)| 记忆化搜索|
+|[P2871 Charm Bracelet S](https://www.luogu.com.cn/problem/P2871)| USACO 07 DEC，01 背包 |
 |[P1802 5 倍经验日](https://www.luogu.com.cn/problem/P1802) | 01 背包|
 |[P1002 过河卒](https://www.luogu.com.cn/problem/P1002) | NOIP2002 普及组，记忆化搜索 |
 |[P1049 装箱问题](https://www.luogu.com.cn/problem/P1049) |NOIP2001 普及组，01 背包 |
@@ -757,6 +758,34 @@ int main() {
 		}
 	}
 	printf("%d\n", ans);
+	return 0;
+}
+```
+
+## P2871 Charm Bracelet S
+
+[P2871 Charm Bracelet S](https://www.luogu.com.cn/problem/P2871) 是最最标准的 01 背包问题。可以作为基础练习。
+
+参考代码：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m;
+int w[3500], v[3500], dp[14000];
+int main() {
+	scanf("%d%d", &n, &m);
+	for (int i = 0; i < n; ++i) {
+		scanf("%d%d", w+i, v+i);
+	}
+	memset(dp, 0, sizeof(dp));
+	for (int i = 0; i < n; ++i) {
+		for (int j = m; j>=w[i]; --j) {
+			dp[j] = max(dp[j], dp[j-w[i]] + v[i]);
+		}
+	}
+	printf("%d\n", dp[m]);
 	return 0;
 }
 ```
