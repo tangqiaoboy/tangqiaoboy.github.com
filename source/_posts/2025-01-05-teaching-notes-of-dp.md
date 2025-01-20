@@ -52,6 +52,7 @@ tags: cspj
 | [P1064 金明的预算方案](https://www.luogu.com.cn/problem/P1064)| 01 背包变型，NOIP2006 提高组第二题 |
 |[P1077 摆花](https://www.luogu.com.cn/problem/P1077) | NOIP2012 普及组|
 |[P1164 小A点菜](https://www.luogu.com.cn/problem/P1164) |与摆花一题类似 |
+|[P2392 考前临时抱佛脚](https://www.luogu.com.cn/problem/P2392)| 01 背包变型 |
 
 
 # 例题代码
@@ -1022,4 +1023,90 @@ int main() {
 	return 0;
 }
 ```
+## P2392 考前临时抱佛脚
+
+[P2392 考前临时抱佛脚](https://www.luogu.com.cn/problem/P2392) 此题可以用动态规划，也可以用搜索，因为每科只有最多 20 个题目，所以搜索空间最大是 2^20 等于约 100 万。
+
+以下是搜索的代码：
+
+```c++
+/**
+ * 搜索
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int s[4], v[25];
+int ans, tot, ret;
+
+void dfsAns(int pt, int n, int cnt) {
+	if (pt == n) {
+		int tmp = max(cnt, tot-cnt);
+		ret = min(ret, tmp);
+		return;
+	}
+	dfsAns(pt+1, n, cnt);
+	dfsAns(pt+1, n, cnt+v[pt]);
+}
+
+int main() {
+	scanf("%d%d%d%d", s, s+1, s+2, s+3);
+	for (int i = 0; i < 4; ++i) {
+		memset(v, 0, sizeof(v));
+		tot = 0;
+		for (int j = 0; j < s[i]; ++j) {
+			scanf("%d", v+j);	
+			tot += v[j];
+		}
+		ret = tot;
+		dfsAns(0, s[i], 0);
+		ans += ret;
+	}
+	printf("%d\n", ans);
+	return 0;
+}
+```
+
+
+用动态规划解题时，此题可以把每次复习看作一次 01 背包的选择。每道题的价值和成本相同。背包的目标是尽可能接近 sum/2，因为sum 最大值为 `20*60 = 1200`，所以背包大小最大是 600。
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int s[4];
+int v[25];
+int ans = 0;
+int dp[610];
+
+int dpAns(int n) {
+	int cnt = 0;
+	for (int i = 0; i < n; ++i) {
+		cnt += v[i];
+	}
+	int m = cnt / 2;
+	memset(dp, 0, sizeof(dp));
+	for (int i = 0; i < n; ++i) {
+		for (int j = m; j>=v[i]; --j) {
+			dp[j] = max(dp[j], dp[j-v[i]] + v[i]);
+		}
+	}
+	int ret = max(dp[m], cnt - dp[m]);
+	return ret;
+}
+
+int main() {
+	scanf("%d%d%d%d", s, s+1, s+2, s+3);
+	for (int i = 0; i < 4; ++i) {
+		memset(v, 0, sizeof(v));
+		for (int j = 0; j < s[i]; ++j) {
+			scanf("%d", v+j);	
+		}
+		ans += dpAns(s[i]);
+	}
+	printf("%d\n", ans);
+	return 0;
+}
+```
+
 
