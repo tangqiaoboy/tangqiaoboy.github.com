@@ -1,0 +1,221 @@
+---
+title: CSPJ 教学思考：二分查找
+date: 2025-01-25 22:19:44
+tags: cspj
+---
+
+## 概述
+
+二分查找的基础逻辑很简单：我们小时候都玩过猜数字游戏，心里想一个数字（ 数字范围是 1-100），让对方猜，如果没猜对，就只告诉对方猜大了还是小了，看看最快几次能猜到。
+
+这个游戏的最佳策略就是二分。先猜 50，如果大了，就猜 25。这样最多 7 次就可以猜到答案。
+
+## 基础模版
+
+对于猜数字这个游戏来说，二分的模版最简单的就是如下形式：
+
+```c++
+// 二分查找
+int left, right, mid, ans;
+left = 1;
+right = n;
+ans = -1;
+while (left <= right) {
+	mid = left + (right-left) / 2;
+	if (v[mid] > a) {
+		right = mid - 1;
+	} else if (v[mid] < a) {
+		left = mid + 1;
+	} else {
+		ans = mid;
+		break;
+	}
+}
+cout << ans << " ";
+```
+以上代码需要注意的有以下几点：
+ - 查徇范围是 `[left, right]`，即 left 和 right 都是闭区间。
+ - 循环条件是`left <= right`，即当 `left == right`时，还需要进行一次测试。
+ - `mid = left + (right-left) / 2`其实等价于 `mid = (left + right) / 2`只是后者可能超界，用前者可以避免。
+
+这种思路其实比较简单，写起来基本上不会犯错。但是，如果有多个目标值时，我们可能要多次更新 `ans` 变量。
+
+[P2249 查找](https://www.luogu.com.cn/problem/P2249)就是一道例题，此题需要找到目标值第一次出现的位置，如果用上面的模版，我们需要多次更新 `ans`，参考代码如下：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int v[1000010];
+int n, m, a;
+int main() {
+	scanf("%d%d", &n, &m);
+	for (int i = 1; i <= n; ++i)
+		scanf("%d", v+i);
+	while (m--) {
+		scanf("%d", &a);
+		int left, right, mid, ans;
+		left = 1;
+		right = n;
+		ans = -1;
+		while (left <= right) {
+			mid = left + (right-left)/2;
+			if (v[mid] > a) {
+				right = mid - 1;
+			} else if (v[mid] < a) {
+				left = mid + 1;
+			} else {
+				// 如果找到，则比较 ans 的值，更新它
+				if (ans == -1 || ans > mid) ans = mid;
+				right = mid - 1;
+			}
+		}
+		cout << ans << " ";
+	}
+	cout << endl;
+	return 0;
+}
+```
+
+## 另一种模版
+
+除了刚刚的模版外，我们还可以用另外一种写法来写二分：我们用 `[l,r)`来表示目标查找区间，注意这里是左闭右开的区间。然后，我们不停地尝试缩小这个区间：
+ - 当目标值比 mid 值大的时候，新区间在 `[mid+1, r)`
+ - 当目标值比 mid 值小的时候，新区间在 `[l, mid)`
+ - 当目标值与 mid 值相等的时候，因为我们要找最小值，所以新区间在 `[l, mid)`。
+
+以上的情况 2 和情况 3 是可以合并的。结果就是只需要写一个 if 就可以了，核心代码如下：
+
+```c++
+while (l < r) {
+	mid = l + (r-l)/2;
+	if (a > v[mid]) l = mid + 1;
+	else r = mid;
+}
+```
+
+有同学可能会问：如果只有一个值相等，并且在 mid 位置，那以上做法不是把结果就跳出区间了？其实这种情况下，l 的值会一步步右移，最后的循环结束的结果会是 `[mid,mid)`。所以我们还是可以从循环结束的 l 值中读到目标值。
+
+对于这种写法，我们的二分判断会少很多，只需要最后判断一下 l 的值是否是目标值，即可知道是否查找成功。
+
+以下是参考代码：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int v[1000010];
+int n, m, a;
+int main() {
+	scanf("%d%d", &n, &m);
+	for (int i = 1; i <= n; ++i)
+		scanf("%d", v+i);
+	while (m--) {
+		scanf("%d", &a);
+		int l, r, mid;
+		l = 1; r = n+1;
+		while (l < r) {
+			mid = l + (r-l)/2;
+			if (a > v[mid]) l = mid + 1;
+			else r = mid;
+		}
+		if (l < n+1 && v[l] == a) cout << l << " ";
+		else cout << -1 << " ";
+	}
+	cout << endl;
+	return 0;
+}
+```
+另外，以上这种代码其实是不停在`[l,mid)` 和 `[mid+1, r)`之间做选择，所以：
+ - l 只会更新成 `mid+1`
+ - r 只会更新成 `mid`
+
+如果记不清楚，就分开写：
+ - 如果猜对了但要找最小值，就更新 r
+ - 如果 mid 大了，则答案在 mid 左侧，就更新 r
+ - 如果 mid 小了，则答案在 mid 右侧，就更新 l
+
+另外，以上这种代码其实是不停在`[l,mid)` 和 `[mid+1, r)`之间做选择，所以：
+ - l 只会更新成 `mid+1`
+ - r 只会更新成 `mid`
+
+最后答案如果有，则在 l 位置，当然 l 位置也可能不是答案：
+ - 如果目标极小，没找到，则 l 位置为查找的范围最左侧下标
+ - 如果目标极大，没找到，则 l 位置为最初的 r 的位置（那个位置是最后一个元素的下一个位置，直接读取会数组越界）
+
+## lower_bound
+
+其实上面那个写法就是 C++ STL 里面的 lowerbound 函数，所以我们可以直接用 lowerbound 函数来实现 [P2249 题](https://www.luogu.com.cn/problem/P2249)。
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int v[1000010];
+int n, m, a;
+int main() {
+	scanf("%d%d", &n, &m);
+	for (int i = 1; i <= n; ++i)
+		scanf("%d", v+i);
+	while (m--) {
+		scanf("%d", &a);
+		int l = lower_bound(v+1, v+n+1, a) - v;
+		if (l < n+1 && v[l] == a) cout << l << " ";
+		else cout << -1 << " ";
+	}
+	cout << endl;
+	return 0;
+}
+```
+
+函数 lower_bound 在[first,last)中的前闭后开区间进行二分查找，返回大于或等于val的第一个元素位置。如果所有元素都小于val，则返回last的位置。
+
+这种函数行为初看很奇怪，因为它：
+ - 当找到目标值时，它返回达找到的值的第一个位置
+ - 当没有目标值时，它返回第一个大于目标值的位置
+ - 当所有元素都小于目标值时，它返回 last 的位置
+
+这实际上就是它的内部实现所致，它内部实现就是我们刚刚提到的写法，所以才会这么返回目标值。
+
+如果我们想把查找结果转换成数组下标，只需要让它减去数组首地址即可，像这样：`int l = lower_bound(v+1, v+n+1, a) - v;`。
+
+## upper_bound
+
+除了 lower_bound 函数之外，C++还提供了 upper_bound 函数。lower_bound 的功能是返回第一个比目标值大的位置。如果没找到，则返回 last 的位置。
+
+upper_bound 的内部实现逻辑是：
+ - **如果猜对了但要找最大值，就更新 l**
+ - 如果 mid 大了，则答案在 mid 左侧，就更新 r
+ - 如果 mid 小了，则答案在 mid 右侧，就更新 l
+
+为了方便对比，我把 lower_bound 的逻辑再写一下：
+ - **如果猜对了但要找最小值，就更新 r**
+ - 如果 mid 大了，则答案在 mid 左侧，就更新 r
+ - 如果 mid 小了，则答案在 mid 右侧，就更新 l
+
+你看出来了吗？只是第一个更新的逻辑不一样。
+
+我们 upper_bound 考虑几种情况：
+ - 如果目标值极小，那么一直就更新 r，结果返回的就是首地址，为正确值。
+ - 如果目标值极大，那么一直就更新 l，结果返回的就是 last。
+
+所以 upper_bound 如果没找到，会返回 last。
+
+我们再看 lower_bound：
+ - 如果目标值极小，那么一直就更新 r，结果返回的就是首地址，为第一个大于目标值的地址。
+ - 如果目标值极大，那么一直就更新 l，结果返回的就是 last。
+
+所以，其实这两个函数在没找到目标值的情况下，都有可能返回首地址或末地址的。只是对于 upper_bound 函数来说，首地址是有意义的。
+
+而 lower_bound 函数返回的首地址怎么说呢？有点像 side effect。很少有需求是求这个地址，所以很多时候要特殊处理一下，就像我们刚刚例题里面又判断了一下一样(如下所示)
+```c++
+if (l < n+1 && v[l] == a) cout << l << " ";
+```
+
+## 小结
+
+ - lower_bound 和 upper_bound 都是极简二分查找的 C++ 内部实现。
+ - 因为它们都有 side effect，所以在查找目标不存在时，均可能返回首地址和末地址（取决于目标是极小还是极大）。
+   - 因为以上的 side effect，所以我们给 lower_bound 赋予了额外的功能：返回第一个大于或等于目标值的位置；如果不存在返回 last。
+ - 因为 lower_bound 有可能返回的不是目标值，所以最后要判断一下。
+
