@@ -240,11 +240,251 @@ int upper_bound(int a) {
 if (l < n+1 && v[l] == a) cout << l << " ";
 ```
 
+## 二分答案
+
+二分不但能用于查找数值，还可以用来暴力尝试答案。因为即便是 0-20 亿这么大的范围的猜数字游戏，也只需要 30 多次就可以猜到，所以如果某个问题可以像猜大小一样，每次获得答案是大了还是小了，就可以用二分的办法来“二分答案”。
+
+对于二分答案一类的题目，最常见的题目描述特征是求某某值的**最大值最小**，或者**最小值最大**。这个特征可以作为我们选择二分解题的小提示。我们在练习题目 [P2678 跳石头](https://www.luogu.com.cn/problem/P2678) 和 [P1182 数列分段 Section II](https://www.luogu.com.cn/problem/P1182) 中就可以看到这种提示。
+
+## 教学和练习题目
+
+| 题目      | 说明 |
+| ----------- | ----------- |
+| [P2249 查找](https://www.luogu.com.cn/problem/P2249) |  可用 lower_bound 函数 |
+| [P1102 A-B 数对](https://www.luogu.com.cn/problem/P1102) | 也可使用 STL map |
+| [P1873 砍树](https://www.luogu.com.cn/problem/P1873) | 二分答案 |
+| [P3853 路标设置](https://www.luogu.com.cn/problem/P3853)| 天津省选，二分答案|
+| [P1678 烦恼的高考志愿](https://www.luogu.com.cn/problem/P1678) | 二分查找，可用 upper_bound 函数|
+| [P2440 木材加工](https://www.luogu.com.cn/problem/P2440) |二分答案 |
+| [P2678 跳石头](https://www.luogu.com.cn/problem/P2678) |二分答案，NOIP2015 提高组 |
+| [P1182 数列分段 Section II](https://www.luogu.com.cn/problem/P1182) | |
+|  | |
+
+
+### P3853 路标设置
+
+二分答案+判定。
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int L, N, K;
+int v[100010];
+
+bool check(int mid) {
+	int ans = 0;
+	for(int i=1; i<N; i++){
+		if(v[i]-v[i-1] > mid){
+			ans += (v[i]-v[i-1]-1)/mid;	
+		}
+	}
+	if(ans<=K){
+		return true;
+	}
+	return false;	
+}
+
+int main() {
+	scanf("%d%d%d", &L, &N, &K);
+	for (int i = 0; i < N; ++i) {
+		scanf("%d", v+i);
+	}
+	int left, right, mid, ans = INT_MAX;
+	left = 1;
+	right = L;
+	while (left <= right) {
+		mid = (left + right) / 2;
+		if (check(mid)) {
+			right = mid - 1;
+			ans = min(ans, mid);
+		} else {
+			left = mid + 1;
+		}
+	}
+	cout << ans << endl;
+	return 0;
+}
+```
+
+### P1678 烦恼的高考志愿
+
+```c++
+/**
+ * 二分查找。
+ * 用 upper_bound 找到第一个大的位置 idx，然后取 idx 和 idx - 1, 分别试一下。
+ * idx 可能是 0 或者末尾（idx == m），要特殊处理一下。
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int m, n, vm[100010], a;
+long long ans = 0;
+
+int main() {
+	scanf("%d%d", &m, &n);
+	for (int i = 0; i < m; ++i) 
+		scanf("%d", vm+i);
+	sort(vm, vm+m);
+	for (int i = 0; i < n; ++i) {
+		scanf("%d", &a);
+		int diff = INT_MAX;
+		int idx = upper_bound(vm, vm+m, a)-vm;
+		if (idx != m) diff = min(diff, abs(vm[idx]-a));
+		if (idx - 1 >=0 ) diff = min(diff, abs(vm[idx-1]-a));
+		ans += diff;
+	}
+	cout << ans << endl;
+	return 0;
+}
+```
+
+### P2440 木材加工
+
+```c++
+/**
+ * 二分答案
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, k;
+int v[100010];
+bool check(int mid) {
+	int cnt = 0;
+	for (int i = 0; i < n; ++i) {
+		cnt += v[i]/mid;
+		if (cnt >= k) return true;
+	}
+	return false;
+}
+int main() {
+	scanf("%d%d", &n, &k);
+	for (int i = 0; i < n; ++i) {
+		scanf("%d", v+i);
+	}
+	int left = 1;
+	int right = (int)1e8;
+	int ans = 0;
+	while (left <= right) {
+		int mid = (left + right) / 2;
+		if (check(mid)) {
+			left = mid + 1;
+			ans = max(ans, mid);
+		} else {
+			right = mid - 1;
+		}
+	}
+	cout << ans << endl;
+	return 0;
+}
+```
+
+### P2678 跳石头
+
+二分答案：用 mid 去试跳，如果间距小于 mid，则去掉那个石头，如果去掉个数超过 k 个，则失败。
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int ed, n, k;
+int v[50010];
+// 用 mid 去试跳，如果间距小于 mid，则去掉那个石头，如果去掉个数超过 k 个，则失败。
+bool check(int mid) {
+	int cnt = 0;
+	int diff = 0;
+	for (int i = 1; i <= n+1; ++i) {
+		int dis = v[i] - v[i-1] + diff;
+		if (dis < mid) {
+			cnt++;
+			diff = dis;	
+			if (cnt > k) return false;
+		} else {
+			diff = 0;
+		}
+	}
+	return true;
+}
+int main() {
+	scanf("%d%d%d", &ed, &n, &k);
+	for (int i = 1; i <= n; ++i) {
+		scanf("%d", v+i);
+	}
+	v[0] = 0; // 起点
+	v[n+1] = ed; // 终点
+	int left = 1;
+	int right = ed;
+	int ans = 0;
+	while (left <= right) {
+		int mid = left + (right-left)/2;
+		if (check(mid)) {
+			ans = max(ans, mid);
+			left = mid + 1;
+		} else {
+			right = mid - 1;
+		}
+	}
+	printf("%d\n", ans);
+	return 0;
+}
+```
+
+### P1182 数列分段 Section II
+
+二分答案。对目标答案每 mid 分一段，如果分出来的段数 <= m 即为真。
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m, v[100010];
+bool check(int mid) {
+	int tot = 0;
+	int cnt = 0;
+	for (int i = 0; i < n; ++i) {
+		cnt += v[i];
+		if (v[i] > mid) return false;
+		if (cnt > mid) {
+			tot++;
+			cnt = 0; 
+			i--;
+		}
+	}
+	if (cnt != 0) tot++;
+	if (tot <= m) return true;
+	else return false;
+}
+
+int main() {
+	scanf("%d%d", &n, &m);
+	for (int i = 0; i < n; ++i) {
+		scanf("%d", v+i);
+	}
+	int left = 1;
+	int right = (int)(1e9 + 1);
+	int ans = INT_MAX;
+	while (left <= right) {
+		int mid = (left+right)/2;
+		if (check(mid)) {
+			ans = min(ans, mid);
+			right = mid - 1;
+		} else {
+			left = mid + 1;
+		}
+	}
+	cout << ans << endl;
+	return 0;
+}
+```
+
 ## 教学思考
 
 因为`lower_bound` 和 `upper_bound`的写法相比传统写法还是有点复杂，在教学中还是适合用最初的那个易懂的版本。易懂的版本虽然执行起来多几次判断，但是在比赛中这一点多的时间并不影响整体的时间复杂度，所以不会因此扣分。同时，简单易于理解的代码，在学习和解题时，也更加不容易犯错。
 
 待学生理解基础二分的写法后，再把系统的实现拿出来，作为增强的补充练习题目。这么补充练习并不是要学生一定掌握，而是借由实现系统的函数，学会在比赛中调用 C++ 的 `lower_bound` 和 `upper_bound` 库函数，这样可以加速解题的速度。
+
+二分答案的思路很好理解，但是实际写起来还是很容易晕，所以需要多加练习。另外利用题目特征来获得提示，帮助自己快速解题。
 
 ## 小结
 
