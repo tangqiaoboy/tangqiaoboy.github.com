@@ -116,6 +116,11 @@ for (int i = 1; i <=n; ++i) {
 | [P1551 亲戚](https://www.luogu.com.cn/problem/P1551)      | 基础题       |
 | [P1536 村村通](https://www.luogu.com.cn/problem/P1536)   | 基础题        |
 | [P1892 团伙](https://www.luogu.com.cn/problem/P1892)   | 提高题，需要用反集  |
+| [P3144 Closing the Farm S](https://www.luogu.com.cn/problem/P3144) | USACO 16 OPEN |
+| [P1197 星球大战](https://www.luogu.com.cn/problem/P1197) | JSOI 2008 |
+| [P2024 食物链](https://www.luogu.com.cn/problem/P2024)| NOI 2001 |
+| [P1196 银河英雄传说](https://www.luogu.com.cn/problem/P1196) | NOI 2002 |
+| | |
 
 ## 反集
 
@@ -212,6 +217,110 @@ int main() {
 }
 
 ```
+
+## 练习题参考代码
+
+### P1551 亲戚
+
+标准的并查集，没有陷阱。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n,m,q;
+int p[5010];
+
+int find(int a) {
+	if (p[a] == a) return a;
+	return p[a] = find(p[a]);
+}
+
+void merge(int a, int b) {
+	int pa = find(a);
+	int pb = find(b);
+	p[pa] = pb;
+}
+
+int main() {
+	int a, b;
+	// 初始化
+	for (int i = 0; i < 5010; ++i) {
+		p[i] = i;
+	}
+	scanf("%d%d%d", &n, &m, &q);
+	for (int i = 0; i < m; ++i) {
+		scanf("%d%d", &a, &b);
+		merge(a, b);
+	}
+	for (int i = 0; i < q; ++i) {
+		scanf("%d%d", &a, &b);
+		if (find(a) == find(b)) printf("Yes\n");
+		else printf("No\n");
+	}
+	return 0;
+}
+```
+
+### P1536 村村通
+
+用并查集操作，然后数一下一共有多少个不同的集合，答案就是 `集合数-1`。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int p[1010], n, m;
+
+int find(int a) {
+	if (p[a] == a) return a;
+	return p[a] = find(p[a]);
+}
+
+void merge(int a, int b) {
+	int pa = find(a);
+	int pb = find(b);
+	p[pa] = pb;
+}
+
+void init() {
+	for (int i = 0; i <= n ; ++i) {
+		p[i] = i;
+	}
+}
+
+int main() {
+	while (1) {
+		scanf("%d", &n);
+		if (n == 0) break;
+		init();
+		scanf("%d", &m);
+		for (int i = 0; i < m; ++i) {
+			int a, b;
+			scanf("%d%d", &a, &b);
+			merge(a, b);
+		}
+		int cnt = 0;
+		for (int i = 1; i <=n ; ++i) {
+			int pa = find(i);
+			if (pa == i) {
+				cnt++;
+			}
+		}
+		printf("%d\n", cnt-1);
+	}
+	return 0;
+}
+```
+
+
+
 
 ## 更多
 
