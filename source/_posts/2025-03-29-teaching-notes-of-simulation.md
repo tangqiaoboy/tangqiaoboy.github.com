@@ -190,7 +190,58 @@ int main() {
 
 矩阵变换这类模拟题，会要求我们在一个二维的数组上进行各种操作，包括填充，旋转，查找，合并等。需要我们熟悉各种矩阵变换的技巧。
 
-例题一：[P5731 蛇形方阵](https://www.luogu.com.cn/problem/P5731)
+例题：[P5725【深基4.习8】求三角形](https://www.luogu.com.cn/problem/P5725)
+
+此题是一道基础的填充题。
+ - 对于第一种要求，我们用在二维数组上填充实现。
+ - 对于第二种要求，我们直接输出结果，在合适的位置加上一些空格。
+
+示例代码如下：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int tu[11][11];
+int n;
+int main() {
+    cin >> n;
+
+    // 处理第一种要求
+    int cnt = 1;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= n; ++j) {
+            tu[i][j] = cnt++;
+        }
+    }
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= n; ++j) {
+            printf("%02d", tu[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    // 处理第二种要求
+    cnt = 1;
+    int bk = n-1;
+    for (int i = 1; i <= n; ++i, bk--) {
+        for (int j = 1; j <= bk; ++j) printf("  ");
+        for (int j = 1; j <= i; ++j) {
+            printf("%02d", cnt++);
+        }
+        printf("\n");
+    }
+    
+	return 0;
+}
+
+```
+
+
+例题：[P5731 蛇形方阵](https://www.luogu.com.cn/problem/P5731)
 
 蛇形方阵是一道基础题，用于练习二维数组上的操作。我使用的模拟技巧是：
 
@@ -261,7 +312,7 @@ int main() {
 }
 ```
 
-例题二：[P4924 1007 魔法少女小Scarlet](https://www.luogu.com.cn/problem/P4924)
+例题：[P4924 1007 魔法少女小Scarlet](https://www.luogu.com.cn/problem/P4924)
 
 本题涉及矩阵的旋转，实际操作起来还是有点麻烦。这里我们按旋转的中心来重建坐标系的话，可以观察到如下规律：
 
@@ -351,8 +402,9 @@ int main() {
 | 题号      | 描述 |
 | ----------- | ----------- |
 |       |        |
-|    |         |
-
+|       |        |
+|       |        |
+|       |        |
 
 
 
