@@ -186,9 +186,9 @@ int main() {
 }
 ```
 
-## 矩阵变换
+## 矩阵操作
 
-矩阵变换这类模拟题，会要求我们在一个二维的数组上进行各种操作，包括填充，旋转，查找，合并等。需要我们熟悉各种矩阵变换的技巧。
+矩阵操作这类模拟题，会要求我们在一个二维（或三维）的数组上进行各种操作，包括填充，旋转，查找，合并等。需要我们熟悉各种矩阵操作的技巧。
 
 例题：[P5725【深基4.习8】求三角形](https://www.luogu.com.cn/problem/P5725)
 
@@ -383,6 +383,52 @@ int main() {
 }
 ```
 
+例题：[P1205 USACO1.2 方块转换 Transformations](https://www.luogu.com.cn/problem/P1205)
+
+此题需要推导矩阵旋转的规律。我们可以把原坐标和新坐标写下来，做成一个表格。
+
+{% img /images/simulation-3.jpg %}
+
+然后，我们把坐标的变化写成下面的表格形式：
+
+{% img /images/simulation-4.jpg %}
+
+通过观察，我们发现：
+ - 黄色和红色的坐标在变换前后刚好相等，即： `新 x = 原 y`
+ - 两侧的白色的坐标加和刚好等于 n-1，即：`原 x + 新 y = n - 1` => `新 y = n - 原 x - 1`
+
+综上，坐标变换公式为：`新(x, y) = 原(y, n-x-1)`。
+
+所以，坐标变换相关代码为：
+
+```c++
+for (int i = 0; i < n; ++i) {
+    for (int j = 0; j < n; ++j) {
+        tmp[i][j] = ori[j][n-i-1];
+    }
+}
+```
+
+与此类似，我们可以推出“反射”的代码关系是 `新(x,n-y-1)=原(x,y)`，相关变换代码为：
+
+```c++
+for (int i = 0; i < n; ++i) {
+    for (int j = 0; j < n; ++j) {
+        tmp[i][n-j-1] = ori[i][j];
+    }
+}
+```
+
+
+更多练习：
+ - [P5729 深基5.例7 工艺品制作](https://www.luogu.com.cn/problem/P5729)
+ - [P5732 深基5.习7 杨辉三角](https://www.luogu.com.cn/problem/P5732)
+ - [P5730 深基5.例10 显示屏](https://www.luogu.com.cn/problem/P5730)
+ - [P1789 我的世界-插火把](https://www.luogu.com.cn/problem/P1789)
+ - [P1319 压缩技术](https://www.luogu.com.cn/problem/P1319)
+ - [P1320 压缩技术 续集版](https://www.luogu.com.cn/problem/P1320)
+
+
 ## 游戏模拟
 
 游戏模拟类的题目通常会告诉你一个相对复杂一点的游戏规则，然后让你用程序将这个游戏规律实现，最终将游戏的结果输出出来。
@@ -396,12 +442,79 @@ int main() {
 | [P1042](https://www.luogu.com.cn/problem/P1042) |  NOIP 2003 普及组 乒乓球      |
 | [P1328](https://www.luogu.com.cn/problem/P1328) | NOIP 2014 提高组 生活大爆炸版石头剪刀布 |
 | [P1518](https://www.luogu.com.cn/problem/P1518)| USACO2.4 两只塔姆沃斯牛 The Tamworth Two |
+| [P1089](https://www.luogu.com.cn/problem/P1089) |  NOIP 2004 提高组 津津的储蓄计划      |
+| [P1161](https://www.luogu.com.cn/problem/P1161) | 数组标记 |
+
+
+
+## 滑动窗口
+
+例题：[P1614 爱与愁的心痛](https://www.luogu.com.cn/problem/P1614) 
+
+此题的解法是：构造一个“滑动的窗口”。先求出前 m 个数的和，这相当于窗口的原始位置。之后每次让窗口往右移动一格。每次移动的时候，会将最左侧的数字剔除，同时纳入一个新数字。如下图所示：
+
+{% img /images/simulation-2.jpg %}
+
+我们在滑动窗口的时候，需要用这个变量，分别指向：
+ - 当前窗口最左的数字 p1
+ - 当前窗口下一个要加入的数字 p2
+ - 在滑动的时候，不断更新当前窗口的值 tot
+
+以下是关键代码：
+
+```c++
+p1 = 0;
+p2 = m;
+while (p2 < n) {
+    tot -= v[p1];
+    tot += v[p2];
+    ans = min(ans, tot);
+    p1++; p2++;
+}
+```
+
+完整代码如下：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m, tot, ans;
+int p1, p2;
+int v[3300];
+int main() {
+    cin >> n >> m;
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
+    }
+    // 初使化滑动窗口
+    tot = 0;
+    for (int i = 0; i < m; ++i) {
+        tot += v[i];
+    }
+    ans = tot;
+    p1 = 0;
+    p2 = m;
+    // 滑动窗口，更新值
+    while (p2 < n) {
+        tot -= v[p1];
+        tot += v[p2];
+        ans = min(ans, tot);
+        p1++;
+        p2++;
+    }
+    cout << ans << endl;
+    return 0;
+}
+```
 
 ## 其它模拟题目
 
 | 题号      | 描述 |
 | ----------- | ----------- |
-|       |        |
 |       |        |
 |       |        |
 |       |        |
