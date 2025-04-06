@@ -12,7 +12,7 @@ tags: cspj
 
 有些时候，我们在处理二维数组的时候，需要处理 x，y 坐标的边界。这样写起来会比较麻烦，但是，如果我们将数据从下标 1 开始保存，那么就人为在数据外面留了一圈缓冲带。这个时候，在处理 x，y 周围坐标的时候，就不会出现数据下标越界的情况了。
 
-例题：[P2670 NOIP 2015 普及组 扫雷游戏](https://www.luogu.com.cn/problem/P2670)
+### 例题：[P2670 NOIP 2015 普及组 扫雷游戏](https://www.luogu.com.cn/problem/P2670)
 
 该题如果正常写，需要判断每个格子周围 8 个格子的状态。如果我们把数据从 1 开始读入，在判断的时候就容易很多。以下是参考代码。
 
@@ -61,7 +61,7 @@ int main() {
 }
 ```
 
-练习：[B4248 语言月赛 202503 数字棋盘](https://www.luogu.com.cn/problem/B4248)
+### 例题：[B4248 语言月赛 202503 数字棋盘](https://www.luogu.com.cn/problem/B4248)
 
 本题也可以用包边的技巧，保证数据在检查的时候不会越界。参考代码如下：
 
@@ -113,7 +113,7 @@ int main() {
 
 对于这种数数题目，最简单的做法是：直接用加减来进行目标的选择。加减之后，下标可能变负数或者超过总数，这个时候进行简单的取模调整，就可以将下标调整正常。
 
-例题一：[P1563 NOIP 2016 提高组 玩具谜题](https://www.luogu.com.cn/problem/P1563) 
+### 例题：[P1563 NOIP 2016 提高组 玩具谜题](https://www.luogu.com.cn/problem/P1563) 
 
 此题我们：
  - 用 `idx = (idx + b) % n;` 来完成顺时针数
@@ -156,7 +156,7 @@ int main() {
 }
 ```
 
-例题二：[B4246 语言月赛 202503 环形游走](https://www.luogu.com.cn/problem/B4246)
+### 例题：[B4246 语言月赛 202503 环形游走](https://www.luogu.com.cn/problem/B4246)
 
 此题有个技巧：就是走的时候可能绕多圈，这个时候我们先把要走的步数模 n: `step % n`, 这样就把前面的多圈跳过了，也不会把坐标减成特别特别小的负数。
 
@@ -186,11 +186,14 @@ int main() {
 }
 ```
 
+更多练习：
+ - [P1914 小书童——凯撒密码](https://www.luogu.com.cn/problem/P1914)
+
 ## 矩阵操作
 
 矩阵操作这类模拟题，会要求我们在一个二维（或三维）的数组上进行各种操作，包括填充，旋转，查找，合并等。需要我们熟悉各种矩阵操作的技巧。
 
-例题：[P5725【深基4.习8】求三角形](https://www.luogu.com.cn/problem/P5725)
+### 例题：[P5725 求三角形](https://www.luogu.com.cn/problem/P5725)
 
 此题是一道基础的填充题。
  - 对于第一种要求，我们用在二维数组上填充实现。
@@ -240,8 +243,50 @@ int main() {
 
 ```
 
+### 例题：[P5461 赦免战俘](https://www.luogu.com.cn/problem/P5461)
 
-例题：[P5731 蛇形方阵](https://www.luogu.com.cn/problem/P5731)
+此题我们需要熟练使用递归来进行标记。参考代码如下：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m;
+char v[1100][1100];
+
+void mark(int x, int y, int size) {
+    if (size == 1) return;
+    int half = size/2;
+    for (int i = x; i < x+half; ++i) {
+        for (int j = y; j < y+half; ++j) {
+            v[i][j] = '0';
+        }
+    }
+    mark(x, y+half, half);
+    mark(x+half, y, half);
+    mark(x+half, y+half, half);
+}
+
+int main() {
+    cin >> n;
+    m = 1<<n;
+    memset(v, '1', sizeof(v));
+    mark(0, 0, m);
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cout << v[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+```
+
+### 例题：[P5731 蛇形方阵](https://www.luogu.com.cn/problem/P5731)
 
 蛇形方阵是一道基础题，用于练习二维数组上的操作。我使用的模拟技巧是：
 
@@ -312,7 +357,7 @@ int main() {
 }
 ```
 
-例题：[P4924 1007 魔法少女小Scarlet](https://www.luogu.com.cn/problem/P4924)
+### 例题：[P4924 魔法少女小Scarlet](https://www.luogu.com.cn/problem/P4924)
 
 本题涉及矩阵的旋转，实际操作起来还是有点麻烦。这里我们按旋转的中心来重建坐标系的话，可以观察到如下规律：
 
@@ -383,7 +428,7 @@ int main() {
 }
 ```
 
-例题：[P1205 USACO1.2 方块转换 Transformations](https://www.luogu.com.cn/problem/P1205)
+### 例题：[P1205 USACO1.2 方块转换 Transformations](https://www.luogu.com.cn/problem/P1205)
 
 此题需要推导矩阵旋转的规律。我们可以把原坐标和新坐标写下来，做成一个表格。
 
@@ -427,7 +472,7 @@ for (int i = 0; i < n; ++i) {
  - [P1789 我的世界-插火把](https://www.luogu.com.cn/problem/P1789)
  - [P1319 压缩技术](https://www.luogu.com.cn/problem/P1319)
  - [P1320 压缩技术 续集版](https://www.luogu.com.cn/problem/P1320)
-
+ - [P2615 NOIP 2015 提高组 神奇的幻方](https://www.luogu.com.cn/problem/P2615)
 
 ## 游戏模拟
 
@@ -445,11 +490,9 @@ for (int i = 0; i < n; ++i) {
 | [P1089](https://www.luogu.com.cn/problem/P1089) |  NOIP 2004 提高组 津津的储蓄计划      |
 | [P1161](https://www.luogu.com.cn/problem/P1161) | 数组标记 |
 
-
-
 ## 滑动窗口
 
-例题：[P1614 爱与愁的心痛](https://www.luogu.com.cn/problem/P1614) 
+### 例题：[P1614 爱与愁的心痛](https://www.luogu.com.cn/problem/P1614) 
 
 此题的解法是：构造一个“滑动的窗口”。先求出前 m 个数的和，这相当于窗口的原始位置。之后每次让窗口往右移动一格。每次移动的时候，会将最左侧的数字剔除，同时纳入一个新数字。如下图所示：
 
@@ -510,6 +553,92 @@ int main() {
     return 0;
 }
 ```
+
+## 模拟输入输出
+
+有一些模拟需要我们有比较复杂的输入和输出操作技巧。
+
+### 例题：[P1957 口算练习题](https://www.luogu.com.cn/problem/P1957)
+
+此题的输入长度不固定，我们需要先判断输入的长度。同时，输出的时候，我们还需要输出“输出内容”的长度。这对我们处理输入和输出都带来了挑战。
+
+我们可以把表达式整行整行读入，再用 `sscanf` 和 `snprintf` 来进行分析处理。
+
+ - `sscanf` 允许我们从一个字符串中读入内容。
+ - `snprintf` 允许我们将输出内容先输出到一个字符串中。
+
+以下是相关的示意：
+
+```c++
+int a, b;
+char s[100], out[100];
+sscanf(s, "%d%d", &a, &b);
+snprintf(out, sizeof(out), "%d+%d=%d", a, b, a + b);
+```
+
+另外，我们还需要一次读入一整行，我用的方法是用 `scanf`, 代码如下：
+
+```c++
+scanf("%[^\n]", s);
+getchar();
+```
+需要注意，以上代码每读入一行，需要用 `getchar()` 将行末的换行给读掉。
+
+我们也可以用 `cin.getline(s, sizeof(s));` 来读取数据。
+
+以下是完整的示意代码：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int T, a, b;
+char ch, s[100], out[100];
+
+int main() {
+    scanf("%d", &T); getchar();
+    while (T--) {
+        scanf("%[^\n]", s); getchar();
+        if (s[0] >='0' && s[0] <= '9') { // 也可使用函数： isdigit(s[0])
+            sscanf(s, "%d%d", &a, &b);
+        } else {
+            sscanf(s, "%c%d%d", &ch, &a, &b);
+        }
+        memset(out, 0, sizeof(out));
+        if (ch == 'a') {
+            snprintf(out, sizeof(out), "%d+%d=%d", a, b, a + b);
+        } else if (ch == 'b') {
+            snprintf(out, sizeof(out), "%d-%d=%d", a, b, a - b);
+        } else if (ch == 'c') {
+            snprintf(out, sizeof(out), "%d*%d=%d", a, b, a * b);
+        }
+        printf("%s\n", out);
+        printf("%lu\n", strlen(out));
+    }
+    return 0;
+}
+```
+
+以上的 scanf 部分如果替换成 cin，示意代码如下：
+
+```c++
+int main() {
+    cin >> T;
+    cin.getline(s, sizeof(s));
+    while (T--) {
+        cin.getline(s, sizeof(s));
+        // 省略
+    }
+    return 0;
+}
+```
+
+更多练习：
+ - [P5734 深基6.例6 文字处理软件](https://www.luogu.com.cn/problem/P5734)
+ - [P1308 NOIP 2011 普及组 统计单词数](https://www.luogu.com.cn/problem/P1308)
 
 ## 其它模拟题目
 
