@@ -449,6 +449,51 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2013/12/11/network-tool-charles-intr/">
+                
+                <span class="abstract-title-text">iOS开发工具-网络封包分析工具Charles</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>本部分的内容写于2013年12月，2015年11月有更新，更新版的文章见：<a href="/2015/11/14/charles-introduction/">《Charles 从入门到精通》</a></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><img src="/images/charles-logo.png" class="">
+
+<p>本文为 InfoQ 中文站特供稿件，首发地址为：<a target="_blank" rel="noopener" href="http://www.infoq.com/cn/articles/network-packet-analysis-tool-charles">文章链接</a>。如需转载，请与 InfoQ 中文站联系。</p>
+<p><a target="_blank" rel="noopener" href="http://www.charlesproxy.com/">Charles</a> 是在 Mac 下常用的截取网络封包的工具，在做 iOS 开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。Charles 通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。</p>
+<p>Charles 是收费软件，可以免费试用 30 天。试用期过后，未付费的用户仍然可以继续使用，但是每次使用时间不能超过 30 分钟，并且启动时将会有 10 秒种的延时。</p>
+<p>因此，该付费方案对广大用户还是相当友好的，即使你长期不付费，也能使用完整的软件功能。只是当你需要长时间进行封包调试时，会因为 Charles 强制关闭而遇到影响。</p>
+<p>Charles 主要的功能包括：</p>
+<ol>
+<li>支持 SSL 代理。可以截取分析 <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E5%AE%89%E5%85%A8%E5%A5%97%E6%8E%A5%E5%B1%82">SSL</a> 的请求。</li>
+<li>支持流量控制。可以模拟慢速网络以及等待时间（latency）较长的请求。</li>
+<li>支持 AJAX 调试。可以自动将 json 或 xml 数据格式化，方便查看。</li>
+<li>支持 AMF 调试。可以将 Flash Remoting 或 Flex Remoting 信息格式化，方便查看。</li>
+<li>支持重发网络请求，方便后端调试。</li>
+<li>支持修改网络请求参数。</li>
+<li>支持网络请求的截获并动态修改。</li>
+<li>检查 HTML，CSS 和 RSS 内容是否符合 <a target="_blank" rel="noopener" href="http://validator.w3.org/">W3C 标准</a>。</li>
+</ol>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/12/11</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2013/11/14/use-flurry-to-analyse-data/">
                 
                 <span class="abstract-title-text">使用Flurry来统计和分析用户行为</span>
@@ -746,37 +791,6 @@
     
 </div>
 
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2013/06/16/ios-dev-tool-app-store-tool/">
-                
-                <span class="abstract-title-text">iOS开发工具篇-AppStore统计工具</span>
-            </a>
-            <div class="abstract-content">
-                <p>本文首发于 InfoQ，本文版权归 InfoQ 所有，转载请保留 <a target="_blank" rel="noopener" href="http://www.infoq.com/cn/articles/appstore-statistical-tool">原文链接</a>。</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着 iOS 开发的流行，针对 iOS 开发涉及的方方面面，早有一些公司提供了专门的解决方案或工具。这些解决方案或工具包括：用户行为统计工具（友盟，Flurry，Google Analytics 等),  App Store 销售分析工具（例如 App annie)， App crash 收集工具（例如 Crashlytics)，App 测试发布工具（Test Flight）, App Push 服务等。</p>
-<p>这些解决方案或工具节省了 iOS 开发者大量的开发时间，但是由于相关介绍文章的缺乏，许多开发者都在重复着自己一次又一次重新造轮子。所以我希望，将我自己使用和调研的相关的第三方服务使用经验，整理成一系列文章，以便广大开发者能够省去大量的重复性工作。</p>
-<p>今天介绍 AppStore 统计工具：App Annie 和苹果的命令行统计工具。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/06/16</span>
-                </div>
-                <!-- tags -->
                 
             </div>
         </article>
@@ -2725,7 +2739,24 @@
         
         
         
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -6094,7 +6125,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 347
+        Total : 348
         </div>
         <!-- search  -->
         
@@ -6108,6 +6139,12 @@
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span>
+            <a class="archive-post-title" href="/2025/04/06/teaching-notes-of-brute-force/">CSPJ 教学思考：枚举</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/29</span>
