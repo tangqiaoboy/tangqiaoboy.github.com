@@ -107,6 +107,76 @@ int main() {
 }
 ```
 
+### [P10719 GESP202406 五级 黑白格](https://www.luogu.com.cn/problem/P10719)
+
+此题需要求枚举从坐标(x,y)到坐标(a,b)的 1 的个数。我们先用将从(0,0)到(a,b)的 1 的个数保存在一个数组 `s[110][110]`中，然后再通过容斥原理来进行快速求(i,j)到(a,b)中 1 的个数。具体方法如下：
+
+第一步：对于每一个 `s[i][j]`，满足：`s[i][j] = s[i-1][j] + cnt`，其中 cnt 为第 i 行前 j 个数中 1 的个数。于是，我们就可以递推求出所有的 `s[i][j]`，代码如下：
+
+```c++
+for (int i = 1; i <= n; i++) {
+    int cnt = 0;
+    for (int j = 1; j <= m; j++) {
+        cnt += (tu[i][j] == '1');
+        s[i][j] = s[i-1][j] + cnt;
+    }
+}
+```
+
+以上代码使用了“包边”的技巧，因为我们下标是从 1 开始的，所以下标 `i-1` 不会越界。
+
+第二步：根据容斥原理。从坐标(i,j)到坐标(a,b)的 1 的个数为：`s[a][b] - s[i-1][b] - s[a][j-1] + s[i-1][j-1]`。如下图所示：
+
+{% img /images/simulation-5.jpg %}
+
+以上公式如果使用“包边”技巧，让有效坐标从 1 开始，也会帮助 i-1 的值不会越界。
+
+完整代码如下：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m, k, ans;
+int s[110][110]; // 表示从(0,0)到(a,b)的 1 的个数
+char tu[110][110];
+
+int main() {
+    cin >> n >> m >> k;
+    for (int i = 1; i <= n; i++) {
+        cin >> tu[i]+1;
+    }
+    // 从第二行递推
+    for (int i = 1; i <= n; i++) {
+        int cnt = 0;
+        for (int j = 1; j <= m; j++) {
+            cnt += (tu[i][j] == '1');
+            s[i][j] = s[i-1][j] + cnt;
+        }
+    }
+    ans = INT_MAX;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            for (int a = i; a <= n; a++) {
+                for (int b = j; b <= m; b++) {
+                    int cnt = s[a][b] - s[i-1][b] - s[a][j-1] + s[i-1][j-1];
+                    if (cnt >= k) {
+                        int tmp = (a-i+1) * (b-j+1);
+                        if (tmp < ans) ans = tmp;
+                    }
+                }
+            }
+        }
+    }
+    if (ans == INT_MAX) cout << 0 << endl;
+    else cout << ans << endl;
+    return 0;
+}
+```
+
 ## 围圈数数
 
 有一种模拟题，要求我们把人围成一个圈，在圈上数数，然后问你数到的是谁。类似于小时候玩的“点兵点将”游戏，可能是顺时针数，也可能是逆时针数。
@@ -646,11 +716,64 @@ int main() {
 
 | 题号      | 描述 |
 | ----------- | ----------- |
-|       |        |
+| [P1067 多项式输出](https://www.luogu.com.cn/problem/P1067) | NOIP 2009 普及组，此题用 printf 的 `%+d` 可以保证正数输出带+号      |
 |       |        |
 |       |        |
 
 
+### [P1067 多项式输出](https://www.luogu.com.cn/problem/P1067) 参考程序
 
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n;
+string ans;
+char outs[100];
+
+int main() {
+    ans = "";
+    cin >> n;
+    for (int i = n; i>=0; i--) {
+        int a;
+        cin >> a;
+        // 系数为0，跳过
+        if (a == 0) continue;
+        // 指数为0，单独处理
+        if (i == 0) {
+            memset(outs, 0, sizeof(outs));
+            snprintf(outs, sizeof(outs), "%+d", a);
+            ans += outs;
+        } else {
+            // 先处理系数
+            if (a == 1) {
+                snprintf(outs, sizeof(outs), "+x");
+            } else if (a == -1) {
+                snprintf(outs, sizeof(outs), "-x");
+            } else {
+                snprintf(outs, sizeof(outs), "%+dx", a);
+            }
+            ans += outs;
+            // 再处理指数
+            memset(outs, 0, sizeof(outs));
+            if (i == 1) {
+                snprintf(outs, sizeof(outs), "");
+            } else {
+                snprintf(outs, sizeof(outs), "^%d", i);
+            }
+            ans += outs;
+        }
+    }
+    if (ans[0] == '+') {
+        ans = ans.substr(1);
+    }
+    cout << ans << endl;
+    return 0;
+}
+
+```
 
 
