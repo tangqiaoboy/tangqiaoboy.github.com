@@ -40,6 +40,31 @@ Person v[1100];
 // 使用时直接用 sort
 sort(v, v+n);
 ```
+
+sort 函数除了可以像上面这样通过调用 `<` 符号来比较大小，也可以传入一个比较函数。如下所示：
+
+```c++
+struct Person {
+	int idx;
+	int v;
+};
+bool comp(Person a, Person b) {
+	return a.v < b.v;
+}
+
+Person v[1100];
+// 使用时直接用 sort
+sort(v, v+n, comp);
+```
+
+以下是练习结构体排序的题目：
+
+| 题目名      | 说明 |
+| ----------- | ----------- |
+| [P5143 攀爬者](https://www.luogu.com.cn/problem/P5143) | 按 z 坐标排序，然后求和 |
+| [P1104 生日](https://www.luogu.com.cn/problem/P1104) | 生日的排序 |
+
+
 ## 3、教学题目
 
 推荐的教学题目如下：
@@ -49,12 +74,14 @@ sort(v, v+n);
 | [P2240 部分背包问题](https://www.luogu.com.cn/problem/P2240) | 较简单的一道贪心题 |
 | [P1223 排队接水](https://www.luogu.com.cn/problem/P1223)| 贪心进阶|
 | [P1803 凌乱的yyy](https://www.luogu.com.cn/problem/P1803) | 贪心进阶 |
-| [P5019 铺设道路](https://www.luogu.com.cn/problem/P5019) | NOIP2018 提高组真题|
+| [P5019 铺设道路](https://www.luogu.com.cn/problem/P5019) | NOIP 2018 提高组真题|
 | [B3872 巧夺大奖](https://www.luogu.com.cn/problem/B3872) | GESP202309 五级 |
+| [P1012 拼数](https://www.luogu.com.cn/problem/P1012) | NOIP 1998 提高组 |
+
 
 ## 4、例题代码
 
-### P2240 部分背包问题
+### [P2240 部分背包问题](https://www.luogu.com.cn/problem/P2240)
 
 [P2240 部分背包问题](https://www.luogu.com.cn/problem/P2240) 是较简单的一道贪心题。唯一的陷阱是，学过动态规划的同学可能误以为这个是背包问题。但是在教学中，贪心算法的学习比动态规划更早，所以不会有这个误解。
 
@@ -101,9 +128,9 @@ int main() {
 }
 ```
 
-### P1223 排队接水
+### [P1223 排队接水](https://www.luogu.com.cn/problem/P1223) 
 
-[P1223 排队接水](https://www.luogu.com.cn/problem/P1223) 此题的难度是需要推导出贪心的策略。具体推导过程如下：
+此题的难度是需要推导出贪心的策略。具体推导过程如下：
 
 {% img /images/greedy-1.jpg %}
 
@@ -141,7 +168,7 @@ int main() {
 }
 ```
 
-### P1803 凌乱的yyy
+### [P1803 凌乱的yyy](https://www.luogu.com.cn/problem/P1803) 
 
 此题有两种贪心的思路，分别是：
 
@@ -280,7 +307,8 @@ int main() {
 
 ### [B3872 巧夺大奖](https://www.luogu.com.cn/problem/B3872)
 
-我们来看一个样例，如果输入是：
+对于本题，我们先来看一个样例，如果输入是：
+
 ```
 2
 2 1
@@ -339,4 +367,53 @@ int main() {
 	return 0;
 }
 ```
+
+### [P1012 拼数](https://www.luogu.com.cn/problem/P1012)
+
+此题容易想到的贪心策略是：每次用高位尽量大的数字。如果高位相同，则比较次高位。
+
+但是如果两个涉及一个数是另一个数的前缀，则更复杂，让我们看看下面的例子：
+
+ - 那如果是 321 和 32 比较呢？32132 和 32321 哪个大？看起来先用短的更好。
+ - 再试一个 329 和 32 比较。32932 和 32329 哪个大？看起来先用长的更好。
+
+所以，本题的正确解法是比较的时候将两个串“连接”起来比大小。以下是关键的比较函数：
+
+```c++
+bool comp(const string& a, const string& b) {
+    return a + b > b + a;
+}
+```
+
+完整代码如下：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+bool comp(const string& a, const string& b) {
+    return a + b > b + a;
+}
+
+int main() {
+    int n;
+    vector<string> a;
+    cin >> n;
+    a.resize(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end(), comp);
+    for (int i = 0; i < n; i++) {
+        cout << a[i];
+    }
+    cout << endl;
+    return 0;
+}
+```
+
+
 
