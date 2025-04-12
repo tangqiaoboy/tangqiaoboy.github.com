@@ -46,11 +46,11 @@ sort(v, v+n);
 
 | 题目名      | 说明 |
 | ----------- | ----------- |
-|[P2240 部分背包问题](https://www.luogu.com.cn/problem/P2240) | 较简单的一道贪心题 |
+| [P2240 部分背包问题](https://www.luogu.com.cn/problem/P2240) | 较简单的一道贪心题 |
 | [P1223 排队接水](https://www.luogu.com.cn/problem/P1223)| 贪心进阶|
 | [P1803 凌乱的yyy](https://www.luogu.com.cn/problem/P1803) | 贪心进阶 |
-|[P5019 铺设道路](https://www.luogu.com.cn/problem/P5019) | NOIP2018 提高组真题|
-| | |
+| [P5019 铺设道路](https://www.luogu.com.cn/problem/P5019) | NOIP2018 提高组真题|
+| [B3872 巧夺大奖](https://www.luogu.com.cn/problem/B3872) | GESP202309 五级 |
 
 ## 4、例题代码
 
@@ -277,3 +277,66 @@ int main() {
 ```
 
 以上。
+
+### [B3872 巧夺大奖](https://www.luogu.com.cn/problem/B3872)
+
+我们来看一个样例，如果输入是：
+```
+2
+2 1
+20 10
+```
+
+以上样例最佳的贪心策略是：
+ - 安排在第 2 个时间段做任务 1，得到 20 的奖励
+ - 安排在第 1 个时间段做任务 2，得到 10 的奖励
+
+由此，我们可以得出这道题的贪心策略是：
+ - 按奖金的大小从大到小排序，每次取最大的奖金。
+ - 对于某一个具体的奖金，其对应的时限如果为 a 的话，我们应该尽可能把它安排在 [1, a] 这个区间的较大的时间段。因为越大的时间段相对来说越宽裕，如果我们把它安排在较小的时间段，如果有另外一个游戏的时间段要求更小，那就会造成冲突。
+
+完成的参考代码如下：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Game {
+    int time;
+    int reward;
+};
+Game games[510];
+int mark[510];
+
+bool operator<(const Game &a, const Game &b) {
+    return a.reward > b.reward;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> games[i].time;
+    }
+    for (int i = 0; i < n; i++) {
+        cin >> games[i].reward;
+    }
+    sort(games, games + n);
+    int ans = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = games[i].time; j >= 1; j--) {
+            if (!mark[j]) {
+                mark[j] = 1;
+                ans += games[i].reward;
+                break;
+            }
+        }
+    }
+    cout << ans << endl;
+	return 0;
+}
+```
+
