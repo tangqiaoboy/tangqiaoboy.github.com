@@ -536,14 +536,14 @@ int main() {
  - 黄色和红色的坐标在变换前后刚好相等，即： `新 x = 原 y`
  - 两侧的白色的坐标加和刚好等于 n-1，即：`原 x + 新 y = n - 1` => `新 y = n - 原 x - 1`
 
-综上，坐标变换公式为：`新(x, y) = 原(y, n-x-1)`。
+综上，坐标变换公式为：`新(y, n-x-1)=原(x, y) `。
 
 所以，坐标变换相关代码为：
 
 ```c++
-for (int i = 0; i < n; ++i) {
-    for (int j = 0; j < n; ++j) {
-        tmp[i][j] = ori[j][n-i-1];
+for (int x = 0; x < n; ++x) {
+    for (int y = 0; y < n; ++y) {
+        tmp[y][n-x-1] = ori[x][y];
     }
 }
 ```
@@ -551,13 +551,145 @@ for (int i = 0; i < n; ++i) {
 与此类似，我们可以推出“反射”的代码关系是 `新(x,n-y-1)=原(x,y)`，相关变换代码为：
 
 ```c++
-for (int i = 0; i < n; ++i) {
-    for (int j = 0; j < n; ++j) {
-        tmp[i][n-j-1] = ori[i][j];
+for (int x = 0; x < n; ++x) {
+    for (int y = 0; y < n; ++y) {
+        tmp[x][n-y-1] = ori[x][y];
     }
 }
 ```
 
+完整的参考代码如下（可以把 `debug` 变量设置成 `true` 来查看执行过程）：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+char ori[12][12], dest[12][12];
+char tmp[12][12], tmp2[12][12];
+int n;
+bool debug = false;
+
+bool match(char a[12][12], char b[12][12]) {
+    for (int x = 0; x < n; ++x) {
+        for (int y = 0; y < n; ++y) {
+            if (a[x][y] != b[x][y]) return false;
+        }
+    }
+    return true;
+}
+
+void print(char a[12][12]) {
+    for (int i = 0; i < n; ++i) {
+        cout << a[i] << endl;
+    }
+}
+
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> ori[i];
+    }
+    for (int i = 0; i < n; ++i) {
+        cin >> dest[i];
+    }
+    // 方案一
+    for (int x = 0; x < n; ++x) {
+        for (int y = 0; y < n; ++y) {
+            tmp[y][n-x-1] = ori[x][y];
+        }
+    }
+    if (debug) {
+        cout << "debug 1: " << endl;
+        print(tmp);
+    }
+    if (match(tmp, dest)) {
+        cout << "1" << endl;
+        return 0;
+    }
+    // 方案二
+    for (int x = 0; x < n; ++x) {
+        for (int y = 0; y < n; ++y) {
+            tmp2[y][n-x-1] = tmp[x][y];
+        }
+    }
+    if (match(tmp2, dest)) {
+        cout << "2" << endl;
+        return 0;
+    }
+    // 方案三
+    for (int x = 0; x < n; ++x) {
+        for (int y = 0; y < n; ++y) {
+            tmp[y][n-x-1] = tmp2[x][y];
+        }
+    }
+    if (match(tmp, dest)) {
+        cout << "3" << endl;
+        return 0;
+    }
+    // 反射
+    for (int x = 0; x < n; ++x) {
+        for (int y = 0; y < n; ++y) {
+            tmp[x][n-y-1] = ori[x][y];
+        }
+    }
+    if (match(tmp, dest)) {
+        cout << "4" << endl;
+        return 0;
+    }
+    // 反射+旋转90
+    for (int x = 0; x < n; ++x) {
+        for (int y = 0; y < n; ++y) {
+            tmp2[y][n-x-1] = tmp[x][y];
+        }
+    }
+    if (debug) {
+        cout << "debug 5-1: " << endl;
+        print(tmp2);
+    }
+    if (match(tmp2, dest)) {
+        cout << "5" << endl;
+        return 0;
+    }
+    // 反射+旋转180
+    for (int x = 0; x < n; ++x) {
+        for (int y = 0; y < n; ++y) {
+            tmp[y][n-x-1] = tmp2[x][y];
+        }
+    }
+    if (debug) {
+        cout << "debug 5-2: " << endl;
+        print(tmp);
+    }
+    if (match(tmp, dest)) {
+        cout << "5" << endl;
+        return 0;
+    }
+    // 反射+旋转270
+    for (int x = 0; x < n; ++x) {
+        for (int y = 0; y < n; ++y) {
+            tmp2[y][n-x-1] = tmp[x][y];
+        }
+    }   
+    if (debug) {
+        cout << "debug 5-3: " << endl;
+        print(tmp2);
+    }
+    if (match(tmp2, dest)) {
+        cout << "5" << endl;
+        return 0;
+    }
+    // 不改变
+    if (match(ori, dest)) {
+        cout << "6" << endl;
+        return 0;
+    }
+    cout << "7" << endl;
+    return 0;
+}
+```
 
 更多练习：
  - [P5729 深基5.例7 工艺品制作](https://www.luogu.com.cn/problem/P5729)
