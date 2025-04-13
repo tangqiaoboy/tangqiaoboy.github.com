@@ -151,55 +151,11 @@ int main() {
 }
 ```
 
-## [P1036 NOIP 2002 普及组 选数](https://www.luogu.com.cn/problem/P1036)
+更多全排列的练习：
+ - [P1088 NOIP 2004 普及组 火星人](https://www.luogu.com.cn/problem/P1088)
 
-此题需要从小到大取数求和，然后再判断是否是素数。用递归的方式来进行枚举。
 
-```c++
-/**
- * Author: Tang Qiao
- */
-#include <bits/stdc++.h>
-using namespace std;
 
-int n, k, tot, ans;
-int a[22], p[22];
-
-bool isPrime(int v) {
-    for (int i = 2; i*i <= v; ++i) {
-        if (v%i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-
-void di(int pt) {
-    if (pt == k+1) {
-        if (isPrime(tot)) {
-            ans++;
-        }
-    } else {
-        // 每一层都必须取比前一层更大的下标，防止重复取
-        for (int i = p[pt-1]+1; i <= n; ++i) {
-            p[pt] = i;
-            tot += a[i];
-            di(pt+1);
-            tot -= a[i];
-        }
-    }
-}
-
-int main() {
-    cin >> n >> k;
-    for (int i = 1; i <= n; ++i) {
-        cin >> a[i];
-    }
-    di(1);
-    cout << ans << endl;
-    return 0;
-}
-```
 
 
 
