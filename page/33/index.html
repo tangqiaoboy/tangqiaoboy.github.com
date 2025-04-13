@@ -449,6 +449,103 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2013/01/13/two-stage-creation-on-cocoa/">
+                
+                <span class="abstract-title-text">谈ObjC对象的两段构造模式</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Objective-c 语言在申请对象的时，需要使用两段构造 (<a target="_blank" rel="noopener" href="http://volonbolon.net/post/634999801/two-stage-creation-in-cocoa">Two Stage Creation</a>) 的模式。一个对象的创建，需要先调用 alloc 方法或 allocWithZone 方法，再调用 init 方法或 initWithSomething 方法。如下是一个 NSString 对象的创建示例：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * str = [[<span class="built_in">NSString</span> alloc] initWithString:<span class="string">@&quot;http://blog.devtang.com&quot;</span>];</span><br></pre></td></tr></table></figure>
+
+<p>由于该语言的对象创建方法和大多数其它语言（如 C、C++、Java、JavaScript）都不一样，所以引起了我的好奇。是什么原因促使 Objective-C 做了这种设计，而又是什么原因促使大多数其它语言都采用 “new” 方法来一次性创建对象呢？</p>
+<p>在看了 <a target="_blank" rel="noopener" href="http://www.amazon.com/Cocoa-Design-Patterns-Erik-Buck/dp/0321535022">《Cocoa Design Patterns》</a> 一书（顺便吐槽一下该书中文版翻译质量不高，建议看英文版），并且做了一些调研之后，我将总结分享给大家，欢迎大家讨论。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/01/13</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2013/01/01/2012-summary/">
+                
+                <span class="abstract-title-text">2012年个人总结</span>
+            </a>
+            <div class="abstract-content">
+                <p>和 <a href="/2012/01/01/2011-summary/">去年</a> 一样，记录一下今年的成长和收获。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/01/01</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="anniversary">anniversary</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2012/12/15/do-not-use-storyboard/">
+                
+                <span class="abstract-title-text">StoryBoard--看上去很美</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>StoryBoard 是苹果在 2011 年的 WWDC Session 309《Introducing Interface Builder Storyboarding》中介绍的 Interface Builder 的新功能。其基本想法是将原本的 xib 进行升级，引入一个容器用于管理多个 xib 文件，并且这个容器可以通过拖拽设置 xib 之间的界面跳转。而这个容器就是被苹果称做的 StoryBoard。下图是一个 Storyboard 的截图。</p>
+<img src="/images/enbrace-ios5-1.png" class="">
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/12/15</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2012/12/09/iap-crack-issue/">
                 
                 <span class="abstract-title-text">关于IAP的破解</span>
@@ -650,98 +747,10 @@
         </article>
         <div class="index-post-divider"></div>
     
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/08/26/use-script-to-power-up-ui-work/">
-                
-                <span class="abstract-title-text">用脚本来简化iOS美术同学的工作</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我们知道，在 iOS 开发中，为了使我们的 app 能够同时支持 iPhone 的 Retina 屏幕和普通屏幕，美术同学需要对 UI 设计稿中的每个元素进行 2 次切图。苹果要求对图片元素的命名分别为 name.png 和 <a href="mailto:&#x6e;&#x61;&#109;&#101;&#64;&#x32;&#x78;&#x2e;&#x70;&#110;&#x67;">&#x6e;&#x61;&#109;&#101;&#64;&#x32;&#x78;&#x2e;&#x70;&#110;&#x67;</a>，带 @2x 的表示是 Retina 屏幕的贴图，不带 @2x 的同名文件为普通屏幕的贴图。</p>
-<p>我在开发的时候发现很难要求美术同学按照开发的要求来对图片命名。她们通常对于切图的命名是例如 * 登录按钮大 .png* ，* 登录按钮小 .png*, * 登录按钮按下大 .png* * 登录按钮按下小 .png* 这样的形式。于是，对这些文件按照苹果的要求进行重命名就成了我这个码农的一个体力活。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/08/26</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/08/05/use-modern-objective-c/">
-                
-                <span class="abstract-title-text">Objective-C的新特性</span>
-            </a>
-            <div class="abstract-content">
-                <p>苹果在今年的 WWDC2012 大会上介绍了大量 Objective-C 的新特性，能够帮助 iOS 程序员更加高效地编写代码。在不久前更新的 Xcode4.4 版本中，这些新特性已经可以使用了。让我们看看这些新特性有哪些：</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/08/05</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/06/24/enhance-uiactionsheet/">
-                
-                <span class="abstract-title-text">封装同步的UIActionSheet</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>做 iOS 开发的同学想必都用过 UIActionSheet。UIActionSheet 可以弹出一个选择列表，让用户选择列表中的某一项操作。使用 UIActionSheet 非常简单，以下是一个简单的示例代码：</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="type">void</span>)someButtonClicked &#123;</span><br><span class="line">    <span class="built_in">UIActionSheet</span> * sheet = [[<span class="built_in">UIActionSheet</span> alloc] initWithTitle:<span class="literal">nil</span> delegate:<span class="keyword">self</span> cancelButtonTitle:<span class="string">@&quot;ddd&quot;</span> destructiveButtonTitle:<span class="string">@&quot;aaa&quot;</span> otherButtonTitles:<span class="string">@&quot;bbb&quot;</span>, <span class="string">@&quot;ccc&quot;</span>, <span class="string">@&quot;ddd&quot;</span>, <span class="literal">nil</span>];</span><br><span class="line">    sheet.destructiveButtonIndex = <span class="number">1</span>;</span><br><span class="line">    [sheet showInView:<span class="keyword">self</span>.view];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)actionSheet:(<span class="built_in">UIActionSheet</span> *)actionSheet clickedButtonAtIndex:(<span class="built_in">NSInteger</span>)buttonIndex &#123;</span><br><span class="line">    <span class="type">int</span> result = buttonIndex;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;result = %d&quot;</span>, result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>但我个人在使用时，感觉 UIActionSheet 有以下 2 个问题：</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/06/24</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
     <!-- paginator  -->
     
         <nav class="page-nav">
-            <a class="extend prev" rel="prev" href="/page/32/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/34/">NEXT &gt;</a>
+            <a class="extend prev" rel="prev" href="/page/32/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/34/">NEXT &gt;</a>
         </nav>
     
 </main>
@@ -2686,7 +2695,58 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -6067,7 +6127,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 348
+        Total : 351
         </div>
         <!-- search  -->
         
@@ -6081,6 +6141,24 @@
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span>
+            <a class="archive-post-title" href="/2025/04/13/teaching-notes-of-dfs/">CSPJ 教学总结：深度优先搜索（DFS）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span>
+            <a class="archive-post-title" href="/2025/04/12/cspj-notes-of-stl/">CSPJ 教学总结：STL</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span>
+            <a class="archive-post-title" href="/2025/04/12/cspj-notes-of-math-problems/">CSPJ 教学思考：数学题</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/06</span>

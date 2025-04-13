@@ -449,6 +449,94 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2012/08/26/use-script-to-power-up-ui-work/">
+                
+                <span class="abstract-title-text">用脚本来简化iOS美术同学的工作</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我们知道，在 iOS 开发中，为了使我们的 app 能够同时支持 iPhone 的 Retina 屏幕和普通屏幕，美术同学需要对 UI 设计稿中的每个元素进行 2 次切图。苹果要求对图片元素的命名分别为 name.png 和 <a href="mailto:&#x6e;&#x61;&#109;&#101;&#64;&#x32;&#x78;&#x2e;&#x70;&#110;&#x67;">&#x6e;&#x61;&#109;&#101;&#64;&#x32;&#x78;&#x2e;&#x70;&#110;&#x67;</a>，带 @2x 的表示是 Retina 屏幕的贴图，不带 @2x 的同名文件为普通屏幕的贴图。</p>
+<p>我在开发的时候发现很难要求美术同学按照开发的要求来对图片命名。她们通常对于切图的命名是例如 * 登录按钮大 .png* ，* 登录按钮小 .png*, * 登录按钮按下大 .png* * 登录按钮按下小 .png* 这样的形式。于是，对这些文件按照苹果的要求进行重命名就成了我这个码农的一个体力活。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/08/26</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2012/08/05/use-modern-objective-c/">
+                
+                <span class="abstract-title-text">Objective-C的新特性</span>
+            </a>
+            <div class="abstract-content">
+                <p>苹果在今年的 WWDC2012 大会上介绍了大量 Objective-C 的新特性，能够帮助 iOS 程序员更加高效地编写代码。在不久前更新的 Xcode4.4 版本中，这些新特性已经可以使用了。让我们看看这些新特性有哪些：</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/08/05</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2012/06/24/enhance-uiactionsheet/">
+                
+                <span class="abstract-title-text">封装同步的UIActionSheet</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>做 iOS 开发的同学想必都用过 UIActionSheet。UIActionSheet 可以弹出一个选择列表，让用户选择列表中的某一项操作。使用 UIActionSheet 非常简单，以下是一个简单的示例代码：</p>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="type">void</span>)someButtonClicked &#123;</span><br><span class="line">    <span class="built_in">UIActionSheet</span> * sheet = [[<span class="built_in">UIActionSheet</span> alloc] initWithTitle:<span class="literal">nil</span> delegate:<span class="keyword">self</span> cancelButtonTitle:<span class="string">@&quot;ddd&quot;</span> destructiveButtonTitle:<span class="string">@&quot;aaa&quot;</span> otherButtonTitles:<span class="string">@&quot;bbb&quot;</span>, <span class="string">@&quot;ccc&quot;</span>, <span class="string">@&quot;ddd&quot;</span>, <span class="literal">nil</span>];</span><br><span class="line">    sheet.destructiveButtonIndex = <span class="number">1</span>;</span><br><span class="line">    [sheet showInView:<span class="keyword">self</span>.view];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)actionSheet:(<span class="built_in">UIActionSheet</span> *)actionSheet clickedButtonAtIndex:(<span class="built_in">NSInteger</span>)buttonIndex &#123;</span><br><span class="line">    <span class="type">int</span> result = buttonIndex;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;result = %d&quot;</span>, result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>但我个人在使用时，感觉 UIActionSheet 有以下 2 个问题：</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/06/24</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2012/04/22/use-fmdb/">
                 
                 <span class="abstract-title-text">在iOS开发中使用FMDB</span>
@@ -657,113 +745,10 @@
         </article>
         <div class="index-post-divider"></div>
     
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/10/setup-blog-based-on-github/">
-                
-                <span class="abstract-title-text">象写程序一样写博客：搭建基于github的博客</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="2016-02-16-更新说明"><a href="#2016-02-16-更新说明" class="headerlink" title="2016.02.16 更新说明"></a>2016.02.16 更新说明</h2><p>本博客已经由 octopress 迁移到了 Hexo，本文章的内容稍显陈旧。</p>
-<p>对 Hexo 感兴趣的可以参见：<a href="/2016/02/16/from-octopress-to-hexo/">《从 Octopress 迁移到 Hexo》</a>。</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>github 真是无所不能。其 <a target="_blank" rel="noopener" href="http://pages.github.com/">Pages 功能</a> 支持上传 html，并且在页面中显示。于是有好事者做了一个基于 github 的博客管理工具：<a target="_blank" rel="noopener" href="http://octopress.org/">octopress</a>，基本原理是用 git 来管理你的文章，然后最终发布到 github 上成为一个独立博客站点。由于 github 支持 CNAME 域名指向，所以如果有独立域名的话，可以基于这些做出一个专业的博客站点出来。</p>
-<p>本博客就是完全基于此搭建起来的，在使用了 2 个月之后，我将原系统根据中国人的需求做了一些配置，去掉了 GFW 会挡住的 google font api，以及替换掉了速度超慢的国外的评论系统，也加上了分享到国内的微博的功能。现在把这些都总结出来，希望大家都可以方便地搭建基于 github 的博客来。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/15">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/10</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Git">Git</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/05/mvc-in-ios-develop/">
-                
-                <span class="abstract-title-text">斯坦福大学 iOS 开发公开课总结</span>
-            </a>
-            <div class="abstract-content">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>iPhone 开发相关的教程中最有名的，当数斯坦福大学发布的 “iPhone 开发公开课 “ 了。此公开课在以前叫做《iPhone 开发教程》，今年由于平板电脑的流行，所以也加入了 ipad 开发相关的课程。在 <a target="_blank" rel="noopener" href="http://v.163.com/special/opencourse/iPhonekaifa.html">网易公开课</a> 上，有 <a target="_blank" rel="noopener" href="http://v.163.com/special/opencourse/iPhonekaifa.html">该教程</a> 的 2010 年录象，并且前面 15 集带中文字幕文件，非常适合初学者学习。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/05</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/02/04/use-git-to-manage-code-snippets/">
-                
-                <span class="abstract-title-text">使用 Git 来管理 Xcode 中的代码片段</span>
-            </a>
-            <div class="abstract-content">
-                <h3 id="代码片段介绍"><a href="#代码片段介绍" class="headerlink" title="代码片段介绍"></a>代码片段介绍</h3><p>xcode4 引入了一个新 feature: code snippets，在整个界面的右下角，可以通过快捷键：cmd + ctrl + opt + 2 调出来。code snippets 是一些代码的模版，对于一些常见的编程模式，xcode 都将这些代码抽象成模版放到 code snippet 中，使用的时候，只需要键入快捷键，就可以把模版的内容填到代码中。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/02/04</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Git">Git</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
     <!-- paginator  -->
     
         <nav class="page-nav">
-            <a class="extend prev" rel="prev" href="/page/33/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/35/">NEXT &gt;</a>
+            <a class="extend prev" rel="prev" href="/page/33/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/35/">NEXT &gt;</a>
         </nav>
     
 </main>
@@ -2708,7 +2693,58 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -6089,7 +6125,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 348
+        Total : 351
         </div>
         <!-- search  -->
         
@@ -6103,6 +6139,24 @@
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span>
+            <a class="archive-post-title" href="/2025/04/13/teaching-notes-of-dfs/">CSPJ 教学总结：深度优先搜索（DFS）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span>
+            <a class="archive-post-title" href="/2025/04/12/cspj-notes-of-stl/">CSPJ 教学总结：STL</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span>
+            <a class="archive-post-title" href="/2025/04/12/cspj-notes-of-math-problems/">CSPJ 教学思考：数学题</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/06</span>
