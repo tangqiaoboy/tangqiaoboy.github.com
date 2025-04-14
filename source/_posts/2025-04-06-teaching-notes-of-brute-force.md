@@ -154,8 +154,97 @@ int main() {
 更多全排列的练习：
  - [P1088 NOIP 2004 普及组 火星人](https://www.luogu.com.cn/problem/P1088)
 
+## [P3392 涂条纹](https://www.luogu.com.cn/problem/P3392)
 
+ - 这道题可以枚举蓝色色块开始的行号和结束的行号，时间复杂度为 O(N^2)。
+ - 对于每一种情况，我们需要 N 的时间复杂度来检查。
+ - 所以一共的时间复杂度是 N^3。
 
+我们先预保存下来每行的各种颜色的色块数量，这样检查的时候就可以快速求解。
 
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
 
+int cnt[55][128];
 
+int main() {
+    int n, m;
+    cin >> n >> m;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            char ch;
+            cin >> ch;
+            cnt[i][ch]++;
+        }
+    }
+    int ans = INT_MAX;
+    // 枚举蓝色行的起止
+    for (int i = 1; i < n; ++i) {
+        for (int j = i; j < n-1; ++j) {
+            int cost = 0;
+            for (int k = 0; k < i; ++k)
+                cost += m - cnt[k]['W'];
+            for (int k = i; k <= j; ++k)
+                cost += m - cnt[k]['B'];
+            for (int k = j+1; k < n; ++k)
+                cost += m - cnt[k]['R'];
+            ans = min(ans, cost);
+        }
+    }
+    cout << ans << endl;
+    return 0;
+}
+```
+
+## [P3654 First Step](https://www.luogu.com.cn/problem/P3654)
+
+直接枚举每个起点。但是 `k==1` 时需要特判，因为 `k==1` 意味着向下和向右重复计算，需要除以 2。
+
+```c++
+/**
+ * 
+ * 陷阱：
+ *  k=1时需要特判，因为k=1意味着向下和向右重复计算，需要除以2。
+ * 
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m, k, ans;
+char tu[110][110];
+
+bool check(int x, int y, int dx, int dy) {
+    int nx = x, ny = y;
+    for (int i = 0; i < k; i++) {
+        if (nx >= n || ny >= m) return false;
+        if (tu[nx][ny] == '#') return false;
+        nx += dx;
+        ny += dy;
+    }
+    return true;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin >> n >> m >> k;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cin >> tu[i][j];
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (check(i, j, 1, 0)) ans++;
+            if (check(i, j, 0, 1)) ans++;
+        }
+    }
+    if (k == 1) ans /= 2;
+    cout << ans << endl;
+    return 0;
+}
+```
