@@ -64,6 +64,7 @@ void bfs() {
 
 | 题目名   | 说明 |
 | ----------- | ----------- |
+| [P2895 Meteor Shower S](https://www.luogu.com.cn/problem/P2895)| USACO 08 FEB |
 | [P1141 01迷宫](https://www.luogu.com.cn/problem/P1141) | 数据量很大，需要提前保存查询结果 |
 | [P2802 回家](https://www.luogu.com.cn/problem/P2802) | 状态变为走过时的血量有没有变高 |
 | [P8604 危险系数](https://www.luogu.com.cn/problem/P8604)| [蓝桥杯 2013 国 C]题目，用 BFS 暴力尝试 |
@@ -136,6 +137,7 @@ int main() {
 	return 0;
 }
 ```
+
 ## 迷宫寻路加强：求步数
 
 有了上面的代码，我们可以在题目上做变动，比如把输出的要求改为：
@@ -716,6 +718,7 @@ int main() {
 }
 
 ```
+
 ## P1451 求细胞数量
 
 [P1451 求细胞数量](https://www.luogu.com.cn/problem/P1451) 是一道非常基础的 BFS 题目。此题需要多次调用 BFS，参考代码如下：
@@ -881,6 +884,86 @@ int main() {
 #..#...#
 */
 
+```
+
+## [P2895 Meteor Shower S](https://www.luogu.com.cn/problem/P2895)
+
+此题解法：
+ - 标记下地图每个不能行走的位置，以及它变成焦土的时间。
+ - 在 BFS 的时候，如果当前时间位置还没变成焦土，就可以继续走。
+
+陷阱：有第 0 时刻就落下来的流星。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int m;
+// -1 表示可以行走，非 -1 表示在第 i 时刻变成焦土
+int tu[310][310];
+bool vis[310][310];
+int movex[] = {0, 0, 0, 1, -1};
+int movey[] = {0, 1, -1, 0, 0};
+struct Node {
+    int x, y, t;
+    Node(int _x, int _y, int _t) : x(_x), y(_y), t(_t) {}
+};
+
+void mark(int x, int y, int t) {
+    for (int i = 0; i < 5; i++) {
+        int nx = x + movex[i];
+        int ny = y + movey[i];
+        if (nx >= 0 && ny >= 0) {
+            if (tu[nx][ny] == -1) tu[nx][ny] = t;
+            else tu[nx][ny] = min(tu[nx][ny], t);
+        }
+    }
+}
+
+void bfs() {
+    queue<Node> q;
+    q.push(Node(0, 0, 0));
+    vis[0][0] = true;
+    while (!q.empty()) {
+        Node node = q.front();
+        q.pop();
+        if (tu[node.x][node.y] == -1) {
+            cout << node.t << endl;
+            return;
+        }
+        for (int i = 1; i < 5; i++) {
+            int nx = node.x + movex[i];
+            int ny = node.y + movey[i];
+            if (nx >= 0 && ny >= 0 && !vis[nx][ny]) {
+                if (tu[nx][ny] == -1) {
+                    cout << node.t + 1 << endl;
+                    return;
+                }
+                if (tu[nx][ny] > node.t + 1) {
+                    vis[nx][ny] = true;
+                    q.push(Node(nx, ny, node.t + 1));
+                }
+            }
+        }
+    }
+    cout << -1 << endl;
+}
+
+int main() {
+    memset(tu, -1, sizeof(tu));
+    cin >> m;
+    for (int i = 0; i < m; i++) {
+        int x, y, t;
+        cin >> x >> y >> t;
+        mark(x, y, t);
+    }
+    bfs();
+    
+	return 0;
+}
 ```
 
 ## P1141 01迷宫
