@@ -443,5 +443,87 @@ int main() {
 }
 ```
 
+## [P1028 数的计算](https://www.luogu.com.cn/problem/P1028)
+
+NOIP 2001 普及组 题目。在暴力枚举的时候，需要记住重复的计算。
+
+参考代码：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, ans, record[1010];
+
+int dfs(int a) {
+    if (record[a] != 0) return record[a];
+    int ret = 1;
+    for (int i = 1; i <= a/2; ++i) {
+        ret += dfs(i);
+    }
+    record[a] = ret;
+    return ret;
+}
+
+int main() {
+    cin >> n;
+    ans = dfs(n);
+    cout << ans << endl;
+    return 0;
+}
+```
+
+## 更多练习
+
+ - [P1464 Function](https://www.luogu.com.cn/problem/P1464)
+ - [P2437 蜜蜂路线](https://www.luogu.com.cn/problem/P2437)
 
 
+### [P2437 蜜蜂路线](https://www.luogu.com.cn/problem/P2437)
+
+需要用到高精度。
+
+参考代码：
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+string record[1001][1001];
+
+string add(string a, string b) {
+    int len_a = a.length();
+    int len_b = b.length();
+    int len_max = max(len_a, len_b);
+    int carry = 0;
+    string ret = "";
+    for (int i = 0; i < len_max; i++) { 
+        int num_a = i < len_a ? a[len_a - i - 1] - '0' : 0;
+        int num_b = i < len_b ? b[len_b - i - 1] - '0' : 0;
+        int sum = num_a + num_b + carry;
+        ret = to_string(sum % 10) + ret;
+        carry = sum / 10;
+    }
+    if (carry > 0) ret = to_string(carry) + ret;
+    return ret;
+}
+
+string dfs(int n, int m) {
+    if (n > m) return "0";
+    if (n == m) return "1";
+    if (record[n][m] != "") return record[n][m];
+    return record[n][m] = add(dfs(n+1, m), dfs(n+2, m));
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << dfs(n, m) << endl;
+    return 0;
+}
+```
