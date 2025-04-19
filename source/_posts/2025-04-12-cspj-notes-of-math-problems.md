@@ -50,3 +50,43 @@ int main() {
 	return 0;
 }
 ```
+
+## 数论
+
+### [P1044 栈](https://www.luogu.com.cn/problem/P1044)
+
+这道题可以先用暴力的办法把前面几个数打出来，然后我们能发现数的规律是：1,1,2,5,14,42,132,429,1430,....
+
+这是计算组合中很常见的卡特兰数，卡特兰数有两种公式，第一种公式是：
+ - `f(n) = f(n-1) * (4 * n - 2) / (n + 1)`
+
+我个人觉得这个公式不太好记。另一个公式是：
+
+{% img /images/catalan.jpg %}
+
+这个递推式相对好记一点：即`C(n) = C(0)*C(n-1) + C(1)*C(n-2) ... C(n-1)*C(0)`
+
+以下是用该递推式实现的答案：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+long long ans[19];
+int main() {
+    int n;
+    cin >> n;
+    ans[0] = 1;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j < i; ++j) {
+            ans[i] += ans[j] * ans[i-1-j];
+        }
+    }
+    cout << ans[n] << endl;
+	return 0;
+}
+```
+
