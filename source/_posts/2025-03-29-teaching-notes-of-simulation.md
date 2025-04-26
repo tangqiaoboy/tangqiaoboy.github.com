@@ -920,6 +920,51 @@ int main() {
 
 ```
 
+### [P1010 NOIP 1998 普及组 幂次方](https://www.luogu.com.cn/problem/P1010)
+
+此题的技巧是利用递归来循环处理。特殊情况是 2^1 写作 2，而不是 2(0)。参考代码如下：
+
+```c++
+/* 
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+string conv(int n) {
+    if (n == 0) return "0";
+    else if (n == 1) return "2(0)";
+    else if (n == 2) return "2";
+    else {
+        string ret = "";
+        int base = 1;
+        int cnt = 0;
+        while (n >= base) {
+            if (n & base) {
+                string sub = "";
+                if (base == 2) sub = "2";
+                else sub = "2("+conv(cnt)+")";
+
+                if (ret == "") ret = sub;
+                else ret = sub + "+" + ret;
+            }
+            base <<= 1;
+            cnt++;
+        }
+        return ret;
+    }
+}
+
+
+int main() {
+    int n;
+    cin >> n;
+    cout << conv(n) << endl;
+    return 0;
+}
+```
+
+
 更多练习：
  - [P5734 深基6.例6 文字处理软件](https://www.luogu.com.cn/problem/P5734)
  - [P1308 NOIP 2011 普及组 统计单词数](https://www.luogu.com.cn/problem/P1308)
