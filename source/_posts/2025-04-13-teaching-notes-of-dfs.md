@@ -68,7 +68,7 @@ int main() {
 | [P1596 Lake Counting S](https://www.luogu.com.cn/problem/P1596) | USACO10OCT |
 | [P2036 PERKET](https://www.luogu.com.cn/problem/P2036) | COCI 2008/2009 #2  |
 | [P12139 黑白棋](https://www.luogu.com.cn/problem/P12139)| 蓝桥杯 2025 省 A，写起来较繁琐 |
-| | |
+| [P1605 迷宫](https://www.luogu.com.cn/problem/P1605) | 标准的 DFS |
 | | |
 | | |
 | | |
@@ -418,4 +418,60 @@ int main() {
 }
 ```
 
+### [P1605 迷宫](https://www.luogu.com.cn/problem/P1605)
 
+用 DFS 来枚举，但需要标记走过的路。
+ - 因为最多只有 5x5=25 个格子，所以递归的深度最大只有 25，不存在溢出情况。
+ - 因为有陷阱（不能走）和起点终点（不能重复走），所以我们假设平均每次有 2 条支路，
+   整个的最坏情况估计只有 `2^23=8388608` 次，所以也不会超时。
+
+一些陷阱：
+
+ - 终点可能也有障碍物，这个时候始终就到不了。
+ - 起点在走之前需要标记，否则会重复走。
+
+参考代码：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+// 0 - 空地
+// 1 - 障碍物
+int tu[6][6], n, m, t, sx, sy, ex, ey, ans;
+
+int movex[]={1,-1,0,0};
+int movey[]={0,0,-1,1};
+
+void dfs(int x, int y) {
+    if (x == ex && y == ey) {
+        ans++;
+        return;
+    }
+    for (int i = 0; i < 4; ++i) {
+        int tox = x + movex[i];
+        int toy = y + movey[i];
+        if (tox >=1 && tox<=n && toy>=1 && toy<=m && tu[tox][toy]!=1){
+            tu[tox][toy]=1;
+            dfs(tox, toy);
+            tu[tox][toy]=0;
+        }
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin >> n >> m >> t;
+    cin >> sx >> sy >> ex >> ey;
+    while (t--) {
+        int x, y;
+        cin >> x >> y;
+        tu[x][y] = 1;
+    }
+    tu[sx][sy] = 1;
+    dfs(sx, sy);
+    cout << ans << endl;
+    return 0;
+}
+
+```
