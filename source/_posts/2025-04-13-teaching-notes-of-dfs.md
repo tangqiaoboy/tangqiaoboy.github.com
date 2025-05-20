@@ -69,7 +69,7 @@ int main() {
 | [P2036 PERKET](https://www.luogu.com.cn/problem/P2036) | COCI 2008/2009 #2  |
 | [P12139 黑白棋](https://www.luogu.com.cn/problem/P12139)| 蓝桥杯 2025 省 A，写起来较繁琐 |
 | [P1605 迷宫](https://www.luogu.com.cn/problem/P1605) | 标准的 DFS |
-| | |
+| [P2404 自然数的拆分问题](https://www.luogu.com.cn/problem/P2404) | |
 | | |
 | | |
 
@@ -474,4 +474,45 @@ int main() {
     return 0;
 }
 
+```
+
+### [P2404 自然数的拆分问题](https://www.luogu.com.cn/problem/P2404)
+
+DFS，有两个技巧：
+ - 保证后面的数 >= 前面的数。
+ - 让每个数必须小于 n，这样不会出现 `n=n` 这种等式。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, tot, v[10];
+
+void dfs(int pt) {
+    if (tot == n) {
+        cout << v[1];
+        for (int i = 2; i < pt; ++i) {
+            cout << "+" << v[i];
+        }
+        cout << endl;
+        return;
+    }
+    for (int i = v[pt-1]; tot + i <=n && i < n ; ++i) {
+        tot += i;
+        v[pt] = i;
+        dfs(pt+1);
+        tot -= i;
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin >> n;
+    v[0] = 1;
+    dfs(1);
+    return 0;
+}
 ```
