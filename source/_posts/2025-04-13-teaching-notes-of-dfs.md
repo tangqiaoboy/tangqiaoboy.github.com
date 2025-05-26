@@ -70,7 +70,7 @@ int main() {
 | [P12139 黑白棋](https://www.luogu.com.cn/problem/P12139)| 蓝桥杯 2025 省 A，写起来较繁琐 |
 | [P1605 迷宫](https://www.luogu.com.cn/problem/P1605) | 标准的 DFS |
 | [P2404 自然数的拆分问题](https://www.luogu.com.cn/problem/P2404) | |
-| | |
+| [P1019 单词接龙](https://www.luogu.com.cn/problem/P1019) | NOIP 2000 提高组 |
 | | |
 
 P7200
