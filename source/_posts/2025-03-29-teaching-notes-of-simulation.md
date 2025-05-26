@@ -974,13 +974,64 @@ int main() {
 
 ## 其它模拟题目
 
-待补充。
-
 | 题号      | 描述 |
 | ----------- | ----------- |
-|       |        |
+|  [P1241 括号序列](https://www.luogu.com.cn/problem/P1241) |   考查语文能力，容易读错题意     |
 |       |        |
 
 
+### [P1241 括号序列](https://www.luogu.com.cn/problem/P1241)
+
+此题纯考读题。在找小括号对应的左括号的时候，找到 `(` 或 `[`都算找到。只是找到后，如果不匹配，就算匹配失败。否则算匹配成功。
+
+参考代码如下：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+// 原串
+string s;
+// 匹配成功标记
+bool flag[110];
+
+bool match(char a, char b) {
+    return (a == '(' && b == ')') || (a == '[' && b == ']');
+}
+
+string change(char a) {
+    if (a == '(' || a == ')') return "()";
+    else return "[]";
+}
+
+int main() {
+    cin >> s;
+    for (int i = 0; i < s.length(); ++i) {
+        // 如果它是一个右括号
+        if (s[i] == ']' || s[i] == ')') {
+            // 考察它与它左侧离它最近的未匹配的的左括号
+            for (int j = i-1; j >=0; --j) {
+                // 如果该括号与之对应（即小括号匹配小括号，中括号匹配中括号），
+                // 则将二者配对。如果左侧未匹配的左括号不存在或与之不对应，则其配对失败。
+                if (!flag[j] && (s[j] == '(' || s[j] == '[')) {
+                    if (match(s[j], s[i])) {
+                        flag[i] = flag[j] = true;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    for (int i = 0; i<s.length(); ++i) {
+        if (flag[i]) cout << s[i];
+        else cout << change(s[i]);
+    }
+    return 0;
+}
+
+```
 
 
