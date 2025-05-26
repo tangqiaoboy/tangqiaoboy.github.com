@@ -90,3 +90,73 @@ int main() {
 }
 ```
 
+### [P3612 USACO17JAN Secret Cow Code S](https://www.luogu.com.cn/problem/P3612)
+
+这是一道 USACO 的题目，需要我们先找出规律，然后再试图求解。
+
+此题找规律的技巧是分析坐标每次在折半还原时的变化规律。
+为了分析规律，我们可以看每次翻倍时，坐标的关系变化。
+
+对于一个长度为 N 的字符串S，每次其长度变为 `2*N`。所以，我们对每一位进行标号：
+
+`1 2 3 4... N N+1 N+2 N+N`
+
+其中，除 `S[N] == S[N+1]` 外（按题意，此项为特殊项），其它位置都符合如下规律：
+ - S[1] == S[N+2]
+ - S[N-1] == S[N+N]
+
+所以，将右边的坐标减去 `N` 再减 `1`，就得到左边的坐标。
+
+所以，设总长为 L, 如果 a 的位置在右半侧，则对应到左半侧的坐标关系是：
+
+ - `if (a == L/2+1) a = 1;`
+ - `else a = a - L/2 - 1;`
+
+如此递归下去，直到位置落在最初的长度上。
+因为字符下标是从 0 开始，所以下标最后要减 1.
+
+最后注意用 long long 来转换坐标。
+
+```c++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+string s;
+long long a, n;
+bool debug = false;
+
+long long di(long long a, long long L) {
+    if (debug) {
+        // 可用 debug 查看坐标变化过程
+        cout << "test a = " << a << ", L = " << L << endl;
+    }
+    if (a <= n) {
+        return a;
+    } else {
+        // 如果 a 的位置在右半侧，则调整到左半侧
+        if (a > L/2) {
+            if (a == L/2 + 1) a = L/2;
+            else a = a - L/2 - 1;   
+        }
+        return di(a, L/2);
+    }
+}
+
+int main() {
+    cin >> s >> a;
+    n = s.length();
+
+    // 求出开始往回递归时，字符串拼起来的长度 L
+    long long L = n;
+    while (L < a) L *= 2;
+
+    // 寻找 L 这个长度下，第 a 个字符相当于哪个位置
+    int ans = di(a, L);
+    cout << s[ans-1] << endl;
+    return 0;
+}
+```
+
+
+
