@@ -45,4 +45,125 @@ STL 库是 C++ 语言的标准库，我们在比赛中主要用到的有如下�
 | \_\_gcd | `__gcd(a, b)` | 返回 a 和 b 的最大公约数 |
 | reverse | `reverse(v.begin(), v.end())`| 将原序列逆序 |
 
+## 练习
 
+| 题号      | 说明 |
+| ----------- | ----------- |
+| [P1996 约瑟夫问题](https://www.luogu.com.cn/problem/P1996) | 适合用 list       |
+| [P3613 寄包柜](https://www.luogu.com.cn/problem/P3613)   | 适合用 map 和 pair        |
+| [P4387 验证栈序列](https://www.luogu.com.cn/problem/P4387)   |适合用 stack        |
+| [P1540 机器翻译](https://www.luogu.com.cn/problem/P1540)   | NOIP 2010 提高组，适合用 vector 以及 STL 的 find 算法        |
+| [P1449 后缀表达式](https://www.luogu.com.cn/problem/P1449) |适合练习 stack         |
+
+
+### [P4387 验证栈序列](https://www.luogu.com.cn/problem/P4387)
+
+解法：把 A 数组中的元素住栈里面 push，然后如果栈顶元素和 B 数组的当前元素相同，就 pop，同时 B 数组的当前元素后移。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int t, n, a[100010], b[100010];
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin >> t;
+	while (t--) {
+		cin >> n;
+		for (int i = 0; i < n; ++i) 
+			cin >> a[i];
+		for (int i = 0; i < n; ++i) 
+			cin >> b[i];
+		stack<int> q;
+		int idx = 0;
+		for (int i = 0; i < n; ++i) {
+			q.push(a[i]);
+			while (!q.empty() && q.top() == b[idx]) {
+				q.pop();
+				idx++;
+			}
+		}
+		if (q.empty()) cout << "Yes" << endl;
+		else cout << "No" << endl;
+	}
+	return 0;
+}
+```
+
+### [P1540 机器翻译](https://www.luogu.com.cn/problem/P1540)
+
+参考代码：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	ios::sync_with_stdio(false);
+	int m, n, t, ans = 0;
+	cin >> m >> n;
+	vector<int> v; 
+	while (cin >> t) {
+		if (find(v.begin(), v.end(), t) == v.end()) { // 如果不在内存中
+			v.push_back(t); 
+			++ans;
+		}
+		if (v.size() > m) 
+			v.erase(v.begin());
+	}
+	cout << ans << endl;
+}
+```
+
+
+### [P1449 后缀表达式](https://www.luogu.com.cn/problem/P1449) 
+
+表达式计算:
+
+ - 不停读入。
+ - 如果读到数字，就和之前的数字拼接：`a = a * 10 + ch - '0'`
+ - 如果读到 `.` 就压栈
+ - 如果读到运算符，就出栈两个数进行运算，结果再压栈
+ - 如果读到 `@` 结束
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+stack<int> s;
+int a, v1, v2;
+
+int main() {
+	char ch;
+	while (cin >> ch) {
+		if (ch == '@') break;
+		if (ch >= '0' &&  ch <='9') {
+			a = a*10 + ch - '0';
+		} else if (ch == '.') {
+			s.push(a);
+			a = 0;
+		} else if (ch == '+') {
+			v1 = s.top(); s.pop(); v2 = s.top(); s.pop();
+			s.push(v1 + v2);
+		} else if (ch == '-') {
+			v1 = s.top(); s.pop(); v2 = s.top(); s.pop();
+			s.push(v2 - v1);
+		} else if (ch == '*') {
+			v1 = s.top(); s.pop(); v2 = s.top(); s.pop();
+			s.push(v1 * v2);
+		} else if (ch == '/') {
+			v1 = s.top(); s.pop(); v2 = s.top(); s.pop();
+			s.push(v2 / v1);
+		}
+	}
+	cout << s.top() << endl;
+	return 0;
+}
+```
