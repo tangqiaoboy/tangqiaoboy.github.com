@@ -54,7 +54,7 @@ STL 库是 C++ 语言的标准库，我们在比赛中主要用到的有如下�
 | [P4387 验证栈序列](https://www.luogu.com.cn/problem/P4387)   |适合用 stack        |
 | [P1540 机器翻译](https://www.luogu.com.cn/problem/P1540)   | NOIP 2010 提高组，适合用 vector 以及 STL 的 find 算法        |
 | [P1449 后缀表达式](https://www.luogu.com.cn/problem/P1449) |适合练习 stack         |
-
+| [P2058 海港](https://www.luogu.com.cn/problem/P2058)| NOIP 2016 普及组，练习桶和队列 |
 
 ### [P4387 验证栈序列](https://www.luogu.com.cn/problem/P4387)
 
@@ -164,6 +164,61 @@ int main() {
 		}
 	}
 	cout << s.top() << endl;
+	return 0;
+}
+```
+
+### [P2058 海港](https://www.luogu.com.cn/problem/P2058)
+
+解法：用一个队列记录所有 24 小时内的船。用一个桶记录每个国家的乘客数量。
+ - 每次有新船入队列的时候，更新桶。如果桶更新前是 0，则 `ans++`
+ - 每次新船入队列后，检查最早的队列，如果超24 小时，则出队
+ - 出队的时候，更新桶，如果桶的数量减为 0，则 `ans--`
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node {
+	int t;
+	int len;
+	vector<int> v;
+};
+
+// 桶，记录每个国家的乘客数量
+int cnt[100010], n, t, ans;
+// 队列
+queue<Node> q;
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin >> n;
+	for (int i = 0; i < n; ++i) {
+		Node a;
+		cin >> a.t >> a.len;
+		a.v.resize(a.len);
+		for (int j = 0; j < a.len; ++j) {
+			cin >> a.v[j];
+			if (cnt[a.v[j]] == 0) ans++;
+			cnt[a.v[j]]++;
+		}
+		q.push(a);
+		int min_t = a.t - 86400;
+		// 检查出列
+		a = q.front();
+		while (a.t <= min_t) {
+			for (int j = 0; j < a.len; ++j) {
+				cnt[a.v[j]]--;
+				if (cnt[a.v[j]] == 0) ans--;
+			}
+			q.pop();
+			a = q.front();
+		}
+		cout << ans << endl;
+	}
 	return 0;
 }
 ```
