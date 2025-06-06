@@ -55,6 +55,8 @@ STL 库是 C++ 语言的标准库，我们在比赛中主要用到的有如下�
 | [P1540 机器翻译](https://www.luogu.com.cn/problem/P1540)   | NOIP 2010 提高组，适合用 vector 以及 STL 的 find 算法        |
 | [P1449 后缀表达式](https://www.luogu.com.cn/problem/P1449) |适合练习 stack         |
 | [P2058 海港](https://www.luogu.com.cn/problem/P2058)| NOIP 2016 普及组，练习桶和队列 |
+| [P2234 营业额统计](https://www.luogu.com.cn/problem/P2234)  | 练习 set 和 `lower_bound` 函数|
+
 
 ### [P4387 验证栈序列](https://www.luogu.com.cn/problem/P4387)
 
@@ -219,6 +221,57 @@ int main() {
 		}
 		cout << ans << endl;
 	}
+	return 0;
+}
+```
+
+### [P2234 营业额统计](https://www.luogu.com.cn/problem/P2234) 
+
+把营业额往 set 里面放，这样数据就是有序的。然后用 `lower_bound` 查找大于等于 x 的值。
+ - 如果找到了，那么波动就是 0
+ - 如果没找到，比较当前位置和上一个位置与 x 的差，取较小那个；同时插入 x
+
+取上一个位置的时候要处理一下边界，如果是在 `s.begin()`位置的话就不用处理了。
+
+取当前位置的时候要处理一下，看看是不是在 `s.end()`。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+set<int> s;
+int n, x, ans;
+bool debug = false;
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin >> n;
+	cin >> x;
+	ans = x;
+	s.insert(x);
+	for (int i = 1; i < n; ++i) {
+		cin >> x;
+		set<int>::iterator it;
+		it = s.lower_bound(x);
+		if (it != s.end() && *it == x) {
+			continue;
+		} else {
+			int diff = INT_MAX;
+			if (it != s.end()) {
+				diff = min(diff, abs(*it-x));
+			}
+			if (it != s.begin()) {
+				it--;
+				diff = min(diff, abs(*it-x));
+			}
+			ans += diff;
+			s.insert(x);
+		}
+	}
+	cout << ans << endl;
 	return 0;
 }
 ```
