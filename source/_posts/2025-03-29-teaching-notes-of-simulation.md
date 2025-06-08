@@ -699,6 +699,8 @@ int main() {
  - [P1319 压缩技术](https://www.luogu.com.cn/problem/P1319)
  - [P1320 压缩技术 续集版](https://www.luogu.com.cn/problem/P1320)
  - [P2615 NOIP 2015 提高组 神奇的幻方](https://www.luogu.com.cn/problem/P2615)
+ - [B3940 GESP样题 四级 填幻方](https://www.luogu.com.cn/problem/B3940)
+
 
 ## 游戏模拟
 
@@ -971,6 +973,56 @@ int main() {
  - [P1098 NOIP 2007 提高组 字符串的展开](https://www.luogu.com.cn/problem/P1098)
  - [P1065 NOIP 2006 提高组 作业调度方案](https://www.luogu.com.cn/problem/P1065)
 
+
+## 字符串操作
+
+### [B3927 GESP202312 四级 小杨的字典](https://www.luogu.com.cn/problem/B3927)
+
+此题需要操作字符进行替换操作，是比较复杂的字符串模拟。此题我们可以用 map 来简化字符串的映射关系管理。map 的 find 函数可以返回一个迭代器，该迭代器的值：
+ - 当查找失败时，值为 end()
+ - 当查找成功时，值为一个 pair，分别是对应查询的 key 和 value。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n;
+map<string, string> m;
+map<string, string>::iterator it;
+string a, b, s;
+
+void process(string& s) {
+    if (s.length() != 0) {
+        it = m.find(s);
+        if (it!=m.end()) cout << it->second;
+        else cout << "UNK";
+        s = "";
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin >> n;
+    while (n--) {
+        cin >> a >> b;
+        m[a] = b;
+    }
+    char ch;
+    s = "";
+    while (cin >> ch) {
+        if (ch>='a' && ch <='z') s = s + ch;
+        else {
+            process(s);
+            cout << ch;
+        }
+    }
+    process(s);
+    return 0;
+}
+```
 
 ## 其它模拟题目
 
