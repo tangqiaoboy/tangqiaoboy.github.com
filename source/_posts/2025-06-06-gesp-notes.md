@@ -56,6 +56,8 @@ GESP 2 级相对 1 级，对循环结构的考查进行了加强，一般需要�
  - GESP202403，[小杨的日字矩阵](https://www.luogu.com.cn/problem/B3955)
  - GESP202409，[小杨的 N 字矩阵](https://www.luogu.com.cn/problem/B4037)
  - GESP202503，[等差矩阵](https://www.luogu.com.cn/problem/B4259)
+ - GESP202303，[画三角形](https://www.luogu.com.cn/problem/B3837)
+ - 样题，[画正方形](https://www.luogu.com.cn/problem/B3844)
 
 以[等差矩阵](https://www.luogu.com.cn/problem/B4259)为例，其关键代码为嵌套的 for 循环，参考如下：
 
@@ -80,6 +82,11 @@ int main() {
     return 0;
 }
 ```
+
+如果学生还是不熟悉，可以考虑如下更多的练习：
+ - 模仿 [小杨的 X 字矩阵](https://www.luogu.com.cn/problem/B3865)，输出 “又” 字，倒 “N” 字，“工” 字矩阵，“口”字矩阵
+ - 模仿 [画三角形](https://www.luogu.com.cn/problem/B3837)，输出 左对齐、右对齐的正三角形，倒三角形
+ - 模仿 [等差矩阵](https://www.luogu.com.cn/problem/B4259)，输出求和的矩阵，输出只有偶数的等差矩阵（奇数位填 `*`）
 
 ### 考点二：常用函数
 
@@ -238,7 +245,7 @@ int main() {
 		cout << isRange(s, "01") << " " 
 		     << isRange(s, "01234567") << " " 
 		     << isRange(s, "0123456789") << " " 
-		     << isRange(s,"0123456789ABCDEF") << endl;
+		     << isRange(s, "0123456789ABCDEF") << endl;
 	}
 	return 0;
 }
@@ -315,4 +322,30 @@ int main() {
 	return 0;
 }
 ```
+
+## GESP 4 级
+
+考点比较散，以下是历次考题的考点。
+
+ - GESP-202306 幸运数：模拟
+ - GESP-202309 进制转换：进制转换
+ - GESP-202309 变长编码：位操作
+ - GESP-202312 小杨的字典：字符串操作
+ - GESP-202312 田忌赛马：排序，模拟
+ - GESP-202403 相似字符串：字符串操作
+ - GESP-202403 做题：贪心
+ - GESP-202406 黑白方块：枚举
+ - GESP-202406 宝箱：枚举，二分
+ - GESP-202409 黑白方块：枚举
+ - GESP-202409 区间排序：排序
+ - GESP-202412 Recamán：枚举
+ - GESP-202412 字符排序：排序
+ - GESP-202503 荒地开垦：枚举
+ - GESP-202503 二阶矩阵：枚举
+
+其中，比较常考的考点：
+ - 枚举：考了 6 次。
+ - 排序：考了 3 次。
+ - 字符串操作：考了 2 次。
+
 
