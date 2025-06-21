@@ -8,6 +8,84 @@ tags: cspj
 
 本文将相关的题目归纳整理，用于教学。
 
+## 质数相关
+
+### 判断一个数是否为质数
+
+此算法是很多数学相关题目的基础，在 GESP 二级中也有涉及。例如：[B3840 找素数](https://www.luogu.com.cn/problem/B3840)。
+
+其核心代码是：
+
+```c++
+bool isPrime(int a) {
+    for (int i = 2; i*i <=a; i++) {
+        if (a%i == 0) return false;
+    }
+    return true;
+}
+```
+
+初学者在写的时候，要注意 `i*i` 与 `a` 的比较是小于等于。
+
+### 质因数分解
+
+质因数分解的方法是从 2 开始试商，如果发现能整除，就把被除数中该因数去掉，关键代码是：
+```c++
+while (N % i == 0) N /= i;
+```
+这样经过几轮下来，N 的值会变得很小，最后 N 如果不为 1，N 就是最后一个质因数。
+
+完整代码如下：
+```c++
+vector<int> prime_facs(int N) {
+  vector<int> result;
+  for (int i = 2; i * i <= N; i++) {
+    if (N % i == 0) {  
+      while (N % i == 0) N /= i;
+      result.push_back(i);
+    }
+  }
+  if (N != 1) {  // 说明再经过操作之后 N 留下了一个素数
+    result.push_back(N);
+  }
+  return result;
+}
+```
+
+练习题：
+ - [B3969 GESP202403 五级 B-smooth 数](https://www.luogu.com.cn/problem/B3969)
+
+参考代码：
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, b, ans;
+
+int getMaxPrime(int v) {
+    int ret = 0;
+    for (int i = 2; i*i <= v; i++) {
+        if (v%i == 0){
+            ret = max(ret, i);
+            while (v%i == 0) v/=i; // 把 v 的值缩小
+        }
+    }
+    ret = max(ret, v);
+    return ret;
+}
+
+int main() {
+    cin >> n >> b;
+    for (int i = 1; i <=n; ++i) {
+        int t = getMaxPrime(i);
+        if (t <= b) ans++;
+    }
+    cout << ans << endl;
+    return 0;
+}
+```
+
+
 ## 几何
 
 ### [P2241 统计方形](https://www.luogu.com.cn/problem/P2241)
