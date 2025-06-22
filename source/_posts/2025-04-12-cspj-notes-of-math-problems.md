@@ -54,8 +54,10 @@ vector<int> prime_facs(int N) {
 
 练习题：
  - [B3969 GESP202403 五级 B-smooth 数](https://www.luogu.com.cn/problem/B3969)
+ - [P10720 GESP202406 五级 小杨的幸运数字](https://www.luogu.com.cn/problem/P10720)
 
-参考代码：
+
+[B3969 GESP202403 五级 B-smooth 数](https://www.luogu.com.cn/problem/B3969) 的参考代码：
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
