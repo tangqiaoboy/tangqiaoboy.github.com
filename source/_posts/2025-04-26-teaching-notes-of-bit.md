@@ -6,6 +6,8 @@ tags: cspj
 
 ## 引言
 
+有些时候，题目给我们 N 个元素的序列，然后让我们求前缀和或者区间和。并且，题目还会动态地修改这个序列的值。如果我们每次暴力求解前缀和，时间复杂度会是 O（N），而使用树状数组，可以将查询前缀和的复杂度降低到 O(LogN)。
+
 树状数组是挺不好教学的一个知识点。它需要以下前置知识：
 
  - 二进制表示法及熟练的位操作
@@ -592,7 +594,76 @@ int main() {
 
 ## 相关练习题目
 
+文章中涉及的例题：
+ * [P3374 树状数组 1](https://www.luogu.com.cn/problem/P3374)
+ * [P3368 树状数组 2](https://www.luogu.com.cn/problem/P3368)
+ * [P1908 逆序对](https://www.luogu.com.cn/problem/P1908)
+
+练习题：
+
+| 题目      | 描述 |
+| ----------- | ----------- |
+| [B3874 小杨的握手问题](https://www.luogu.com.cn/problem/B3874)      | GESP 202309 六级真题  |
+| -   | -        |
 
 
+
+### [B3874 小杨的握手问题](https://www.luogu.com.cn/problem/B3874)
+
+解题思路：
+ - 把学号为 a 的学生进入教室的行为，转化为第 a 个序列元素的值加 1。
+ - 这样，找出小于 a 的学生数量，就等价于求序列前 a-1 个元素的前缀和。
+ - 利用数状数组，就可以快速求前缀和了。
+
+参考代码：
+
+```c++
+/**
+ * 数状数组求逆序对。
+ * 
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN int(3e5+10)
+
+int n, b[MAXN];
+long long ans;
+
+int lowbit(int a) {
+    return a&-a;
+}
+
+void add(int idx, int v) {
+    while (idx <= n) {
+        b[idx] += v;
+        idx += lowbit(idx);
+    }
+}
+
+int query(int range) {
+    int ret = 0;
+    while (range) {
+        ret += b[range];
+        range -= lowbit(range);
+    }
+    return ret;
+}
+
+int main() {
+    ios::sync_with_stdio(0); 
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int a;
+        cin >> a;
+        // 将学号下标从 0 开始改到 1 开始
+        a = a + 1;
+        ans += query(a - 1);
+        add(a, 1);
+    }      
+    cout << ans << endl;
+    return 0;
+}
+```
 
 
