@@ -54,6 +54,7 @@ tags: cspj
 |[P1077 摆花](https://www.luogu.com.cn/problem/P1077) | NOIP2012 普及组|
 |[P1164 小A点菜](https://www.luogu.com.cn/problem/P1164) |与摆花一题类似 |
 |[P2392 考前临时抱佛脚](https://www.luogu.com.cn/problem/P2392)| 01 背包变型 |
+| [B3873 小杨买饮料](https://www.luogu.com.cn/problem/B3873) | 01 背包变型, GESP202309 六级|
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
@@ -1141,4 +1142,90 @@ int main() {
 }
 ```
 
+## B3873 小杨买饮料
 
+假设第 i 种饮料的费用是 `c[i]`, 容量是 `l[i]`。`dp[i][j]` 表示用前 i 种饮料，凑成 j 升的最小费用。则，转移方程为：
+ * `dp[i][j] = min( dp[i-1][j-l[i]] + c[i] , dp[i-1][j] )`
+
+因为 i 只与 i-1 相关，所以这一层可以取消。转移方式优化为：
+ * `dp[j] = min(dp[j- l[i]] + c[i], dp[j])`
+
+其它注意事项：
+ - 倒着 dp，因为每种饮料只能用一次
+ - 最大值检查了一下，不会超 int，就不用 long long 了
+ - 因为答案不一定是刚好 L 升，所以要取 `L ~ L+max(l[i])` 这一段范围
+ - 因为是取最小值，所以初使化设置成 `0x7f7f7f7f`（接近 21 亿，但是又没到 INT_MAX），这样运算不会超 int，又可以是较大值
+
+参考代码：
+
+```c++
+/* 
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[1010000], c[550], l[550], N, L, maxL;
+
+int main() {
+    ios::sync_with_stdio(0);       
+    cin >> N >> L;
+    for (int i = 0; i < N; ++i) {
+        cin >> c[i] >> l[i];
+        maxL = max(maxL, l[i]);
+    }
+    maxL += L;
+    memset(dp, 0x7f, sizeof dp);
+    dp[0] = 0;
+    for (int i = 0; i < N; ++i) {
+        for (int j = maxL; j - l[i] >= 0; --j) {
+            dp[j] = min(dp[j], dp[j - l[i]] + c[i]);
+        }
+    }
+    int ans = *min_element(dp+L, dp+maxL+1);
+    if (ans == 0x7f7f7f7f) cout << "no solution" << endl;
+    else cout << ans << endl;
+
+    return 0;
+}
+```
+上面的代码有一个小缺点就是 dp 数据开得很大。因为虽然题目的 L 很小（最大值为 2000），但饮料的容量最大为 `10^6`。
+
+所以我们还有一种办法就是对这种容量很大的饮料单独判断，这样 L 的范围就可以只设置到 4000 即可。之所以是 4000 而不是 2000，是因为还是有刚刚超过 2000 一点点，而凑出最小值的情况。
+
+参考代码如下：
+
+```c++
+/* 
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[4100], c[550], l[550], N, L;
+
+int main() {
+    ios::sync_with_stdio(0);       
+    cin >> N >> L;
+    for (int i = 0; i < N; ++i) {
+        cin >> c[i] >> l[i];
+    }
+    memset(dp, 0x7f, sizeof dp);
+    dp[0] = 0;
+    for (int i = 0; i < N; ++i) {
+        for (int j = 4000; j - l[i] >= 0; --j) {
+            dp[j] = min(dp[j], dp[j - l[i]] + c[i]);
+        }
+    }
+    int ans = *min_element(dp+L, dp+4000);
+    // 如果单个饮料就可以超 L，则判断一下
+    for (int i = 0; i < N; ++i)
+        if (l[i] >= L) 
+            ans = min(ans, c[i]);
+
+    if (ans == 0x7f7f7f7f) cout << "no solution" << endl;
+    else cout << ans << endl;
+
+    return 0;
+}
+```
