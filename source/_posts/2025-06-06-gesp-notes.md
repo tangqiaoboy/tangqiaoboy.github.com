@@ -348,4 +348,30 @@ int main() {
  - 排序：考了 3 次。
  - 字符串操作：考了 2 次。
 
+## GESP 5 级
+
+待补充
+
+## GESP 6 级
+
+### 最近公共祖先
+
+ - [P10109 GESP-202312 六级 工作沟通](https://www.luogu.com.cn/problem/P10109)
+ - [P13016 GESP-202506 六级 最大因数](https://www.luogu.com.cn/problem/P13016)
+
+### 动态规划
+
+包括 01 背包和完全背包。
+
+ - [B3873 GESP-202309 六级 小杨买饮料](https://www.luogu.com.cn/problem/B3873)
+ - [P13015 GESP-202506 六级 学习小组](https://www.luogu.com.cn/problem/P13015)
+
+基础动态规划：
+
+ - [P10108 GESP202312 六级 闯关游戏](https://www.luogu.com.cn/problem/P10108)
+
+### 其它
+
+树状数组：
+ - [B3874 GESP-202309 六级 小杨的握手问题](https://www.luogu.com.cn/problem/B3874)
 
