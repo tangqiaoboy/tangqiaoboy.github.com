@@ -55,6 +55,7 @@ tags: cspj
 |[P1164 小A点菜](https://www.luogu.com.cn/problem/P1164) |与摆花一题类似 |
 |[P2392 考前临时抱佛脚](https://www.luogu.com.cn/problem/P2392)| 01 背包变型 |
 | [B3873 小杨买饮料](https://www.luogu.com.cn/problem/B3873) | 01 背包变型, GESP202309 六级|
+| [P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 无穷背包，GESP202506 六级 |
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
@@ -1226,6 +1227,48 @@ int main() {
     if (ans == 0x7f7f7f7f) cout << "no solution" << endl;
     else cout << ans << endl;
 
+    return 0;
+}
+```
+
+## [P13015 学习小组](https://www.luogu.com.cn/problem/P13015)
+
+无穷背包问题：
+ - 人数相当于物品的重量，积极度相当于物品的价值
+ - 背包的总重量就是人数
+
+设：人数限制是 `a[i]`, 兴趣度是 `b[i]`。
+
+`dp[i][j]` 表示前 i 个物品，放 j 个人数的最大价格，则转移方程为：
+ - `dp[i][j] = max(dp[i-1][j], dp[i-1][j-a[i]] + b[i])`
+
+简化 dp，去掉第一个维度后，转移方程为：
+ - `dp[j] = max(dp[j], dp[j-a[i]] + b[i])`
+
+```c++
+/* 
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, a[1100], b[1100], dp[1100];
+
+int main() {
+    ios::sync_with_stdio(0);       
+    cin >> n;
+    for (int i = 1; i <=n ; ++i) {
+        a[i] = i;
+        cin >> b[i];
+    }
+    for (int i = 1; i <=n; ++i) {
+        for (int j = 1; j<=n; ++j) {
+            if (j - a[i] >= 0) {
+                dp[j] = max(dp[j], dp[j-a[i]] + b[i]);
+            }
+        }
+    }
+    cout << dp[n] << endl;
     return 0;
 }
 ```
