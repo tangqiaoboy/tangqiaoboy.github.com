@@ -361,17 +361,30 @@ int main() {
 
 ### 动态规划
 
-包括 01 背包和完全背包。
+包括 01 背包和完全背包：
 
- - [B3873 GESP-202309 六级 小杨买饮料](https://www.luogu.com.cn/problem/B3873)
- - [P13015 GESP-202506 六级 学习小组](https://www.luogu.com.cn/problem/P13015)
+ - [B3873  202309 六级 小杨买饮料](https://www.luogu.com.cn/problem/B3873)
+ - [P13015 202506 六级 学习小组](https://www.luogu.com.cn/problem/P13015)
+ - [P10721 202406 六级 计算得分](https://www.luogu.com.cn/problem/P10721)
 
 基础动态规划：
 
- - [P10108 GESP202312 六级 闯关游戏](https://www.luogu.com.cn/problem/P10108)
+ - [P10108 202312 六级 闯关游戏](https://www.luogu.com.cn/problem/P10108)
+ - [P10376 202403 六级 游戏](https://www.luogu.com.cn/problem/P10376)
+ - [P11246 202409 六级 小杨和整数拆分](https://www.luogu.com.cn/problem/P11246)
+
+
+记忆化搜索：
+ - [P10250 GESP样题 六级 下楼梯](https://www.luogu.com.cn/problem/P10250)
 
 ### 其它
 
 树状数组：
- - [B3874 GESP-202309 六级 小杨的握手问题](https://www.luogu.com.cn/problem/B3874)
+ - [B3874 202309 六级 小杨的握手问题](https://www.luogu.com.cn/problem/B3874)
+
+暴力枚举：
+ - [P10377 202403 六级 好斗的牛](https://www.luogu.com.cn/problem/P10377)
+
+模拟+高精度：
+ - [P11375 202412 六级 树上游走](https://www.luogu.com.cn/problem/P11375)
 

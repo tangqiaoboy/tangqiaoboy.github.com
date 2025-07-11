@@ -46,6 +46,7 @@ STL 库是 C++ 语言的标准库，我们在比赛中主要用到的有如下�
 | reverse | `reverse(v.begin(), v.end())`| 将原序列逆序 |
 |min_element |`min_element(v.begin(), v.end())` |返回的是地址，如果想要值，可以用 `*` 获得对应下标的值，如果想获得下标，可以让它减去 v.begin() |
 |max_element |`max_element(v.begin(), v.end())` | 返回的是地址，如果想要值，可以用 `*` 获得对应下标的值，如果想获得下标，可以让它减去 v.begin() |
+|accumulate |`accumulate(v.begin(), v.end(), 0);` | 第三个参数是初始值 |
 
 ## 练习
 
