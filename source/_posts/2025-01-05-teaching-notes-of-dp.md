@@ -55,7 +55,8 @@ tags: cspj
 |[P1164 小A点菜](https://www.luogu.com.cn/problem/P1164) |与摆花一题类似 |
 |[P2392 考前临时抱佛脚](https://www.luogu.com.cn/problem/P2392)| 01 背包变型 |
 | [B3873 小杨买饮料](https://www.luogu.com.cn/problem/B3873) | 01 背包变型, GESP202309 六级|
-| [P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 无穷背包，GESP202506 六级 |
+| [P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 无穷背包，GESP 202506 六级 |
+｜ [P10721 计算得分](https://www.luogu.com.cn/problem/P10721) ｜ 背包问题变种，GESP 202406 六级 ｜
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
