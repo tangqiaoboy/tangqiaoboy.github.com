@@ -19,16 +19,16 @@
         <meta name="keywords" content="唐巧,iOS,创业,猿辅导,斑马">
     
     <meta name="description" content="希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。">
-    <meta name="description" content="数学题是信息学竞赛中重要的一类题目，通常包括几何、数论、容斥原理等。 本文将相关的题目归纳整理，用于教学。 几何P2241 统计方形本题解法：每个矩形（包括正方形）都可以由一段左边线段和一段上边线段确定。因此，我们只需要枚举所有可能的线段。 对于一个长是 N 宽是 M 的棋盘。  左边的线段长度为 1 的有 N 个，长度为 2 的有 N-1 个，…长度为 N 的有 1 个。 上边的线段长度为 1">
+    <meta name="description" content="数学题是信息学竞赛中重要的一类题目，通常包括几何、数论、容斥原理等。 本文将相关的题目归纳整理，用于教学。 质数相关判断一个数是否为质数此算法是很多数学相关题目的基础，在 GESP 二级中也有涉及。例如：B3840 找素数。 其核心代码是： 123456bool isPrime(int a) &#123;    for (int i &#x3D; 2; i*i &lt;&#x3D;a; i++) &#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSPJ 教学思考：数学题">
 <meta property="og:url" content="https://blog.devtang.com/2025/04/12/cspj-notes-of-math-problems/index.html">
 <meta property="og:site_name" content="唐巧的博客">
-<meta property="og:description" content="数学题是信息学竞赛中重要的一类题目，通常包括几何、数论、容斥原理等。 本文将相关的题目归纳整理，用于教学。 几何P2241 统计方形本题解法：每个矩形（包括正方形）都可以由一段左边线段和一段上边线段确定。因此，我们只需要枚举所有可能的线段。 对于一个长是 N 宽是 M 的棋盘。  左边的线段长度为 1 的有 N 个，长度为 2 的有 N-1 个，…长度为 N 的有 1 个。 上边的线段长度为 1">
+<meta property="og:description" content="数学题是信息学竞赛中重要的一类题目，通常包括几何、数论、容斥原理等。 本文将相关的题目归纳整理，用于教学。 质数相关判断一个数是否为质数此算法是很多数学相关题目的基础，在 GESP 二级中也有涉及。例如：B3840 找素数。 其核心代码是： 123456bool isPrime(int a) &#123;    for (int i &#x3D; 2; i*i &lt;&#x3D;a; i++) &#123;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.devtang.com/images/catalan.jpg">
 <meta property="article:published_time" content="2025-04-12T13:40:39.000Z">
-<meta property="article:modified_time" content="2025-05-26T14:44:36.254Z">
+<meta property="article:modified_time" content="2025-06-22T02:07:25.809Z">
 <meta property="article:author" content="唐巧">
 <meta property="article:tag" content="cspj">
 <meta name="twitter:card" content="summary">
@@ -338,7 +338,7 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.6k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -501,6 +501,26 @@
     <article class="article-entry">
         <p>数学题是信息学竞赛中重要的一类题目，通常包括几何、数论、容斥原理等。</p>
 <p>本文将相关的题目归纳整理，用于教学。</p>
+<h2 id="质数相关"><a href="#质数相关" class="headerlink" title="质数相关"></a>质数相关</h2><h3 id="判断一个数是否为质数"><a href="#判断一个数是否为质数" class="headerlink" title="判断一个数是否为质数"></a>判断一个数是否为质数</h3><p>此算法是很多数学相关题目的基础，在 GESP 二级中也有涉及。例如：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3840">B3840 找素数</a>。</p>
+<p>其核心代码是：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">isPrime</span><span class="params">(<span class="type">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i*i &lt;=a; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a%i == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>初学者在写的时候，要注意 <code>i*i</code> 与 <code>a</code> 的比较是小于等于。</p>
+<h3 id="质因数分解"><a href="#质因数分解" class="headerlink" title="质因数分解"></a>质因数分解</h3><p>质因数分解的方法是从 2 开始试商，如果发现能整除，就把被除数中该因数去掉，关键代码是：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (N % i == <span class="number">0</span>) N /= i;</span><br></pre></td></tr></table></figure>
+<p>这样经过几轮下来，N 的值会变得很小，最后 N 如果不为 1，N 就是最后一个质因数。</p>
+<p>完整代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">prime_facs</span><span class="params">(<span class="type">int</span> N)</span> </span>&#123;</span><br><span class="line">  vector&lt;<span class="type">int</span>&gt; result;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i * i &lt;= N; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (N % i == <span class="number">0</span>) &#123;  </span><br><span class="line">      <span class="keyword">while</span> (N % i == <span class="number">0</span>) N /= i;</span><br><span class="line">      result.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (N != <span class="number">1</span>) &#123;  <span class="comment">// 说明再经过操作之后 N 留下了一个素数</span></span><br><span class="line">    result.<span class="built_in">push_back</span>(N);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>练习题：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3969">B3969 GESP202403 五级 B-smooth 数</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P10720">P10720 GESP202406 五级 小杨的幸运数字</a></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3969">B3969 GESP202403 五级 B-smooth 数</a> 的参考代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, b, ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getMaxPrime</span><span class="params">(<span class="type">int</span> v)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i*i &lt;= v; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v%i == <span class="number">0</span>)&#123;</span><br><span class="line">            ret = <span class="built_in">max</span>(ret, i);</span><br><span class="line">            <span class="keyword">while</span> (v%i == <span class="number">0</span>) v/=i; <span class="comment">// 把 v 的值缩小</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ret = <span class="built_in">max</span>(ret, v);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n; ++i) &#123;</span><br><span class="line">        <span class="type">int</span> t = <span class="built_in">getMaxPrime</span>(i);</span><br><span class="line">        <span class="keyword">if</span> (t &lt;= b) ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="几何"><a href="#几何" class="headerlink" title="几何"></a>几何</h2><h3 id="P2241-统计方形"><a href="#P2241-统计方形" class="headerlink" title="P2241 统计方形"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2241">P2241 统计方形</a></h3><p>本题解法：每个矩形（包括正方形）都可以由一段左边线段和一段上边线段确定。因此，我们只需要枚举所有可能的线段。</p>
 <p>对于一个长是 N 宽是 M 的棋盘。</p>
 <ul>
@@ -568,7 +588,7 @@
             <p>原文作者：<a href="https://blog.devtang.com">唐巧</a>
             <p>原文链接：<a href="https://blog.devtang.com/2025/04/12/cspj-notes-of-math-problems/">https://blog.devtang.com/2025/04/12/cspj-notes-of-math-problems/</a>
             <p>发表日期：<a href="https://blog.devtang.com/2025/04/12/cspj-notes-of-math-problems/">四月 12日 2025, 9:40:39 晚上</a>
-            <p>更新日期：<a href="https://blog.devtang.com/2025/04/12/cspj-notes-of-math-problems/">May 26th 2025, 10:44:36 pm</a>
+            <p>更新日期：<a href="https://blog.devtang.com/2025/04/12/cspj-notes-of-math-problems/">June 22nd 2025, 10:07:25 am</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -734,7 +754,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95"><span class="toc-number">1.</span> <span class="toc-text">几何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#P2241-%E7%BB%9F%E8%AE%A1%E6%96%B9%E5%BD%A2"><span class="toc-number">1.1.</span> <span class="toc-text">P2241 统计方形</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">数论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#P1044-%E6%A0%88"><span class="toc-number">2.1.</span> <span class="toc-text">P1044 栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P3612-USACO17JAN-Secret-Cow-Code-S"><span class="toc-number">2.2.</span> <span class="toc-text">P3612 USACO17JAN Secret Cow Code S</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%A8%E6%95%B0%E7%9B%B8%E5%85%B3"><span class="toc-number">1.</span> <span class="toc-text">质数相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E5%90%A6%E4%B8%BA%E8%B4%A8%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">判断一个数是否为质数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%A8%E5%9B%A0%E6%95%B0%E5%88%86%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text">质因数分解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95"><span class="toc-number">2.</span> <span class="toc-text">几何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#P2241-%E7%BB%9F%E8%AE%A1%E6%96%B9%E5%BD%A2"><span class="toc-number">2.1.</span> <span class="toc-text">P2241 统计方形</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E8%AE%BA"><span class="toc-number">3.</span> <span class="toc-text">数论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#P1044-%E6%A0%88"><span class="toc-number">3.1.</span> <span class="toc-text">P1044 栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P3612-USACO17JAN-Secret-Cow-Code-S"><span class="toc-number">3.2.</span> <span class="toc-text">P3612 USACO17JAN Secret Cow Code S</span></a></li></ol></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -2513,7 +2533,41 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -5810,7 +5864,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 353
+        Total : 355
         </div>
         <!-- search  -->
         
@@ -5824,6 +5878,18 @@
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span>
+            <a class="archive-post-title" href="/2025/07/01/gesp-level5-202506-1/">GESP 202506 5级真题「奖品兑换」题解</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span>
+            <a class="archive-post-title" href="/2025/06/22/build-your-own-dopamine-system/">构建你的“多巴胺”系统</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/06</span>
@@ -8142,6 +8208,11 @@
             <span class="sidebar-tag-name" data-tags="cspj">
                 <span class="iconfont-archer">&#xe606;</span>
                 cspj
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="summary">
+                <span class="iconfont-archer">&#xe606;</span>
+                summary
             </span>
         
     </div>

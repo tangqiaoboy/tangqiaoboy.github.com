@@ -19,12 +19,12 @@
         <meta name="keywords" content="唐巧,iOS,创业,猿辅导,斑马">
     
     <meta name="description" content="希望通过这个博客，能够将自己的学习成果总结出来，与大家分享交流。">
-    <meta name="description" content="引言树状数组是挺不好教学的一个知识点。它需要以下前置知识：  二进制表示法及熟练的位操作 前缀和的知识 树的基础知识 时间复杂度的估算  在教学的时候，我们的教学顺序如下：  先引入问题 lowbit 函数讲解 树状数组的结构特点 利用树状数组求前缀和的方法 怎么修改树状数组的值 如何初始化树状数组 增加值或替换值 二维的树状数组  那么让我们来开始。 问题的引入P3374 树状数组 1 是一道标">
+    <meta name="description" content="引言有些时候，题目给我们 N 个元素的序列，然后让我们求前缀和或者区间和。并且，题目还会动态地修改这个序列的值。如果我们每次暴力求解前缀和，时间复杂度会是 O（N），而使用树状数组，可以将查询前缀和的复杂度降低到 O(LogN)。 树状数组是挺不好教学的一个知识点。它需要以下前置知识：  二进制表示法及熟练的位操作 前缀和的知识 树的基础知识 时间复杂度的估算  在教学的时候，我们的教学顺序如下：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSPJ 教学总结：树状数组">
 <meta property="og:url" content="https://blog.devtang.com/2025/04/26/teaching-notes-of-bit/index.html">
 <meta property="og:site_name" content="唐巧的博客">
-<meta property="og:description" content="引言树状数组是挺不好教学的一个知识点。它需要以下前置知识：  二进制表示法及熟练的位操作 前缀和的知识 树的基础知识 时间复杂度的估算  在教学的时候，我们的教学顺序如下：  先引入问题 lowbit 函数讲解 树状数组的结构特点 利用树状数组求前缀和的方法 怎么修改树状数组的值 如何初始化树状数组 增加值或替换值 二维的树状数组  那么让我们来开始。 问题的引入P3374 树状数组 1 是一道标">
+<meta property="og:description" content="引言有些时候，题目给我们 N 个元素的序列，然后让我们求前缀和或者区间和。并且，题目还会动态地修改这个序列的值。如果我们每次暴力求解前缀和，时间复杂度会是 O（N），而使用树状数组，可以将查询前缀和的复杂度降低到 O(LogN)。 树状数组是挺不好教学的一个知识点。它需要以下前置知识：  二进制表示法及熟练的位操作 前缀和的知识 树的基础知识 时间复杂度的估算  在教学的时候，我们的教学顺序如下：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.devtang.com/images/bit-1.jpg">
 <meta property="og:image" content="https://blog.devtang.com/images/bit-2.jpg">
@@ -32,9 +32,10 @@
 <meta property="og:image" content="https://blog.devtang.com/images/bit-4.jpg">
 <meta property="og:image" content="https://blog.devtang.com/images/bit-5.jpg">
 <meta property="og:image" content="https://blog.devtang.com/images/bit-6.jpg">
+<meta property="og:image" content="https://blog.devtang.com/images/lowbit_list.jpg">
 <meta property="og:image" content="https://blog.devtang.com/images/bit-7.jpg">
 <meta property="article:published_time" content="2025-04-26T12:12:23.000Z">
-<meta property="article:modified_time" content="2025-04-28T14:13:40.241Z">
+<meta property="article:modified_time" content="2025-07-06T06:14:15.932Z">
 <meta property="article:author" content="唐巧">
 <meta property="article:tag" content="cspj">
 <meta name="twitter:card" content="summary">
@@ -344,7 +345,7 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">4.8k</span>阅读时长: <span class="post-count reading-time">20 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">6.1k</span>阅读时长: <span class="post-count reading-time">25 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -505,7 +506,8 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>树状数组是挺不好教学的一个知识点。它需要以下前置知识：</p>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>有些时候，题目给我们 N 个元素的序列，然后让我们求前缀和或者区间和。并且，题目还会动态地修改这个序列的值。如果我们每次暴力求解前缀和，时间复杂度会是 O（N），而使用树状数组，可以将查询前缀和的复杂度降低到 O(LogN)。</p>
+<p>树状数组是挺不好教学的一个知识点。它需要以下前置知识：</p>
 <ul>
 <li>二进制表示法及熟练的位操作</li>
 <li>前缀和的知识</li>
@@ -663,29 +665,78 @@
 </ul>
 <p>举例来说，如果我们要更新 a[2] 的值，lowbit(2) 的值是 0010，所以，我们要更新：</p>
 <ul>
-<li>b[2], 因为 2 的二进制是 0010，管辖区间是 <code>[1, 2]</code></li>
-<li>b[4], 因为 4 的二进制是 0100，管辖区间是 <code>[1, 4]</code></li>
-<li>b[8], 因为 8 的二进制是 1000，管辖区间是 <code>[1, 8]</code></li>
+<li>b[2], 因为 2 的二进制是 0010，管辖区间是 <code>[1, 2]</code>，宽度是 2</li>
+<li>b[4], 因为 4 的二进制是 0100，管辖区间是 <code>[1, 4]</code>，宽度是 4</li>
+<li>b[8], 因为 8 的二进制是 1000，管辖区间是 <code>[1, 8]</code>，宽度是 8</li>
 </ul>
 <p>再举一个例子，如果我们要更新 a[5] 的值，lowbit(5) 的值是 0001，所以我们要更新：</p>
 <ul>
-<li>b[5]，因为 5 的二进制是 0101，管辖区间是 <code>[5, 5]</code></li>
-<li>b[6]，因为 6 的二进制是 0110，管辖区间是 <code>[5, 6]</code></li>
-<li>b[8]，因为 8 的二进制是 1000，管辖区间是 <code>[1, 6]</code></li>
+<li>b[5]，因为 5 的二进制是 0101，管辖区间是 <code>[5, 5]</code>，宽度是 1</li>
+<li>b[6]，因为 6 的二进制是 0110，管辖区间是 <code>[5, 6]</code>，宽度是 2</li>
+<li>b[8]，因为 8 的二进制是 1000，管辖区间是 <code>[1, 8]</code>，宽度是 8</li>
 </ul>
-<p>可以看到，对于每一个 b[x]，它代表的范围右边界始终是 x，而它的左边界，则随着更新的节点往上移动，在不停扩大。</p>
+<p>再举一个例子，如果我们要更新 a[7] 的值，lowbit(7) 的值是 0001，所以我们要更新：</p>
+<ul>
+<li>b[7]，因为 7 的二进制是 0111，管辖区间是 <code>[7, 7]</code>，宽度是 1</li>
+<li>b[8]，因为 8 的二进制是 1000，管辖区间是 <code>[1, 8]</code>，宽度是 8</li>
+</ul>
+<p>通过上面的例子，我们可以看到，管辖区间在更新的过程中宽度是不断扩大的。不同的数，宽度扩大的倍数不同。但至少是每次翻倍的方式来扩大。</p>
+<p>我们再从另一个角度来看管辖区间：我们把数状数组的第 1 个到第 56 个元素的二进制列出来，如下所示：</p>
+<img src="/images/lowbit_list.jpg" class="">
+
+<p>我们可以观察到：bit 为 1 的位置越低，管辖的区域越小，所以：</p>
+<ul>
+<li>有一半管辖区域大小为 1 的数（图中为粉色）</li>
+<li>剩下的一半，有一半管辖区域大小为 2 的数（图中为绿色）</li>
+<li>再剩的一半，有一半管辖区域大小为 4 的数（图中为紫色）</li>
+<li>再剩的一半，有一半管辖区域大小为 8 的数（图中为黄色）</li>
+</ul>
+<p>再看这些数的间隔：</p>
+<ul>
+<li>粉色的间隔是 2-1，每 2 个出现一次</li>
+<li>绿色的间隔是 4-1，每 4 个出现一次</li>
+<li>紫色的间隔是 8-1，每 8 个出现一次</li>
+<li>黄色的间隔是 16-1，每 16 个出现一次</li>
+</ul>
+<p>所以，其实树状数组是把区间和数据按分治的思想进行了切分，这样可以快速求和。</p>
+<p>另外，从管辖区域的角度考虑，每一个数在进行 lowbit 减运算的时候，得到的新数，一定和之前的区间不是重叠的。我们可以这样证明：</p>
+<ul>
+<li>每个元素 <code>b[x]</code> 管辖的区间和是<code>[x-lowbit(x)+1, x]</code></li>
+<li>我们令 <code>y = x - lowbit(x)</code>, 则 <code>b[y]</code> 的管辖区间就是：<code>[y-lowbit(y)+1, y]</code>,即：<code>[y-lowbit(y)+1, x - lowbit(x)]</code></li>
+<li>可以看到，这两个区间 <code>[y-lowbit(y)+1, x - lowbit(x)]</code> 和 <code>[x-lowbit(x)+1, x]</code>其实是相邻的。</li>
+</ul>
+<p>所以，每次减 lowbit(x) 的运算，其实是获得了其左侧相邻的一块区间的和。</p>
+<p>我们来看一个查询和的例子，如果我们要求前缀和 sum(7)：</p>
+<ul>
+<li>我们先计算 b[7]，7 的二进制是 0111，管辖区间是 <code>[7, 7]</code>，宽度是 1</li>
+<li>我们再计算 b[6]，6 的二进制是 0110，管辖区间是 <code>[5, 6]</code>，宽度是 2</li>
+<li>我们再计算 b[4]，4 的二进制是 0100，管辖区间是 <code>[1, 4]</code>，宽度是 4</li>
+</ul>
+<p>我们从上面的例子可以看到：由于每次减掉的都是最小的一个 lowbit 位，所以左侧相邻的新区间一定更宽。所以求和过程中， <code>b[7],b[6],b[4]</code> 对应的管辖宽度从 1 到 2 再到 4.</p>
+<p>我们再看一个前缀和 sum(9) 的例子：</p>
+<ul>
+<li>我们先计算 b[9], 9 的二进制是 1001，管辖区间是 <code>[9, 9]</code>，宽度是 1</li>
+<li>我们再计算 b[8], 9 的二进制是 1000，管辖区间是 <code>[1, 8]</code>，宽度是 8</li>
+</ul>
+<p>和我们刚刚得到的结论相同：求和过程中，随着不断地减 lowbit(x)，获得的新区间更宽。</p>
+<p>小结：</p>
+<ul>
+<li>树状数组中的元素 b[x] 管辖的区间和是<code>[x-lowbit(x)+1, x]</code></li>
+<li>每次加 lowbit(x) 的过程，相当于在不断扩展管辖区间。不同的数，宽度扩大的倍数不同。但至少是每次翻倍的方式来扩大。</li>
+<li>每次减 lowbit(x) 的过程，相当于在查找紧临 b[x] 管辖区间的一块新区间。这个新区间，宽度也是不断扩大的。不同的数，宽度扩大的倍数不同。但至少是每次翻倍的方式来扩大。</li>
+</ul>
 <h2 id="差分数组"><a href="#差分数组" class="headerlink" title="差分数组"></a>差分数组</h2><p>有些时候，题目会让我们一次更新一段区间，这个时候，我们可以引入差分数组来替代原数组。</p>
 <p>差分数组中的每一个元素，是原数组相邻两个数的差。</p>
 <p>例如：</p>
 <ul>
-<li>原数组： 1,2,3,4,5,6</li>
-<li>差分数组：1,1,1,1,1,1</li>
+<li>原数组： <code>1,2,3,4,5,6</code></li>
+<li>差分数组：<code>1,1,1,1,1,1</code></li>
 </ul>
 <p>我们对差分数组求前缀和，就可以还原出原数组。</p>
 <p>这个时候，如果我们把原数组的第 3 个数到第 5 个数都加上 2，我们看看效果：</p>
 <ul>
-<li>原数组： 1,2,5,6,7,6</li>
-<li>差分数组：1,1,3,1,1,-1</li>
+<li>原数组： <code>1,2,5,6,7,6</code></li>
+<li>差分数组：<code>1,1,3,1,1,-1</code></li>
 </ul>
 <p>我们观察到，原数组的一个区间都加上 2 之后，在差分数组那里，只有第 3 个数和第 6 个数有变化，其它都没有变化。所以，如果我们用差分数组来代替原数组，就可以只更新两个数值来代表原来的范围更新。</p>
 <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3368">P3368 【模板】树状数组 2</a>此题可以很好地练习差分数组与数状数组的结合运用，相关代码如下：</p>
@@ -742,7 +793,40 @@
 <p>以下是完整的参考程序：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Tang Qiao</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN (int)(5*1e5+10)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="type">int</span> v;</span><br><span class="line">    <span class="type">int</span> origin_idx;</span><br><span class="line">    <span class="type">int</span> next_idx;</span><br><span class="line">&#125;;</span><br><span class="line">Node a[MAXN];</span><br><span class="line"><span class="type">int</span> n,c[MAXN];</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">comp1</span><span class="params">(<span class="type">const</span> Node &amp;a, <span class="type">const</span> Node &amp;b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.v &lt; b.v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">comp2</span><span class="params">(<span class="type">const</span> Node &amp;a, <span class="type">const</span> Node &amp;b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.origin_idx &lt; b.origin_idx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123; <span class="keyword">return</span> x&amp;-x; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (a&lt;=n) &#123;</span><br><span class="line">        c[a]+=v;</span><br><span class="line">        a+=<span class="built_in">lowbit</span>(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(a) &#123;</span><br><span class="line">        ret += c[a];</span><br><span class="line">        a -= <span class="built_in">lowbit</span>(a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n; ++i) &#123;</span><br><span class="line">        cin &gt;&gt; a[i].v;</span><br><span class="line">        a[i].origin_idx = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">stable_sort</span>(a+<span class="number">1</span>, a+<span class="number">1</span>+n, comp1);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i&lt;=n; ++i) </span><br><span class="line">        a[i].next_idx = i;</span><br><span class="line">    <span class="built_in">stable_sort</span>(a+<span class="number">1</span>, a+<span class="number">1</span>+n, comp2);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n; ++i) &#123;</span><br><span class="line">        <span class="built_in">add</span>(a[i].next_idx, <span class="number">1</span>);</span><br><span class="line">        ans += i - <span class="built_in">query</span>(a[i].next_idx);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="相关练习题目"><a href="#相关练习题目" class="headerlink" title="相关练习题目"></a>相关练习题目</h2>
+<h2 id="相关练习题目"><a href="#相关练习题目" class="headerlink" title="相关练习题目"></a>相关练习题目</h2><p>文章中涉及的例题：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3374">P3374 树状数组 1</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3368">P3368 树状数组 2</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1908">P1908 逆序对</a></li>
+</ul>
+<p>练习题：</p>
+<table>
+<thead>
+<tr>
+<th>题目</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3874">B3874 小杨的握手问题</a></td>
+<td>GESP 202309 六级真题</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h3 id="B3874-小杨的握手问题"><a href="#B3874-小杨的握手问题" class="headerlink" title="B3874 小杨的握手问题"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3874">B3874 小杨的握手问题</a></h3><p>解题思路：</p>
+<ul>
+<li>把学号为 a 的学生进入教室的行为，转化为第 a 个序列元素的值加 1。</li>
+<li>这样，找出小于 a 的学生数量，就等价于求序列前 a-1 个元素的前缀和。</li>
+<li>利用数状数组，就可以快速求前缀和了。</li>
+</ul>
+<p>参考代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数状数组求逆序对。</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * Author: Tang Qiao</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN int(3e5+10)</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, b[MAXN];</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&amp;-a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> idx, <span class="type">int</span> v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (idx &lt;= n) &#123;</span><br><span class="line">        b[idx] += v;</span><br><span class="line">        idx += <span class="built_in">lowbit</span>(idx);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> range)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (range) &#123;</span><br><span class="line">        ret += b[range];</span><br><span class="line">        range -= <span class="built_in">lowbit</span>(range);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>); </span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="type">int</span> a;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        <span class="comment">// 将学号下标从 0 开始改到 1 开始</span></span><br><span class="line">        a = a + <span class="number">1</span>;</span><br><span class="line">        ans += <span class="built_in">query</span>(a - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">add</span>(a, <span class="number">1</span>);</span><br><span class="line">    &#125;      </span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
     </article>
     <!-- license -->
     
@@ -750,7 +834,7 @@
             <p>原文作者：<a href="https://blog.devtang.com">唐巧</a>
             <p>原文链接：<a href="https://blog.devtang.com/2025/04/26/teaching-notes-of-bit/">https://blog.devtang.com/2025/04/26/teaching-notes-of-bit/</a>
             <p>发表日期：<a href="https://blog.devtang.com/2025/04/26/teaching-notes-of-bit/">四月 26日 2025, 8:12:23 晚上</a>
-            <p>更新日期：<a href="https://blog.devtang.com/2025/04/26/teaching-notes-of-bit/">April 28th 2025, 10:13:40 pm</a>
+            <p>更新日期：<a href="https://blog.devtang.com/2025/04/26/teaching-notes-of-bit/">July 6th 2025, 2:14:15 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -916,7 +1000,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E5%BC%95%E5%85%A5"><span class="toc-number">2.</span> <span class="toc-text">问题的引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lowbit-%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">lowbit 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9Ax-x-1-x"><span class="toc-number">3.1.</span> <span class="toc-text">方法一：x^(x-1) &amp; x</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9Ax-x"><span class="toc-number">3.2.</span> <span class="toc-text">方法二：x&amp;-x</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">4.</span> <span class="toc-text">树状数组的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E6%B1%82%E5%92%8C"><span class="toc-number">5.</span> <span class="toc-text">树状数组求和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE"><span class="toc-number">6.</span> <span class="toc-text">更新数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">7.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%88%E4%BC%98%E5%8C%96%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">初始化（优化）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E8%BE%96%E5%8C%BA%E9%97%B4"><span class="toc-number">9.</span> <span class="toc-text">管辖区间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84"><span class="toc-number">10.</span> <span class="toc-text">差分数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%9A%84%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84"><span class="toc-number">11.</span> <span class="toc-text">二维的树状数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E6%B1%82%E9%80%86%E5%BA%8F%E5%AF%B9"><span class="toc-number">12.</span> <span class="toc-text">用树状数组求逆序对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE"><span class="toc-number">13.</span> <span class="toc-text">相关练习题目</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E5%BC%95%E5%85%A5"><span class="toc-number">2.</span> <span class="toc-text">问题的引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lowbit-%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">lowbit 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9Ax-x-1-x"><span class="toc-number">3.1.</span> <span class="toc-text">方法一：x^(x-1) &amp; x</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9Ax-x"><span class="toc-number">3.2.</span> <span class="toc-text">方法二：x&amp;-x</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">4.</span> <span class="toc-text">树状数组的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E6%B1%82%E5%92%8C"><span class="toc-number">5.</span> <span class="toc-text">树状数组求和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE"><span class="toc-number">6.</span> <span class="toc-text">更新数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">7.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%88%E4%BC%98%E5%8C%96%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">初始化（优化）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E8%BE%96%E5%8C%BA%E9%97%B4"><span class="toc-number">9.</span> <span class="toc-text">管辖区间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84"><span class="toc-number">10.</span> <span class="toc-text">差分数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%9A%84%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84"><span class="toc-number">11.</span> <span class="toc-text">二维的树状数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E6%B1%82%E9%80%86%E5%BA%8F%E5%AF%B9"><span class="toc-number">12.</span> <span class="toc-text">用树状数组求逆序对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE"><span class="toc-number">13.</span> <span class="toc-text">相关练习题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#B3874-%E5%B0%8F%E6%9D%A8%E7%9A%84%E6%8F%A1%E6%89%8B%E9%97%AE%E9%A2%98"><span class="toc-number">13.1.</span> <span class="toc-text">B3874 小杨的握手问题</span></a></li></ol></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -2695,7 +2779,41 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -5992,7 +6110,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 353
+        Total : 355
         </div>
         <!-- search  -->
         
@@ -6006,6 +6124,18 @@
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span>
+            <a class="archive-post-title" href="/2025/07/01/gesp-level5-202506-1/">GESP 202506 5级真题「奖品兑换」题解</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span>
+            <a class="archive-post-title" href="/2025/06/22/build-your-own-dopamine-system/">构建你的“多巴胺”系统</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">06/06</span>
@@ -8324,6 +8454,11 @@
             <span class="sidebar-tag-name" data-tags="cspj">
                 <span class="iconfont-archer">&#xe606;</span>
                 cspj
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="summary">
+                <span class="iconfont-archer">&#xe606;</span>
+                summary
             </span>
         
     </div>
