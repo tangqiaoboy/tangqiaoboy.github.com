@@ -1,10 +1,12 @@
 ---
-title: GESP 大题核心考点
+title: GESP 核心考点
 date: 2025-06-06 22:12:03
 tags: cspj
 ---
 
-## GESP 1 级
+# GESP 1 级
+
+## 大题核心考点
 
 1 级主要考查分支和循环结构，所以大题的解法一般都是一个 for 循环，然后循环里面用 if 之类的条件判断做一些事情，最后再输出结果。其代码框架为：
 
@@ -45,7 +47,9 @@ for (int i = 1; i <= n; ++i) {
 }
 ```
 
-## GESP 2 级
+# GESP 2 级
+
+## 大题核心考点
 
 ### 考点一：双重循环
 
@@ -88,11 +92,35 @@ int main() {
  - 模仿 [画三角形](https://www.luogu.com.cn/problem/B3837)，输出 左对齐、右对齐的正三角形，倒三角形
  - 模仿 [等差矩阵](https://www.luogu.com.cn/problem/B4259)，输出求和的矩阵，输出只有偶数的等差矩阵（奇数位填 `*`）
 
+有一些时候，双重循环也不一定以输出图案的方式来进行考查，比如题目 [B4356 202506 二级 数三角形](https://www.luogu.com.cn/problem/B4356) 就是一个案例，参考代码如下：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {  
+    int n;
+    int ans = 0;
+    cin >> n;
+    for (int a = 1; a<=n; ++a) {
+        for (int b = a; b<=n; ++b) {
+            if (a*b%2 == 0)
+                ans++;
+        }
+    }
+    cout << ans << endl;
+    return 0;
+}
+```
+
 ### 考点二：常用函数
 
 2 级还会考一些我们经常会实现的函数。包括：
 
-#### 求素质函数
+#### 求素数函数
 
 参考题目：[GESP202306 找素数](https://www.luogu.com.cn/problem/B3840)
 
@@ -139,7 +167,16 @@ int count(int a, int k) {
 
 练习题目：[GESP202409 数位之和](https://www.luogu.com.cn/problem/B4036)
 
-## GESP 3 级
+# GESP 3 级
+
+## 选择、判断题核心考点
+
+ - 原码，返码，补码的表示
+ - 进制转换（二进制、八进制、十进制、十六进制）
+ - 位运算
+ - 字符串相关的操作
+
+## 大题核心考点
 
 ### 考点一：字符串操作
 
@@ -323,7 +360,9 @@ int main() {
 }
 ```
 
-## GESP 4 级
+# GESP 4 级
+
+## 大题核心考点
 
 考点比较散，以下是历次考题的考点。
 
@@ -348,11 +387,15 @@ int main() {
  - 排序：考了 3 次。
  - 字符串操作：考了 2 次。
 
-## GESP 5 级
+# GESP 5 级
+
+## 大题核心考点
 
 待补充
 
-## GESP 6 级
+# GESP 6 级
+
+## 大题核心考点
 
 ### 最近公共祖先
 
