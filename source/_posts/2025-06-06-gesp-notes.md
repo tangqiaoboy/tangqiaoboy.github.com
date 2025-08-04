@@ -416,9 +416,11 @@ int main() {
  - [P10376 202403 六级 游戏](https://www.luogu.com.cn/problem/P10376)
  - [P11246 202409 六级 小杨和整数拆分](https://www.luogu.com.cn/problem/P11246)
 
-
 记忆化搜索：
  - [P10250 GESP样题 六级 下楼梯](https://www.luogu.com.cn/problem/P10250)
+
+复杂贪心：
+ - [P11247 202409 六级 算法学习](https://www.luogu.com.cn/problem/P11247)
 
 ### 其它
 
