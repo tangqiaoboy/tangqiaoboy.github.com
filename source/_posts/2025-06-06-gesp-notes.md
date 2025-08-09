@@ -433,3 +433,15 @@ int main() {
 模拟+高精度：
  - [P11375 202412 六级 树上游走](https://www.luogu.com.cn/problem/P11375)
 
+# GESP 7 级
+
+## 大题核心考点
+
+### 动态规划
+
+背包：
+
+ - [P13018 202506 七级 调味平衡](https://www.luogu.com.cn/problem/P13018)
+
+
+
