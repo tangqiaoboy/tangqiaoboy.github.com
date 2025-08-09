@@ -248,6 +248,8 @@ if (l < n+1 && v[l] == a) cout << l << " ";
 
 ## 教学和练习题目
 
+教学题目：
+
 | 题目      | 说明 |
 | ----------- | ----------- |
 | [P2249 查找](https://www.luogu.com.cn/problem/P2249) |  可用 lower_bound 函数 |
@@ -257,9 +259,14 @@ if (l < n+1 && v[l] == a) cout << l << " ";
 | [P1678 烦恼的高考志愿](https://www.luogu.com.cn/problem/P1678) | 二分查找，可用 upper_bound 函数|
 | [P2440 木材加工](https://www.luogu.com.cn/problem/P2440) |二分答案 |
 | [P2678 跳石头](https://www.luogu.com.cn/problem/P2678) |二分答案，NOIP2015 提高组 |
-| [P1182 数列分段 Section II](https://www.luogu.com.cn/problem/P1182) | |
-|  | |
+| [P1182 数列分段 Section II](https://www.luogu.com.cn/problem/P1182) | 二分答案 |
 
+练习题目：
+
+| 题目      | 说明 |
+| ----------- | ----------- |
+| [B4305 物品分组](https://www.luogu.com.cn/problem/B4305) | 蓝桥杯青少年组省赛 2024，二分答案  |
+| [P1258	小车问题](https://www.luogu.com.cn/problem/P1258) | 二分答案 |
 
 ### P3853 路标设置
 
@@ -476,6 +483,79 @@ int main() {
 	cout << ans << endl;
 	return 0;
 }
+```
+
+### [P1258 小车问题](https://www.luogu.com.cn/problem/P1258)
+
+此题也可以列方程，但是也是一道很有技巧的二分答案的题目，适合用来练习二分的使用技巧。
+
+二分答案，需要二分的值与判定的结果有一个单调关系。如果我们假设一开始把甲载到的位置是 C 点，如果简单二分位置 C，那么得到的两人到达的总时长，并不是单调的。
+
+但是，如果我们二分位置 C，但是判断的是甲与乙的时间差 t1-t2，就会发现：随着 C 的值变大，t1-t2 会单调变小。这就形成了一个单调关系。而我们要找的答案，就是 t1-t2 最接近 0 的位置。
+
+所以，我们就可以二分了，每次二分位置 C:
+ - 如果 t1-t2 大于零，则可以增大 C，让 left=mid
+ - 如果 t1-t2 大于零，则可以减小 C，让 right=mid
+
+这样，C 的值最终会无限趋近于 t1-t2 等于零的位置。
+
+另外，我们可以较容易推算出甲乙分别的用时公式：
+ - 甲的总用时 `t1 = 开车时间 c/b + 步行时间 (s-c)/a`
+ - 乙的总用时 `t2 = 开车送甲的时间c/b + 相遇问题时间 + 开车时间`
+   - 开车送甲的时间: `m1 = c/b`
+   - 相遇问题时间: `m2=(c-c/b*a)/(a+b)`
+   - 开车时间: `m3= (s-m1*a-m2*a)/b`
+
+那终止条件是什么呢？我们的答案是要求精度达到小数点后 6 位。所以，我们让 t1-t2 的差小于小数点后 7 位即可。为什么是 7 位而不是 6 位呢？因为如果我们只保证他们的差小于小数点后 6 位，那第 7 位就会涉及四舍五入的问题，这样会造成第 6 位输出的时候有影响。
+
+小结一点，这道题比较难想到的有：
+ - 二分的单调性函数
+ - 终止条件
+ - 精度要多求一位
+
+参考代码如下：
+
+```c++
+/**            
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+double s, a, b, ans;
+
+double get_t1(double c) {
+    return c/b + (s-c)/a;
+}
+double get_t2(double c) {
+    double m1 = c/b;
+    double m2 = (c-c/b*a)/(a+b);
+    double m3 = (s-m1*a-m2*a)/b;
+    return m1+m2+m3;
+}
+
+int main() { 
+    cin >> s >> a >> b;
+    double left = 0;
+    double right = s;
+    while (left <= right) {
+        double mid = left + (right-left)/2;
+        double t1 = get_t1(mid);
+        double t2 = get_t2(mid);
+        double diff = t1 - t2;
+        if (diff > 0) {
+            left = mid;
+            if (diff < 1e-7) {
+                ans = t1; break;
+            }
+        } else {
+            right = mid;
+        }
+    }
+    printf("%.6lf\n", ans);
+    return 0;
+}
+
 ```
 
 ## 教学思考
