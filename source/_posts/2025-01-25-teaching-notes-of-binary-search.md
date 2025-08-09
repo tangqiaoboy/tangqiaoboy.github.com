@@ -267,7 +267,9 @@ if (l < n+1 && v[l] == a) cout << l << " ";
 | ----------- | ----------- |
 | [P1296 奶牛的耳语](https://www.luogu.com.cn/problem/P1296) | 用 upper_bound 二分 |
 | [B4305 物品分组](https://www.luogu.com.cn/problem/B4305) | 蓝桥杯青少年组省赛 2024，二分答案  |
-| [P1258	小车问题](https://www.luogu.com.cn/problem/P1258) | 二分答案 |
+| [P1258 小车问题](https://www.luogu.com.cn/problem/P1258) | 二分答案 |
+| [P1824 进击的奶牛 Aggressive Cows G](https://www.luogu.com.cn/problem/P1824) | USACO05FEB, 二分答案 |
+
 
 ### P3853 路标设置
 
@@ -528,6 +530,7 @@ double s, a, b, ans;
 double get_t1(double c) {
     return c/b + (s-c)/a;
 }
+
 double get_t2(double c) {
     double m1 = c/b;
     double m2 = (c-c/b*a)/(a+b);
@@ -556,7 +559,6 @@ int main() {
     printf("%.6lf\n", ans);
     return 0;
 }
-
 ```
 
 ## 教学思考
