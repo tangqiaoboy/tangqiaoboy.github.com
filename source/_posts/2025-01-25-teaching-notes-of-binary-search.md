@@ -265,6 +265,7 @@ if (l < n+1 && v[l] == a) cout << l << " ";
 
 | 题目      | 说明 |
 | ----------- | ----------- |
+| [P1296 奶牛的耳语](https://www.luogu.com.cn/problem/P1296) | 用 upper_bound 二分 |
 | [B4305 物品分组](https://www.luogu.com.cn/problem/B4305) | 蓝桥杯青少年组省赛 2024，二分答案  |
 | [P1258	小车问题](https://www.luogu.com.cn/problem/P1258) | 二分答案 |
 
