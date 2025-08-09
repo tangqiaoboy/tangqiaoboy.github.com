@@ -60,6 +60,7 @@ STL 库是 C++ 语言的标准库，我们在比赛中主要用到的有如下�
 | [P2058 海港](https://www.luogu.com.cn/problem/P2058)| NOIP 2016 普及组，练习桶和队列 |
 | [P2234 营业额统计](https://www.luogu.com.cn/problem/P2234)  | 练习 set 和 `lower_bound` 函数|
 | [P4305 不重复数字](https://www.luogu.com.cn/problem/P4305)| 可以练习 `unordered_map` 以及对比 cin 和 scanf 的速度差别 |
+| [P1571 眼红的Medusa](https://www.luogu.com.cn/problem/P1571) | 练习 map 或 set |
 
 
 ### [P4387 验证栈序列](https://www.luogu.com.cn/problem/P4387)
