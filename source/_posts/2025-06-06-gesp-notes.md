@@ -116,6 +116,13 @@ int main() {
 }
 ```
 
+更多的练习题目如下：
+ 
+ - <https://www.luogu.com.cn/problem/B3994>
+ - <https://www.luogu.com.cn/problem/B3995>
+ - <https://www.luogu.com.cn/problem/B3986>
+ - <https://www.luogu.com.cn/problem/B3988>
+
 ### 考点二：常用函数
 
 2 级还会考一些我们经常会实现的函数。包括：
@@ -165,7 +172,9 @@ int count(int a, int k) {
 }
 ```
 
-练习题目：[GESP202409 数位之和](https://www.luogu.com.cn/problem/B4036)
+练习题目：
+ - [GESP202409 数位之和](https://www.luogu.com.cn/problem/B4036)
+ - [含 k 个 3 的数](https://www.luogu.com.cn/problem/B2078)
 
 # GESP 3 级
 
