@@ -142,6 +142,9 @@ bool isPrime(int a) {
 }
 ```
 
+更多练习：
+ - [P1217 回文质数 Prime Palindromes](https://www.luogu.com.cn/problem/P1217)
+
 #### 求闰年函数
 
 参考题目：[GESP202503 时间跨越](https://www.luogu.com.cn/problem/B4260)
@@ -174,7 +177,10 @@ int count(int a, int k) {
 
 练习题目：
  - [GESP202409 数位之和](https://www.luogu.com.cn/problem/B4036)
- - [含 k 个 3 的数](https://www.luogu.com.cn/problem/B2078)
+ - [B2078 含 k 个 3 的数](https://www.luogu.com.cn/problem/B2078)
+ - [B2081 与 7 无关的数](https://www.luogu.com.cn/problem/B2081)
+ - [B2152 分离整数的各个数](https://www.luogu.com.cn/problem/B2152)
+ - [B2154 数 1 的个数](https://www.luogu.com.cn/problem/B2154)
 
 # GESP 3 级
 
