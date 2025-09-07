@@ -448,6 +448,25 @@ int main() {
 模拟+高精度：
  - [P11375 202412 六级 树上游走](https://www.luogu.com.cn/problem/P11375)
 
+## 相关练习题目
+
+### 背包
+
+从 [这儿](https://www.luogu.com.cn/problem/list?type=luogu&page=1&tag=139&orderBy=difficulty&order=asc) 可以获得洛谷上所有的背包相关题目，推荐练习的如下：
+
+ - [P1734 最大约数和](https://www.luogu.com.cn/problem/P1734)
+ - [P1507 NASA的食物计划](https://www.luogu.com.cn/problem/P1507)
+ - [P1164 小A点菜](https://www.luogu.com.cn/problem/P1164)
+ - [P1060 NOIP 2006 普及组 开心的金明](https://www.luogu.com.cn/problem/P1060)
+ - [P1358 扑克牌](https://www.luogu.com.cn/problem/P1358)
+ - [P1877 HAOI2012 音量调节](https://www.luogu.com.cn/problem/P1877)
+ - [P1910 L 国的战斗之间谍](https://www.luogu.com.cn/problem/P1910)
+ - [P1926 小书童——刷题大军](https://www.luogu.com.cn/problem/P1926)
+ - [P1855 榨取kkksc03](https://www.luogu.com.cn/problem/P1855)
+ - [P2430 严酷的训练](https://www.luogu.com.cn/problem/P2430)
+ - [P1802 5 倍经验日](https://www.luogu.com.cn/problem/P1802)
+ - [P1757 通天之分组背包](https://www.luogu.com.cn/problem/P1757)
+
 # GESP 7 级
 
 ## 大题核心考点
