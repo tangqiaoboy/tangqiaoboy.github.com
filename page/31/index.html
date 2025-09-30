@@ -446,6 +446,94 @@
         
         
             
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2014/04/16/mobile-development-view-from-facebook/">
+                
+                <span class="abstract-title-text">从 Facebook 看移动开发的发展</span>
+            </a>
+            <div class="abstract-content">
+                
+
+从 Facebook 谈起Facebook 最近绝对是互联网界的新闻明星。它首先是进行了大手笔的收购：2014 年 2 月，Facebook 以 160 亿美元现金加股票，以及 30 亿美元...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/04/16</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2014/04/12/install-mavericks-note/">
+                
+                <span class="abstract-title-text">Mac重装记录</span>
+            </a>
+            <div class="abstract-content">
+                前言上次将我的iMac硬盘换成SSD后，我是通过迁移助理将我的Mac Book Air的环境同步过去的，不知道为什么，半个月前出现了重启后电脑一直处于加转中的状态。尝试过了网上提供的以下方法都没...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/04/12</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2014/03/21/weak_object_lifecycle_and_tagged_pointer/">
+                
+                <span class="abstract-title-text">NSNumber对象缓存以及Tagged Pointer</span>
+            </a>
+            <div class="abstract-content">
+                这是一次和 @onevcat 的技术讨论总结。技术点比较散，但是还都比较有意思。涉及的技术细节包括：
+
+系统对象的缓存
+Tagged Pointer对象
+
+讨论一：autorelase对象按照苹...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/03/21</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
             
         
         <article class="index-post">
@@ -702,126 +790,6 @@
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/12/22</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2013/12/22/the-secret-of-xcode-debugger-icon/">
-                
-                <span class="abstract-title-text">Xcode Debugger中的Icon符号的意义</span>
-            </a>
-            <div class="abstract-content">
-                <p>你注意到了吗？在 Xcode 中，当你点击查看调用栈的时候，调用栈的每个方法前面都有一个 Icon，而且还有好几种不同的样子，如下图所示，你知道它们代表什么意思吗？</p>
-<img src="/images/debugger-icon.png" class="">
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/12/22</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2013/12/11/network-tool-charles-intr/">
-                
-                <span class="abstract-title-text">iOS开发工具-网络封包分析工具Charles</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>本部分的内容写于2013年12月，2015年11月有更新，更新版的文章见：<a href="/2015/11/14/charles-introduction/">《Charles 从入门到精通》</a></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><img src="/images/charles-logo.png" class="">
-
-<p>本文为 InfoQ 中文站特供稿件，首发地址为：<a target="_blank" rel="noopener" href="http://www.infoq.com/cn/articles/network-packet-analysis-tool-charles">文章链接</a>。如需转载，请与 InfoQ 中文站联系。</p>
-<p><a target="_blank" rel="noopener" href="http://www.charlesproxy.com/">Charles</a> 是在 Mac 下常用的截取网络封包的工具，在做 iOS 开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。Charles 通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。</p>
-<p>Charles 是收费软件，可以免费试用 30 天。试用期过后，未付费的用户仍然可以继续使用，但是每次使用时间不能超过 30 分钟，并且启动时将会有 10 秒种的延时。</p>
-<p>因此，该付费方案对广大用户还是相当友好的，即使你长期不付费，也能使用完整的软件功能。只是当你需要长时间进行封包调试时，会因为 Charles 强制关闭而遇到影响。</p>
-<p>Charles 主要的功能包括：</p>
-<ol>
-<li>支持 SSL 代理。可以截取分析 <a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E5%AE%89%E5%85%A8%E5%A5%97%E6%8E%A5%E5%B1%82">SSL</a> 的请求。</li>
-<li>支持流量控制。可以模拟慢速网络以及等待时间（latency）较长的请求。</li>
-<li>支持 AJAX 调试。可以自动将 json 或 xml 数据格式化，方便查看。</li>
-<li>支持 AMF 调试。可以将 Flash Remoting 或 Flex Remoting 信息格式化，方便查看。</li>
-<li>支持重发网络请求，方便后端调试。</li>
-<li>支持修改网络请求参数。</li>
-<li>支持网络请求的截获并动态修改。</li>
-<li>检查 HTML，CSS 和 RSS 内容是否符合 <a target="_blank" rel="noopener" href="http://validator.w3.org/">W3C 标准</a>。</li>
-</ol>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/12/11</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2013/11/14/use-flurry-to-analyse-data/">
-                
-                <span class="abstract-title-text">使用Flurry来统计和分析用户行为</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="2015年11月更新"><a href="#2015年11月更新" class="headerlink" title="2015年11月更新"></a>2015年11月更新</h2><p>由于 Flurry 的后台在中国访问实在太慢，另外 Flurry 对中国区的 IP 类型判断不太准确（3G和Wifi无法准确区分），所以我现在不再推荐大家使用 Flurry 了。</p>
-<p>不用 Flurry 之后，我们现在使用的是腾讯的 MTA 来做统计。</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><img src="/images/flurry-logo.png" class="">
-
-<p>本文为 InfoQ 中文站特供稿件，首发地址为：<a target="_blank" rel="noopener" href="http://www.infoq.com/cn/articles/use-flurry-to-statistics-and-analysis-user-behavior">文章链接</a>。如需转载，请与 InfoQ 中文站联系。</p>
-<p><a target="_blank" rel="noopener" href="http://www.flurry.com/">Flurry</a>是一家专门为移动应用提供数据统计和分析的公司。他们的数据统计分析SDK支持的平台包括iPhone, iPad, Android, Windows Phone, Java ME和BlackBerry。使用Flurry服务的公司包括eBay、Yahoo、Hulu和Skype等超过11万家公司，涉及的应用超过36万个。</p>
-<p>利用Flurry提供的分析平台，我们可以很容易地自动统计出应用的使用情况，例如：</p>
-<ol>
-<li>每天（每周或每月）登录用户数，应用使用次数</li>
-<li>每天（每周或每月）新用户数，活跃用户数</li>
-<li>用户的所在地、年龄、性别的分布情况</li>
-</ol>
-<p>Flurry也可以自动统计出移动设备的分类情况，例如：</p>
-<ol>
-<li>使用3G，Wifi的会话比例</li>
-<li>使用iOS系统各版本(例如iOS6.0, iOS7.0等)的比例</li>
-<li>使用iOS各种设备（例如iPhone4, iPhone5等)的比例</li>
-</ol>
-<p>除了上面介绍的自动统计项目，Flurry SDK也提供了统计用的相关API，便于我们针对自己产品的特点，做针对性的统计。例如统计应用中某个按钮的按下次数，或者网络请求的平均响应时间等。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2013/11/14</span>
                 </div>
                 <!-- tags -->
                 
@@ -2817,7 +2785,58 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -6150,7 +6169,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 356
+        Total : 359
         </div>
         <!-- search  -->
         
@@ -6164,6 +6183,12 @@
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span>
+            <a class="archive-post-title" href="/2025/09/17/how-to-trade-in-stocks-book-summary/">投机与趋势投资 - 读《股票大作手操盘术》</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">08/31</span>
@@ -6228,6 +6253,18 @@
         <li class="archive-post-item">
             <span class="archive-post-date">03/09</span>
             <a class="archive-post-title" href="/2025/03/09/zebra-logic-introduction/">斑马思维机的详细调研</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/08</span>
+            <a class="archive-post-title" href="/2025/03/08/read-demonds-book-summary/">读《真需求》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span>
+            <a class="archive-post-title" href="/2025/02/23/unconventional-success-book-summary/">个人投资的最佳实践 - 读《不落俗套的成功》</a>
         </li>
     
         
