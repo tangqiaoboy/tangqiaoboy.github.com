@@ -6,7 +6,7 @@
   <link href="https://blog.devtang.com/atom.xml" rel="self"/>
   
   <link href="https://blog.devtang.com/"/>
-  <updated>2025-10-06T12:46:03.586Z</updated>
+  <updated>2025-10-06T15:05:58.035Z</updated>
   <id>https://blog.devtang.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>理解大语言模型 - 读《图解 DeepSeek 技术》</title>
+    <link href="https://blog.devtang.com/2025/10/06/the-illustrated-deepseek-book-summary/"/>
+    <id>https://blog.devtang.com/2025/10/06/the-illustrated-deepseek-book-summary/</id>
+    <published>2025-10-06T14:06:51.000Z</published>
+    <updated>2025-10-06T15:05:58.035Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/images/deepseek-0.jpg" width="300px" /><p>最近收到图灵编辑刘美英老师赠送的<a href="https://book.douban.com/subject/37425385/">《图解 DeepSeek 技术》</a>，全书只有不到 100 页，而且配套了大量插画，让原本让人生畏的大语言模型底层技术，变得不那么难懂。</p><p>本书非常适合对于大语言模型零基础的读者，作为入门书籍。以下是我的一些笔记。</p><h2 id="缩放定律（Scaling-law）"><a href="#缩放定律（Scaling-law）" class="headerlink" title="缩放定律（Scaling law）"></a>缩放定律（Scaling law）</h2><p>深度学习的底层原理其实缺乏科学论证，最终只能用“涌现”这种现象来描述我们观察到的实验结果。这个实验结果就是：当我们提高模型规模的时候，模型的表现也会越来越好。</p><p>于是，我们通过三个要素来提升模型的规模，分别是：参数量、数据量和计算量（如下图）</p><img src="/images/deepseek-1.jpg" class=""><p>我对“涌现”的理解：这个世界上很多事情都是从量变到质变，大模型“涌现”出来的智能，再一次体现了这种自然界常见的现象。比如：</p><ul><li>水在温度上升的时候，形态一直是液态，直到上升了 100 度，就开始沸腾，转化为气态。</li><li>股市，前期积累的泡沫越来越大，最后泡沫破灭的时候，就会一下子跌特别多。</li></ul><p>我对缩放定律的理解：缩放定律在自然界中也非常常见，很多变化不是线性的，而是幂律（power law）的。比如：</p><ul><li>财富的集中度。在美国前 10% 的人持有超过 90% 的财富。</li><li>公司的营收排名。排名每上升一名，营收可能是下一名的 2 倍。</li><li>明星或达人的收入。关注度每上升一位，收入可能翻翻。</li><li>28 原理。决定一件事情的最主要的 20% 因素，占据了 80% 的权重。</li></ul><h2 id="深度思考"><a href="#深度思考" class="headerlink" title="深度思考"></a>深度思考</h2><p>缩放定律把大家的精力都集中在堆参数量和堆算力上，但是研究人员发现，如果让模型在输出答案的过程中进行“长思考”，答案会变得显著得好。于是，除了在训练阶段发力外，我们通过让模型在生成答案时消耗更多资源，来提升答案的质量。这就是现在变得普遍的“深度思考”模式（如下图）。</p><img src="/images/deepseek-2.jpg" class=""><p>在我的理解下，深度思考模式类似于《思考快与慢》一书中提到的人类的慢思考。人类大多数时候，是用直觉来决策的，因为这样效率最高，而且直觉通常来源于大量的经验（预训练），通常情况下是对的。但是，对于一些重大的决策，人类就会启动慢思考（深度思考），会花大量的时间和精力来论证自己的想法是否正确，以保证重大决策的质量。</p><h2 id="蒸馏（Distill）"><a href="#蒸馏（Distill）" class="headerlink" title="蒸馏（Distill）"></a>蒸馏（Distill）</h2><p>DeepSeek-R1 是一个拥有 6710 亿个参数的庞大模型，这使得部署和使用它都需要强大的硬件支持。但是 DeepSeek 创新性的开创了将自己的推理能力蒸馏到别的小模型（比如 <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B">Qwen-32B</a>）上的方法。</p><p>具体来说，研究团队用 DeepSeek 当老师模型，让 Qwen 当学生模型。当两个模型接收到相同的提示词后，均需要输出一个词元概率分布。在训练过程中，学生模型需要紧密跟随老师模型的分布特征（如下图）。</p><img src="/images/deepseek-3.jpg" class=""><p>以上过程在 80 万个样本的训练下，这些小模型学会了 DeepSeek 的思维方式，与蒸馏前相比，能力有大幅的提升。</p><p>在我的理解下，这也非常类似人类的“师徒学习模式”。我在计算机行业，我们行业的毕业生刚进企业的时候，都会有一个导师（mentor）进行一对一指导。最终帮助我们这些职场小白快速融入行业，写出高质量的代码。</p><p>以上。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;img src=&quot;/images/deepseek-0.jpg&quot; width=&quot;300px&quot; /&gt;
+
+&lt;p&gt;最近收到图灵编辑刘美英老师赠送的&lt;a href=&quot;https://book.douban.com/subject/37425385/&quot;&gt;《图解 DeepSeek 技术》&lt;</summary>
+      
+    
+    
+    
+    <category term="summary" scheme="https://blog.devtang.com/categories/summary/"/>
+    
+    
+    <category term="books" scheme="https://blog.devtang.com/tags/books/"/>
+    
+  </entry>
   
   <entry>
     <title>但斌投资札记-读《时间的玫瑰》</title>
@@ -457,30 +483,6 @@
     
     
     <category term="cspj" scheme="https://blog.devtang.com/tags/cspj/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2024 年个人总结</title>
-    <link href="https://blog.devtang.com/2025/01/01/2024-summary/"/>
-    <id>https://blog.devtang.com/2025/01/01/2024-summary/</id>
-    <published>2025-01-01T02:41:17.000Z</published>
-    <updated>2025-02-14T12:15:05.995Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、工作"><a href="#一、工作" class="headerlink" title="一、工作"></a>一、工作</h2><h3 id="财务视角"><a href="#财务视角" class="headerlink" title="财务视角"></a>财务视角</h3><p>2024 年从财务视角，业务整体有不小的进步。</p><p>23 年虽然业务增长不错，但是整体有将将近千万的亏损，而 24 年整体的赢利是上千万的。所以业务整体健康度更高。当然，因为我们严卡利润率，我们的营收规模在 2024 年基本上没有什么增长，还是在 2 个亿左右。希望 2025 年有所增长。</p><p>海外业务在收缩为一人之后，也有不小的起色。我们在韩国还是找到了一条基于 coupang 全拖管的立足之地，可以基于这个基本盘开始做增长。虽然小，但是不至于每个月担心巨大的亏损，所以能睡得着觉。</p><h3 id="产品视角"><a href="#产品视角" class="headerlink" title="产品视角"></a>产品视角</h3><p>分产品来说，2024 年我们没有交付什么成功的新产品。虽然我们在年初上线了英语闪卡机，下半年上线了斑马拼音机 G2，但是这两款产品都没能上规模。不管是达人还是直播间，这两款产品都运营得比较艰难。</p><!--我对英语闪卡机的归因是：同质化竞品较多，差异化不足。市面上同质化的产品通常定价在 80 左右，我们的定价是 299，还是远超它们。另外，我们虽然主打的是纯英语的闪卡机，但是这种差异化，不足以支撑这么高的定价。我对斑马拼音机 G2 的归因是：插卡形式差异化虽然足够，但是体验的提升不可直观察觉，只有真正使用后才可能体会到，这使得高昂的成本并没有转化成产品销售时的竞争力。另外，拼音机的上线时间有点晚，接近秋季开学了，很多家长反馈说已经买过了，对我们的销量也有不小的影响。思维机在 2024 年上线了以下题卡： - S0 级别的题卡（1 季度），有效推动了思维机向 2-3 岁人群的渗透。这部分的成交占比接近 40%。我们也发现一个现象：越是低龄孩子的家长，越喜欢这种没有屏幕的学习产品。 - 故宫主题题卡（2 季度）。故宫主题题卡较为失败。一是上线时间晚，错过了暑期高峰。二是成本高于预期，比较难做赠品。 - 鲨鱼宝宝题卡（3 季度）。鲨鱼宝宝题卡在自播间成为主要的选购组套。 - 音乐主题题卡（4 季度）。音乐主题题卡本想尝试与思维机单独售卖，结果发现没有渠道愿意主推。### 团队视角产品团队在推品方面还是面临不小挑战，团队提创新方案的能力还需要培养。营销团队逐步在完成我的 -1 层级搭建，桔子和丹丹都有一点点进步。--><h3 id="斑马童书"><a href="#斑马童书" class="headerlink" title="斑马童书"></a>斑马童书</h3><p>年底还有一个大的变化，就是我开始负责斑马童书。</p><p>童书是一个市场比玩教具小，同时竞争更加激烈的品类。但是对我来说，能够学习一个新的品类的玩法，也是一种成长，所以我还是很愿意投入精力在里面，看看能不能深耕出一些结果。</p><h2 id="二、读书和写作"><a href="#二、读书和写作" class="headerlink" title="二、读书和写作"></a>二、读书和写作</h2><p>24 年一共读了 10 本书，以下是读书笔记：</p><ul><li><a href="/2024/12/22/xiaomi-development-notes/">极致性价比 - 读《小米创业思考》</a></li><li><a href="/2024/11/17/wave-coming/">颠覆技术的发展 - 读《浪潮将至》</a></li><li><a href="/2024/10/27/notes-from-duan-yong-ping/">本分 - 读《段永平投资回答录》</a></li><li><a href="/2024/09/17/talking-with-xibei/">西贝创始人贾国龙的成与败 - 读《折腾不止》</a></li><li><a href="/2024/06/23/pricing-strategy/">要利润的定价 - 读《定价制胜》</a></li><li><a href="/2024/06/29/history-of-1870-2010/">读《蹒跚前行 1870～2010 经济史》</a></li><li><a href="/2024/05/15/ever-living-fire/">人单合一 - 读《永恒的活火》</a></li><li><a href="/2024/03/26/marketing-management-book-summary/">如何卖货 - 读《营销管理》</a></li><li><a href="/2024/02/17/xiaomasong-notes-2/">小马宋的营销总结(2) - 读《卖货真相》</a></li><li><a href="/2024/02/09/xiaomasong-notes-1/">小马宋的营销总结(1) - 读《营销笔记》</a></li></ul><p>写作方面，整理了以下文章：</p><ul><li><a href="/2024/01/29/target-mapping-situations/">《上下同欲的几种情况》</a>, 我思考清楚了与上级下级的关系，写了此文。</li><li><a href="/2024/03/08/thinking-about-private-group/">《关于私域的思考》</a>，因为工作涉及私域售卖，总结了私域的特点。</li><li><a href="/2024/09/01/living-selling-101/">《如何在抖音直播卖货》</a>，一篇科普文章。</li><li><a href="/2024/09/06/problem-solving-structure/">《第一性原理思考：解决问题的通用框架》</a> ，该文章是我今年在公众号的爆文，7 万阅读量。该文以及该文的 <a href="/2024/09/19/thinking-pattens/">《续篇》</a> 对我梳理自己的工作也有不小的帮助。</li></ul><p>今年还写了一篇涉及农夫山泉的文章<a href="/2024/03/19/talk-about-nongfu-spring/">《替农夫山泉说句话》</a>，整个过程对我的帮助也很大，让我理解了情绪的力量。虽然当时争议很大，但事后看来，我的观点是对的，这也让我很开心。</p><h2 id="三、爱好"><a href="#三、爱好" class="headerlink" title="三、爱好"></a>三、爱好</h2><p>今年开始系统性将 CSPJ 培训作为自己的爱好，我打算把这作为自己退休后的生活内容。因为目标在 20 年之后，所以我也开始慢慢总结自己在信息学竞赛上的经验，共分享了以下几篇文章：</p><ul><li><a href="/2024/09/17/cspj-introduction/">五分钟弄懂 CSP-J</a></li><li><a href="/2024/11/07/teach-notes-of-for-loop/">CSPJ 教学思考：for 循环</a></li><li><a href="/2024/12/15/bfs-teaching-notes/">CSPJ 教学思考：宽度优先搜索</a></li></ul><p>除了爱好外，今年还做了一些事情来悦己：</p><ul><li>买了一台极米 Z7X 高亮版投影仪，在床上看投屏的感受很好。</li><li>买了一台 M3 的 MacBook Air，在家用电脑的幸福感直线上升。</li><li>买了一部荣耀 Magic V3 折叠屏。在工作中看文档效率，以及读书的体验提升明显。</li><li>买了一台 Insta 360 拇指相机。发现拍的时候很爽，但剪辑视频累死人。</li><li>双 11 给家里的猫买了自动喂食器和自动喂水器。再也不用每天惦记着毛孩子的吃喝问题了。不过喂食器买完有点后悔，应该买带摄像头的，这样就可以知道有没有吃完。</li></ul><p>今年也买了一些软件：</p><ul><li>Sublime Text，花了 99 美元。平时写博客和 CSPJ 代码都用它。</li><li>Longshot，花了大概 100 RMB。可以支持长截图。</li><li>Bartender 5，MacBook 的刘海屏下，没这个显示不了太多状态栏的东西。</li></ul><h2 id="四、理财"><a href="#四、理财" class="headerlink" title="四、理财"></a>四、理财</h2><p>今年理财在贯彻自己年初目标上执行得还可以。</p><ul><li><p>年初定下来的定投目标，执行比较顺利。513500 算是一个很不错的 QDII 标的，唯一的缺点就是综合管理费是 0.91% </p></li><li><p>年初还想在合适的时候赎回指数增强产品，这个也在年底做了。之前持有了三年的金锝和九坤的 500 指数增强，发现不同的产品增强的成绩差很多，能差 10% 以上。</p></li><li><p>赎回了元盛 CTA。元盛给我的理解是：它能够在经济上行和下行的时候，都能捕捉到套利机会。但是元盛近两年的收益都是负的，我无法理解为什么这两年都没有机会。和管理团队的沟通机会也不是很好，所以赎回了。</p></li></ul><p>今年整体港股和 A 股都有不错的收益。A 股整体有 19.05% 的收益。</p><img src="/images/2024-profit-a.jpg" class=""><p>港股里面：</p><ul><li>腾讯 417，+11%</li><li>恒生高股息 23.9，+4%</li><li>波司登 3.88，+18%</li><li>海底捞 15.9，+27%</li><li>伟易达 52.8，-2.9%</li></ul><p>今年在理财上也有更多的思考和成长。比如：</p><ul><li>不懂不碰。以前是没那么遵守的，今年会更加严格。我也因此卖出了茅台。</li><li>再平衡。以前没有严格做，在建平上吃了大亏，建平曾经有 100% 的收益，那个时候没有做再平衡，心理上贪多，还是自己能力不够，今年开始认真做这个事情。</li></ul><h2 id="五、24-年的目标回顾"><a href="#五、24-年的目标回顾" class="headerlink" title="五、24 年的目标回顾"></a>五、24 年的目标回顾</h2><ul><li>工作：<ul><li>销售：搭建好销售团队，带好团队的核心成员。培养有共同价值观和长久共事意愿的同事。这一点有一些进展，团队成员今年有一些流动，我觉得是好的。</li><li>产品：推进硬件产品的创新尝试。今年没什么有效的落地，不算很好。</li></ul></li><li>理财：<ul><li>定投少量标普 500，建立初始仓位。今年做得不错。</li><li>在合适的时候减少 A 股的指数增强仓位。今年做得不错。</li></ul></li><li>个人：<ul><li>读 6 本书。完成了，最后读了 9 本。</li><li>很久没出国了，想抽空去一趟加拿大。没能完成。</li><li>每月游泳一次。完成了。</li><li>积极乐观。今年马马虎虎吧。</li></ul></li></ul><h2 id="六、25-年的目标"><a href="#六、25-年的目标" class="headerlink" title="六、25 年的目标"></a>六、25 年的目标</h2><ul><li>工作：硬件稳中有增，童书赢亏打正。带好童书业务。</li><li>理财：做好配置，找到能拿 10 年的标的，并能坚定持有。</li><li>个人：读 6 本书。CSPJ 教学继续累进。</li></ul><h2 id="七、个人-Milestone"><a href="#七、个人-Milestone" class="headerlink" title="七、个人 Milestone"></a>七、个人 Milestone</h2><ul><li>硬件业务利润过千万</li><li>开始负责童书售卖业务</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;一、工作&quot;&gt;&lt;a href=&quot;#一、工作&quot; class=&quot;headerlink&quot; title=&quot;一、工作&quot;&gt;&lt;/a&gt;一、工作&lt;/h2&gt;&lt;h3 id=&quot;财务视角&quot;&gt;&lt;a href=&quot;#财务视角&quot; class=&quot;headerlink&quot; title=&quot;财务视角&quot;&gt;&lt;/a</summary>
-      
-    
-    
-    
-    <category term="summary" scheme="https://blog.devtang.com/categories/summary/"/>
-    
-    
-    <category term="anniversary" scheme="https://blog.devtang.com/tags/anniversary/"/>
     
   </entry>
   
