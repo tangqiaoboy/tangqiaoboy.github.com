@@ -1,8 +1,10 @@
 ---
 title: 斑马思维机的详细调研
-date: 2025-03-09 17:39:07
+date: 2025-10-09 17:39:07
 tags:
 ---
+
+> 本文档创建于 2025.3，最后更新于 2025.10
 
 ## 一、产品介绍
 
@@ -67,7 +69,7 @@ tags:
 
  - 2025 年 2 月，推出[专注力题卡][8]，通过趣味游戏的形式，从注意广度、注意转移、注意分配、注意稳定性 4 个方面对孩子的专注力进行深度训练。
 
- - 2025 年 6 月，推出好朋友题卡，通过小朋友间的竞争与协作，把思维训练变成小朋友之间玩乐游戏。
+ - 2025 年 6 月，推出[好朋友题卡][10]，通过小朋友间的竞争与协作，把思维训练变成小朋友之间玩乐游戏。
 
  - 2025 年 10 月，推出[小猪佩奇题卡][9]，通过趣味的场景化游戏和小猪佩奇榜样的力量，培养孩子的“生活自理能力”、“自我保护能力”、“社会适应能力” 三大自主能力。
 
@@ -143,16 +145,21 @@ tags:
 
 斑马思维机获奖情况：
 
- - Tillywig Toy Awards（堤利威格玩具奖），美国玩具行业最顶级的奖项之一（2023 年）
- - Creative Child Awards（儿童创意大奖），儿童创造力培养领域享有盛誉的国际大奖（2023 年）
- - K Design Award（K设计大奖），享誉全球的国际专业设计大奖（2023 年）
- - Mom's Choice Awards（妈妈之选），国际母婴产品领域标杆奖项（2023 年）
- - The National Parenting Center Seal of Approval，美国国家育儿中心专业认证（2023 年）
- - Contemporary Good Design Award，当代好设计奖（2023 年）
- - TOY AWARD，中外玩具大奖（2023 年）
- - IDEA，国际卓越设计奖（2024 年）
- - LONDON Design Awards，伦敦设计奖（2025 年）
- - MUSE Design Awards，缪斯设计大奖（2025 年）
+| 奖项名      | 奖项名 |  获奖证书 | 获奖年份 |
+| ----------- | ----------- | ----------- | ----------- |
+| Tillywig Toy Awards   |  堤利威格玩具奖，美国玩具行业最顶级的奖项之一      | [证书][tillywig-award] | 2023 年 |
+| Creative Child Awards   | 儿童创意大奖，儿童创造力培养领域享有盛誉的国际大奖        | [证明][CCA-award] | 2023 年 |
+|K Design Award | K设计大奖，享誉全球的国际专业设计大奖|[证书][K-design] | 2023 年 |
+|Mom's Choice Awards |妈妈之选奖，国际母婴产品领域标杆奖项 |[证书][Mom-choice] | 2023 年 |
+|The National Parenting Center Seal of Approval |美国国家育儿中心专业认证 |[证书][NPC-award] | 2023 年 |
+|Contemporary Good Design Award|当代好设计奖 |[证书][Good-design] | 2023 年 |
+|TOY AWARD |中外玩具大奖 |[证书][toy-award] | 2023 年 |
+|IDEA |国际卓越设计奖 |[证书][IDEA-award] | 2024 年 |
+|LONDON Design Awards |伦敦设计奖 |[证书][london-design] | 2025 年 |
+|MUSE Design Awards |缪斯设计大奖 | [证书][muse-design] | 2025 年|
+|Goldreed Industrial Design Award |金芦苇工业设计奖 |[证书][goldreed-award] | 2025 年|
+| | | |
+
 
 以上专利和奖项为斑马思维机提供了不少竞争优势，帮助它持续提升产品端的用户体验。
 
@@ -221,6 +228,8 @@ tags:
 [6]: https://mp.weixin.qq.com/s/-7zKKelat820h6fTou0tnA "音乐题卡上新"
 [7]: https://mp.weixin.qq.com/s/8iccodBc4bBtgpYvJwco5w "鲨鱼宝宝题卡上新"
 [8]: https://mp.weixin.qq.com/s/K-DXuWVNia6crk9S5bEQOg "专注力题卡上新"
+[9]: https://mp.weixin.qq.com/s/RduBk7Znfp5Qi4Rnk8nk-w "小猪佩奇题卡上新"
+[10]: https://mp.weixin.qq.com/s/BQSXvImVBJJc0KJITLt_Gg "好朋友题卡介绍"
 [2024-Top]: https://blog.devtang.com/images/top-sell-2024.jpg "2024 销量第一"
 [2023-Top]: https://blog.devtang.com/images/top-sell-2023.jpg "2023 销量第一"
 [2025-JD]: https://blog.devtang.com/images/top-sell-jd-2025-3.jpg "2025 京东思维机热卖榜"
@@ -230,4 +239,14 @@ tags:
 [MOBI-45]: https://www.sohu.com/a/707989347_112831 "摩比四五快读题卡"
 [MOBI-JQ]: https://zhuanlan.zhihu.com/p/662313624 "摩比剑桥英语题卡"
 [BS]: https://www.guinnessworldrecords.cn/world-records/95003-most-viewed-video-online "吉尼斯世界记录认证"
-[9]: https://mp.weixin.qq.com/s/RduBk7Znfp5Qi4Rnk8nk-w "小猪佩奇题卡上新"
+[K-design]: https://blog.devtang.com/images/zebra-K-design.jpg "斑马思维机 K-design 获奖证书"
+[Mom-choice]: https://blog.devtang.com/images/zebra-mom-choice.jpg "斑马思维机 Mom choice 获奖证书"
+[Good-design]: https://blog.devtang.com/images/zebra-good-design.jpg "斑马思维机 当代好设计 获奖证书"
+[IDEA-award]: https://blog.devtang.com/images/zebra-idea.jpg "斑马思维机 IDEA 获奖证书"
+[NPC-award]: https://blog.devtang.com/images/zebra-npc.jpg "斑马思维机 美国国家育儿中心专业认证 证书"
+[CCA-award]: https://blog.devtang.com/images/zebra-cca-award.jpg "斑马思维机 儿童创意大奖 官网截图"
+[tillywig-award]: https://blog.devtang.com/images/zebra-tillywig.jpg "斑马思维机 堤利威格玩具奖 证书"
+[london-design]: https://blog.devtang.com/images/zebra-london-design.jpg "斑马思维机 伦敦设计奖 证书"
+[muse-design]: https://blog.devtang.com/images/zebra-muse.jpg "斑马思维机 缪斯设计奖 证书"
+[toy-award]: https://blog.devtang.com/images/zebra-toy-award.jpeg "斑马思维机 中外玩具大奖 证书"
+[goldreed-award]: https://blog.devtang.com/images/zebra-goldreed.jpg "斑马思维机 金芦苇工业设计奖 证书"
