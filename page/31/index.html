@@ -446,83 +446,23 @@
         
         
             
-            
         
         <article class="index-post">
-            <a class="abstract-title" href="/2012/12/09/in-app-purchase-check-list/">
+            <a class="abstract-title" href="/2014/05/24/how-to-persist-writing/">
                 
-                <span class="abstract-title-text">iOS应用内付费(IAP)开发步骤列表</span>
+                <span class="abstract-title-text">技术人员如何坚持写作</span>
             </a>
             <div class="abstract-content">
-                <p>前两天和服务端同事一起，完成了应用内付费（以下简称IAP, In app purchase）的开发工作。步骤繁多，在此把开发步骤列表整理如下。因为只是步骤列表，所以并不含详细的说明教程，需要看教程的新手，可以看我附在最后的一些参考链接。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/12/09</span>
-                </div>
-                <!-- tags -->
                 
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/11/14/make-stack-trace-more-readable/">
-                
-                <span class="abstract-title-text">让Xcode的 stack trace信息可读</span>
-            </a>
-            <div class="abstract-content">
-                <p>昨天在写 iOS 代码的时候，调试的时候模拟器崩溃了。异常停在了如下整个 main 函数的入口处：</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> main(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        <span class="comment">// 异常停在了下面这行，毫无提示作用</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">UIApplicationMain</span>(argc, argv, <span class="literal">nil</span>, <span class="built_in">NSStringFromClass</span>([MyClass <span class="keyword">class</span>]));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/11/14</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/11/10/how-to-design-upgrade-notice/">
-                
-                <span class="abstract-title-text">改进iOS客户端的升级提醒功能</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="功能设计"><a href="#功能设计" class="headerlink" title="功能设计"></a>功能设计</h2><p>先申明一下，我是码农，不是一个产品经理，但我觉得现有市面上的很多 App，设计的 “升级提示功能” 都不太友好。在此分享一下我的想法，欢迎大家讨论。</p>
-<p>这些 App 包括：新浪微博、网易微博、网易新闻客户端以及大部分带有升级提示功能的 App，所以我觉得这个问题还是挺普遍的。对于该问题，一句话描述起来就是：“这些 App 都会在用户刚刚使用它的时候，提示有新版本，让用户去 AppStore 上下载最新的版本”。下面是某个应用的升级提示截图：</p>
-<img src="/images/app-upgrade-1.jpg" class="">
 
-<p>为什么我认为这是一个糟糕的设计呢？因为用户刚刚打开你的 App，明显就是想使用你的功能。例如刚刚打开新浪微博，可能就是想看一下最新的消息或回复。刚刚打开网易新闻客户端，可能就是想看看最新的新闻。这个时候，你告诉用户有新版本，是想让用户暂时放弃使用该 App 吗？我不知道有多少用户会去点 “升级” 这个按钮，反正我每次看到这个提示都很郁闷，因为我如果点了，我就暂时不能使用该应用了（升级时原版本的 App 是无法使用的）。所以我在想，这个提示升级的时间能不能做得更友好一些？</p>
+我和朋友的故事这个月我给 InfoQ 网站、《程序员》 的投稿所获的稿费，加上去人人网分享技术所得到的礼物，一共有将近 3000 块。看到这个数字之后我自己都吓了一跳，不知不觉中，写作和分享...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/11/10</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/05/24</span>
                 </div>
                 <!-- tags -->
                 
@@ -535,173 +475,141 @@
         
         
             
-            
         
         <article class="index-post">
-            <a class="abstract-title" href="/2012/10/27/use-opencv-in-ios/">
+            <a class="abstract-title" href="/2014/05/08/ios-security-dev-overview/">
                 
-                <span class="abstract-title-text">在MacOS和iOS系统中使用OpenCV</span>
+                <span class="abstract-title-text">iOS应用安全开发概述</span>
             </a>
             <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><img src="/images/opencv.png" class="">
+                
 
-<p><a target="_blank" rel="noopener" href="http://opencv.org/about.html">OpenCV</a> 是一个开源的跨平台计算机视觉库，实现了图像处理和计算机视觉方面的很多通用算法。</p>
-<p>最近试着在 MacOS 和 iOS 上使用 OpenCV，发现网上关于在 MacOS 和 iOS 上搭建 OpenCV 的资料很少。好不容易搜到些资料，却发现由于 OpenCV 和 Xcode 的版本更新，变得不再有用了。有些问题费了我很多时间，在此总结分享给大家，希望后来人少走些弯路。</p>
-<p>可以预见到，随着 Xcode 和 OpenCV 的版本更新，本文可能不再有效了。</p>
-<p>所以特此注明，文本介绍的搭建方法仅针对于 Xcode4.5.1 和 OpenCV 2.4.2 版本。</p>
-<p>（2013-6-22）更新: 我在 Xcode4.6.2 和 OpenCV 2.4.5 版本的时候重新进行了一次环境搭建，以下内容做了相应调整，应该也是有效的。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/10/27</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/10/15/scrum-and-architecture-in-fenbi/">
-                
-                <span class="abstract-title-text">粉笔网的架构和项目管理</span>
-            </a>
-            <div class="abstract-content">
-                10 月 10 日，在 CMDN 炫姐姐 的邀请下，我们粉笔网团队通过 CSDN 的 CMDN Club, 对外进行了第一次 技术分享。分享的内容主要包括 2 部分:
-第一部分是关于粉笔网使用 ...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/10/15</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/09/15/talk-about-my-startup-exp/">
-                
-                <span class="abstract-title-text">谈谈我的创业感受</span>
-            </a>
-            <div class="abstract-content">
-                <p>5 个程序员，3 个多月时间，30 多万行代码，1000 个 bug，只为打造卓越产品。</p>
-<h2 id="开发历程"><a href="#开发历程" class="headerlink" title="开发历程"></a>开发历程</h2><p>先简单介绍一下产品。我们的产品叫 “<a target="_blank" rel="noopener" href="http://fenbi.com/">粉笔网</a>”，这是一个新颖的学习社区。我们公司的创始人是前网易高管 <a target="_blank" rel="noopener" href="http://baike.baidu.com/view/2264197.htm">李勇</a>。我们团队从 4 月份开始筹备，5 月份开始工作，整个开发历经 3 个多月，其中网站于 8 月 28 号顺利上线，<a target="_blank" rel="noopener" href="http://itunes.apple.com/cn/app/fen-bi-wang/id551540593">iPhone 客户端</a> 和 <a target="_blank" rel="noopener" href="http://cdn.fen.bi/sc/app/fenbi.apk">Android 客户端</a> 于 9 月 8 日顺利通过审核上线。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/09/15</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/08/26/use-script-to-power-up-ui-work/">
-                
-                <span class="abstract-title-text">用脚本来简化iOS美术同学的工作</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我们知道，在 iOS 开发中，为了使我们的 app 能够同时支持 iPhone 的 Retina 屏幕和普通屏幕，美术同学需要对 UI 设计稿中的每个元素进行 2 次切图。苹果要求对图片元素的命名分别为 name.png 和 <a href="mailto:&#x6e;&#x61;&#109;&#101;&#64;&#x32;&#x78;&#x2e;&#x70;&#110;&#x67;">&#x6e;&#x61;&#109;&#101;&#64;&#x32;&#x78;&#x2e;&#x70;&#110;&#x67;</a>，带 @2x 的表示是 Retina 屏幕的贴图，不带 @2x 的同名文件为普通屏幕的贴图。</p>
-<p>我在开发的时候发现很难要求美术同学按照开发的要求来对图片命名。她们通常对于切图的命名是例如 * 登录按钮大 .png* ，* 登录按钮小 .png*, * 登录按钮按下大 .png* * 登录按钮按下小 .png* 这样的形式。于是，对这些文件按照苹果的要求进行重命名就成了我这个码农的一个体力活。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/08/26</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/08/05/use-modern-objective-c/">
-                
-                <span class="abstract-title-text">Objective-C的新特性</span>
-            </a>
-            <div class="abstract-content">
-                <p>苹果在今年的 WWDC2012 大会上介绍了大量 Objective-C 的新特性，能够帮助 iOS 程序员更加高效地编写代码。在不久前更新的 Xcode4.4 版本中，这些新特性已经可以使用了。让我们看看这些新特性有哪些：</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/08/05</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/06/24/enhance-uiactionsheet/">
-                
-                <span class="abstract-title-text">封装同步的UIActionSheet</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>做 iOS 开发的同学想必都用过 UIActionSheet。UIActionSheet 可以弹出一个选择列表，让用户选择列表中的某一项操作。使用 UIActionSheet 非常简单，以下是一个简单的示例代码：</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="type">void</span>)someButtonClicked &#123;</span><br><span class="line">    <span class="built_in">UIActionSheet</span> * sheet = [[<span class="built_in">UIActionSheet</span> alloc] initWithTitle:<span class="literal">nil</span> delegate:<span class="keyword">self</span> cancelButtonTitle:<span class="string">@&quot;ddd&quot;</span> destructiveButtonTitle:<span class="string">@&quot;aaa&quot;</span> otherButtonTitles:<span class="string">@&quot;bbb&quot;</span>, <span class="string">@&quot;ccc&quot;</span>, <span class="string">@&quot;ddd&quot;</span>, <span class="literal">nil</span>];</span><br><span class="line">    sheet.destructiveButtonIndex = <span class="number">1</span>;</span><br><span class="line">    [sheet showInView:<span class="keyword">self</span>.view];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)actionSheet:(<span class="built_in">UIActionSheet</span> *)actionSheet clickedButtonAtIndex:(<span class="built_in">NSInteger</span>)buttonIndex &#123;</span><br><span class="line">    <span class="type">int</span> result = buttonIndex;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;result = %d&quot;</span>, result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>但我个人在使用时，感觉 UIActionSheet 有以下 2 个问题：</p>
+【摘要】：iOS 应用由于其直接运行在手机上，相比运行在服务器的后台服务，更有可能被黑客攻击。本文将从网络安全、本地文件和数据安全、源代码安全三个方面，阐述 iOS 应用在安全性上遇到的挑...
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/06/24</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/05/08</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2014/04/19/ios-jailbreak-trojan/">
+                
+                <span class="abstract-title-text">专门针对越狱iOS设备的盗号木马出现</span>
+            </a>
+            <div class="abstract-content">
+                
+
+关于木马今天，国外的 iOS 开发者 @iOn1c 发现一个来自中国的开发者 “WANG XIN” 签名的 iOS 平台的木马插件，该插件是一个名为Unflod.dylib动态链接库，可以将...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/04/19</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2014/04/16/mobile-development-view-from-facebook/">
+                
+                <span class="abstract-title-text">从 Facebook 看移动开发的发展</span>
+            </a>
+            <div class="abstract-content">
+                
+
+从 Facebook 谈起Facebook 最近绝对是互联网界的新闻明星。它首先是进行了大手笔的收购：2014 年 2 月，Facebook 以 160 亿美元现金加股票，以及 30 亿美元...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/04/16</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2014/04/12/install-mavericks-note/">
+                
+                <span class="abstract-title-text">Mac重装记录</span>
+            </a>
+            <div class="abstract-content">
+                前言上次将我的iMac硬盘换成SSD后，我是通过迁移助理将我的Mac Book Air的环境同步过去的，不知道为什么，半个月前出现了重启后电脑一直处于加转中的状态。尝试过了网上提供的以下方法都没...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/04/12</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2014/03/21/weak_object_lifecycle_and_tagged_pointer/">
+                
+                <span class="abstract-title-text">NSNumber对象缓存以及Tagged Pointer</span>
+            </a>
+            <div class="abstract-content">
+                这是一次和 @onevcat 的技术讨论总结。技术点比较散，但是还都比较有意思。涉及的技术细节包括：
+
+系统对象的缓存
+Tagged Pointer对象
+
+讨论一：autorelase对象按照苹...
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/03/21</span>
                 </div>
                 <!-- tags -->
                 
@@ -717,19 +625,117 @@
             
         
         <article class="index-post">
-            <a class="abstract-title" href="/2012/04/22/use-fmdb/">
+            <a class="abstract-title" href="/2014/02/26/the-introduction-of-homebrew-and-brewcask/">
                 
-                <span class="abstract-title-text">在iOS开发中使用FMDB</span>
+                <span class="abstract-title-text">使用brew cask来安装Mac应用</span>
             </a>
             <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>SQLite (<a target="_blank" rel="noopener" href="http://www.sqlite.org/docs.html">http://www.sqlite.org/docs.html</a>) 是一个轻量级的关系数据库。iOS SDK 很早就支持了 SQLite，在使用时，只需要加入 libsqlite3.dylib 依赖以及引入 sqlite3.h 头文件即可。但是，原生的 SQLite API 在使用上相当不友好，在使用时，非常不便。于是，开源社区中就出现了一系列将 SQLite API 进行封装的库，而 FMDB (<a target="_blank" rel="noopener" href="https://github.com/ccgus/fmdb">https://github.com/ccgus/fmdb</a>) 则是开源社区中的优秀者。</p>
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a target="_blank" rel="noopener" href="https://github.com/phinze/homebrew-cask"><code>brew cask</code></a> 是一个用命令行管理 Mac 下应用的工具，它是基于 <a target="_blank" rel="noopener" href="http://brew.sh/"><code>homebrew</code></a> 的一个增强工具。</p>
+<p><code>homebrew</code>可以管理 Mac 下的命令行工具，例如<code>imagemagick</code>, <code>nodejs</code>，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install imagemagick</span><br><span class="line">brew install node</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>而使用上<code>brew cask</code>之后，你还可以用它来管理 Mac 下的 Gui 程序，例如<code>qq</code>, <code>chrome</code>, <code>evernote</code>等，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew cask install qq</span><br><span class="line">brew cask install google-chrome</span><br><span class="line">brew cask install evernote</span><br><span class="line"></span><br></pre></td></tr></table></figure>
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/04/22</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/02/26</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2014/02/11/reactivecocoa-introduction/">
+                
+                <span class="abstract-title-text">ReactiveCocoa - iOS开发的新框架</span>
+            </a>
+            <div class="abstract-content">
+                <p>本文为 InfoQ 中文站特供稿件，首发地址为：<a target="_blank" rel="noopener" href="http://www.infoq.com/cn/articles/reactivecocoa-ios-new-develop-framework">文章链接</a>。如需转载，请与 InfoQ 中文站联系。</p>
+<h2 id="什么是-ReactiveCocoa"><a href="#什么是-ReactiveCocoa" class="headerlink" title="什么是 ReactiveCocoa"></a>什么是 ReactiveCocoa</h2><p><a target="_blank" rel="noopener" href="https://github.com/ReactiveCocoa/ReactiveCocoa">ReactiveCocoa</a>（其简称为 RAC）是由 <a target="_blank" rel="noopener" href="https://github.com/blog/1107-reactivecocoa-for-a-better-world">Github</a> 开源的一个应用于 iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 <a target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/data/gg577609">Reactive Extensions</a> 的设计和实现。</p>
+<h2 id="ReactiveCocoa-试图解决什么问题"><a href="#ReactiveCocoa-试图解决什么问题" class="headerlink" title="ReactiveCocoa 试图解决什么问题"></a>ReactiveCocoa 试图解决什么问题</h2><p>经过一段时间的研究，我认为 ReactiveCocoa 试图解决以下 3 个问题：</p>
+<ol>
+<li>传统 iOS 开发过程中，状态以及状态之间依赖过多的问题</li>
+<li>传统 MVC 架构的问题：Controller 比较复杂，可测试性差</li>
+<li>提供统一的消息传递机制</li>
+</ol>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/02/11</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2014/01/26/add-ssd-to-old-imac/">
+                
+                <span class="abstract-title-text">自己动手给iMac换SSD</span>
+            </a>
+            <div class="abstract-content">
+                <p>公司的 iMac 是 2011 年款的，经过 2 年的使用，现在已经变得比较慢了，用<code>htop</code>看了一下，其实 cpu 占用率一直不高，主要是磁盘 IO 比较慢，所以考虑自己动手给 iMac 换一个 SSD。在此将整个过程分享给大家。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/01/26</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2014/01/23/the-issue-of-non-breaking-space-in-coretext/">
+                
+                <span class="abstract-title-text">非换行空格在CoreText排版上的问题</span>
+            </a>
+            <div class="abstract-content">
+                <p>分享一个在使用 Core Text 时遇到的问题。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>我们的猿题库界面因为有图片、公式需要混排，所以用的是 Core Text 实现的排版。</p>
+<p>在使用中，发现一些英文题目的换行方式不对，<br>我们设置的是按单词换行，但是总是有些题目的换行并不是按单词的，造成显示上比较错乱，如下图所示。图中 unchangeable, study, falls 三个单词都被生生截断了，造成阅读上的不适。</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/01/23</span>
                 </div>
                 <!-- tags -->
                 
@@ -740,7 +746,7 @@
     <!-- paginator  -->
     
         <nav class="page-nav">
-            <a class="extend prev" rel="prev" href="/page/30/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/32/">NEXT &gt;</a>
+            <a class="extend prev" rel="prev" href="/page/30/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/32/">NEXT &gt;</a>
         </nav>
     
 </main>
@@ -2580,7 +2586,578 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -5653,7 +6230,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 327
+        Total : 362
         </div>
         <!-- search  -->
         
@@ -5664,13 +6241,232 @@
         
             
             
+            <div class="archive-year"> 2025 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/21</span>
+            <a class="archive-post-title" href="/2025/10/21/mcp-introduction/">理解 MCP -读《这就是 MCP》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/09</span>
+            <a class="archive-post-title" href="/2025/10/09/zebra-logic-introduction/">斑马思维机的详细调研</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/06</span>
+            <a class="archive-post-title" href="/2025/10/06/the-illustrated-deepseek-book-summary/">理解大语言模型 - 读《图解 DeepSeek 技术》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/06</span>
+            <a class="archive-post-title" href="/2025/10/06/the-rose-of-time-book-summary/">但斌投资札记-读《时间的玫瑰》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span>
+            <a class="archive-post-title" href="/2025/09/17/how-to-trade-in-stocks-book-summary/">投机与趋势投资 - 读《股票大作手操盘术》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span>
+            <a class="archive-post-title" href="/2025/08/31/pay-your-information/">信息爆炸时代，付费信息才是最好的过滤器</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span>
+            <a class="archive-post-title" href="/2025/07/01/gesp-level5-202506-1/">GESP 202506 5级真题「奖品兑换」题解</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span>
+            <a class="archive-post-title" href="/2025/06/22/build-your-own-dopamine-system/">构建你的“多巴胺”系统</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/06</span>
+            <a class="archive-post-title" href="/2025/06/06/gesp-notes/">GESP 核心考点</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span>
+            <a class="archive-post-title" href="/2025/04/26/teaching-notes-of-bit/">CSPJ 教学总结：树状数组</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span>
+            <a class="archive-post-title" href="/2025/04/13/teaching-notes-of-dfs/">CSPJ 教学总结：深度优先搜索（DFS）</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span>
+            <a class="archive-post-title" href="/2025/04/12/cspj-notes-of-stl/">CSPJ 教学总结：STL</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span>
+            <a class="archive-post-title" href="/2025/04/12/cspj-notes-of-math-problems/">CSPJ 教学思考：数学题</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/06</span>
+            <a class="archive-post-title" href="/2025/04/06/teaching-notes-of-brute-force/">CSPJ 教学思考：枚举</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span>
+            <a class="archive-post-title" href="/2025/03/29/teaching-notes-of-simulation/">CSPJ 教学思考：模拟</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/08</span>
+            <a class="archive-post-title" href="/2025/03/08/read-demonds-book-summary/">读《真需求》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span>
+            <a class="archive-post-title" href="/2025/02/23/unconventional-success-book-summary/">个人投资的最佳实践 - 读《不落俗套的成功》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/09</span>
+            <a class="archive-post-title" href="/2025/02/09/teaching-notes-of-union-query-set/">CSPJ 教学思考：并查集</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/25</span>
+            <a class="archive-post-title" href="/2025/01/25/teaching-notes-of-binary-search/">CSPJ 教学思考：二分查找</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/05</span>
+            <a class="archive-post-title" href="/2025/01/05/teaching-notes-of-dp/">CSPJ 教学思考：动态规划</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/05</span>
+            <a class="archive-post-title" href="/2025/01/05/cspj-notes-of-greedy-algorithm/">CSPJ 教学思考：贪心算法</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span>
+            <a class="archive-post-title" href="/2025/01/01/2024-summary/">2024 年个人总结</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
+            
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
             
         
         <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span>
+            <a class="archive-post-title" href="/2024/12/22/xiaomi-development-notes/">极致性价比 - 读《小米创业思考》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span>
+            <a class="archive-post-title" href="/2024/12/15/bfs-teaching-notes/">CSPJ 教学思考：宽度优先搜索</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/01</span>
+            <a class="archive-post-title" href="/2024/12/01/add-stdc-to-macbook-m1/">将 stdc++.h 加到 Macbook M1/M2/M3 编译环境中</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/17</span>
+            <a class="archive-post-title" href="/2024/11/17/wave-coming/">颠覆技术的发展 - 读《浪潮将至》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span>
+            <a class="archive-post-title" href="/2024/11/08/time-control-of-cspj-learning/">如何控制孩子的电脑使用</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span>
+            <a class="archive-post-title" href="/2024/11/07/teach-notes-of-for-loop/">CSPJ 教学思考：for 循环</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span>
+            <a class="archive-post-title" href="/2024/10/27/notes-from-duan-yong-ping/">本分 - 读《段永平投资回答录》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/27</span>
+            <a class="archive-post-title" href="/2024/09/27/use-cin-in-vscode/">在 VS Code 中使用 cin 输入数据</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/19</span>
+            <a class="archive-post-title" href="/2024/09/19/thinking-pattens/">第一性原理思考：解决问题的通用框架(续)</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span>
+            <a class="archive-post-title" href="/2024/09/17/cspj-introduction/">五分钟弄懂 CSP-J</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/17</span>
+            <a class="archive-post-title" href="/2024/09/17/talking-with-xibei/">西贝创始人贾国龙的成与败 - 读《折腾不止》</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/06</span>
+            <a class="archive-post-title" href="/2024/09/06/problem-solving-structure/">第一性原理思考：解决问题的通用框架</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
             <span class="archive-post-date">09/01</span>
             <a class="archive-post-title" href="/2024/09/01/living-selling-101/">如何在抖音直播卖货</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/29</span>
+            <a class="archive-post-title" href="/2024/06/29/history-of-1870-2010/">读《蹒跚前行 1870～2010 经济史》</a>
         </li>
     
         
@@ -7815,6 +8611,16 @@
             <span class="sidebar-tag-name" data-tags="marketing">
                 <span class="iconfont-archer">&#xe606;</span>
                 marketing
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="cspj">
+                <span class="iconfont-archer">&#xe606;</span>
+                cspj
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="summary">
+                <span class="iconfont-archer">&#xe606;</span>
+                summary
             </span>
         
     </div>
