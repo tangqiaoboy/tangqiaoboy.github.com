@@ -37,7 +37,7 @@ tags: cspj
 |[P1048 采药](https://www.luogu.com.cn/problem/P1048) | NOIP2005 普及组第三题。01 背包问题。【经典 DP】 |
 |[P1616 疯狂的采药](https://www.luogu.com.cn/problem/P1616) |完全背包问题。【经典 DP】 |
 |[P2196 挖地雷](https://www.luogu.com.cn/problem/P2196) |NOIP1996 提高组第三题。涉及输出路径技巧。 |
-|[P1434 滑雪](https://www.luogu.com.cn/problem/P1434) | 上海市省队选拔 2002 |
+|[P1434 滑雪](https://www.luogu.com.cn/problem/P1434) | 上海市省队选拔 2002。可以用记忆化搜索，也可以拓扑排序后 DP |
 |[P1115 最大子段和](https://www.luogu.com.cn/problem/P1115) | 最大子段和。【经典 DP】|
 | | |
 
@@ -56,7 +56,7 @@ tags: cspj
 |[P2392 考前临时抱佛脚](https://www.luogu.com.cn/problem/P2392)| 01 背包变型 |
 | [B3873 小杨买饮料](https://www.luogu.com.cn/problem/B3873) | 01 背包变型, GESP202309 六级|
 | [P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 无穷背包，GESP 202506 六级 |
-｜ [P10721 计算得分](https://www.luogu.com.cn/problem/P10721) ｜ 背包问题变种，GESP 202406 六级 ｜
+| [P10721 计算得分](https://www.luogu.com.cn/problem/P10721) |背包问题变种，GESP 202406 六级 |
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
