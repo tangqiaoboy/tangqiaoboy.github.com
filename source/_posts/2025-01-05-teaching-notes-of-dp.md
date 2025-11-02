@@ -68,8 +68,62 @@ tags: cspj
 
 ## 区间 DP
 
- - [P1063 NOIP 2006 提高组 能量项链](https://www.luogu.com.cn/problem/P1063)
+### [P1063 NOIP 2006 提高组 能量项链](https://www.luogu.com.cn/problem/P1063)
 
+区间 DP:
+ - `dp[i][j]` 表示从 i 到 j 能够形成的最大能量。
+
+转移方程：
+ - 定义变量 k，`i<k<j`
+ - `dp[i][j] = max(dp[i][j], dp[i][k] + dp[k][j] + a[i]*a[k]*a[j]);`
+
+初使化：
+ - 一个珠子是没有能量的，所以 `dp[i][i]` 和 `dp[i][i+1]` 都为 0
+
+技巧：
+ - 因为是环形的，所以把数据复制一段，取长度刚好是 N 的一段中，值最大的为 ans。
+ - i 需要从 `1~2n`，不能到 n 就不算了。
+
+参考代码：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[210][210], a[210], n, ans;
+bool debug = false;
+
+int main() {
+    cin >> n;
+    for (int i = 1; i <=n ; ++i) {
+        cin >> a[i];
+        a[n+i] = a[i];
+    }   
+    // len 代表长度，从长度为 2 的区间开始 dp
+    // i 代表起点，k 代表中间点，j 代表终点(i<k<j)
+    for (int len = 2; len <=n; ++len) {
+        for (int i = 1; i<=2*n; ++i) {
+            int j = i + len;
+            if (j > 2*n) j = 2*n; // 因为终点不能越界，所以需要判断一下 j 有没有超过 2*n
+            for (int k = i+1; k < j; ++k) {
+                dp[i][j] = max(dp[i][j], dp[i][k]+dp[k][j]+a[i]*a[k]*a[j]);
+            }
+            if (debug) {
+                printf("dp[%d][%d]=%d\n", i, j, dp[i][j]);
+            }
+        }
+    }
+    // 统计最长的一段
+    for (int i = 1; i<=n; ++i)
+        ans = max(ans, dp[i][i+n]);
+    cout << ans << endl;
+    return 0;
+}
+
+```
 
 # 例题代码
 
