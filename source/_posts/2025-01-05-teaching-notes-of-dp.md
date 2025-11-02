@@ -57,6 +57,7 @@ tags: cspj
 | [B3873 小杨买饮料](https://www.luogu.com.cn/problem/B3873) | 01 背包变型, GESP202309 六级|
 | [P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 无穷背包，GESP 202506 六级 |
 | [P10721 计算得分](https://www.luogu.com.cn/problem/P10721) |背包问题变种，GESP 202406 六级 |
+| [P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)| USACO08NOV, 求最小值的完全背包 |
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
