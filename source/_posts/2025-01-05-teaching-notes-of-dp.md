@@ -26,6 +26,9 @@ tags: cspj
 
 # 教学题目 
 
+
+## 基础 DP
+
 推荐的教学题目如下：
 
 | 题目名      | 说明 |
@@ -61,6 +64,11 @@ tags: cspj
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
+
+
+## 区间 DP
+
+ - [P1063 NOIP 2006 提高组 能量项链](https://www.luogu.com.cn/problem/P1063)
 
 
 # 例题代码
@@ -1271,6 +1279,84 @@ int main() {
         }
     }
     cout << dp[n] << endl;
+    return 0;
+}
+```
+
+## [P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)
+
+完全背包问题。
+
+ * `dp[i][j]` 为前 i 个干草公司，采购 j 磅干草所需的最少费用。
+ * Pi 为第 i 个公司干草的重量。
+ * Ci 为第 i 个公司干草的价格。
+
+转移方程：
+ - `dp[i][j] = min(dp[i-1][j], dp[i][j-Pi] + Ci);`
+
+压维：
+ - `dp[j] = min(dp[j], dp[j-Pi] + Ci);`
+ - 因为是完全背包，所以正着遍历 j
+
+技巧：
+ - 因为可以多采购（即超过 j 磅也行），所以最后要多数几格看看。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[55010], P[110], C[110], N, H;
+
+int main() {
+    cin >> N >> H;
+    for (int i = 0; i < N; ++i)
+        cin >> P[i] >> C[i];
+
+    memset(dp, 0x3f, sizeof dp);
+    dp[0] = 0;
+    for (int i = 0; i < N; ++i) {
+        for (int j = P[i]; j <= H + 5000; ++j) {
+             dp[j] = min(dp[j], dp[j-P[i]] + C[i]);
+        }
+    }
+    cout << *min_element(dp+H, dp+H+5000) << endl;
+    return 0;
+}
+
+```
+
+此题还有一种写法：
+ - 定义 `dp[j]` 表示大于或等于 j 的最小花费。
+ - 因为可以多采购（即超过 j 磅也行），所以我用 `(j+P[i]-1)/P[i]*C[i]` 来表示达成当前 j 磅的最优方案。
+ - 如果值为 0，要特殊处理。
+
+参考代码如下：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[50010], P[110], C[110], N, H;
+
+int main() {
+    cin >> N >> H;
+    for (int i = 0; i < N; ++i)
+        cin >> P[i] >> C[i];
+
+    dp[0] = 0;
+    for (int i = 0; i < N; ++i) {
+        for (int j = 1; j <= H; ++j) {
+            if (dp[j] == 0) dp[j] = (j+P[i]-1)/P[i]*C[i];
+            if (j-P[i]>=0) 
+                dp[j] = min(dp[j], dp[j-P[i]] + C[i]);
+            else 
+                dp[j] = min(dp[j], (j+P[i]-1)/P[i]*C[i]);
+        }
+    }
+    cout << dp[H] << endl;
     return 0;
 }
 ```
