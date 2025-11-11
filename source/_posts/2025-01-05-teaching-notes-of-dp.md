@@ -42,6 +42,7 @@ tags: cspj
 |[P2196 挖地雷](https://www.luogu.com.cn/problem/P2196) |NOIP1996 提高组第三题。涉及输出路径技巧。 |
 |[P1434 滑雪](https://www.luogu.com.cn/problem/P1434) | 上海市省队选拔 2002。可以用记忆化搜索，也可以拓扑排序后 DP |
 |[P1115 最大子段和](https://www.luogu.com.cn/problem/P1115) | 最大子段和。【经典 DP】|
+|[P1507 NASA的食物计划](https://www.luogu.com.cn/problem/P1507)| 多一维的 01 背包|
 | | |
 
 适合的作业：
@@ -61,6 +62,7 @@ tags: cspj
 | [P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 无穷背包，GESP 202506 六级 |
 | [P10721 计算得分](https://www.luogu.com.cn/problem/P10721) |背包问题变种，GESP 202406 六级 |
 | [P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)| USACO08NOV, 求最小值的完全背包 |
+|[P12207 划分](https://www.luogu.com.cn/problem/P12207) |蓝桥杯 2023 国，01 背包的变型 |
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
@@ -771,7 +773,46 @@ int main() {
 }
 ```
 
+## [P1507 NASA的食物计划](https://www.luogu.com.cn/problem/P1507)
 
+01 背包问题：
+ - `dp[i][j][k]` 表示前 i 个食品，占据 j 的体积和 k 的质量，最多能包含的卡路里。
+ - 设每个食品的体积为 `h[N]`, 质量为 `t[N]`，卡路里为 `w[N]`
+
+转移方程：
+ - `dp[i][j][k] = max(dp[i-1][j][k], dp[i-1][j-h[i]][k-t[i]] + w[i])`
+
+压维：
+ - `dp[j][k] = max(dp[j][k], dp[j-h[i][k-t[i]]] + w[i]);` 
+ - 01 背包，压维后需要倒着 for 变量 j 和 k
+
+参考代码：
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[410][410], h[55], t[55], w[55], H, T, n;
+
+int main() {
+    cin >> H >> T >> n;
+    for (int i = 1; i <= n; ++i) {
+        cin >> h[i] >> t[i] >> w[i];
+    }
+    for (int i = 1; i <= n; ++i) {
+        for (int j = H; j>=h[i]; j--) {
+            for (int k = T; k >=t[i]; k--) {
+                dp[j][k] = max(dp[j][k], dp[j-h[i]][k-t[i]]+w[i]);
+            }
+        }    
+    }
+    cout << dp[H][T];    
+    return 0;
+}
+```
 
 # 作业代码
 
@@ -1413,4 +1454,55 @@ int main() {
     cout << dp[H] << endl;
     return 0;
 }
+```
+
+## [P12207 划分](https://www.luogu.com.cn/problem/P12207) 
+
+把 10 拆成两个数的和，乘积什么时候最大？答案是拆成 5 和 5，乘积为 25 最大。
+
+所以，那本题就是把 40 个数拆成两部分，看两部分能不能尽量接近 sum/2。
+
+01 背包：
+ - 定义：`dp[i][j]` 表示前 i 个数能否表示出 j 这个值，能则为 1，不能则为 0
+ - 转移方程：`dp[i][j] = max(dp[i-1][j], dp[i][j-a[i]])`
+ - 压缩：`dp[j] = max(dp[j], dp[j-a[i]])`
+
+初始化：
+ - `dp[0] = 1;`
+
+陷阱：
+ - 乘积最大是 20 万乘 20 万，结果需要用 long long。
+
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int a[40] = {
+5160, 9191, 6410, 4657, 7492, 1531, 8854, 1253, 4520, 9231,
+1266, 4801, 3484, 4323, 5070, 1789, 2744, 5959, 9426, 4433,
+4404, 5291, 2470, 8533, 7608, 2935, 8922, 5273, 8364, 8819,
+7374, 8077, 5336, 8495, 5602, 6553, 3548, 5267, 9150, 3309
+};
+int n=40, tot, maxj, dp[220000];
+
+int main() {
+    for (int i = 0; i < 40; ++i) {
+        tot += a[i];
+    }
+    maxj = tot/2;
+    dp[0] = 1;
+    for (int i = 0; i < 40; ++i)
+        for (int j = maxj; j >= a[i]; --j) {
+            dp[j] = max(dp[j], dp[j-a[i]]);
+        }
+    while (dp[maxj] == 0) maxj--;
+    long long ans = 1LL * maxj * (tot-maxj);
+    cout << ans << endl;
+    return 0;
+}
+
 ```
