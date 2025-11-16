@@ -64,6 +64,7 @@ tags: cspj
 | [P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)| USACO08NOV, 求最小值的完全背包 |
 |[P12207 划分](https://www.luogu.com.cn/problem/P12207) |蓝桥杯 2023 国，01 背包的变型 |
 | [P1510 精卫填海](https://www.luogu.com.cn/problem/P1510) | 01 背包，但是输出要求有变化 |
+| [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |无穷背包，需要求最小值 |
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
@@ -1545,6 +1546,36 @@ int main() {
         while (dp[ans] < V) ans++;
         cout << c-ans << endl;
     }
+    return 0;
+}
+```
+
+## [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679)
+
+因为 `m < 100,000`，而 `20^4 = 160,000`, 所以只需要把 20 以内的 4 次方数保存下来。
+当作物品的体积，物品的值为 1，按无穷背包 dp。
+
+注意：因为是求最小值，需要 memset 初始化一下。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int v[20], m, dp[100010];
+
+int main() {
+    cin >> m;
+    for (int i = 1; i < 20; ++i)
+        v[i] = i*i*i*i;
+    memset(dp, 0x3f, sizeof dp);
+    dp[0] = 0;
+    for (int i = 1; i < 20; ++i)
+        for (int j = v[i]; j <=m; ++j)
+            dp[j] = min(dp[j], dp[j-v[i]]+1);
+    cout << dp[m];
     return 0;
 }
 ```
