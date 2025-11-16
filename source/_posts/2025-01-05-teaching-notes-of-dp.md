@@ -63,6 +63,7 @@ tags: cspj
 | [P10721 计算得分](https://www.luogu.com.cn/problem/P10721) |背包问题变种，GESP 202406 六级 |
 | [P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)| USACO08NOV, 求最小值的完全背包 |
 |[P12207 划分](https://www.luogu.com.cn/problem/P12207) |蓝桥杯 2023 国，01 背包的变型 |
+| [P1510 精卫填海](https://www.luogu.com.cn/problem/P1510) | 01 背包，但是输出要求有变化 |
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
@@ -1505,4 +1506,45 @@ int main() {
     return 0;
 }
 
+```
+
+## [P1510 精卫填海](https://www.luogu.com.cn/problem/P1510)
+
+01背包。精卫的体力表示背包容量，然后看这个容量最多能搬多少石头。
+
+- 体力数组 V
+- 体积数组 a
+- 状态转移方程：`dp[i] = max(dp[i], dp[i-v[j]]+a[j]);`
+- 01 背包，倒着 for 循环
+
+另外：输出答案的时候，需要找出大于等于 V 的最小背包容量。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[10010], v[10010], a[10010], V, n, c;
+
+int main() {
+    ios::sync_with_stdio(0);       
+    cin >> V >> n >> c;
+    for (int i = 1; i <= n; ++i) 
+        cin >> a[i] >> v[i];
+    // dp
+    for (int j = 1; j <= n; ++j)
+        for (int i = c; i>=v[j]; --i) 
+            dp[i] = max(dp[i], dp[i-v[j]]+a[j]);
+    // output
+    if (dp[c] < V) cout << "Impossible\n";
+    else {
+        int ans = 0;
+        // 找出大于等于 V 的最小背包容量
+        while (dp[ans] < V) ans++;
+        cout << c-ans << endl;
+    }
+    return 0;
+}
 ```
