@@ -43,7 +43,7 @@ tags: cspj
 |[P1434 滑雪](https://www.luogu.com.cn/problem/P1434) | 上海市省队选拔 2002。可以用记忆化搜索，也可以拓扑排序后 DP |
 |[P1115 最大子段和](https://www.luogu.com.cn/problem/P1115) | 最大子段和。【经典 DP】|
 |[P1507 NASA的食物计划](https://www.luogu.com.cn/problem/P1507)| 多一维的 01 背包|
-| | |
+|[P1757 通天之分组背包](https://www.luogu.com.cn/problem/P1757) | 分组背包 |
 
 适合的作业：
 
@@ -812,6 +812,51 @@ int main() {
         }    
     }
     cout << dp[H][T];    
+    return 0;
+}
+```
+
+## [P1757 通天之分组背包](https://www.luogu.com.cn/problem/P1757)
+
+分组背包。在组内的元素只能选一次。所以：
+
+```
+dp[i] = max(dp[i], 
+            dp[i-w[k1]] + v[k1],
+            dp[i-w[k2]] + v[k2],
+            ....
+            dp[i-w[kn]] + v[kn],
+            )
+```
+
+因为一个背包位置是在组内这么多种中选出来的一种，所以最多只会用一次。
+
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, m, cnt[110], w[1010][1010], v[1010][1010], dp[1010], a, b, c, maxgroup;
+
+int main() {
+    ios::sync_with_stdio(0);  
+    cin >> m >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> a >> b >> c;
+        w[c][cnt[c]] = a;
+        v[c][cnt[c]] = b;
+        cnt[c]++;
+        maxgroup = max(maxgroup, c); // 记录最大组号
+    }
+    for (int i = 1; i <= maxgroup; ++i) // 遍历组号
+        for (int j = m; j>=0; --j) // 遍历背包大小，倒着 for
+            for (int k = 0; k<cnt[i]; ++k) // 遍历每组的元素
+                if (j-w[i][k]>=0)
+                    dp[j] = max(dp[j], dp[j-w[i][k]] + v[i][k]);
+    cout << dp[m];
     return 0;
 }
 ```
