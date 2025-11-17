@@ -65,7 +65,9 @@ tags: cspj
 | [P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)| USACO08NOV, 求最小值的完全背包 |
 |[P12207 划分](https://www.luogu.com.cn/problem/P12207) |蓝桥杯 2023 国，01 背包的变型 |
 | [P1510 精卫填海](https://www.luogu.com.cn/problem/P1510) | 01 背包，但是输出要求有变化 |
+| [P2430 严酷的训练](https://www.luogu.com.cn/problem/P2430) | 01 背包，题目较长 |
 | [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |完全背包，需要求最小值 | [P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
+
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
