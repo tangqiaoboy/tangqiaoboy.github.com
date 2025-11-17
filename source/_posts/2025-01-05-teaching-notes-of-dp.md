@@ -42,8 +42,9 @@ tags: cspj
 |[P2196 挖地雷](https://www.luogu.com.cn/problem/P2196) |NOIP1996 提高组第三题。涉及输出路径技巧。 |
 |[P1434 滑雪](https://www.luogu.com.cn/problem/P1434) | 上海市省队选拔 2002。可以用记忆化搜索，也可以拓扑排序后 DP |
 |[P1115 最大子段和](https://www.luogu.com.cn/problem/P1115) | 最大子段和。【经典 DP】|
-|[P1507 NASA的食物计划](https://www.luogu.com.cn/problem/P1507)| 多一维的 01 背包|
+|[P1507 NASA的食物计划](https://www.luogu.com.cn/problem/P1507)| 多重背包 |
 |[P1757 通天之分组背包](https://www.luogu.com.cn/problem/P1757) | 分组背包 |
+
 
 适合的作业：
 
@@ -59,12 +60,12 @@ tags: cspj
 |[P1164 小A点菜](https://www.luogu.com.cn/problem/P1164) |与摆花一题类似 |
 |[P2392 考前临时抱佛脚](https://www.luogu.com.cn/problem/P2392)| 01 背包变型 |
 | [B3873 小杨买饮料](https://www.luogu.com.cn/problem/B3873) | 01 背包变型, GESP202309 六级|
-| [P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 无穷背包，GESP 202506 六级 |
+| [P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 完全背包，GESP 202506 六级 |
 | [P10721 计算得分](https://www.luogu.com.cn/problem/P10721) |背包问题变种，GESP 202406 六级 |
 | [P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)| USACO08NOV, 求最小值的完全背包 |
 |[P12207 划分](https://www.luogu.com.cn/problem/P12207) |蓝桥杯 2023 国，01 背包的变型 |
 | [P1510 精卫填海](https://www.luogu.com.cn/problem/P1510) | 01 背包，但是输出要求有变化 |
-| [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |无穷背包，需要求最小值 |
+| [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |完全背包，需要求最小值 | [P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
@@ -1385,7 +1386,7 @@ int main() {
 
 ## [P13015 学习小组](https://www.luogu.com.cn/problem/P13015)
 
-无穷背包问题：
+完全背包问题：
  - 人数相当于物品的重量，积极度相当于物品的价值
  - 背包的总重量就是人数
 
@@ -1598,7 +1599,7 @@ int main() {
 ## [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679)
 
 因为 `m < 100,000`，而 `20^4 = 160,000`, 所以只需要把 20 以内的 4 次方数保存下来。
-当作物品的体积，物品的值为 1，按无穷背包 dp。
+当作物品的体积，物品的值为 1，按完全背包 dp。
 
 注意：因为是求最小值，需要 memset 初始化一下。
 
@@ -1621,6 +1622,34 @@ int main() {
         for (int j = v[i]; j <=m; ++j)
             dp[j] = min(dp[j], dp[j-v[i]]+1);
     cout << dp[m];
+    return 0;
+}
+```
+## [P1794 装备运输](https://www.luogu.com.cn/problem/P1794) 
+
+多重背包:
+
+ - `dp[i][j]` 表示 i 体积 j 重量下的最大火力。
+ - 转移方程：`dp[i][j] = max(dp[i][j], dp[i-v[k]][j-g[k]] + t[k]);`
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int V, G, N, dp[510][510], v[510], g[510], t[510];
+
+int main() {
+    cin >> V >> G >> N;
+    for (int i = 1; i <= N; ++i)
+        cin >> t[i] >> v[i] >> g[i];
+    for (int k = 1; k <= N; ++k)
+        for (int i = V; i>= v[k]; i--)
+            for (int j = G; j >= g[k]; j--)
+                dp[i][j] = max(dp[i][j], dp[i-v[k]][j-g[k]] + t[k]);
+    cout << dp[V][G];
     return 0;
 }
 ```
