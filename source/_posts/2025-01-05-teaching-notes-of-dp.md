@@ -66,7 +66,9 @@ tags: cspj
 |[P12207 划分](https://www.luogu.com.cn/problem/P12207) |蓝桥杯 2023 国，01 背包的变型 |
 | [P1510 精卫填海](https://www.luogu.com.cn/problem/P1510) | 01 背包，但是输出要求有变化 |
 | [P2430 严酷的训练](https://www.luogu.com.cn/problem/P2430) | 01 背包，题目较长 |
-| [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |完全背包，需要求最小值 | [P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
+| [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |完全背包，需要求最小值 |
+| [P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
+| [P11377 武器购买](https://www.luogu.com.cn/problem/P11377)| GESP202412 七级, 01 背包的变型 |
 
 
 更多的题单：
@@ -1652,6 +1654,54 @@ int main() {
             for (int j = G; j >= g[k]; j--)
                 dp[i][j] = max(dp[i][j], dp[i-v[k]][j-g[k]] + t[k]);
     cout << dp[V][G];
+    return 0;
+}
+```
+
+## [P11377 武器购买](https://www.luogu.com.cn/problem/P11377)
+
+01 背包。用花费来当作背包容量。求在花费为 Q 的情况下，背包的最大强度。
+
+ - `dp[j]` 表示花费为 j 情况下的最大强度
+ - 转移方程：`dp[j] = max(dp[j], dp[j-q[i]]+p[i]);`
+
+求答案的时候，从 dp[1] 开始往后找，看强度大于 P 的情况下最小的下标。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int T, n, P, Q, p[110], q[110], dp[50010], ans;
+
+int main() {
+    ios::sync_with_stdio(0);   
+    cin >> T;
+    while (T--) {
+        memset(dp, 0, sizeof dp);
+        cin >> n >> P >> Q;
+        for (int i = 1; i <=n; ++i) {
+            cin >> p[i] >> q[i];
+        }
+        for (int i = 1; i <= n; ++i) {
+            for (int j = Q; j>=q[i]; j--) {
+                dp[j] = max(dp[j], dp[j-q[i]]+p[i]);
+            }
+        }
+        
+        if (dp[Q] < P) cout << -1 << endl;
+        else {
+        	// 从 dp[1] 开始往后找，看强度大于 P 的情况下最小的下标
+            for (int j = 1; j <= Q; ++j)
+                if (dp[j] >= P) {
+                    ans = j;
+                    break;
+                }
+            cout << ans << endl;
+        }
+    }
     return 0;
 }
 ```
