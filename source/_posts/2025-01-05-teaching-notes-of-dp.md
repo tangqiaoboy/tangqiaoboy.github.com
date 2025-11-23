@@ -69,6 +69,7 @@ tags: cspj
 | [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |完全背包，需要求最小值 |
 | [P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
 | [P11377 武器购买](https://www.luogu.com.cn/problem/P11377)| GESP202412 七级, 01 背包的变型 |
+| [P13018 调味平衡](https://www.luogu.com.cn/problem/P13018) | GESP202506 七级, 01 背包的变型 |
 
 
 更多的题单：
@@ -1702,6 +1703,76 @@ int main() {
             cout << ans << endl;
         }
     }
+    return 0;
+}
+```
+
+## [P13018 调味平衡](https://www.luogu.com.cn/problem/P13018)
+
+01背包
+
+### 第一种解法（空间占用过大）
+
+`dp[i][j][k]` 表示前 i 种食材，达到酸度 j，甜度 k 是否可能。
+
+`dp[i][j][k]` = `dp[i-1][j-a[i]][k-b[i]]` 是否可能。
+
+把 i 这一层简化
+ `dp[j][k] = dp[j - a[i]][k - b[i]]`
+
+初使化：`dp[0][0] = 1`
+
+但是以上的方法时间和空间消耗(500000x500000)太大。
+
+### 正确的解法
+
+考虑到可以把一种食材的酸度和甜度求差，得出酸和甜的差值。
+如果两种食材的差值加起来为零，则刚好酸度=甜度。
+
+这样就可以把 dp 简化。
+
+ - `dp[j]`表示前 i 种食材的酸甜度差值 j 是否存在，如果存在，其值为酸甜度的和。
+ - `dp[j] = dp[j - dif[i]] + a[i] + b[i]`
+
+相当于背包元素的体积变成了差值，价值变成了 `a[i] + b[i]`。
+
+因为 `dif[i]` 有正有负，所以为了保证值不会覆盖，我又恢复成二维的 dp：
+ - `dp[i][j]` 表示前 i 种食物，凑成 j 的酸甜度差的最大和。
+ - `dp[i][j] = max(dp[i-1][j], dp[i-1][j-diff[i]] + value[i])`
+
+因为 j 可能为负值，所以我们把平衡点设置成 50000（可以想像成刚开始差值就是 50000，求最后差值不变）
+这样 j 中间最多从 50000 减成 0（因为每个食材差值最大为 500，最多有 100 个食材），所以不会变成负数。
+
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN int(100*500+10)
+
+int dp[110][MAXN*2];
+int n, a, b, value[110], diff[110];
+
+int main() {
+    ios::sync_with_stdio(0);    
+    cin >> n;
+    for (int i = 1; i <= n; ++i) {
+        cin >> a >> b;
+        value[i] = a + b;
+        diff[i] = a - b;
+    }
+    memset(dp, 0x8f, sizeof dp);
+    dp[0][50000] = 0;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 0; j <= 50000*2; j++) {
+            if (j-diff[i] >= 0) {
+                dp[i][j] = max(dp[i-1][j], dp[i-1][j-diff[i]] + value[i]);    
+            }
+        }
+    }
+    cout << dp[n][50000] << endl;
     return 0;
 }
 ```
