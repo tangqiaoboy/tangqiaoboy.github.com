@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国际象棋 - 人机对战</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>国际象棋 - 人机对战</h1>
+            <div class="game-info">
+                <div class="info-item">
+                    <span>当前玩家: </span>
+                    <span id="current-player">白方</span>
+                </div>
+                <div class="info-item">
+                    <span>游戏状态: </span>
+                    <span id="game-status">进行中</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="board-container">
+                <div id="chessboard" class="chessboard"></div>
+                <div class="captured-pieces">
+                    <div class="captured-white">
+                        <h3>白方被吃棋子</h3>
+                        <div id="captured-white-pieces"></div>
+                    </div>
+                    <div class="captured-black">
+                        <h3>黑方被吃棋子</h3>
+                        <div id="captured-black-pieces"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="control-panel">
+                    <button id="new-game-btn" class="btn btn-primary">新游戏</button>
+                    <button id="undo-btn" class="btn btn-secondary">悔棋</button>
+                    <button id="settings-btn" class="btn btn-secondary">设置</button>
+                </div>
+
+                <div class="move-history">
+                    <h3>走棋历史</h3>
+                    <div id="move-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 设置模态框 -->
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>游戏设置</h2>
+                <div class="settings-group">
+                    <label for="difficulty">AI难度:</label>
+                    <select id="difficulty">
+                        <option value="1">简单 (深度1)</option>
+                        <option value="2" selected>中等 (深度2)</option>
+                        <option value="3">困难 (深度3)</option>
+                        <option value="4">专家 (深度4)</option>
+                    </select>
+                </div>
+                <div class="settings-group">
+                    <label for="board-style">棋盘样式:</label>
+                    <select id="board-style">
+                        <option value="classic" selected>经典</option>
+                        <option value="wood">木质</option>
+                        <option value="marble">大理石</option>
+                        <option value="green">绿色</option>
+                    </select>
+                </div>
+                <div class="settings-group">
+                    <label for="piece-style">棋子样式:</label>
+                    <select id="piece-style">
+                        <option value="classic" selected>经典</option>
+                        <option value="modern">现代</option>
+                        <option value="staunton">斯汤顿</option>
+                    </select>
+                </div>
+                <div class="settings-group">
+                    <label for="player-color">玩家颜色:</label>
+                    <select id="player-color">
+                        <option value="white" selected>白方（先手）</option>
+                        <option value="black">黑方（后手）</option>
+                    </select>
+                </div>
+                <button id="apply-settings" class="btn btn-primary">应用设置</button>
+            </div>
+        </div>
+
+        <!-- 作者信息 -->
+        <footer class="author-info">
+            <p>作者：<a href="https://blog.devtang.com" target="_blank" rel="noopener noreferrer">唐巧</a></p>
+        </footer>
+    </div>
+
+    <script src="chess-engine.js"></script>
+    <script src="ai-engine.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
