@@ -471,6 +471,99 @@ int main() {
 
 待补充
 
+## GESP 202506 5级真题「奖品兑换」题解
+
+### 题目描述
+
+{% img /images/gesp202506-5-1.jpg %}
+
+### 分析
+
+此题首先是不能暴力枚举的，因为 n 和 m 最大情况下是 `10^9`，这个数据规模，暴力枚举肯定会超时。
+
+然后我们可能想到贪心，但实际可落地的贪心的策略总是有特殊情况。
+
+最后，假如我们可以检查一个答案是否可行，我们就可以用二分答案+判定的方法求解。
+
+二分还有一个要求，就是答案是单调递增的。我们可以想像，随着兑换券的递增，如果限定 n 的值不变，那 m 的值肯定是递增的。所以此题符合单调递增的条件。
+
+### 解法
+
+那么，对于一个可能的答案 k，我们怎么检查答案是否可行呢？
+
+ - 我们先把 n 和 m 排序，让 n 是较大者，a 和 b 排序，让 a 是较大者
+ - 对于一份奖品，可以是 `n-a`, `m-b` 来获得，也可以是 `n-b`, `m-a` 来获得，我们让 `d=a-b`
+ - 因为 a 是较大者，所以当更换兑换方式的时候，n 的值从`n-a`变成了`n-b`，相对来说，增加了 d，m 的值减少了 d
+
+所以：
+
+ - 我们可以先用第一个兑换方法，把 k 个奖品换成 `c1=a*k` 张课堂优秀券, `c2=b*k` 张作业优秀券
+ - 如果 `c1 <=n, c2 <= m` 那这个答案 k 显然就是可以的。
+ - 但如果 `c1 > n`，我们可以想到，把超额出来的兑换换成第二个兑换方法
+
+具体如何换呢？
+ - 我们先计算超额的值，为 `c1-n`
+ - 每次兑换可以让这个值少 d，所以需要换 `r=(c1-n)/d (向上取整)` 即 `r=(c1-n+d-1)/d`个
+ - 经过如上的兑换，c1 的值减少了 `d*r`，c2 的值增加了 `d*r`
+
+最后需要注意，因为 `a*k` 的范围可能超过 int，所以需要把计算过程都用 long long 来保存。
+
+### 总结
+
+此题考查了：
+ - 二分+判定的解法
+ - 向上取整的写法
+ - 数据范围的预估
+ - 时间复杂度的预估
+
+这还是非常综合的一道题。对于没想到二分的学生，也可以用贪心或者暴力枚举骗到不少分（估计 10-15 分），所以此题也有相当的区分度，各种能力的学生都可以拿到部分分数。
+
+### 详细代码
+
+```c++
+/*
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+long long n, m, a, b, d, ans;
+
+bool test(long long k) {
+    long long c1 = a*k;
+    long long c2 = b*k;
+    if (c1 > n) {
+        long long r = (c1 - n + d - 1) / d;
+        c1 -= r*d;
+        c2 += r*d;
+    }
+    if (c1 <= n && c2 <=m) return true;
+    else return false;
+}
+
+int main() {
+    ios::sync_with_stdio(0);       
+    cin >> n >> m >> a >> b;
+    if (n < m) swap(n, m);
+    if (a < b) swap(a, b);
+    d = a - b;
+    long long l = 0;
+    long long r = n;
+    while (l <= r) {
+        long long m = (l+r)/2;
+        if (test(m)) {
+            ans = max(ans, m);
+            l = m+1;
+        } else {
+            r = m-1;
+        }
+    }
+    cout << ans << endl;
+    return 0;
+}
+```
+
+
 # GESP 6 级
 
 ## 大题核心考点
@@ -534,11 +627,29 @@ int main() {
 
 ## 大题核心考点
 
+注：名称中的 A 表示第 1 题，B 表示第 2 题。
+
 ### 动态规划
 
 背包：
+ - [P11377 202412-A 七级 武器购买](https://www.luogu.com.cn/problem/P11377)
+ - [P13018 202506-B 七级 调味平衡](https://www.luogu.com.cn/problem/P13018)
 
- - [P13018 202506 七级 调味平衡](https://www.luogu.com.cn/problem/P13018)
+动态规划：
+ - [P10111 202312-B 七级 纸牌游戏](https://www.luogu.com.cn/problem/P10111)
+ - [P11248 202409-A 七级 矩阵移动](https://www.luogu.com.cn/problem/P11248)
 
+### 并查集
 
+ - [P10378 202403-A 七级 交流问题](https://www.luogu.com.cn/problem/P10378)
+
+### 枚举/DFS/BFS
+
+ - [P11964 202503-A 七级 图上移动](https://www.luogu.com.cn/problem/P11964)
+ - [P14077 202509-A 七级 连通图](https://www.luogu.com.cn/problem/P14077)
+ - [P10110 202312-A 七级 商品交易](https://www.luogu.com.cn/problem/P10110)
+
+### 树状数组
+
+ - [P14078 202509-B 七级 金币收集](https://www.luogu.com.cn/problem/P14078)
 
