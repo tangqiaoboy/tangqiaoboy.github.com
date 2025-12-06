@@ -1,0 +1,537 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.game-info {
+    display: flex;
+    gap: 20px;
+}
+
+.info-item {
+    font-size: 16px;
+    color: #666;
+}
+
+.info-item span:last-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.board-container {
+    flex: 1;
+    min-width: 500px;
+}
+
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1;
+    border: 3px solid #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+.square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 0;
+    min-height: 0;
+    min-width: 0;
+}
+
+.square:hover {
+    opacity: 0.8;
+}
+
+.square.selected {
+    background-color: rgba(255, 255, 0, 0.5) !important;
+}
+
+.square.possible-move {
+    position: relative;
+}
+
+.square.possible-move::after {
+    content: '';
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+.square.possible-capture::after {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 3px solid rgba(255, 0, 0, 0.6);
+    border-radius: 0;
+}
+
+.square.possible-castling {
+    position: relative;
+}
+
+.square.possible-castling::after {
+    content: '♔';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5vw;
+    color: rgba(0, 150, 255, 0.8);
+    pointer-events: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* AI上次移动的标记 */
+.square.last-ai-move {
+    background-color: rgba(255, 200, 0, 0.4) !important;
+    border: 2px solid rgba(255, 150, 0, 0.8);
+    box-shadow: inset 0 0 10px rgba(255, 200, 0, 0.5);
+    animation: aiMoveHighlight 0.5s ease-in-out;
+    pointer-events: auto; /* 确保可以点击 */
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes aiMoveHighlight {
+    0% {
+        background-color: rgba(255, 255, 0, 0.8);
+        transform: scale(1.05);
+    }
+    100% {
+        background-color: rgba(255, 200, 0, 0.4);
+        transform: scale(1);
+    }
+}
+
+/* 棋盘样式 - 经典 */
+.chessboard.classic .square:nth-child(16n+1),
+.chessboard.classic .square:nth-child(16n+3),
+.chessboard.classic .square:nth-child(16n+5),
+.chessboard.classic .square:nth-child(16n+7),
+.chessboard.classic .square:nth-child(16n+10),
+.chessboard.classic .square:nth-child(16n+12),
+.chessboard.classic .square:nth-child(16n+14),
+.chessboard.classic .square:nth-child(16n+16) {
+    background-color: #f0d9b5;
+}
+
+.chessboard.classic .square:nth-child(16n+2),
+.chessboard.classic .square:nth-child(16n+4),
+.chessboard.classic .square:nth-child(16n+6),
+.chessboard.classic .square:nth-child(16n+8),
+.chessboard.classic .square:nth-child(16n+9),
+.chessboard.classic .square:nth-child(16n+11),
+.chessboard.classic .square:nth-child(16n+13),
+.chessboard.classic .square:nth-child(16n+15) {
+    background-color: #b58863;
+}
+
+/* 棋盘样式 - 木质 */
+.chessboard.wood .square:nth-child(16n+1),
+.chessboard.wood .square:nth-child(16n+3),
+.chessboard.wood .square:nth-child(16n+5),
+.chessboard.wood .square:nth-child(16n+7),
+.chessboard.wood .square:nth-child(16n+10),
+.chessboard.wood .square:nth-child(16n+12),
+.chessboard.wood .square:nth-child(16n+14),
+.chessboard.wood .square:nth-child(16n+16) {
+    background-color: #d4a574;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px);
+}
+
+.chessboard.wood .square:nth-child(16n+2),
+.chessboard.wood .square:nth-child(16n+4),
+.chessboard.wood .square:nth-child(16n+6),
+.chessboard.wood .square:nth-child(16n+8),
+.chessboard.wood .square:nth-child(16n+9),
+.chessboard.wood .square:nth-child(16n+11),
+.chessboard.wood .square:nth-child(16n+13),
+.chessboard.wood .square:nth-child(16n+15) {
+    background-color: #8b6f47;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px);
+}
+
+/* 棋盘样式 - 大理石 */
+.chessboard.marble .square:nth-child(16n+1),
+.chessboard.marble .square:nth-child(16n+3),
+.chessboard.marble .square:nth-child(16n+5),
+.chessboard.marble .square:nth-child(16n+7),
+.chessboard.marble .square:nth-child(16n+10),
+.chessboard.marble .square:nth-child(16n+12),
+.chessboard.marble .square:nth-child(16n+14),
+.chessboard.marble .square:nth-child(16n+16) {
+    background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+}
+
+.chessboard.marble .square:nth-child(16n+2),
+.chessboard.marble .square:nth-child(16n+4),
+.chessboard.marble .square:nth-child(16n+6),
+.chessboard.marble .square:nth-child(16n+8),
+.chessboard.marble .square:nth-child(16n+9),
+.chessboard.marble .square:nth-child(16n+11),
+.chessboard.marble .square:nth-child(16n+13),
+.chessboard.marble .square:nth-child(16n+15) {
+    background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
+}
+
+/* 棋盘样式 - 绿色 */
+.chessboard.green .square:nth-child(16n+1),
+.chessboard.green .square:nth-child(16n+3),
+.chessboard.green .square:nth-child(16n+5),
+.chessboard.green .square:nth-child(16n+7),
+.chessboard.green .square:nth-child(16n+10),
+.chessboard.green .square:nth-child(16n+12),
+.chessboard.green .square:nth-child(16n+14),
+.chessboard.green .square:nth-child(16n+16) {
+    background-color: #eeeed2;
+}
+
+.chessboard.green .square:nth-child(16n+2),
+.chessboard.green .square:nth-child(16n+4),
+.chessboard.green .square:nth-child(16n+6),
+.chessboard.green .square:nth-child(16n+8),
+.chessboard.green .square:nth-child(16n+9),
+.chessboard.green .square:nth-child(16n+11),
+.chessboard.green .square:nth-child(16n+13),
+.chessboard.green .square:nth-child(16n+15) {
+    background-color: #769656;
+}
+
+.piece {
+    font-size: 3.5vw;
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    pointer-events: none; /* 让点击事件穿透到格子 */
+}
+
+.piece:hover {
+    transform: scale(1.1);
+}
+
+.piece.dragging {
+    opacity: 0.5;
+    z-index: 100;
+}
+
+/* 棋子样式 - 经典 */
+.piece.classic {
+    font-family: 'Times New Roman', serif;
+}
+
+/* 棋子样式 - 现代 */
+.piece.modern {
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+}
+
+/* 棋子样式 - 斯汤顿 */
+.piece.staunton {
+    font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+.captured-pieces {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.captured-white,
+.captured-black {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 200px;
+}
+
+.captured-white h3,
+.captured-black h3 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 14px;
+}
+
+#captured-white-pieces,
+#captured-black-pieces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 24px;
+}
+
+.sidebar {
+    flex: 0 0 300px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.control-panel {
+    margin-bottom: 20px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.move-history {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.move-history h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#move-list {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+}
+
+.move-item {
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.move-item:nth-child(even) {
+    background: #f8f9fa;
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slideDown 0.3s;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.settings-group {
+    margin-bottom: 20px;
+}
+
+.settings-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.settings-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    cursor: pointer;
+}
+
+.settings-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* 坐标标记 */
+.coordinate {
+    position: absolute;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.coordinate.file {
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.coordinate.rank {
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+}
+
+/* 作者信息 */
+.author-info {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.author-info p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.author-info a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.author-info a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        flex: 1;
+    }
+    
+    .chessboard {
+        max-width: 100%;
+    }
+    
+    .piece {
+        font-size: 5vw;
+    }
+    
+    .author-info {
+        margin-top: 20px;
+        padding: 10px;
+    }
+    
+    .author-info p {
+        font-size: 12px;
+    }
+}
+
