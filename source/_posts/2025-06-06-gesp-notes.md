@@ -92,6 +92,8 @@ int main() {
  - 模仿 [画三角形](https://www.luogu.com.cn/problem/B3837)，输出 左对齐、右对齐的正三角形，倒三角形
  - 模仿 [等差矩阵](https://www.luogu.com.cn/problem/B4259)，输出求和的矩阵，输出只有偶数的等差矩阵（奇数位填 `*`）
  - 画简单的蛇形：[B4432 语言月赛 202511 基米起床](https://www.luogu.com.cn/problem/B4432)
+ - [B3898 NICA 彩灯装饰](https://www.luogu.com.cn/problem/B3898)
+
 
 有一些时候，双重循环也不一定以输出图案的方式来进行考查，比如题目 [B4356 202506 二级 数三角形](https://www.luogu.com.cn/problem/B4356) 就是一个案例，参考代码如下：
 
