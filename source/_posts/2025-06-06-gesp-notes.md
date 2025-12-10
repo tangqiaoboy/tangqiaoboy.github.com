@@ -651,11 +651,14 @@ int main() {
 
  - [P10378 202403-A 七级 交流问题](https://www.luogu.com.cn/problem/P10378)
 
-### 枚举/DFS/BFS
+### 枚举/DFS/BFS（在树或者图上）
 
+ - [P10110 202312-A 七级 商品交易](https://www.luogu.com.cn/problem/P10110)
+ - [P10379 202403-B 七级 俄罗斯方块](https://www.luogu.com.cn/problem/P10379)
+ - [P11249 202409-B 七级 小杨寻宝](https://www.luogu.com.cn/problem/P11249)
+ - [P11378 202412-B 七级 燃烧](https://www.luogu.com.cn/problem/P11378)
  - [P11964 202503-A 七级 图上移动](https://www.luogu.com.cn/problem/P11964)
  - [P14077 202509-A 七级 连通图](https://www.luogu.com.cn/problem/P14077)
- - [P10110 202312-A 七级 商品交易](https://www.luogu.com.cn/problem/P10110)
 
 ### 树状数组
 
