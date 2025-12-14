@@ -246,6 +246,8 @@ int count(int a, int k) {
  - [B2152 分离整数的各个数](https://www.luogu.com.cn/problem/B2152)
  - [B2154 数 1 的个数](https://www.luogu.com.cn/problem/B2154)
  - [B4419 语言月赛 202510 超级整数](https://www.luogu.com.cn/problem/B4419)
+ - [B4316 语言月赛 202504 整除判断](https://www.luogu.com.cn/problem/B4316)
+ - [B4271 蓝桥杯青少年组省赛 2023 四叶玫瑰数](https://www.luogu.com.cn/problem/B4271)
 
 
 # GESP 3 级
