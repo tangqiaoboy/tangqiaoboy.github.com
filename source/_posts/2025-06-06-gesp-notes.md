@@ -248,6 +248,8 @@ int count(int a, int k) {
  - [B4419 语言月赛 202510 超级整数](https://www.luogu.com.cn/problem/B4419)
  - [B4316 语言月赛 202504 整除判断](https://www.luogu.com.cn/problem/B4316)
  - [B4271 蓝桥杯青少年组省赛 2023 四叶玫瑰数](https://www.luogu.com.cn/problem/B4271)
+ - [B4344 语言月赛 202506 数字转转转](https://www.luogu.com.cn/problem/B4344)
+
 
 
 # GESP 3 级
@@ -632,6 +634,7 @@ int main() {
  - [P2430 严酷的训练](https://www.luogu.com.cn/problem/P2430)
  - [P1802 5 倍经验日](https://www.luogu.com.cn/problem/P1802)
  - [P1757 通天之分组背包](https://www.luogu.com.cn/problem/P1757)
+ - [P2563 AHOI2001 质数和分解](https://www.luogu.com.cn/problem/P2563)
 
 # GESP 7 级
 

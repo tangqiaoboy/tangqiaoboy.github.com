@@ -70,7 +70,7 @@ tags: cspj
 | [P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
 | [P11377 武器购买](https://www.luogu.com.cn/problem/P11377)| GESP202412 七级, 01 背包的变型 |
 | [P13018 调味平衡](https://www.luogu.com.cn/problem/P13018) | GESP202506 七级, 01 背包的变型 |
-
+| [P2563 AHOI2001 质数和分解](https://www.luogu.com.cn/problem/P2563) | 完全背包变型，计数 |
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
