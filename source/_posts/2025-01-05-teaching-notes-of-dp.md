@@ -68,6 +68,7 @@ tags: cspj
 | [P2430 严酷的训练](https://www.luogu.com.cn/problem/P2430) | 01 背包，题目较长 |
 | [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |完全背包，需要求最小值 |
 | [P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
+| [P1910 L 国的战斗之间谍](https://www.luogu.com.cn/problem/P1910) | 多重背包 |
 | [P11377 武器购买](https://www.luogu.com.cn/problem/P11377)| GESP202412 七级, 01 背包的变型 |
 | [P13018 调味平衡](https://www.luogu.com.cn/problem/P13018) | GESP202506 七级, 01 背包的变型 |
 | [P2563 AHOI2001 质数和分解](https://www.luogu.com.cn/problem/P2563) | 完全背包变型，计数 |
@@ -1655,6 +1656,40 @@ int main() {
             for (int j = G; j >= g[k]; j--)
                 dp[i][j] = max(dp[i][j], dp[i-v[k]][j-g[k]] + t[k]);
     cout << dp[V][G];
+    return 0;
+}
+```
+
+## [P1910 L 国的战斗之间谍](https://www.luogu.com.cn/problem/P1910)
+
+多重背包（同时限制了能力和工资的情况下，求间谍的最大能力和）
+
+ - 状态定义：`dp[j][k]` 表示能力和为 j，工资和为 k 的情况下，间谍能够提供的最大的能力
+ - 转移方程：`dp[j][k] = max(dp[j][k], dp[j-b[i]][k-c[i]] + a[i])`
+
+另外，因为是 01 背包需要倒着 for。
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp[1100][1100], n, m, x, a[110], b[110], c[110];
+
+int main() {
+    ios::sync_with_stdio(0);       
+    cin >> n >> m >> x;
+    for (int i = 1; i <=n; ++i)
+        cin >> a[i] >> b[i] >> c[i];
+
+    for (int i = 1; i <= n; ++i)
+        for (int j = m; j >= b[i]; j--)
+            for (int k = x; k>= c[i]; k--)
+                dp[j][k] = max(dp[j][k], dp[j-b[i]][k-c[i]] + a[i]);
+
+    cout << dp[m][x];
     return 0;
 }
 ```
