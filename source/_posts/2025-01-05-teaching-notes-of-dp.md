@@ -69,6 +69,7 @@ tags: cspj
 | [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |完全背包，需要求最小值 |
 | [P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
 | [P1910 L 国的战斗之间谍](https://www.luogu.com.cn/problem/P1910) | 多重背包 |
+| [P1855 榨取kkksc03](https://www.luogu.com.cn/problem/P1855) | 多重背包 |
 | [P11377 武器购买](https://www.luogu.com.cn/problem/P11377)| GESP202412 七级, 01 背包的变型 |
 | [P13018 调味平衡](https://www.luogu.com.cn/problem/P13018) | GESP202506 七级, 01 背包的变型 |
 | [P2563 AHOI2001 质数和分解](https://www.luogu.com.cn/problem/P2563) | 完全背包变型，计数 |
@@ -1693,6 +1694,39 @@ int main() {
     return 0;
 }
 ```
+
+## [P1855 榨取kkksc03](https://www.luogu.com.cn/problem/P1855)
+
+多重背包：
+ - 状态定义：`dp[j][k]` 表示金钱为 j，时间为k 的情况下，最多满足的愿望数。
+ - 转移方程：`dp[j][k] = max(dp[j][k], dp[j-m[i]][k-t[i]] + 1)`
+ - 因为是 01 背包需要倒着 for
+
+```c++
+/**
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, M, T, m[110], t[110], dp[210][210];
+
+int main() {
+    ios::sync_with_stdio(0);       
+    cin >> n >> M >> T;
+    for (int i = 1; i <= n; ++i)
+        cin >> m[i] >> t[i];
+    // dp
+    for (int i = 1; i <= n; ++i)
+        for (int j = M; j>=m[i]; --j)
+            for (int k = T; k>=t[i]; --k)
+                dp[j][k] = max(dp[j][k], dp[j-m[i]][k-t[i]] + 1);
+
+    cout << dp[M][T];
+    return 0;
+}
+```
+
 
 ## [P11377 武器购买](https://www.luogu.com.cn/problem/P11377)
 
