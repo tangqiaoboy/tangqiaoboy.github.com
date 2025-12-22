@@ -37,13 +37,10 @@ tags: cspj
 | [P1216 数字三角形](https://www.luogu.com.cn/problem/P1216)| 基础 DP，记忆化搜索 【经典 DP】 |
 |[P2840 纸币问题 2](https://www.luogu.com.cn/problem/P2840) |基础 DP |
 |[P2834 纸币问题 3](https://www.luogu.com.cn/problem/P2834)|基础 DP，有多处可优化的点 |
-|[P1048 采药](https://www.luogu.com.cn/problem/P1048) | NOIP2005 普及组第三题。01 背包问题。【经典 DP】 |
-|[P1616 疯狂的采药](https://www.luogu.com.cn/problem/P1616) |完全背包问题。【经典 DP】 |
 |[P2196 挖地雷](https://www.luogu.com.cn/problem/P2196) |NOIP1996 提高组第三题。涉及输出路径技巧。 |
 |[P1434 滑雪](https://www.luogu.com.cn/problem/P1434) | 上海市省队选拔 2002。可以用记忆化搜索，也可以拓扑排序后 DP |
 |[P1115 最大子段和](https://www.luogu.com.cn/problem/P1115) | 最大子段和。【经典 DP】|
-|[P1507 NASA的食物计划](https://www.luogu.com.cn/problem/P1507)| 多重背包 |
-|[P1757 通天之分组背包](https://www.luogu.com.cn/problem/P1757) | 分组背包 |
+
 
 
 适合的作业：
@@ -52,27 +49,50 @@ tags: cspj
 | ----------- | ----------- |
 |[P4017 最大食物链计数](https://www.luogu.com.cn/problem/P4017)| 记忆化搜索|
 |[P2871 Charm Bracelet S](https://www.luogu.com.cn/problem/P2871)| USACO 07 DEC，01 背包 |
-|[P1802 5 倍经验日](https://www.luogu.com.cn/problem/P1802) | 01 背包|
 |[P1002 过河卒](https://www.luogu.com.cn/problem/P1002) | NOIP2002 普及组，记忆化搜索 |
-|[P1049 装箱问题](https://www.luogu.com.cn/problem/P1049) |NOIP2001 普及组，01 背包 |
-| [P1064 金明的预算方案](https://www.luogu.com.cn/problem/P1064)| 01 背包变型，NOIP2006 提高组第二题 |
 |[P1077 摆花](https://www.luogu.com.cn/problem/P1077) | NOIP2012 普及组|
 |[P1164 小A点菜](https://www.luogu.com.cn/problem/P1164) |与摆花一题类似 |
+
+
+
+## 背包问题
+
+推荐教学：
+
+| 题目名      | 说明 |
+| ----------- | ----------- |
+|[P1048 采药](https://www.luogu.com.cn/problem/P1048) | 01 背包问题。NOIP2005 普及组第三题|
+|[P1616 疯狂的采药](https://www.luogu.com.cn/problem/P1616) | 完全背包问题|
+|[P2563 AHOI2001 质数和分解](https://www.luogu.com.cn/problem/P2563) | 完全背包变型，计数 |
+|[P1507 NASA的食物计划](https://www.luogu.com.cn/problem/P1507)| 多重背包 |
+|[P1757 通天之分组背包](https://www.luogu.com.cn/problem/P1757) | 分组背包 |
+
+推荐练习：
+
+| 题目名      | 说明 |
+| ----------- | ----------- |
+|[P1802 5 倍经验日](https://www.luogu.com.cn/problem/P1802) | 01 背包|
+|[P1060 开心的金明](https://www.luogu.com.cn/problem/P1060) |  01 背包，NOIP 2006 普及组第二题 |
+|[P1049 装箱问题](https://www.luogu.com.cn/problem/P1049) | 01 背包，NOIP2001 普及组 |
+|[P1064 金明的预算方案](https://www.luogu.com.cn/problem/P1064)| 01 背包变型，NOIP2006 提高组第二题 |
 |[P2392 考前临时抱佛脚](https://www.luogu.com.cn/problem/P2392)| 01 背包变型 |
-| [B3873 小杨买饮料](https://www.luogu.com.cn/problem/B3873) | 01 背包变型, GESP202309 六级|
-| [P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 完全背包，GESP 202506 六级 |
-| [P10721 计算得分](https://www.luogu.com.cn/problem/P10721) |背包问题变种，GESP 202406 六级 |
-| [P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)| USACO08NOV, 求最小值的完全背包 |
-|[P12207 划分](https://www.luogu.com.cn/problem/P12207) |蓝桥杯 2023 国，01 背包的变型 |
-| [P1510 精卫填海](https://www.luogu.com.cn/problem/P1510) | 01 背包，但是输出要求有变化 |
-| [P2430 严酷的训练](https://www.luogu.com.cn/problem/P2430) | 01 背包，题目较长 |
-| [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |完全背包，需要求最小值 |
-| [P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
-| [P1910 L 国的战斗之间谍](https://www.luogu.com.cn/problem/P1910) | 多重背包 |
-| [P1855 榨取kkksc03](https://www.luogu.com.cn/problem/P1855) | 多重背包 |
-| [P11377 武器购买](https://www.luogu.com.cn/problem/P11377)| GESP202412 七级, 01 背包的变型 |
-| [P13018 调味平衡](https://www.luogu.com.cn/problem/P13018) | GESP202506 七级, 01 背包的变型 |
-| [P2563 AHOI2001 质数和分解](https://www.luogu.com.cn/problem/P2563) | 完全背包变型，计数 |
+|[P2639 Bessie's Weight Problem G](https://www.luogu.com.cn/problem/P2639)| 01 背包变型，容量与价值相同 |
+|[B3873 小杨买饮料](https://www.luogu.com.cn/problem/B3873) | 01 背包变型, GESP202309 六级|
+|[P12207 划分](https://www.luogu.com.cn/problem/P12207) |01 背包的变型，蓝桥杯 2023 国 |
+|[P1510 精卫填海](https://www.luogu.com.cn/problem/P1510) | 01 背包，但是输出要求有变化 |
+|[P2430 严酷的训练](https://www.luogu.com.cn/problem/P2430) | 01 背包，题目较长 |
+|[P11377 武器购买](https://www.luogu.com.cn/problem/P11377)| 01 背包的变型，GESP202412 七级  |
+|[P13018 调味平衡](https://www.luogu.com.cn/problem/P13018) | 01 背包的变型，GESP202506 七级 |
+|[P1926 小书童——刷题大军](https://www.luogu.com.cn/problem/P1926) | 01 背包，需拆成两个子问题 |
+|[P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 完全背包，GESP 202506 六级 |
+|[P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |完全背包，需要求最小值 |
+|[P1832 A+B Problem](https://www.luogu.com.cn/problem/P1832) | 完全背包变型，计数 |
+|[P10721 计算得分](https://www.luogu.com.cn/problem/P10721) |背包问题变种，GESP 202406 六级 |
+|[P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)| USACO08NOV, 求最小值的完全背包 |
+|[P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
+|[P1910 L 国的战斗之间谍](https://www.luogu.com.cn/problem/P1910) | 多重背包 |
+|[P1855 榨取kkksc03](https://www.luogu.com.cn/problem/P1855) | 多重背包 |
+
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
