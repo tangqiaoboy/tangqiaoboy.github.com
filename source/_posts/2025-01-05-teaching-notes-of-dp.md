@@ -92,7 +92,7 @@ tags: cspj
 |[P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
 |[P1910 L 国的战斗之间谍](https://www.luogu.com.cn/problem/P1910) | 多重背包 |
 |[P1855 榨取kkksc03](https://www.luogu.com.cn/problem/P1855) | 多重背包 |
-
+|[P2663 越越的组队](https://www.luogu.com.cn/problem/P2663) | 非多重背包的 DP |
 
 更多的题单：
  - [背包精选](https://www.luogu.com.cn/training/231055)
@@ -1862,6 +1862,102 @@ int main() {
         }
     }
     cout << dp[n][50000] << endl;
+    return 0;
+}
+```
+
+## [P2663 越越的组队](https://www.luogu.com.cn/problem/P2663)
+
+【错误的做法】
+
+ - 01 背包。双重背包，同时限制了人数为一半，以及成绩不超过 tot/2。
+ - dp[j][k] 表示人数为 j，容量为 k 情况下最高的分数。
+ - 转移方程：`dp[j][k] = max(dp[j][k], dp[j-1][k-a[i]] + a[i]);`
+
+以上代码有问题。因为双重背包并没有限制人数刚好是 n/2，为了分数最优，可能 dp的人数不是 n/2。
+
+【正确的做法】
+
+动态规划，dp[i][j][k] 表示从前 i 名同学中，选出 j 个人，得到分数为 k 是否有解。
+
+刚开始 dp[0][0] = 1
+
+转移方程：`dp[i][j][k] = dp[i-1][j][k] || dp[i-1][j-1][k-a[i]]`
+
+注意：
+ - j 和 k 的下标都要判断一下，不能越界。
+
+参考代码：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, a[110], tot;
+char dp[110][110][5010];
+bool debug = false;
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin >> n;
+    for (int i = 1; i <= n; ++i) {
+        cin >> a[i];
+        tot += a[i];
+    }
+
+    dp[0][0][0] = true;
+    
+    for (int i = 1; i <= n; ++i)
+        for (int j = 0; j <= i; ++j)
+            for (int k = tot/2; k>=0; k--) {
+                dp[i][j][k] = dp[i-1][j][k];
+                if (k-a[i]>=0 && j >= 1) 
+                    dp[i][j][k] |= dp[i-1][j-1][k-a[i]];
+                if (debug) {
+                    printf("update dp[%d][%d][%d]=%d\n", i, j, k, dp[i][j][k]);
+                }
+            }
+    
+    if (debug) {
+        for (int i = 0; i <= n; ++i)
+            for (int j = 0; j <= i; ++j)
+                for (int k = 0; k <= tot/2; ++k)
+                    printf("dp[%d][%d][%d] = %d\n", i, j, k, dp[i][j][k]);
+    }
+    
+    tot /= 2;
+    while (dp[n][n/2][tot] == false) tot--;
+    cout << tot << endl;    
+    return 0;
+}
+```
+
+以上代码可以压缩成：
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int n, a[110], tot;
+char dp[110][5010];
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin >> n;
+    for (int i = 1; i <= n; ++i) {
+        cin >> a[i];
+        tot += a[i];
+    }
+
+    dp[0][0] = 1;
+    for (int i = 1; i <= n; ++i)
+        for (int j = n; j >= 1; j--)
+            for (int k = tot/2; k>=a[i]; k--)
+                dp[j][k] |= dp[j-1][k-a[i]];
+    
+    tot /= 2;
+    while (dp[n/2][tot] == false) tot--;
+    cout << tot << endl;    
     return 0;
 }
 ```
