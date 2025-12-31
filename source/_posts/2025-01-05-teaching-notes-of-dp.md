@@ -42,17 +42,20 @@ tags: cspj
 |[P1115 最大子段和](https://www.luogu.com.cn/problem/P1115) | 最大子段和。【经典 DP】|
 
 
+最长上升子序列：
+
+ - [P1091 合唱队形](https://www.luogu.com.cn/problem/P1091)
+
 
 适合的作业：
 
 | 题目名      | 说明 |
 | ----------- | ----------- |
 |[P4017 最大食物链计数](https://www.luogu.com.cn/problem/P4017)| 记忆化搜索|
-|[P2871 Charm Bracelet S](https://www.luogu.com.cn/problem/P2871)| USACO 07 DEC，01 背包 |
 |[P1002 过河卒](https://www.luogu.com.cn/problem/P1002) | NOIP2002 普及组，记忆化搜索 |
 |[P1077 摆花](https://www.luogu.com.cn/problem/P1077) | NOIP2012 普及组|
 |[P1164 小A点菜](https://www.luogu.com.cn/problem/P1164) |与摆花一题类似 |
-
+|[P1130 红牌](https://www.luogu.com.cn/problem/P1130) | 基础 dp，在二维数组上做状态转移 |
 
 
 ## 背包问题
@@ -71,6 +74,7 @@ tags: cspj
 
 | 题目名      | 说明 |
 | ----------- | ----------- |
+|[P2871 Charm Bracelet S](https://www.luogu.com.cn/problem/P2871)| 01 背包, USACO 07 DEC |
 |[P1802 5 倍经验日](https://www.luogu.com.cn/problem/P1802) | 01 背包|
 |[P1060 开心的金明](https://www.luogu.com.cn/problem/P1060) |  01 背包，NOIP 2006 普及组第二题 |
 |[P1049 装箱问题](https://www.luogu.com.cn/problem/P1049) | 01 背包，NOIP2001 普及组 |
