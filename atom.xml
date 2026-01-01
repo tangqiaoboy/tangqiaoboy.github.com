@@ -6,7 +6,7 @@
   <link href="https://blog.devtang.com/atom.xml" rel="self"/>
   
   <link href="https://blog.devtang.com/"/>
-  <updated>2025-12-28T10:24:13.838Z</updated>
+  <updated>2026-01-01T15:51:57.033Z</updated>
   <id>https://blog.devtang.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025 年个人总结</title>
+    <link href="https://blog.devtang.com/2026/01/01/2025-summary/"/>
+    <id>https://blog.devtang.com/2026/01/01/2025-summary/</id>
+    <published>2026-01-01T04:02:56.000Z</published>
+    <updated>2026-01-01T15:51:57.033Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><p>2025 年是艰难的一年，上半年玩教具业务同比下滑，下半年尝试了一些营销推广，业务量有所稳定，但是赢亏承压。最后一年下来，虽然没亏钱，但是也没挣到钱。好在团队在持续成长，每个岗位的人都比去年有了长足的进步和成长。</p><p>2025 年也立项了好几个新项目，这些项目会陆续在 2026 年上线。前面的播种会积累到 2026 年的收获，所以未来怎么样，还是挺值得期待的。</p><h2 id="读书"><a href="#读书" class="headerlink" title="读书"></a>读书</h2><p>25 年一共读了 8 本书，以下是读书笔记：</p><ul><li><a href="/2025/02/23/unconventional-success-book-summary/">个人投资的最佳实践 - 读《不落俗套的成功》</a></li><li><a href="/2025/03/08/read-demonds-book-summary/">读《真需求》</a></li><li><a href="/2025/09/17/how-to-trade-in-stocks-book-summary/">投机与趋势投资 - 读《股票大作手操盘术》</a></li><li><a href="/2025/10/06/the-rose-of-time-book-summary/">但斌投资札记-读《时间的玫瑰》</a></li><li><a href="/2025/10/06/the-illustrated-deepseek-book-summary/">理解大语言模型 - 读《图解 DeepSeek 技术》</a></li><li><a href="/2025/10/21/mcp-introduction/">理解 MCP -读《这就是 MCP》</a></li><li><a href="/2025/12/11/marketing-change/">和媒体共赢 - 读《广告的没落，公关的崛起》</a></li><li><a href="/2025/12/28/crazy-acid-book-summary/">读《疯狂的尿酸》</a></li></ul><p>其中 <a href="/2025/02/23/unconventional-success-book-summary/">《不落俗套的成功》</a> 和 <a href="/2025/12/11/marketing-change/">《广告的没落，公关的崛起》</a> 是我今年最喜欢的两本书，一本书指导我开始更多关注配置，另一本书指导我如何做品牌。</p><p>25 年还开始订阅了纸质版本的《三联生活周刊》，加上雪球 App 每个月给我寄月刊。所以整个 2025 年的阅读量还是不小的。</p><h2 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h2><p>今年思考人生，总结了 4 篇文章：</p><ul><li><a href="/2025/06/22/build-your-own-dopamine-system/">构建你的“多巴胺”系统</a></li><li><a href="/2025/07/30/truth-does-not-matter/">真相不重要</a></li><li><a href="/2025/08/31/pay-your-information/">请为信息付费</a></li><li><a href="/2025/09/04/understand-insurance/">我理解的保险产品</a></li></ul><p>其中“多巴胺”系统那篇我自认为对我自己帮助最大，有效指导了我如何择友，如何工作，如何培养兴趣。</p><p>保险那篇文章，也让我理清了保险产品的购买思路，不再纠结要不要买保险，怎么买保险。</p><h2 id="编程教学"><a href="#编程教学" class="headerlink" title="编程教学"></a>编程教学</h2><p>今年继续在教小朋友编程，关于编程竞赛，今年又总结了如下文章：</p><ul><li><a href="/2025/01/05/cspj-notes-of-greedy-algorithm/">CSPJ 教学思考：贪心算法</a></li><li><a href="/2025/01/05/teaching-notes-of-dp/">CSPJ 教学思考：动态规划</a></li><li><a href="/2025/01/25/teaching-notes-of-binary-search/">CSPJ 教学思考：二分查找</a></li><li><a href="/2025/02/09/teaching-notes-of-union-query-set/">CSPJ 教学思考：并查集</a></li><li><a href="/2025/03/29/teaching-notes-of-simulation/">CSPJ 教学思考：模拟</a></li><li><a href="/2025/04/06/teaching-notes-of-brute-force/">CSPJ 教学思考：枚举</a></li><li><a href="/2025/04/12/cspj-notes-of-math-problems/">CSPJ 教学思考：数学题</a></li><li><a href="/2025/04/12/cspj-notes-of-stl/">CSPJ 教学总结：STL</a></li><li><a href="/2025/04/13/teaching-notes-of-dfs/">CSPJ 教学总结：深度优先搜索（DFS）</a></li><li><a href="/2025/04/26/teaching-notes-of-bit/">CSPJ 教学总结：树状数组</a></li><li><a href="/2025/06/06/gesp-notes/">GESP 核心考点</a></li></ul><p>加上去年写的三篇，内容越来越丰富了：</p><ul><li><a href="/2024/09/17/cspj-introduction/">五分钟弄懂 CSP-J</a></li><li><a href="/2024/11/07/teach-notes-of-for-loop/">CSPJ 教学思考：for 循环</a></li><li><a href="/2024/12/15/bfs-teaching-notes/">CSPJ 教学思考：宽度优先搜索</a></li></ul><h2 id="财务"><a href="#财务" class="headerlink" title="财务"></a>财务</h2><p>2025 是财务收获的一年。</p><ul><li>首先是年初公司允许大家出让期权，于是我卖了一些期权，补充了一些现金流。</li><li>2025 年初赶个 Deepseek 横空出世，整个港股大涨，我刚好又在那个时候有一些港币，配置了一些港股资产，于是买中了恒生高股息率，比亚迪，工商银行等股票，原来持有的腾讯也大涨。</li><li>A 股这边，之前配置的建平从亏损变成浮盈；之前配置的 500 指数增强产品一下子也有 40% 的涨幅。</li><li>美股也不用说，标普和纳指继续涨，考虑到已经浮盈很多，我在 12 月将仓位全部清空了。</li><li>2025 年一直在定投黄金，最后也成功在一个相对低位（均价 700 多）配置了一定比例的黄金，现在也有 20% 的涨幅。</li></ul><p>当然，2025 年配置的新能源组合也亏很多，特别是理想汽车，有 -30% 多的亏损。</p><p>更详细的业绩总结如下：</p><ul><li>港股：<ul><li>腾讯（00700），成本 374，现价 599，+60%</li><li>恒生高股息率（03110）<ul><li>第一笔：成本 23，现价 30，+30%</li><li>第二笔：成本 31，现价 30，-2%</li></ul></li><li>工商银行，买入 5.4，卖出 6.07，含分红赢利约 15%</li><li>新能源组合：<ul><li>理想汽车，-30%</li><li>小鹏汽车，-4%</li><li>小米，1%</li><li>比亚迪，7%</li></ul></li></ul></li><li>美股：<ul><li>标普和纳指均清仓，整体收益约 10%</li></ul></li><li>私募<ul><li>500 指增，+44%</li><li>建平远航，+72%</li></ul></li><li>A 股<ul><li>招商银行，+11%</li><li>红利 ETF 组合，+2%</li><li>恒生科技 ETF，-6%</li></ul></li><li>黄金：<ul><li>成本 795，现价 1071，+34%</li></ul></li></ul><h2 id="尝鲜"><a href="#尝鲜" class="headerlink" title="尝鲜"></a>尝鲜</h2><h3 id="24-小时血糖仪"><a href="#24-小时血糖仪" class="headerlink" title="24 小时血糖仪"></a>24 小时血糖仪</h3><p>今年戴了两次 24 小时的血糖仪，每次佩戴 14 天。我整体感觉很受用，它可以监测到不同食物和运动对血糖的影响。</p><p>然后我理解了两个事情：</p><ul><li>一个是我之前饭后犯困，我大概也猜到是晕碳，现在戴上之后明显就能确认是这个原因。而且我尝试调整饮食之后，因为血糖上升慢，就不犯困了。</li><li>第二就是理解了饭后散步和遛弯为什么重要，对比饭后坐着和散步的血糖走势，我一下子就发现散步对降血糖的意义了。所以饭后走个 10 来分钟其实对身体的帮助是很大的。</li></ul><p>另外这东西还有一个好处，就是会促进我轻度运动。我现在天气好的时候会尽量骑车上下班，因为这样我的血糖走势会很漂亮。</p><p>另外，我对比不同时段吃同样的水果对血糖的影响，明显餐后的影响更小，如下图：</p><img src="/images/xietang.jpg" class=""><p>我也总结了一些吃饭顺序的经验：</p><ul><li>同样吃一颗橙子，餐前和餐后血糖上升速度和峰值差异很大。优先餐后吃水果，不要空腹吃。</li><li>同样是吃饭，先吃蔬菜和后吃蔬菜升血糖速度也差别很大。先吃蔬菜，最后吃碳水。</li><li>面食对血糖的提升是迅速的，少吃为妙。</li></ul><h3 id="3D打印和建模"><a href="#3D打印和建模" class="headerlink" title="3D打印和建模"></a>3D打印和建模</h3><p>公司因为需要，采购了拓竹的 3D 打印机，于是我有一段时间就很痴迷它。拓竹真的是国货之光，把原来只能极客使用的 3D 打印机做成了可以普及的消费品的品质，一些配平等复杂设置都不需要人工介入，机器自动就能完成。</p><p>我顺便还在<a href="https://www.tinkercad.com/dashboard">Tinkercad</a> 上学习了建模，然后利用自己学到的建模知识，帮老婆做了一个定制款的精油瓶。它主要可以完美适配我们家的桌面，并且做得很紧凑，可以放更多的瓶子。最后我买了一种松木质感的耗材，这样放在桌子上也很搭。</p><p>以下是设计稿截图：</p><img src="/images/2025-anniversary-2.jpg" class=""><p>以下是效果：</p><img src="/images/tinkercad-1.jpg" class=""><h3 id="骑车"><a href="#骑车" class="headerlink" title="骑车"></a>骑车</h3><p>今年狠狠地试了一下骑行，但是没有花钱买装备。一方面是因为我的运动量不大，频率不高；另一方面也是希望想骑的时候可以随时骑，想放弃的时候就可以放弃，没有任何压力，共享单车月卡在这方面还是挺方便的。</p><p>最狠的一次，我花了周末一个下午绕三环骑了一圈（下图，一共 50 公里）。不过冬天骑行的体验不佳，已经断了有一个月了，希望天气暖和之后可以继续骑起来。</p><img src="/images/2025-anniversary-4.jpg" width="300px" /><h2 id="旅行"><a href="#旅行" class="headerlink" title="旅行"></a>旅行</h2><h3 id="新疆"><a href="#新疆" class="headerlink" title="新疆"></a>新疆</h3><p>五一去了新疆，很值得去的一个地方。我们租了一辆理想 L8，驰骋在满是风力发电站的草原上，感觉非常放松。</p><img src="/images/2025-anniversary-5.jpg" class=""><h3 id="希腊"><a href="#希腊" class="headerlink" title="希腊"></a>希腊</h3><p>暑假去了希腊。</p><ul><li>欧洲的衰败让人感叹时代和周期的变化，当地有很多没人住的空置房（下图：我们下榻酒店附近的一处空置房）。<img src="/images/2025-anniversary-3.jpg" class=""></li><li>猫咪在希腊很受人待见，大街和公园上有很多猫咪。<img src="/images/2025-anniversary.jpg" class=""></li><li>在希腊吃了几天各种西餐之后，最后父母还是忍不住选择中餐，结果我们就把希腊的中餐馆吃了个遍。希腊的物价在欧洲相对低，一个菜大概 80 元人民币左右。</li><li>在希腊我也租了一辆车，是一辆 9 座的现代混动 Staria MPV，也非常好开。我们还乘坐渡轮（下图）把车运到了扎金索斯岛，在岛上放松了好几天。<img src="/images/2025-anniversary-6.jpg" class=""></li></ul><h3 id="沈阳"><a href="#沈阳" class="headerlink" title="沈阳"></a>沈阳</h3><p>十一去了沈阳，就一个感受，物价实在太低太低，锅包肉大概 20 多块钱。租了一辆比亚迪的宋 Pro 混动，油耗特别低，每百公里油耗大概只有 4L。下图是我实际驾驶的数据，因为这辆车只能慢充，所以我一直在亏电情况下行驶，并没有充过电。</p><img src="/images/2025-anniversary-7.jpg" class=""><p>这也让我明白了比亚迪为什么出海那么厉害，这么低的油耗在能源较贵的欧洲，其实很有市场。</p><h2 id="25-年的目标回顾"><a href="#25-年的目标回顾" class="headerlink" title="25 年的目标回顾"></a>25 年的目标回顾</h2><ul><li>工作：硬件稳中有增，图书赢亏打正。带好图书业务。<ul><li>❎ 硬件既不稳，也不增。</li><li>✅ 图书实际达成 60 分吧。图书赢亏基本打正了，但是要说有多好，还完全谈不上。</li></ul></li><li>理财：做好配置，找到能拿 10 年的标的，并能坚定持有。<ul><li>✅ 配置工作基本完成。先拿两年看看，看自己拿不拿得住。</li></ul></li><li>个人：读 6 本书。编程教学继续累进。<ul><li>✅ 最后读了 8 本书。编程教学写了 11 篇总结。</li></ul></li></ul><h2 id="26-年的目标"><a href="#26-年的目标" class="headerlink" title="26 年的目标"></a>26 年的目标</h2><ul><li>工作：<ul><li>产品：今年种下的花，期待 26 年结果。AI 硬件拿到一些认知。</li><li>运营：实践<a href="/2025/12/11/marketing-change/">《广告的没落，公关的崛起》</a>。</li></ul></li><li>理财：<ul><li>不折腾，配置+再平衡。</li></ul></li><li>个人：<ul><li>读 6 本书。</li><li>俯卧撑能连续做 20 个。</li><li>骑车绕四环一圈。</li></ul></li></ul><h2 id="个人-Milestone"><a href="#个人-Milestone" class="headerlink" title="个人 Milestone"></a>个人 Milestone</h2><p>好象没啥特别能说的，如果非要有什么，就是产出了 <a href="/2025/06/22/build-your-own-dopamine-system/">《构建你的“多巴胺”系统》</a> 这篇文章吧。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;工作&quot;&gt;&lt;a href=&quot;#工作&quot; class=&quot;headerlink&quot; title=&quot;工作&quot;&gt;&lt;/a&gt;工作&lt;/h2&gt;&lt;p&gt;2025 年是艰难的一年，上半年玩教具业务同比下滑，下半年尝试了一些营销推广，业务量有所稳定，但是赢亏承压。最后一年下来，虽然没亏钱，但是也</summary>
+      
+    
+    
+    
+    <category term="summary" scheme="https://blog.devtang.com/categories/summary/"/>
+    
+    
+    <category term="anniversary" scheme="https://blog.devtang.com/tags/anniversary/"/>
+    
+  </entry>
   
   <entry>
     <title>读《疯狂的尿酸》</title>
@@ -460,32 +484,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;一、序言&quot;&gt;&lt;a href=&quot;#一、序言&quot; class=&quot;headerlink&quot; title=&quot;一、序言&quot;&gt;&lt;/a&gt;一、序言&lt;/h2&gt;&lt;p&gt;最近读完了梁宁的《真需求》，在我看来，梁宁的角色更像是一个老师，因为老师喜欢给学生结论。可能她最有名的作品就是得到 App </summary>
-      
-    
-    
-    
-    <category term="summary" scheme="https://blog.devtang.com/categories/summary/"/>
-    
-    
-    <category term="books" scheme="https://blog.devtang.com/tags/books/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>个人投资的最佳实践 - 读《不落俗套的成功》</title>
-    <link href="https://blog.devtang.com/2025/02/23/unconventional-success-book-summary/"/>
-    <id>https://blog.devtang.com/2025/02/23/unconventional-success-book-summary/</id>
-    <published>2025-02-23T13:12:55.000Z</published>
-    <updated>2025-09-17T13:22:21.526Z</updated>
-    
-    <content type="html"><![CDATA[<img src="/images/unconventional-success-book-1.jpg" width="300px" /><h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>本书的作者是耶鲁大学的投资总监大卫·F·斯文森，他管理着耶鲁大学140多亿美元的捐赠资产，并让耶鲁大学在过去的20年里的年收益率达到16.1％。</p><p>书中的内容不是很好消化，所以我断断续续读了将近一年时间，里面的很多道理对我在投资领域的成长帮助很大。</p><p>我主要的收获有：</p><ul><li>资产配置和再平衡的重要性</li><li>高费率基金的长期收益问题</li></ul><p>下面就这两点结合我自己的个人经历做个分享。</p><h2 id="资产配置和再平衡"><a href="#资产配置和再平衡" class="headerlink" title="资产配置和再平衡"></a>资产配置和再平衡</h2><p>资产配置可能是每个人学习投资的第一课。这一点很多人都能理解。把自己的钱分为两大部分，一部分保证自己和家人的生活质量不受影响，另外一部分长期不用的闲钱再拿来投资。</p><p>对于投资的钱，也应该做好配置。有人把它分成股票，债券，黄金，现金四大类。在书中，作者将核心资产分成了 6 种，分别是：</p><ul><li>国内股票</li><li>国外发达市场股票</li><li>国外新兴市场股票</li><li>房地产</li><li>美国长期国库券</li><li>美国通胀保值国债</li></ul><p>但作者在美国，以上核心资产很多在中国并没有有效对标的标的。能对标的可以是 A 股和港股通股票，房地产，债券，QDII 基金等。</p><p>我习惯拿石墨表格把自己的资产分类，然后再看各类型的比例。一些简单有用的原则是：任何单一资产不要让它的占比超过可投资资产的 30%。</p><p>我在这方面犯过一个巨大的教训，曾经有一个资产在一段时间涨幅特别猛。有一段时间它的占比超过了 30%，这个时候我不但没有减仓，还额外追加了一笔投资。追高操作最终使得这笔追加款后来跌幅将近 50%。整体的盈亏虽然不大，但是追加款的损失把之前积累的利润都抵消了。这本应该避免。</p><p><strong>正确的做法是做资产的“再平衡”。</strong></p><p>对于每一个资产，定下计划的投资占比。当某个资产涨幅超过了占比一定幅度，就应该卖出一部分，让它恢复到原始占比。</p><p>同样的，如果某一笔资产它的价格大幅缩水，那么我们应该补仓，让它的占比恢复到之前的比例。</p><p>但是，以上两种操作非常反人性。人性是追高杀跌，而不是追跌杀高。所以我一直在试图修炼自己在这方面的心智。</p><p>之前巨大的亏损对我来说也是一个宝贵的经验教训，让我谨记资产配置的重要性。</p><h2 id="高费率基金的问题"><a href="#高费率基金的问题" class="headerlink" title="高费率基金的问题"></a>高费率基金的问题</h2><p>我之前持有了一些私募基金，有一些亏钱有一些挣钱，我也不知道应该怎么评估这些投资行为。</p><p>本书系统性的将美国市场的共同基金做了长达几十年的收益分析和解读，最终让我意识到：高费率的基金是不值得长期持有的。</p><p>这类基金的主要问题是：</p><ul><li>管理费和超额提成吃掉了一大部分收益</li><li>在市场整体大幅上涨的时候，收益提成也会吃掉一大部分 beta 收益</li><li>频繁通过高水位法提成，基金的波动就会让基金管理者挣钱，但是遇到深度回调的时候，这部分提成就会变成投资人的亏损</li><li>基金管理者旱涝保收，即便基金下跌，管理费也不会少。即便基金规模扩大很多，管理费也不会打折。</li></ul><p>另外，很多人其实不知道，大部分基金用 份额缩减法 来收取管理费和提成。这样在产品业绩图上，投资人其实一眼看不到费后收益。</p><p>以下是我的一个真实案例：</p><p>我持有的名字为金锝睿知 1 期（T18145）的产品显示，从它的发行开始日 22.2.22 开始到 24.12.27，这段时间的收益率是 22.82%（如下图）</p><img src="/images/unconventional-success-book-2.jpg" class=""><p>但是如果我查看我的资金流水，我的两年持有收益率只有 16.5%，差了 6.3%（如下图）</p><img src="/images/unconventional-success-book-3.jpg" class=""><p>我不是说这只基金不好，实际上它在过去两年的收益还是远高于 A 股沪深 300 指数的。但是你确实没办法一眼在产品资料里面看到真实的年化费后收益率。当然，问题不是针对这一只基金，大部分私募基金都是采用份额缩减法。</p><p>意识到以上这些之后，我赎回了几乎所有整体费率大于 1.5% 的基金。转而更多持有低费率的指数基金。</p><p>另外我也买入了一些我觉得不错的个股，比如腾讯，招商银行，比亚迪。对这些个股的生意的思考也让我的商业思维得到进步。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>《不落俗套的成功》是一本面向个人投资者的启蒙读物，作者通过大量详细的数据说明资产配置、再平衡的重要性，也让我意识到高费率的基金不值得长期持有。</p><p>以上。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;img src=&quot;/images/unconventional-success-book-1.jpg&quot; width=&quot;300px&quot; /&gt;
-
-&lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;p</summary>
       
     
     
