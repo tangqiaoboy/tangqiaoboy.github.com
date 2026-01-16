@@ -4,7 +4,7 @@ date: 2025-10-09 17:39:07
 tags:
 ---
 
-> 本文档创建于 2025.3，最后更新于 2025.12
+> 本文档创建于 2025.3，最后更新于 2026.1
 
 ## 一、产品介绍
 
@@ -171,7 +171,9 @@ tags:
 
  - 据[《洛图科技_中国思维机线上零售市场月度数据追踪报告》][2024-Top]显示，2024 年 1 月至 2024 年 12 月，斑马思维机在线上京东、天猫、科音三大电商合计市场中销量排名第一，份额达到 66.6%; 销额排名第一，份额达到 72.9% 。
 
-由以上数据可知，斑马思维机的市场占有率进一步扩大，从 2024 年初的 52.8% 上升到 2025 年初的 66.6%，进一步巩固了市场第一的地位。
+ - 据[《洛图科技_中国思维机线上零售市场月度数据追踪报告》][2025-Top]显示，2025 年 1 月至 2025 年 12 月，斑马思维机在线上京东、天猫、科音三大电商合计市场中销量排名第一，份额达到 57.1%; 销额排名第一，份额达到 63.8% 。
+
+由以上数据可知，斑马思维机的市场占有率连续三年处于思维机品类市场第一的地位。
 
  * 在京东平台提供的思维机热卖榜：
    - 2025 年 3 月[思维机热卖榜][2025-3-JD]，斑马思维机连续占据榜首 131 天
@@ -218,7 +220,7 @@ tags:
 
 #### 4、销量排名
 
-据[公开数据][2024-Top]，斑马思维机销量排名第一。其它思维机销量排名未知。
+据[公开数据][2024-Top]，斑马思维机在 2023-2025 年连续三年销量排名第一。其它思维机销量排名未知。
 
 
 [1]: https://tech.cnr.cn/techph/20221102/t20221102_526049239.shtml "斑马思维机 G1 发布时间"
@@ -231,8 +233,9 @@ tags:
 [8]: https://mp.weixin.qq.com/s/K-DXuWVNia6crk9S5bEQOg "专注力题卡上新"
 [9]: https://mp.weixin.qq.com/s/RduBk7Znfp5Qi4Rnk8nk-w "小猪佩奇题卡上新"
 [10]: https://mp.weixin.qq.com/s/BQSXvImVBJJc0KJITLt_Gg "好朋友题卡介绍"
-[2024-Top]: https://blog.devtang.com/images/top-sell-2024.jpg "2024 销量第一"
-[2023-Top]: https://blog.devtang.com/images/top-sell-2023.jpg "2023 销量第一"
+[2025-Top]: /images/top-sell-2025.jpg "2025 销量第一"
+[2024-Top]: /images/top-sell-2024.jpg "2024 销量第一"
+[2023-Top]: /images/top-sell-2023.jpg "2023 销量第一"
 [2025-3-JD]: /images/top-sell-jd-2025-3.jpg "2025.3 京东思维机热卖榜"
 [2025-12-JD]: /images/top-sell-jd-2025-12.jpg "2025.12 京东思维机热卖榜"
 [2025-TM]: /images/top-sell-tm-2025-3.jpg "2025 天猫学习机热卖榜"
@@ -242,13 +245,13 @@ tags:
 [MOBI-JQ]: https://zhuanlan.zhihu.com/p/662313624 "摩比剑桥英语题卡"
 [BS]: https://www.guinnessworldrecords.cn/world-records/95003-most-viewed-video-online "吉尼斯世界记录认证"
 [K-design]: https://blog.devtang.com/images/zebra-K-design.jpg "斑马思维机 K-design 获奖证书"
-[Mom-choice]: https://blog.devtang.com/images/zebra-mom-choice.jpg "斑马思维机 Mom choice 获奖证书"
-[Good-design]: https://blog.devtang.com/images/zebra-good-design.jpg "斑马思维机 当代好设计 获奖证书"
-[IDEA-award]: https://blog.devtang.com/images/zebra-idea.jpg "斑马思维机 IDEA 获奖证书"
-[NPC-award]: https://blog.devtang.com/images/zebra-npc.jpg "斑马思维机 美国国家育儿中心专业认证 证书"
-[CCA-award]: https://blog.devtang.com/images/zebra-cca-award.jpg "斑马思维机 儿童创意大奖 官网截图"
-[tillywig-award]: https://blog.devtang.com/images/zebra-tillywig.jpg "斑马思维机 堤利威格玩具奖 证书"
-[london-design]: https://blog.devtang.com/images/zebra-london-design.jpg "斑马思维机 伦敦设计奖 证书"
-[muse-design]: https://blog.devtang.com/images/zebra-muse.jpg "斑马思维机 缪斯设计奖 证书"
-[toy-award]: https://blog.devtang.com/images/zebra-toy-award.jpeg "斑马思维机 中外玩具大奖 证书"
-[goldreed-award]: https://blog.devtang.com/images/zebra-goldreed.jpg "斑马思维机 金芦苇工业设计奖 证书"
+[Mom-choice]: /images/zebra-mom-choice.jpg "斑马思维机 Mom choice 获奖证书"
+[Good-design]: /images/zebra-good-design.jpg "斑马思维机 当代好设计 获奖证书"
+[IDEA-award]: /images/zebra-idea.jpg "斑马思维机 IDEA 获奖证书"
+[NPC-award]: /images/zebra-npc.jpg "斑马思维机 美国国家育儿中心专业认证 证书"
+[CCA-award]: /images/zebra-cca-award.jpg "斑马思维机 儿童创意大奖 官网截图"
+[tillywig-award]: /images/zebra-tillywig.jpg "斑马思维机 堤利威格玩具奖 证书"
+[london-design]: /images/zebra-london-design.jpg "斑马思维机 伦敦设计奖 证书"
+[muse-design]: /images/zebra-muse.jpg "斑马思维机 缪斯设计奖 证书"
+[toy-award]: /images/zebra-toy-award.jpeg "斑马思维机 中外玩具大奖 证书"
+[goldreed-award]: /images/zebra-goldreed.jpg "斑马思维机 金芦苇工业设计奖 证书"
