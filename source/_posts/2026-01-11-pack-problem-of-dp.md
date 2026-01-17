@@ -139,6 +139,19 @@ for (int i = 1; i <= 3; ++i)
 |[P1048 采药](https://www.luogu.com.cn/problem/P1048) | 01 背包问题。NOIP2005 普及组第三题|
 |[P1616 疯狂的采药](https://www.luogu.com.cn/problem/P1616) | 完全背包问题|
 
+以下是更多的背包基础练习题：
+
+| 题目名      | 说明 |
+| ----------- | ----------- |
+|[P2871 Charm Bracelet S](https://www.luogu.com.cn/problem/P2871)| 01 背包, USACO 07 DEC |
+|[P1802 5 倍经验日](https://www.luogu.com.cn/problem/P1802) | 01 背包|
+|[P1060 开心的金明](https://www.luogu.com.cn/problem/P1060) |  01 背包，NOIP 2006 普及组第二题 |
+|[P1049 装箱问题](https://www.luogu.com.cn/problem/P1049) | 01 背包，NOIP2001 普及组 |
+|[P2639 Bessie's Weight Problem G](https://www.luogu.com.cn/problem/P2639)| 01 背包变型，容量与价值相同 |
+|[P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 完全背包，GESP 202506 六级 |
+|[P10721 计算得分](https://www.luogu.com.cn/problem/P10721) |背包问题变种，GESP 202406 六级 |
+|[P1926 小书童——刷题大军](https://www.luogu.com.cn/problem/P1926) | 01 背包，需拆成两个子问题 |
+
 ## 多重背包
 
 多重背包描述了这样一种场景，一个物品将同时受两个限制条件的制约，例如：一个背包，即有体积限制，又有重量限制，让你往里放物品，求最大化物品价值的放法。
@@ -175,6 +188,15 @@ int main() {
 如果把 01 背包和完全背包想像成填一个一维的表格，那么多重背包就在填一个二维的表格。我们需要保证表格的填写过程符合动态规划的阶段性，表格总是从一个方向往另一个方向填，填过的数字不会再次被修改（在没压维的情况下），这样才能保证状态无后效性。
 
 动态规划题目能够划分出清晰的阶段，后一个阶段只依赖于前面的阶段，问题就解决了一大部分。
+
+可供练习的题目如下：
+
+| 题目名      | 说明 |
+| ----------- | ----------- |
+|[P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
+|[P1910 L 国的战斗之间谍](https://www.luogu.com.cn/problem/P1910) | 多重背包 |
+|[P1855 榨取kkksc03](https://www.luogu.com.cn/problem/P1855) | 多重背包 |
+|[P2663 越越的组队](https://www.luogu.com.cn/problem/P2663) | 非多重背包的 DP |
 
 ## 背包变型一：物品的相互依赖
 
@@ -377,34 +399,206 @@ int main() {
 }
 ```
 
+小结：对于求最小值的背包问题，除了 `dp[0][0] = 0` 外，我们需要把别的初始值设置为 `0x7f`，以保证递推求 min 的过程中，每个 dp 数组值可以得到更新。
 
-## 相关练习题目
+相关的练习题目还有：
+ - [P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)
+ - [P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679)
 
-推荐练习：
+## 背包变型三：求平均值
+
+有一类题，虽然看着不像是背包问题，但是最后可以抽象成背包问题。而且，他们背包大小都是 sum/2。
+
+[P2392 考前临时抱佛脚](https://www.luogu.com.cn/problem/P2392) 就是一道典型的例题。
+
+在此题中，每一科的复习都可以看成两个并行的任务，而任务最短的时间就是让一个任务的时间尽可能接近 sum/2。这样，我们就可以把 sum/2 当成背包的容量，把每道题的价值和体积看成相等即可。
+
+因为在本题中，sum 最大值为 `20*60 = 1200`，所以背包大小最大是 600 即可。
+
+参考代码：
+```c++
+/**
+此题可以用动态规划，也可以用搜索，因为每科只有最多 20 个题目，所以搜索空间最大是 2^20 等于约 100 万。
+
+用动态规划解题时，此题可以把每次复习看作一次 01 背包的选择。每道题的价值和成本相同。背包的目标是尽可能接近 sum/2，因为sum 最大值为 `20*60 = 1200`，所以背包大小最大是 600。
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+int s[4], v[25], ans, dp[610];
+
+int dpAns(int n) {
+    int cnt = 0;
+    for (int i = 0; i < n; ++i) {
+        cnt += v[i];
+    }
+    int m = cnt / 2;
+    memset(dp, 0, sizeof(dp));
+    for (int i = 0; i < n; ++i) {
+        for (int j = m; j>=v[i]; --j) {
+            dp[j] = max(dp[j], dp[j-v[i]] + v[i]);
+        }
+    }
+    int ret = max(dp[m], cnt - dp[m]);
+    return ret;
+}
+
+int main() {
+    scanf("%d%d%d%d", s, s+1, s+2, s+3);
+    for (int i = 0; i < 4; ++i) {
+        memset(v, 0, sizeof(v));
+        for (int j = 0; j < s[i]; ++j) {
+            scanf("%d", v+j);   
+        }
+        ans += dpAns(s[i]);
+    }
+    printf("%d\n", ans);
+    return 0;
+}
+```
+
+相关的练习：
 
 | 题目名      | 说明 |
 | ----------- | ----------- |
-|[P2871 Charm Bracelet S](https://www.luogu.com.cn/problem/P2871)| 01 背包, USACO 07 DEC |
-|[P1802 5 倍经验日](https://www.luogu.com.cn/problem/P1802) | 01 背包|
-|[P1060 开心的金明](https://www.luogu.com.cn/problem/P1060) |  01 背包，NOIP 2006 普及组第二题 |
-|[P1049 装箱问题](https://www.luogu.com.cn/problem/P1049) | 01 背包，NOIP2001 普及组 |
-|[P1064 金明的预算方案](https://www.luogu.com.cn/problem/P1064)| 01 背包变型，NOIP2006 提高组第二题 |
-|[P2392 考前临时抱佛脚](https://www.luogu.com.cn/problem/P2392)| 01 背包变型 |
-|[P2639 Bessie's Weight Problem G](https://www.luogu.com.cn/problem/P2639)| 01 背包变型，容量与价值相同 |
-|[B3873 小杨买饮料](https://www.luogu.com.cn/problem/B3873) | 01 背包变型, GESP202309 六级|
 |[P12207 划分](https://www.luogu.com.cn/problem/P12207) |01 背包的变型，蓝桥杯 2023 国 |
+
+## 背包变型四：计数
+
+有一类背包问题，不是问你最大的价值，而是问你相关的计数。
+
+例如：[P1832 A+B Problem](https://www.luogu.com.cn/problem/P1832) 就是其中的典型例题。
+
+要解此题，我们可以先把质数算出来保存下来，接下来，我们需要用背包的思路，对表格进行计数:
+
+ * `dp[i][j]` 表示用前 i 个质数组成 j 一共的可能数
+ * 转移方程：`dp[i][j] = dp[i-1][j] + dp[i-1][j-a[i]] + dp[i-1][j-a[i]*2]...`
+
+参考代码如下：
+
+```c++
+/**
+ * 解法：
+ *  - 无穷背包
+ *  - 先把质数算出来，保存在数组里面
+ * 
+ * dp[i][j] 表示用前 i 个质数组成 j 一共的可能数
+ * dp[i][j] = dp[i-1][j] + dp[i-1][j-a[i]] + dp[i-1][j-a[i]*2]...
+ * 
+ * 初始化：dp[0][0] = 1
+ * 
+ * 注意：答案需要用 long long 保存。
+ * 
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN 1010
+
+int a[200];
+long long dp[200][MAXN];
+
+bool isPrime(int a) {
+    for (int i = 2; i*i<=a; ++i)
+        if (a%i == 0) return false;
+    return true;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    for (int i = 2; i <= n; ++i)
+        if (isPrime(i)) 
+            a[++a[0]] = i;     
+
+    dp[0][0] = 1;
+    for (int i = 1; i <= a[0]; ++i) // 第 i 个质数 a[i]
+        for (int j = 0; j<= n; ++j) { // 组成 j 这个值
+            for (int p = j; p >= 0; p -= a[i]) { // 完全背包，试着放 0-n 个 a[i]
+                dp[i][j] += dp[i-1][p];
+            }
+        }
+
+    cout << dp[a[0]][n] << endl;
+    return 0;
+}
+```
+
+## 背包变型五：负数体积
+
+有一些题目，元素的体积会是负数。
+
+[P13018 调味平衡](https://www.luogu.com.cn/problem/P13018) 就是一道典型的例题。它也是 GESP 202506 七级题目。
+
+### 第一种解法（空间占用过大）
+
+用上面提到的计数类的方法。
+
+`dp[i][j][k]` 表示前 i 种食材，达到酸度 j，甜度 k 是否可能。
+
+`dp[i][j][k] = dp[i-1][j-a[i]][k-b[i]]` 是否可能。
+
+把 i 这一层简化`dp[j][k] = dp[j - a[i]][k - b[i]]`
+
+初始化：`dp[0][0] = 1`
+
+但是以上的方法时间和空间消耗(500000x500000)太大。
+
+### 正确的解法
+
+考虑到可以把一种食材的酸度和甜度求差，得出酸和甜的差值。如果两种食材的差值加起来为零，则刚好酸度=甜度。
+
+这样就可以把 dp 简化。
+
+ - `dp[j]`表示前 i 种食材的酸甜度差值 j 是否存在，如果存在，其值为酸甜度的和。
+ - `dp[j] = dp[j - dif[i]] + a[i] + b[i]`
+
+相当于背包元素的体积变成了差值，价值变成了 `a[i] + b[i]`。
+
+因为 `dif[i]` 有正有负，所以为了保证值不会覆盖，我又恢复成二维的 dp：
+ - `dp[i][j]` 表示前 i 种食物，凑成 j 的酸甜度差的最大和。
+
+因为 j 可能为负值，所以我们把平衡点设置成 50000（可以想像成刚开始差值就是 50000，求最后差值不变）
+
+这样 j 中间最多从 50000 减成 0（因为每个食材差值最大为 500，最多有 100 个食材），所以不会变成负数。
+
+参考代码：
+
+```c++
+/* 
+ * Author: Tang Qiao
+ */
+#include <bits/stdc++.h>
+using namespace std;
+#define MAXN int(100*500+10)
+
+int dp[110][MAXN*2], n, a, b, c, d;
+
+int main() {
+    ios::sync_with_stdio(0);    
+    cin >> n;
+    memset(dp, 0x8f, sizeof dp);
+    dp[0][50000] = 0;
+    for (int i = 1; i <= n; ++i) {
+        cin >> a >> b;
+        c = a-b;
+        d = a+b;
+        for (int j = 0; j <= 50000*2; j++)
+            if (j-c >= 0)
+                dp[i][j] = max(dp[i-1][j], dp[i-1][j-c] + d);    
+    }
+    cout << dp[n][50000] << endl;
+    return 0;
+}
+```
+
+## 相关练习题目
+
+除了以上的变化，更多变化的练习：
+
+| 题目名      | 说明 |
+| ----------- | ----------- |
 |[P1510 精卫填海](https://www.luogu.com.cn/problem/P1510) | 01 背包，但是输出要求有变化 |
-|[P2430 严酷的训练](https://www.luogu.com.cn/problem/P2430) | 01 背包，题目较长 |
+|[P2430 严酷的训练](https://www.luogu.com.cn/problem/P2430) | 01 背包，题目较长，需要仔细读题 |
 |[P11377 武器购买](https://www.luogu.com.cn/problem/P11377)| 01 背包的变型，GESP202412 七级  |
-|[P13018 调味平衡](https://www.luogu.com.cn/problem/P13018) | 01 背包的变型，GESP202506 七级 |
-|[P1926 小书童——刷题大军](https://www.luogu.com.cn/problem/P1926) | 01 背包，需拆成两个子问题 |
-|[P13015 学习小组](https://www.luogu.com.cn/problem/P13015) | 完全背包，GESP 202506 六级 |
-|[P1679 神奇的四次方数](https://www.luogu.com.cn/problem/P1679) |完全背包，需要求最小值 |
-|[P1832 A+B Problem](https://www.luogu.com.cn/problem/P1832) | 完全背包变型，计数 |
-|[P10721 计算得分](https://www.luogu.com.cn/problem/P10721) |背包问题变种，GESP 202406 六级 |
-|[P2918 Buying Hay S](https://www.luogu.com.cn/problem/P2918)| USACO08NOV, 求最小值的完全背包 |
-|[P1794 装备运输](https://www.luogu.com.cn/problem/P1794) | 多重背包 |
-|[P1910 L 国的战斗之间谍](https://www.luogu.com.cn/problem/P1910) | 多重背包 |
-|[P1855 榨取kkksc03](https://www.luogu.com.cn/problem/P1855) | 多重背包 |
-|[P2663 越越的组队](https://www.luogu.com.cn/problem/P2663) | 非多重背包的 DP |
 
