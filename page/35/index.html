@@ -449,6 +449,35 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2012/12/15/do-not-use-storyboard/">
+                
+                <span class="abstract-title-text">StoryBoard--看上去很美</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>StoryBoard 是苹果在 2011 年的 WWDC Session 309《Introducing Interface Builder Storyboarding》中介绍的 Interface Builder 的新功能。其基本想法是将原本的 xib 进行升级，引入一个容器用于管理多个 xib 文件，并且这个容器可以通过拖拽设置 xib 之间的界面跳转。而这个容器就是被苹果称做的 StoryBoard。下图是一个 Storyboard 的截图。</p>
+<img src="/images/enbrace-ios5-1.png" class="">
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2024/01/06">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/12/15</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2012/12/09/iap-crack-issue/">
                 
                 <span class="abstract-title-text">关于IAP的破解</span>
@@ -700,37 +729,6 @@
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2024/01/06">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/08/05</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2012/06/24/enhance-uiactionsheet/">
-                
-                <span class="abstract-title-text">封装同步的UIActionSheet</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>做 iOS 开发的同学想必都用过 UIActionSheet。UIActionSheet 可以弹出一个选择列表，让用户选择列表中的某一项操作。使用 UIActionSheet 非常简单，以下是一个简单的示例代码：</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="type">void</span>)someButtonClicked &#123;</span><br><span class="line">    <span class="built_in">UIActionSheet</span> * sheet = [[<span class="built_in">UIActionSheet</span> alloc] initWithTitle:<span class="literal">nil</span> delegate:<span class="keyword">self</span> cancelButtonTitle:<span class="string">@&quot;ddd&quot;</span> destructiveButtonTitle:<span class="string">@&quot;aaa&quot;</span> otherButtonTitles:<span class="string">@&quot;bbb&quot;</span>, <span class="string">@&quot;ccc&quot;</span>, <span class="string">@&quot;ddd&quot;</span>, <span class="literal">nil</span>];</span><br><span class="line">    sheet.destructiveButtonIndex = <span class="number">1</span>;</span><br><span class="line">    [sheet showInView:<span class="keyword">self</span>.view];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="type">void</span>)actionSheet:(<span class="built_in">UIActionSheet</span> *)actionSheet clickedButtonAtIndex:(<span class="built_in">NSInteger</span>)buttonIndex &#123;</span><br><span class="line">    <span class="type">int</span> result = buttonIndex;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;result = %d&quot;</span>, result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>但我个人在使用时，感觉 UIActionSheet 有以下 2 个问题：</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/01/06">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2012/06/24</span>
                 </div>
                 <!-- tags -->
                 
@@ -2786,7 +2784,46 @@
         
         
         
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -6359,7 +6396,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 368
+        Total : 369
         </div>
         <!-- search  -->
         
@@ -6373,6 +6410,12 @@
             <div class="archive-year"> 2026 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/01</span>
+            <a class="archive-post-title" href="/2026/03/01/openclaw-operation-notes/">OpenClaw 学习笔记</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">02/10</span>
