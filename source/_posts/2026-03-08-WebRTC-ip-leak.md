@@ -83,3 +83,7 @@ https://chrome.google.com/webstore/detail/webrtc-network-limiter/npeicpdbkakmeha
 **安装 WebRTC Network Limiter，让所有 WebRTC 流量走代理。**
 
 这样你的浏览器隐私保护才算真正完整。
+
+## 其它
+
+除了 WebRTC 外，IPv6 也可能是泄露点，检测链接是：<https://browserleaks.com/ip>，解决方案是开启 IPv6 相关的代理。
