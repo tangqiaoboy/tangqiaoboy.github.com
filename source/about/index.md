@@ -17,7 +17,7 @@ date: 2016-02-15 14:32
 
 唐巧，男，80 后。作为核心员工在 [看云控股(原猿辅导)](https://www.kanyun.com/) 参与创业。曾作为产品技术负责人孵化了 [小猿搜题](https://www.yuansouti.com/) 和 [小猿口算](https://xiaoyuankousuan.com/)。曾作为业务负责人，孵化了小斑斑月龄盒。
 
-现在是斑马智能硬件业务负责人，带领团队研发的产品累计出货量超过 400 万台。
+现在是斑马[智能硬件](https://banmaapp.com/toy.html)与[图书](https://banmaapp.com/book.html)业务负责人，带领团队研发了[斑马思维机](https://www.news.cn/tech/20260121/2cbf3ea1482e4b01b31eab313466eb0d/c.html)、斑马拼音机等产品，累计出货量超过 600 万台。
 
 10 多年工作下来，技术、产品、供应链、运营、市场等工作都有涉及。著有[《iOS 开发进阶》](http://item.jd.com/11598468.html) 一书。曾开发 [网易邮箱](http://mail.163.com/)、网易微博、[有道云笔记](http://note.youdao.com/)、[猿题库](https://www.yuantiku.com/)、[小猿搜题](https://www.yuansouti.com/)。
 
@@ -45,6 +45,7 @@ date: 2016-02-15 14:32
  * [2022 年个人总结](/2023/01/01/2022-summary/)
  * [2023 年个人总结](/2024/01/01/2023-summary/)
  * [2024 年个人总结](/2025/01/01/2024-summary/)
+ * [2025 年个人总结](/2026/01/01/2025-summary/)
 
 以及我的创业感悟：
 
@@ -56,12 +57,6 @@ date: 2016-02-15 14:32
  * [写在创业七周年](/2019/04/22/startup-anniversary-note/)
  * [写在创业九周年](/2021/08/30/thinking-of-education-industry-change/)
  * [写在创业十周年](/2022/05/22/startup-10th-year-summary/)
-
-以及我的 CSPJ 教学笔记：
-
- - [五分钟弄懂 CSP-J](/2024/09/17/cspj-introduction/)
- - [CSPJ 教学思考：for 循环](/2024/11/07/teach-notes-of-for-loop/)
- - [CSPJ 教学思考：宽度优先搜索](/2024/12/15/bfs-teaching-notes/) 
 
 以及我的供应链学习笔记：
 
@@ -75,4 +70,23 @@ date: 2016-02-15 14:32
  * [供应链笔记(8)：印刷的环节和成本](/2023/12/17/supply-chain-8/)
  * [供应链笔记(9)：开源岗位](/2023/12/17/supply-chain-9/)
  * [供应链笔记(10)：采购岗位](/2023/12/18/supply-chain-10/)
+
+
+以及我的 CSPJ 教学笔记：
+
+ - [五分钟弄懂 CSP-J](/2024/09/17/cspj-introduction/)
+ - [CSPJ 教学思考：for 循环](/2024/11/07/teach-notes-of-for-loop/)
+ - [CSPJ 教学思考：宽度优先搜索](/2024/12/15/bfs-teaching-notes/) 
+ - [CSPJ 教学思考：贪心算法](/2025/01/05/cspj-notes-of-greedy-algorithm/)
+ - [CSPJ 教学思考：动态规划](/2025/01/05/teaching-notes-of-dp/)
+ - [CSPJ 教学思考：二分查找](/2025/01/25/teaching-notes-of-binary-search/)
+ - [CSPJ 教学思考：并查集](/2025/02/09/teaching-notes-of-union-query-set/)
+ - [CSPJ 教学思考：模拟](/2025/03/29/teaching-notes-of-simulation/)
+ - [CSPJ 教学思考：枚举](/2025/04/06/teaching-notes-of-brute-force/)
+ - [CSPJ 教学思考：数学题](/2025/04/12/cspj-notes-of-math-problems/)
+ - [CSPJ 教学总结：STL](/2025/04/12/cspj-notes-of-stl/)
+ - [CSPJ 教学总结：深度优先搜索（DFS）](/2025/04/13/teaching-notes-of-dfs/)
+ - [CSPJ 教学总结：树状数组](/2025/04/26/teaching-notes-of-bit/)
+ - [GESP 核心考点](/2025/06/06/gesp-notes/)
+
 
