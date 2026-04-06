@@ -6,7 +6,7 @@
   <link href="https://blog.devtang.com/atom.xml" rel="self"/>
   
   <link href="https://blog.devtang.com/"/>
-  <updated>2026-04-03T01:44:23.349Z</updated>
+  <updated>2026-04-06T06:49:24.336Z</updated>
   <id>https://blog.devtang.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用 AI Agent, 将域名从 Godaddy 迁移到 Cloudflare</title>
+    <link href="https://blog.devtang.com/2026/04/06/migrate-host-from-godaddy-to-cloudflare/"/>
+    <id>https://blog.devtang.com/2026/04/06/migrate-host-from-godaddy-to-cloudflare/</id>
+    <published>2026-04-06T06:22:59.000Z</published>
+    <updated>2026-04-06T06:49:24.336Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景和问题"><a href="#背景和问题" class="headerlink" title="背景和问题"></a>背景和问题</h2><p>我有一个老的域名：devtang.com，上面利用 GitHub Pages 搭了我的 <a href="https://blog.devtang.com/">博客</a>。这个域名注册很多年了，一直在 Godaddy 上续费，并且用 DNSPod (后来被阿里收购) 做解析。</p><p>我一直想迁移到 Cloudflare，但是域名转移的操作很繁琐，所以一直没有下决心推进。</p><p>这次，我想试试用 Claude Cowork 功能帮我做这个事儿。整个流程下来，感觉还挺顺畅的，所以给大家分享一下。</p><p>我觉得 AI 时代这些工作的工作流都有变化，所以说分享这样的工作流，有助于大家建立这种基于 AI Agent 的工作模式迁移。</p><h2 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h2><p>在使用前需要先安装好 <a href="https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn">Claude in Chrome</a> 插件，然后执行如下操作：</p><p>1、我首先打开 Godaddy 和 Cloudflare 官网，登录上去。然后打开 Claude in Chrome 的浏览器面板。输入如下提示词：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我要将域名 devtang.com 从 godaddy 转移到 cloudflare，帮我继续转移。</span><br></pre></td></tr></table></figure><p>Claude 给出了如下的操作步骤，点击 Approve Plan。</p><img src="/images/cowork-1.jpg" class=""><p>2、Claude 开始在 Godaddy 和 Cloudflare 上操作，有两次它停下来了，需要我给它发邮箱里面的授权码。于是我打开邮箱把授权码发给它。</p><p>3、操作继续，在操作过程中，我可以随意切换 Tab 看它的操作过程，也可以看它的 thinking 的过程。它其实每一步都是通过截图确认操作，也会中间停留 3-5 秒（可能是为了防止被误别成机器人）。</p><p>因为它也会停留，所以我有时候会帮它直接点击了，让操作更快一点。这也丝毫不会影响后续的工作，因为它每一步都会截图确认。</p><p>最后我看到了操作确认信息，告诉我转移成功。</p><img src="/images/cowork-2.jpg" class="">    <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul><li>借助 Claude Cowork, 我们可以把复杂的工作流程全部交给 AI。</li><li>在 Claude in Chrome 工作的时候，我们也可以随时接管网页操作，帮他把中间的步骤给衔接上。</li><li>操作过程中如果一直没有推进，可以查看 claude thinking 的过程，可以发现一些问题，帮他解决。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;背景和问题&quot;&gt;&lt;a href=&quot;#背景和问题&quot; class=&quot;headerlink&quot; title=&quot;背景和问题&quot;&gt;&lt;/a&gt;背景和问题&lt;/h2&gt;&lt;p&gt;我有一个老的域名：devtang.com，上面利用 GitHub Pages 搭了我的 &lt;a href=&quot;https</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>AI 干活的三件套：CLI、MCP 和 Skill 到底是什么？</title>
@@ -466,29 +486,6 @@
 &lt;p&gt;“免费的午餐往往是最贵的。为知识付费，是投资自己的认知能力，是这个时代每个人都应该认真考虑的选择。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;序&quot;&gt;&lt;a href=&quot;#序&quot; class=&quot;headerlink&quot; title=&quot;序&quot;&gt;&lt;/a</summary>
-      
-    
-    
-    
-    
-    <category term="summary" scheme="https://blog.devtang.com/tags/summary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>真相不重要</title>
-    <link href="https://blog.devtang.com/2025/07/30/truth-does-not-matter/"/>
-    <id>https://blog.devtang.com/2025/07/30/truth-does-not-matter/</id>
-    <published>2025-07-30T14:57:31.000Z</published>
-    <updated>2025-12-01T15:01:14.832Z</updated>
-    
-    <content type="html"><![CDATA[<p>真相有时候不重要，举几个例子。</p><p>第一个例子是身边一个朋友的故事。一天早上，从来不做饭的妻子心血来潮，给他做了一份早餐，但是因为是第一次做，手艺不太娴熟。这个时候，妻子问他味道怎么样？他随口就说：感觉一般。妻子的脸色瞬间就阴下去了，说：那我以后再也不做饭了。<strong>对于妻子来说，早餐好不好吃的真相不重要，鼓励和认可才是重要的。</strong>丈夫说了实话，但是却伤了妻子的心。</p><p>去年农夫山泉被全民网暴的时候，我发文章说农夫山泉的瓶盖和日本国旗没关系。结果一堆人在评论区谩骂我。<strong>对于网暴的人来说，真相不重要，情绪和宣泄的重要性大于真相。</strong>对于这些谩骂的人来说，我忽略了讲真话的时机，所以被骂。</p><p>在今年的脱口秀节目上，一个脱口秀演员提到自己的爸妈本来打算把自己打掉的，老罗也提到他也有同样的家庭情况，他花了很多年很多时间才对这个事情“放下”。对于老罗来说，“自己出身下来不是被需要的”这个真相不重要，重要的是自己的人生意义。<strong>即便是事实，如果会伤害孩子，父母本来可以不说，真相不重要。</strong></p><p>我们曾经有一个实习生，偷偷利用公司的9点后加班可以打车福利，下班后去健身房，然后等到9点后再打车回家。我们后来给他说，我们实习岗位取消了，让他离开了公司。对于我们来说，告诉他离开的真相不重要，对于不合适的人，让他快速地离开不会起任何冲突。<strong>对于我们来说，事情顺利地执行比说出真相重要。</strong></p><p>我是一个业余编程老师，编程这件事情很难，所以孩子第一次接触编程容易会发怵。这个时候，我会设置一些很简单的题目，但是告诉他这个题目很难，然后等他做出来，我会惊讶地说：哇，你真的很有天赋！<strong>对于孩子来说，真相不重要，学习的兴趣和信心最重要。</strong></p><p>对于美国两党各自拥护的媒体，真相也不重要。如果发现事情有利于他们的政治宣传，他们就大力宣传。如果发现事情不利于他们的政党，他们就会有意淡化。<strong>在美国，媒体的中立客观在政治面前不重要，政治更重要。</strong></p><p>邓小平很早就明白真相不重要。每次被打倒他都默默承受，尽力照顾好自己的家人，不争辩不气馁。因为他知道，在那个时候<strong>只要是他说的，就都是错的，真相不重要</strong>。在后来，邓小平坚决保护毛主席，保护国家稳定，因为他知道：稳定大于一切。只要政局稳定，一切问题都可以慢慢解决。而如果为了真相导致政局混乱，那将天下大乱。</p><p>有些时候，真相因为不太容易被人接受，甚至会变成秘密，比如大家的工资。试想一下，如果每个人的工资是公开的，那么就会有大量的人向 HR 投诉自己的薪资为什么不如某某某。因为人们总是容易高看自己，低看别人。所以，<strong>薪资的真相变得不重要，大家相互之间不知道薪资变得很重要</strong>。</p><p>那真相很多时候不重要，我们是不是就不需要真相了？不是的。大部分时候，真相都是重要的。大部分时候，我们也需要讲真话，追求真相。只是我们需要明白，<u>这个世界在运转过程中，真相的权重不一定是最大的</u>。当真相被掩盖的时候，我们可能需要接受这样的现实。当我们决策的时候，有时候需要相对真相，给其他因素更高的权重。</p><p>最后，我想引用最近看到的一篇《南方周末》的报道 <a href="https://mp.weixin.qq.com/s?__biz=MzkyNTI4OTA2NQ==&mid=2247486652&idx=1&sn=c3237d6a9e3a608cab0fddc03ae7761e&scene=21&poc_token=HGitLWmjYNLeipHVtdXdFB6UA00VfcnwXcbonoVA">佛学与官场，一个主持的官场往事</a>。在文章中，释传真（时任南京市佛教协会副会长）说：</p><blockquote><p>我常常跟来聊天的官员说，做官啊，第一有文化没文化要学会听话；<br>第二，得过且过太阳出来暖和；<br>第三，有一些矛盾就要睁一只眼闭一只眼。</p></blockquote><p>你看，一位佛教高僧给官员的经验分享，每一点都在说：有比真相更重要的事情。</p><p>以上。最后再强调一遍：我不是教大家骗人，我是在强调<u>给真相赋予合适的决策权重</u>。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;真相有时候不重要，举几个例子。&lt;/p&gt;
-&lt;p&gt;第一个例子是身边一个朋友的故事。一天早上，从来不做饭的妻子心血来潮，给他做了一份早餐，但是因为是第一次做，手艺不太娴熟。这个时候，妻子问他味道怎么样？他随口就说：感觉一般。妻子的脸色瞬间就阴下去了，说：那我以后再也不做饭了。&lt;s</summary>
       
     
     
