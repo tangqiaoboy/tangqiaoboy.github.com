@@ -36,11 +36,42 @@ Claude 给出了如下的操作步骤，点击 Approve Plan。
 
 最后我看到了操作确认信息，告诉我转移成功。
 
-{% img /images/cowork-2.jpg %}    
+{% img /images/cowork-2.jpg %}   
+
+## 迁移 GitHub Pages 到 Cloudflare Pages
+
+Cloudflare Pages 支持无限流量，并且全球有多处结点，速度比 GitHub Pages 快。我把域名迁移过去之后，又进一步使用 Cloudflare 的 Pages 功能，将博客重新部署到了 Cloudflare 上。
+
+具体步骤如下：
+
+ - 在 <https://dash.cloudflare.com/>，选择 "Build"->"Compute"->"Workers & Pages"，进入 Workers & Pages 页面。
+ - 选择页面上的 “Create Application” 按钮
+ - 在新的页面，点击最底部的小字：`Looking to deploy Pages? Get started`。这个字特别不起眼，如下图：
+
+{% img /images/cf-1.jpg %}
+
+ - 在页面上配置相关信息，我配置的内容如下：
+   - 选择 "Import an existing Git repository"，选择你在 GitHub 上的博客仓库。
+   - Production branch: `source` 分支。
+   - Framework preset: `None`
+   - Build command：`npx hexo generate`
+   - Build output directory: `public`
+   - 环境变量：
+     - `NODE_VERSION` 设置为 24
+     - `NPM_VERSION` 设置为 11
+
+以上设置好就可以测试了，测试遇到问题的话，把 error log 复制发给 claude，claude 会告诉你怎么改。
+
+配置完之后，它默认的域名是 <https://tangqiaoboy.pages.dev>, 你可以用刚刚迁移好的域名给它设置一个新的域名，像我就设置成了 <https://www.devtang.com/>。如下图：
+
+{% img /images/cf-2.jpg %}
+
+利用这个 Pages 可以干很多事情，比如我看到一个人就拿它发布了一个 [巴菲特致股东的信](https://buffett-letters-eir.pages.dev/) 网站。不需要买服务器，也不需要买域名，也不用担心流量不够。
 
 ## 小结
 
  - 借助 Claude Cowork, 我们可以把复杂的工作流程全部交给 AI。
  - 在 Claude in Chrome 工作的时候，我们也可以随时接管网页操作，帮他把中间的步骤给衔接上。
  - 操作过程中如果一直没有推进，可以查看 claude thinking 的过程，可以发现一些问题，帮他解决。
+ - Cloudflare Pages 提供无限流量，推荐大家部署过去。
 
