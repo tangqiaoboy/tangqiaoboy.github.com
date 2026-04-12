@@ -6,7 +6,7 @@
   <link href="https://blog.devtang.com/atom.xml" rel="self"/>
   
   <link href="https://blog.devtang.com/"/>
-  <updated>2026-04-11T15:08:26.791Z</updated>
+  <updated>2026-04-12T14:45:53.665Z</updated>
   <id>https://blog.devtang.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Claude Code 从 AWS Bedrock 切换到 Team 订阅指南</title>
+    <link href="https://blog.devtang.com/2026/04/12/switch-bedrock-to-team/"/>
+    <id>https://blog.devtang.com/2026/04/12/switch-bedrock-to-team/</id>
+    <published>2026-04-12T14:44:49.000Z</published>
+    <updated>2026-04-12T14:45:53.665Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Claude Code 支持多种认证方式，包括 AWS Bedrock、Google Vertex AI、Anthropic API Key 和 Claude 订阅（Pro&#x2F;Max&#x2F;Team&#x2F;Enterprise）。当你从 Bedrock 切换到 Team 订阅时，需要清除 Bedrock 的配置，否则 Claude Code 会一直走 Bedrock 通道。</p><h2 id="核心问题"><a href="#核心问题" class="headerlink" title="核心问题"></a>核心问题</h2><p>使用 Bedrock 认证时，<code>/login</code> 和 <code>/logout</code> 命令是<strong>被禁用的</strong>（官方设计如此）。因此你无法在 Bedrock 模式下直接切换登录方式。</p><p>Bedrock 配置的来源有两种：</p><ol><li><strong>环境变量</strong> — 通过 <code>export</code> 或写在 <code>~/.zshrc</code> &#x2F; <code>~/.bashrc</code> 中</li><li><strong>settings.json</strong> — 写在 <code>~/.claude/settings.json</code> 的 <code>env</code> 字段中</li></ol><p>很多用户（尤其是通过 setup wizard 配置的）的 Bedrock 设置是写在 <code>settings.json</code> 里的，单纯 <code>unset</code> 环境变量并不能解决问题。</p><h2 id="切换步骤"><a href="#切换步骤" class="headerlink" title="切换步骤"></a>切换步骤</h2><h3 id="第一步：检查-Bedrock-配置来源"><a href="#第一步：检查-Bedrock-配置来源" class="headerlink" title="第一步：检查 Bedrock 配置来源"></a>第一步：检查 Bedrock 配置来源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查环境变量</span></span><br><span class="line"><span class="built_in">env</span> | grep -i -E <span class="string">&quot;claude_code_use|anthropic|bedrock|aws&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查 settings.json</span></span><br><span class="line"><span class="built_in">cat</span> ~/.claude/settings.json</span><br></pre></td></tr></table></figure><p>如果在 <code>settings.json</code> 中看到类似以下内容，说明 Bedrock 配置在这里：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;env&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;CLAUDE_CODE_USE_BEDROCK&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;AWS_REGION&quot;</span><span class="punctuation">:</span> <span class="string">&quot;us-west-2&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;ANTHROPIC_MODEL&quot;</span><span class="punctuation">:</span> <span class="string">&quot;arn:aws:bedrock:...&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;CLAUDE_CODE_AWS_PROFILE&quot;</span><span class="punctuation">:</span> <span class="string">&quot;default&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><h3 id="第二步：清除-Bedrock-配置"><a href="#第二步：清除-Bedrock-配置" class="headerlink" title="第二步：清除 Bedrock 配置"></a>第二步：清除 Bedrock 配置</h3><p><strong>如果配置在 settings.json 中</strong>，编辑 <code>~/.claude/settings.json</code>，删除 <code>env</code> 中所有 Bedrock 相关的键值对：</p><ul><li><code>CLAUDE_CODE_USE_BEDROCK</code></li><li><code>AWS_REGION</code></li><li><code>ANTHROPIC_MODEL</code></li><li><code>CLAUDE_CODE_AWS_PROFILE</code></li><li><code>CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS</code>（Bedrock 专用）</li><li><code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC</code>（Bedrock 专用）</li></ul><p>保留你仍需要的配置（如代理、权限设置等）。清理后的文件示例：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;env&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;HTTP_PROXY&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://your-proxy:8118&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;HTTPS_PROXY&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://your-proxy:8118&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;permissions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;allow&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;Bash(*)&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;defaultMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dontAsk&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p><strong>如果配置在环境变量中</strong>，清除相关变量：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> CLAUDE_CODE_USE_BEDROCK</span><br><span class="line"><span class="built_in">unset</span> ANTHROPIC_MODEL</span><br><span class="line"><span class="built_in">unset</span> ANTHROPIC_API_KEY</span><br><span class="line"><span class="built_in">unset</span> AWS_REGION</span><br><span class="line"><span class="built_in">unset</span> CLAUDE_CODE_AWS_PROFILE</span><br></pre></td></tr></table></figure><p>同时检查并清理 shell 配置文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep -r <span class="string">&quot;CLAUDE_CODE_USE_BEDROCK\|ANTHROPIC_MODEL\|ANTHROPIC_API_KEY&quot;</span> \</span><br><span class="line">  ~/.zshrc ~/.bashrc ~/.zprofile ~/.bash_profile 2&gt;/dev/null</span><br></pre></td></tr></table></figure><h3 id="第三步：重新启动-Claude-Code"><a href="#第三步：重新启动-Claude-Code" class="headerlink" title="第三步：重新启动 Claude Code"></a>第三步：重新启动 Claude Code</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">claude</span><br></pre></td></tr></table></figure><p>此时应该会弹出登录方式选择界面，选择 <strong>「Claude account with subscription」</strong>，然后在浏览器中授权你的 Team 计划。</p><h3 id="第四步：确认切换成功"><a href="#第四步：确认切换成功" class="headerlink" title="第四步：确认切换成功"></a>第四步：确认切换成功</h3><p>启动后，欢迎界面底部应显示类似：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sonnet 4.6 · Claude Pro（或 Team）</span><br></pre></td></tr></table></figure><p>而不是之前的 <code>arn:aws:bedrock:...</code>。</p><p>也可以在交互界面中输入 <code>/status</code> 确认当前认证方式。</p><h3 id="第五步：切换模型（可选）"><a href="#第五步：切换模型（可选）" class="headerlink" title="第五步：切换模型（可选）"></a>第五步：切换模型（可选）</h3><p>如果需要使用 Opus 模型，在交互界面中输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/model</span><br></pre></td></tr></table></figure><p>用方向键选择 Opus 即可。</p><h2 id="认证优先级"><a href="#认证优先级" class="headerlink" title="认证优先级"></a>认证优先级</h2><p>Claude Code 的认证优先级从高到低为：</p><ol><li>云提供商凭据（<code>CLAUDE_CODE_USE_BEDROCK</code> &#x2F; <code>CLAUDE_CODE_USE_VERTEX</code> &#x2F; <code>CLAUDE_CODE_USE_FOUNDRY</code>）</li><li><code>ANTHROPIC_AUTH_TOKEN</code> 环境变量</li><li><code>ANTHROPIC_API_KEY</code> 环境变量</li><li><code>apiKeyHelper</code> 脚本</li><li>订阅 OAuth 凭据（<code>/login</code>）</li></ol><p>只要高优先级的认证方式存在，低优先级的就不会生效。所以必须彻底清除 Bedrock 配置，订阅认证才能生效。</p><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul><li><strong>代理地址</strong>：Bedrock 用的代理可能无法访问 <code>api.anthropic.com</code>，切换后可能需要更换代理或去掉代理配置。</li><li><strong>Premium 席位</strong>：Team 计划需要 Premium 席位才能使用 Claude Code，确认管理员已分配。</li><li><strong>用量共享</strong>：Team 计划的用量限额在 Claude 网页端和 Claude Code 之间是共享的。</li><li><strong>Memory 延续</strong>：<code>CLAUDE.md</code> 等本地文件不受认证方式影响，切换后照常保留。对话历史不会跨会话保存，这点两种方式一样。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;Claude Code 支持多种认证方式，包括 AWS Bedrock、Google Vertex AI、Anthropic API Key</summary>
+      
+    
+    
+    
+    
+    <category term="ai" scheme="https://blog.devtang.com/tags/ai/"/>
+    
+  </entry>
   
   <entry>
     <title>写给设计师：如何设计一份 AI 友好的设计规范</title>
@@ -464,32 +486,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;序&quot;&gt;&lt;a href=&quot;#序&quot; class=&quot;headerlink&quot; title=&quot;序&quot;&gt;&lt;/a&gt;序&lt;/h2&gt;&lt;p&gt;想读一些价值投资者的书，于是就找到了这本但斌的《时间的玫瑰》。这是一本写于 2018 年的书，现在已经过了 7 年。当年的很多论断，随着时间的检验会</summary>
-      
-    
-    
-    
-    <category term="summary" scheme="https://blog.devtang.com/categories/summary/"/>
-    
-    
-    <category term="books" scheme="https://blog.devtang.com/tags/books/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>投机与趋势投资 - 读《股票大作手操盘术》</title>
-    <link href="https://blog.devtang.com/2025/09/17/how-to-trade-in-stocks-book-summary/"/>
-    <id>https://blog.devtang.com/2025/09/17/how-to-trade-in-stocks-book-summary/</id>
-    <published>2025-09-17T13:27:01.000Z</published>
-    <updated>2025-09-17T13:41:00.293Z</updated>
-    
-    <content type="html"><![CDATA[<img src="/images/stock-trade-book-0.jpg" width="300px" /><p>上个月见了一个老朋友：代码家。和代码家聊天的时候，他提到了趋势交易，他还推荐了<a href="https://book.douban.com/subject/19952930/">《股票大作手操盘术》</a>。</p><p>该书的核心思想就是做趋势交易。具体做法是：在形成趋势前观望，在趋势确定建立后顺着趋势做空或做多，在趋势快要结束时，提前补仓或卖出。</p><p>我觉得该思想同样适用于长线操作：每家公司都有上升期和平稳期以及下降期。在公司上升期的时候加仓，平稳期的后期卖出，避免下降期的戴维斯双杀，会是非常重要的。</p><p>举例来说：</p><ul><li><p>房地产公司的上升期投资，相关的股票，即便是恒大，也涨很多。只要你在合适的地方卖出，你就不会亏。</p></li><li><p>很多互联网公司的企业，在互联网泡沫期的估值很高。比如微博，哔哩哔哩，陌陌，包括粉笔公考，猿辅导。只要你在合适的地方卖出，也可以吃到很多的时代红利。但是如果你一直秉持长期持有，就可能不挣钱或者只挣很少的钱。</p></li></ul><p>以下是微博的股价走势，现在的价格（12）比发行价（20）还低，但它曾经涨了 5 倍多。</p><img src="/images/stock-trade-book-1.jpg" class=""><p>以下是哔哩哔哩的股价走势，如果你买在高点，那么会亏 80%。</p><img src="/images/stock-trade-book-2.jpg" class=""><p>以上两个公司就是典型的“互联网”红利公司，在互联网红利期拥有巨大的股价泡沫，在红利结束的时候，股价回归理性。</p><p>我感觉趋势投资不是做短线的投机，而是把握时代的大势。做时代周期（5 年左右）的波段，抓时代红利企业，但是又很冷静，知道自己是投机，能看到卖出下车的时间点。</p><p>我们如果能够在互联网红利期，提前买入微博和哔哩哔哩这样的高用户量的产品。在红利结束前卖掉。我们假设卖在离最高点回撤 50% 的地方，也会有 2-4 倍的收益，整个持股周期在 2-3 年。</p><p>但说起来容易，执行起来还是挺困难的。比如下面是陌陌的走势，2014 年上市，2017 年股价才开始上涨，2018, 2019年均在年中大幅上涨，之后又回到 2017 年的价格。再之后就一路下跌，现在的价格是发行价的一半。</p><img src="/images/stock-trade-book-3.jpg" class=""><p>此书对我最大的价值，就是对价值投资与时代红利周期有了挂钩，之后在思考和判断公司的时候，除了思考价值层面的事情外，更应该思考时代的变化与周期。</p><p>以上。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;img src=&quot;/images/stock-trade-book-0.jpg&quot; width=&quot;300px&quot; /&gt;
-
-&lt;p&gt;上个月见了一个老朋友：代码家。和代码家聊天的时候，他提到了趋势交易，他还推荐了&lt;a href=&quot;https://book.douban.com/subje</summary>
       
     
     
