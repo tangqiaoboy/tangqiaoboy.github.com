@@ -11,8 +11,6 @@ categories:
   - 开发工具
 ---
 
-# 让 Claude Code 在你睡觉时持续运行：完整实战指南
-
 **Claude Code 可以通过 `-p` 标志、权限绕过、循环模式和终端持久化的组合，实现数小时甚至整夜的无人值守运行。** 开发者社区已经形成了一套可靠的操作手册：容器化运行环境、使用 "Ralph Wiggum" 循环模式、安装四个关键 Hook 防止卡死、保持 CLAUDE.md 精简。有开发者记录了 **27 小时连续自主会话完成 84 个任务**；另一位在睡觉时让 Claude 构建了一个 15,000 行的游戏。但社区也反馈，大约 25% 的过夜产出会被丢弃，而且如果没有适当的防护措施，Claude 曾在至少一位开发者的机器上执行过 `rm -rf /`。以下是你今晚就能用上的完整设置方案。
 
 ---
@@ -331,3 +329,64 @@ done
 8. **去睡觉**
 
 早上起来：`tmux attach -t overnight`，然后查看 git log（`git log --oneline`）看 Claude 完成了什么。预计保留大约 75% 的产出，丢弃 25%。这很正常——正如一位开发者说的，*"不是完美，甚至不是最终版，但是在前进。"*
+
+## 十、总结
+
+先用 plan 模式，把 `PRD.md` 和 `TODO.md` 生成好。
+
+ - 安装 cc-safe-setup
+``` bash
+npx cc-safe-setup
+```
+ - 安装 format-claude-stream
+``` bash
+npm install -g @khanacademy/format-claude-stream
+```
+
+ - 编写项目的 `CLAUDE.md`
+``` md
+ - 当上下文变大时，将当前状态写入 tasks/mission.md。包括：已完成的、下一步的、被阻塞的、未解决的问题。
+ - 错误处理：最多重试 3 次。如果没有进展，记录到 pending_for_human.md 然后转到下一个任务。
+ - 压缩前，务必保存完整的已修改文件列表。
+```
+
+ - 编写 `PROMPT.md`
+``` md
+## 目标
+ - 查看 TODO.md，选择一个未完成的任务执行
+ - 执行的代码必须包含测试用例并测试通过
+ - 每做完一个任务，及时提交 Git，并在 TODO.md 标记为已完成
+ - 当所有任务都完成后，在 TODO.md 中顶部注明：“全部任务已完成”
+
+## 要求
+ - 技术方案不确定 → 选择传统方案
+ - 两种可行实现 → 选择更简单的那个
+ - 需求模糊 → 应用最合理的理解，记录假设
+ - 永远不要提问，做出最佳判断然后继续
+
+## 环境（如有）
+# - CLOUDFLARE API 在 key.md 中
+```
+
+ - 编写 key.md
+``` bash
+CLOUDFLARE_API_TOKEN=xxx
+CLOUDFLARE_ACCOUNT_ID=xxx
+```
+
+ - 编写 nostop.sh
+``` bash
+mkdir -p logs
+while true; do
+  claude -p "$(cat PROMPT.md)" \
+  --dangerously-skip-permissions --model opus \
+  --output-format stream-json --verbose \
+  tee "logs/$(date +%Y%m%d_%H%M%S).jsonl" \
+  | format-claude-stream
+  sleep 60
+done
+```
+
+
+
+
