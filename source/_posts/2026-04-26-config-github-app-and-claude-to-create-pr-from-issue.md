@@ -122,6 +122,11 @@ jobs:
       )
     runs-on: ubuntu-latest
     steps:
+      # claude-code-action 需要 .git 目录才能创建分支去提 PR
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}

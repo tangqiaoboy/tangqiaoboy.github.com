@@ -36,6 +36,12 @@ jobs:
       )
     runs-on: ubuntu-latest
     steps:
+      # claude-code-action 需要 .git 目录才能创建/切换分支去提 PR，
+      # 必须显式 checkout
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
       - uses: anthropics/claude-code-action@v1
         with:
           # 使用 OAuth Token（你已配置 CLAUDE_CODE_OAUTH_TOKEN）
