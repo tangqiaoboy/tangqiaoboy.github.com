@@ -4,10 +4,10 @@ on:
     types: [created]
   pull_request_review_comment:
     types: [created]
+  pull_request_review:
+    types: [submitted]
   issues:
     types: [opened, assigned]
-  pull_request:
-    types: [opened]
 
 # 仓库级别权限：让 Claude 能读写代码、提 PR、操作 Issue
 permissions:
@@ -17,13 +17,23 @@ permissions:
   # OAuth Token 流程需要用 OIDC 去 Anthropic 后端换 access token；
   # 用 ANTHROPIC_API_KEY 时这一行可省略。
   id-token: write
+  # 让 Claude 能读 CI run 日志（"我 PR 的 CI 挂了帮我看看" 这种场景）
+  actions: read
 
 jobs:
   claude-response:
-    # 纵深防御：actor 必须是仓库主人本人。
-    # 这样即便 issue/PR body 不被 include_comments_by_actor 覆盖，
-    # 外部用户也无法触发本 workflow。
-    if: github.actor == 'tangqiaoboy'
+    # 双重门槛：
+    #   1. actor 必须是仓库主人本人（防外部触发）
+    #   2. 触发载体（评论/issue body/issue title/review body）必须包含 @claude
+    #      —— 没有 @claude 直接 skip，连 runner 都不起，省 Action 额度
+    if: |
+      github.actor == 'tangqiaoboy' && (
+        (github.event_name == 'issue_comment'               && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review'         && contains(github.event.review.body,  '@claude')) ||
+        (github.event_name == 'issues'                      && (contains(github.event.issue.body,  '@claude')
+                                                             || contains(github.event.issue.title, '@claude')))
+      )
     runs-on: ubuntu-latest
     steps:
       - uses: anthropics/claude-code-action@v1
@@ -31,13 +41,16 @@ jobs:
           # 使用 OAuth Token（你已配置 CLAUDE_CODE_OAUTH_TOKEN）
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
-          # 白名单：仅 tangqiaoboy 本人 @claude 才会被响应
+          # 第三道门：评论场景再加一遍 actor 白名单
           include_comments_by_actor: "tangqiaoboy"
 
-          # 工具权限：
-          #   Bash       —— 执行 git/gh 等命令（提 PR 必需）
-          #   Edit/Write —— 修改、新建文件
-          #   Read/Glob/Grep —— 读取与检索仓库内容
-          #   WebFetch/WebSearch —— 联网抓取网页与搜索
-          #   TodoWrite —— 任务拆解与追踪
-          claude_args: '--max-turns 30 --allowedTools "Bash,Edit,Write,Read,Glob,Grep,WebFetch,WebSearch,TodoWrite"'
+          # 工具权限：纵深防御——Bash 不再裸开，按命令前缀逐个白名单。
+          #   WebFetch/WebSearch  —— 联网
+          #   Edit/Write/Read/Glob/Grep —— 文件读写检索
+          #   TodoWrite           —— 任务拆解
+          #   Bash(git:*)/Bash(gh:*) —— git 操作 + 提 PR / 看 issue / 看 CI run
+          #   Bash(npm:*)/pnpm/yarn/npx/node —— Node 工具链
+          #   Bash(curl:*)/jq/rg/fd —— 常用网络与文本工具
+          claude_args: |
+            --max-turns 30
+            --allowedTools "WebFetch,WebSearch,Edit,Write,Read,Glob,Grep,TodoWrite,Bash(git:*),Bash(gh:*),Bash(npm:*),Bash(pnpm:*),Bash(yarn:*),Bash(npx:*),Bash(node:*),Bash(curl:*),Bash(jq:*),Bash(rg:*),Bash(fd:*)"

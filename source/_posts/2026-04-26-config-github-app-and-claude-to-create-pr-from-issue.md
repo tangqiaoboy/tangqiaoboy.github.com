@@ -89,11 +89,12 @@ on:
     types: [created]
   pull_request_review_comment:
     types: [created]
+  pull_request_review:
+    types: [submitted]
   issues:
     types: [opened, assigned]
 
-# 仓库级权限：让 Claude 能改代码、提 PR、操作 Issue
-# 按需最小化——只读场景可把三个 write 都改成 read
+# 仓库级权限：按需最小化——只读场景可把三个 write 都改成 read
 permissions:
   contents: write
   pull-requests: write
@@ -101,28 +102,36 @@ permissions:
   # 用 CLAUDE_CODE_OAUTH_TOKEN 时必加，OAuth 流程要用 OIDC token 去换；
   # 用 ANTHROPIC_API_KEY 时可省。
   id-token: write
+  # 让 Claude 能读 CI run 日志（"我 PR 的 CI 挂了帮我看看"）
+  actions: read
 
 jobs:
   claude-response:
-    # 用白名单（actor 必须等于谁）而不是黑名单（actor 不等于哪些 bot）。
-    # 原因：include_comments_by_actor 只过滤"评论"，issue body / PR description
-    # 这种非评论入口可能不被覆盖。在 public repo 下白名单更稳。
-    if: github.actor == '你的用户名'
+    # 双重门槛：
+    #   1. actor 必须是仓库主人本人——防外部用户触发
+    #   2. 触发载体里必须出现 @claude——没有则直接 skip，连 runner 都不起，省 Action 额度
+    # 注意：include_comments_by_actor 只过滤"评论"，不一定覆盖 issue body /
+    # PR description / review body，所以第 1 条的 actor 校验是必须的纵深防御。
+    if: |
+      github.actor == '你的用户名' && (
+        (github.event_name == 'issue_comment'               && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review'         && contains(github.event.review.body,  '@claude')) ||
+        (github.event_name == 'issues'                      && (contains(github.event.issue.body,  '@claude')
+                                                             || contains(github.event.issue.title, '@claude')))
+      )
     runs-on: ubuntu-latest
     steps:
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          # 双保险：评论场景也只接受白名单
+          # 第三道门：评论场景也只接受白名单
           include_comments_by_actor: "你的用户名"
-          # 工具权限：
-          #   Bash       —— 跑 git/gh，提 PR 必需
-          #   Edit/Write —— 改、写文件
-          #   Read/Glob/Grep —— 读和检索仓库
-          #   WebFetch/WebSearch —— 联网查资料
-          #   TodoWrite —— 任务拆解
-          # 如果只想"回答问题不改代码"，删掉 Edit/Write/Bash 即可。
-          claude_args: '--max-turns 30 --allowedTools "Bash,Edit,Write,Read,Glob,Grep,WebFetch,WebSearch,TodoWrite"'
+          # 工具权限：纵深防御——Bash 不再裸开，按命令前缀逐条白名单。
+          # 只读场景可把所有 Bash(...) 和 Edit/Write 删掉。
+          claude_args: |
+            --max-turns 30
+            --allowedTools "WebFetch,WebSearch,Edit,Write,Read,Glob,Grep,TodoWrite,Bash(git:*),Bash(gh:*),Bash(npm:*),Bash(pnpm:*),Bash(yarn:*),Bash(npx:*),Bash(node:*),Bash(curl:*),Bash(jq:*),Bash(rg:*),Bash(fd:*)"
 ```
 
 **如果用自定义 GitHub App：**
@@ -134,6 +143,8 @@ on:
     types: [created]
   pull_request_review_comment:
     types: [created]
+  pull_request_review:
+    types: [submitted]
   issues:
     types: [opened, assigned]
 
@@ -142,11 +153,18 @@ permissions:
   pull-requests: write
   issues: write
   id-token: write  # 用 OAuth Token 时必加
+  actions: read    # 让 Claude 能看 CI run 日志
 
 jobs:
   claude-response:
-    # 同样用 actor 白名单，避免 issue body / PR description 被外部触发
-    if: github.actor == '你的用户名'
+    if: |
+      github.actor == '你的用户名' && (
+        (github.event_name == 'issue_comment'               && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review'         && contains(github.event.review.body,  '@claude')) ||
+        (github.event_name == 'issues'                      && (contains(github.event.issue.body,  '@claude')
+                                                             || contains(github.event.issue.title, '@claude')))
+      )
     runs-on: ubuntu-latest
     steps:
       - name: Generate GitHub App token
@@ -161,7 +179,9 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ steps.app-token.outputs.token }}
           include_comments_by_actor: "你的用户名"
-          claude_args: '--max-turns 30 --allowedTools "Bash,Edit,Write,Read,Glob,Grep,WebFetch,WebSearch,TodoWrite"'
+          claude_args: |
+            --max-turns 30
+            --allowedTools "WebFetch,WebSearch,Edit,Write,Read,Glob,Grep,TodoWrite,Bash(git:*),Bash(gh:*),Bash(npm:*),Bash(pnpm:*),Bash(yarn:*),Bash(npx:*),Bash(node:*),Bash(curl:*),Bash(jq:*),Bash(rg:*),Bash(fd:*)"
 ```
 
 ---
@@ -169,8 +189,10 @@ jobs:
 ## Public Repo 安全清单
 
 - [x] `if` 用 **actor 白名单**（`github.actor == '你的用户名'`），不要只用"排除 bot"的黑名单
-- [x] `include_comments_by_actor` 同步设置用户白名单（注意：它只过滤评论，不一定覆盖 issue body / PR description，所以上一条的 `if` actor 校验是必须的纵深防御）
+- [x] `if` 再叠一层 `contains(<事件正文>, '@claude')` 判断——没有触发词直接 skip，省 Action 额度也避免被误触
+- [x] `include_comments_by_actor` 同步设置用户白名单（注意：它只过滤评论，不一定覆盖 issue body / PR description，所以上面两条 `if` 校验是必须的纵深防御）
 - [x] 顶层 `permissions:` 块按需最小化授权——只读场景 contents/pull-requests/issues 都给 `read` 即可；要提 PR 才给 `write`
+- [x] `claude_args` 里 `Bash` **不要裸开**——用 `Bash(git:*),Bash(gh:*),...` 这种命令前缀白名单收紧
 - [x] `allowed_bots` 保持默认空值（不要设 `*`）
 - [x] `show_full_output` 保持默认 false
 - [x] API Key / OAuth Token 只通过 `${{ secrets.XXX }}` 引用，不硬编码
