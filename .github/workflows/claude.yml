@@ -17,10 +17,10 @@ permissions:
 
 jobs:
   claude-response:
-    if: |
-      github.actor != 'claude[bot]' &&
-      github.actor != 'dependabot[bot]' &&
-      github.actor != 'github-actions[bot]'
+    # 纵深防御：actor 必须是仓库主人本人。
+    # 这样即便 issue/PR body 不被 include_comments_by_actor 覆盖，
+    # 外部用户也无法触发本 workflow。
+    if: github.actor == 'tangqiaoboy'
     runs-on: ubuntu-latest
     steps:
       - uses: anthropics/claude-code-action@v1
