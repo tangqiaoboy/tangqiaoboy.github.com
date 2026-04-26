@@ -14,6 +14,9 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  # OAuth Token 流程需要用 OIDC 去 Anthropic 后端换 access token；
+  # 用 ANTHROPIC_API_KEY 时这一行可省略。
+  id-token: write
 
 jobs:
   claude-response:

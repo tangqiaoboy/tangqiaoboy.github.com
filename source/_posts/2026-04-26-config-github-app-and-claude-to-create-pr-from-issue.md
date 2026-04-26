@@ -98,6 +98,9 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  # 用 CLAUDE_CODE_OAUTH_TOKEN 时必加，OAuth 流程要用 OIDC token 去换；
+  # 用 ANTHROPIC_API_KEY 时可省。
+  id-token: write
 
 jobs:
   claude-response:
@@ -138,6 +141,7 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  id-token: write  # 用 OAuth Token 时必加
 
 jobs:
   claude-response:
