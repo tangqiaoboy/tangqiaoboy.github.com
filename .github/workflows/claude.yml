@@ -1,0 +1,40 @@
+name: Claude Assistant
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  issues:
+    types: [opened, assigned]
+  pull_request:
+    types: [opened]
+
+# 仓库级别权限：让 Claude 能读写代码、提 PR、操作 Issue
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  claude-response:
+    if: |
+      github.actor != 'claude[bot]' &&
+      github.actor != 'dependabot[bot]' &&
+      github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: anthropics/claude-code-action@v1
+        with:
+          # 使用 OAuth Token（你已配置 CLAUDE_CODE_OAUTH_TOKEN）
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+          # 白名单：仅 tangqiaoboy 本人 @claude 才会被响应
+          include_comments_by_actor: "tangqiaoboy"
+
+          # 工具权限：
+          #   Bash       —— 执行 git/gh 等命令（提 PR 必需）
+          #   Edit/Write —— 修改、新建文件
+          #   Read/Glob/Grep —— 读取与检索仓库内容
+          #   WebFetch/WebSearch —— 联网抓取网页与搜索
+          #   TodoWrite —— 任务拆解与追踪
+          claude_args: '--max-turns 30 --allowedTools "Bash,Edit,Write,Read,Glob,Grep,WebFetch,WebSearch,TodoWrite"'
