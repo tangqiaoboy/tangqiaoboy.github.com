@@ -125,11 +125,11 @@ content = open('/dev/stdin').read() if False else r"""<?xml version="1.0" encodi
 do
   if [ -d "$f" ]; then TARGET="$f"; else TARGET=$(dirname "$f"); fi
   if command -v zed &amp;>/dev/null; then
-    zed "$TARGET"
+    zed -n "$TARGET"
   elif [ -x "$HOME/.local/bin/zed" ]; then
-    "$HOME/.local/bin/zed" "$TARGET"
+    "$HOME/.local/bin/zed" -n "$TARGET"
   else
-    open -a "Zed" "$TARGET"
+    open -na "Zed" --args "$TARGET"
   fi
 done</string>
           <key>CheckedForUserDefaultShell</key><true/>
@@ -201,5 +201,7 @@ echo "✅ OpenInZed.workflow 已生成到桌面，双击即可安装"
 **为什么不用 Finder 扩展（FinderSync）？** FinderSync 需要开发一个完整的 Xcode 项目并签名，成本远高于 Automator workflow，对于这个简单需求来说完全没必要。
 
 **为什么脚本里要三重兜底？** Zed 的 CLI 路径在不同安装方式下不一样。通过 `Zed → Install CLI` 安装的会在 `~/.local/bin/zed`，手动加到 PATH 的会被 `command -v zed` 找到，而 `open -a "Zed"` 则是最后的保险，只要 Zed.app 在 `/Applications` 里就一定能用。
+
+**为什么脚本里都加了 `-n`？** Zed CLI 的默认行为是把新打开的目录加到当前已聚焦窗口的侧边栏，而不是新开一个窗口。从 Finder 触发时这种"复用"会让人误以为上一个工作区被覆盖、甚至"实例被隐藏"了。加上 `-n`（`--new`）就能强制开一个独立窗口，原工作区保持原样。
 
 **如何卸载？** 删除 `~/Library/Services/OpenInZed.workflow` 这个文件夹即可，不会留下任何残余。
