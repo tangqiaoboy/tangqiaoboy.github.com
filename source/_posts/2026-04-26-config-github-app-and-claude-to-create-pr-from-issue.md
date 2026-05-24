@@ -64,7 +64,7 @@ tags: AI
 
 ### 第一步：添加 Repository Secrets
 
-进入 repo → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**
+需要往 repo 添加这些 Secret：
 
 | Secret 名称 | 值 |
 |-------------|-----|
@@ -72,6 +72,26 @@ tags: AI
 | `CLAUDE_CODE_OAUTH_TOKEN`（可选，替代上一条） | 用 `claude setup-token` 生成的 OAuth Token |
 | `APP_ID`（自定义 App 才需要） | App 设置页里的 App ID |
 | `APP_PRIVATE_KEY`（自定义 App 才需要） | `.pem` 文件的完整内容 |
+
+**方式 A：命令行（推荐，比点 UI 快）**
+
+装好 [gh CLI](https://cli.github.com) 并 `gh auth login` 后：
+
+```bash
+# 交互式粘贴：回车后粘贴 token，再按 Ctrl+D 结束
+gh secret set CLAUDE_CODE_OAUTH_TOKEN -R <owner>/<repo>
+
+# 或者从文件读（.pem 这种多行内容必须用这种方式）
+gh secret set APP_PRIVATE_KEY -R <owner>/<repo> < private-key.pem
+
+# 列出 / 删除
+gh secret list   -R <owner>/<repo>
+gh secret delete CLAUDE_CODE_OAUTH_TOKEN -R <owner>/<repo>
+```
+
+**方式 B：网页 UI**
+
+进入 repo → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**，逐条粘贴。
 
 > ⚠️ 绝对不要把 API Key 写在代码里，只通过 Secrets 引用。
 > `ANTHROPIC_API_KEY` 和 `CLAUDE_CODE_OAUTH_TOKEN` 二选一即可，下面示例以 API Key 为主，OAuth 用法是把 `anthropic_api_key:` 换成 `claude_code_oauth_token:`。
