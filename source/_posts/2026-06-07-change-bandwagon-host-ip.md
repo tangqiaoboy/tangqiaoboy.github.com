@@ -30,6 +30,11 @@ tags:
  - 申请发出后，去 <https://bandwagonhost.com/billing> 支付。
  - 付款后 24 小时内完成更换(实测下来 10 分钟左右就生效了)。
 
+## 公众号 IP 白名单配置
+
+操作路径为：「[微信开发者平台](https://developers.weixin.qq.com/) - 扫码登录 - 我的业务 - 公众号」，点击后即可进入到公众号的管理页面。
+
+{% img /images/bwg-2.jpg %}
 
 ## 其它
 
