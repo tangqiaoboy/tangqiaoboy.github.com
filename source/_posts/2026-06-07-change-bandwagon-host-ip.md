@@ -41,4 +41,7 @@ tags:
 <!--
  - 用 VLESS + REALITY 保 IP 平安
  - 如果你用的 surge，因为 surge 不支持 vless，可以用 sing-box 作转发
+ - Android 上可以用 v2rayNG 来连 vless 协议
+   - 相关的客户端https://www.wahoovpn.com/en/blog/top-5-vless-clients
+ - 如果 VPS 上帐号多，可以考虑安装 3x-ui: https://github.com/MHSanaei/3x-ui
 -->
