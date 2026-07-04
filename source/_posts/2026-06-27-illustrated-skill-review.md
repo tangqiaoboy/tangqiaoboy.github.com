@@ -2,6 +2,7 @@
 title: 理解 Skill —— 读《图解 Skill》
 date: 2026-06-27 03:04:00
 categories: summary
+tags: books
 ---
 
 最近读完了宝玉的《图解 Skill —— AI 提效实战指南》，这是一本难得的 Skill 入门好书。趁着记忆还热乎，把心得整理成这篇读书笔记，也分享给同样在折腾 AI Agent 的朋友。
