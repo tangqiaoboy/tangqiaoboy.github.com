@@ -2,6 +2,7 @@
 title: 读《一地鸡毛》
 date: 2026-01-22 08:08:00
 categories: reading
+tags: books
 ---
 
 ![](/images/yidijimao.jpg)
