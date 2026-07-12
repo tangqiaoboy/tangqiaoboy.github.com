@@ -2,7 +2,6 @@
 title: 用 CLIProxyAPI 把 Codex 变成一个 OpenAI 兼容的 API 服务
 date: 2026-07-12 22:05:00
 categories: tech
-tags: ['codex', 'openai', 'cliproxyapi', 'cli']
 ---
 
 > 平台：macOS（Apple Silicon / Homebrew）· 版本：CLIProxyAPI 7.2.65
