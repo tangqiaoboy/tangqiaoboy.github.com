@@ -206,7 +206,67 @@ IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 
 ---
 
-## 七、接入客户端
+## 七、WebUI 管理面板（可选）
+
+除了改 YAML + 敲命令，CLIProxyAPI 还**内置了一个 WebUI 管理面板**（CLI Proxy API Management Center，简称 CPAMC）。它由服务从 GitHub 自动下载并托管，不用单独安装。
+
+- **访问地址**：`http://127.0.0.1:8317/management.html`
+
+不过它**默认是关闭的**：配置里的 `remote-management.secret-key` 为空时，整个管理 API（`/v0/management/*`）会返回 **404**——面板页面能打开，但里面所有操作都用不了。这也是安全默认值。
+
+### 启用三步
+
+**1. 设置管理密钥**（配置文件 `remote-management` 段）：
+
+```yaml
+remote-management:
+  allow-remote: false        # 只允许本机访问，保持 false 最安全
+  secret-key: "生成一个强随机串" # 启动时会自动哈希
+```
+
+生成一个密钥：
+
+```bash
+echo "mk-$(openssl rand -hex 24)"
+```
+
+**2. 重启服务：**
+
+```bash
+brew services restart cliproxyapi
+```
+
+**3. 打开面板并用这个 key 登录：**
+
+```
+http://127.0.0.1:8317/management.html
+```
+
+启用后可以验证一下：管理 API 会从 `404`（禁用）变成 `401`（启用并强制鉴权），带上 key 则返回 `200`：
+
+```bash
+SK="你的管理密钥"
+# 两种鉴权头都支持
+curl --noproxy '*' -H "Authorization: Bearer $SK" \
+  http://127.0.0.1:8317/v0/management/config
+curl --noproxy '*' -H "X-Management-Key: $SK" \
+  http://127.0.0.1:8317/v0/management/config
+```
+
+### 面板能做什么
+
+管理 OAuth 账号（登录 / 登出 / 多账号池）、增删 API key、编辑配置、查看模型与请求状态等——基本就是把前面手动改 YAML、跑命令的事图形化了。
+
+> ⚠️ **两个坑要注意**
+>
+> 1. **明文密钥保存好**：服务启动时会把配置里的 `secret-key` 自动改写成 bcrypt 哈希（`$2a$10$...`），之后配置文件里就看不到明文了。**明文只有你自己留存的那份**，弄丢就得重设一个再重启。
+> 2. **访问前确认 Surge 规则生效**：浏览器打开 `127.0.0.1:8317` 同样会被 Surge 拦，先确保上一节那条 `IP-CIDR,127.0.0.0/8,DIRECT,no-resolve` 已生效。
+>
+> 安全上 `allow-remote` 保持 `false`（仅本机）。真要跨机访问，务必配 TLS + 强 key，别把账号管理接口裸暴露到网络上。
+
+---
+
+## 八、接入客户端
 
 由于是 OpenAI 兼容接口，绝大多数支持自定义 `base_url` 的工具都能直接接：
 
@@ -234,7 +294,7 @@ print(resp.choices[0].message.content)
 
 ---
 
-## 八、常用管理命令
+## 九、常用管理命令
 
 ```bash
 brew services restart cliproxyapi   # 改配置后重启生效
@@ -256,3 +316,5 @@ cliproxyapi --help                  # 查看所有登录方式与参数
 5. `curl` 验证
 
 唯一容易卡住的地方，是本机开着 Surge 这类代理时，本地请求会被拦——一条 `IP-CIDR,127.0.0.0/8,DIRECT,no-resolve` 规则即可解决。之后，你就有了一个本地的、OpenAI 兼容的 Codex 网关，可以接到任何认 `base_url` 的工具里。
+
+如果不想一直跟 YAML 打交道，别忘了还有内置的 **WebUI 管理面板**（`http://127.0.0.1:8317/management.html`）——设个 `secret-key` 重启就能用，账号、密钥、配置都能图形化管理。
