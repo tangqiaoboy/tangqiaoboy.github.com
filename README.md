@@ -1,5 +1,8 @@
-## 发布状态
-![](https://travis-ci.com/tangqiaoboy/tangqiaoboy.github.com.svg?branch=source)
+## 概述
+
+这是一个基于 hexo 的个人博客。
+
+`./source/CLAUDE.md` 上有利于 AI Agent 管理的相关信息。
 
 ## 日常操作
 
@@ -44,7 +47,5 @@ npm install
 
 皮肤地址在：https://github.com/tangqiaoboy/hexo-theme-archer.git
 
-通过 gitsubmodule 来管理。
+通过 git submodule 来管理。
 
-
-<!-- push test from VPS getpphome.com at 2026-05-24T13:25:11Z -->
