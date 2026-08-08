@@ -26,5 +26,8 @@
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.1.0",
     "hexo-wordcount": "^6.0.1"
+  },
+  "overrides": {
+    "brace-expansion": "1.1.18"
   }
 }
