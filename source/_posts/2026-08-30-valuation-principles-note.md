@@ -5,6 +5,8 @@ tags: books
 cover: https://blog.devtang.com/images/valuation-principles-cover.jpg
 ---
 
+{% img /images/valuation-principles-cover.jpg %}
+
 对我来说，《估值原理》不是一本很容易读懂的书。
 
 这本书的作者是周洛华老师，上海大学经济学院副院长。它和一般讲投资、财务、估值模型的书很不一样。很多估值书会教你怎么算现金流、怎么算折现率、怎么算市盈率和市净率，但《估值原理》更像是从社会学、制度和人性角度，重新解释“价格为什么会形成”。
